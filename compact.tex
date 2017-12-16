@@ -135,4 +135,27 @@
 	Remove oxide
 	\\ \hline 
 \end{tabular}
+
+\section{Implant}
+\begin{tabular}{c c}
+	\hline 
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (4,1.6);
+		\node at (2,0.8) {Si (p-type)};
+		% well
+		\fill[Dandelion] (2,1.2) rectangle (3.5,1.6);
+		\node at (2.7,1.4) {N};
+		% oxide
+		\fill[gray] (0,1.6) rectangle (4,2.6);
+		\node at (2,2.1) {SiO2};
+	\end{tikzpicture} &
+	We grow an oxide layer of approximately 1000 angstrom thickness (see documentation)
+	\\ \hline 
+\end{tabular}
+
+\section{Select}
+\section{Active}
+\section{Metal}
+
 \end{document}
