@@ -51,6 +51,77 @@
 		\node at (2,3.1) {Resist};
 	\end{tikzpicture} &
 	We thin film deposit a layer of resist
+	\\ \hline
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (4,1.6);
+		\node at (2,0.8) {Si (p-type)};
+		% oxide
+		\fill[gray] (0,1.6) rectangle (4,2.6);
+		\node at (2,2.1) {SiO2};
+		% resist 1
+		\fill[orange] (0,2.6) rectangle (2,3.6);
+		% resist 2
+		\fill[orange] (3.5,2.6) rectangle (4,3.6);
+	\end{tikzpicture} &
+	We expose and develop the pattern from the GDS2 layer information
+	\\ \hline 
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (4,1.6);
+		\node at (2,0.8) {Si (p-type)};
+		% oxide 1
+		\fill[gray] (0,1.6) rectangle (2,2.6);
+		% oxide 2
+		\fill[gray] (3.5,1.6) rectangle (4,2.6);
+		% resist 1
+		\fill[orange] (0,2.6) rectangle (2,3.6);
+		% resist 2
+		\fill[orange] (3.5,2.6) rectangle (4,3.6);
+	\end{tikzpicture} &
+	We etch the 1000 angstrom oxide layer
+	\\ \hline 
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (4,1.6);
+		\node at (2,0.8) {Si (p-type)};
+		% oxide 1
+		\fill[gray] (0,1.6) rectangle (2,2.6);
+		% oxide 2
+		\fill[gray] (3.5,1.6) rectangle (4,2.6);
+		% resist 1
+		\fill[orange] (0,2.6) rectangle (2,3.6);
+		% resist 2
+		\fill[orange] (3.5,2.6) rectangle (4,3.6);
+		% well
+		\fill[Dandelion] (2,1.2) rectangle (3.5,1.6);
+		\node at (2.7,1.4) {N};
+	\end{tikzpicture} &
+	Ion implantation: Implant Phosphorus (P); n-type impurity to create N-well
+	\\ \hline 
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (4,1.6);
+		\node at (2,0.8) {Si (p-type)};
+		% oxide 1
+		\fill[gray] (0,1.6) rectangle (2,2.6);
+		% oxide 2
+		\fill[gray] (3.5,1.6) rectangle (4,2.6);
+		% well
+		\fill[Dandelion] (2,1.2) rectangle (3.5,1.6);
+		\node at (2.7,1.4) {N};
+	\end{tikzpicture} &
+	Remove resist
+	\\ \hline 
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (4,1.6);
+		\node at (2,0.8) {Si (p-type)};
+		% well
+		\fill[Dandelion] (2,1.2) rectangle (3.5,1.6);
+		\node at (2.7,1.4) {N};
+	\end{tikzpicture} &
+	Remove oxide
 	\\ \hline 
 \end{tabular}
 \end{document}
