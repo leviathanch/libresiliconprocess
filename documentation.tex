@@ -5,6 +5,7 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{tikz}
 \usetikzlibrary{arrows,automata,shapes}
 \tikzstyle{decision} = [diamond, draw, fill=blue!20, text width=4.5em, text badly centered, node distance=2.5cm, inner sep=0pt]
@@ -44,6 +45,7 @@ Below the general flow chart of the overall process flow can be seen. These proc
 		\path [line] (well) -- (implant);
 		\path [line] (implant) -- (select);
 		\path [line] (select) -- (active);
+		\path [line] (active) -- (metal);
 	\end{tikzpicture}
 \end{center}
 
@@ -51,6 +53,55 @@ The four starting overall process steps are part of an overall active part of th
 For this process p-substrate is the required basic substrate, but forks and modifications will be very well possible based on a Graphene substrate or alike, still under the LSPL.
 
 \section{Well}
+\subsection{Oxide layer}
+In order to selectively inject charge carrying atoms into the crystalline structure a protective oxide layer needs to be grown on top of a p-type substrate.
+\begin{center}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (4,1.6);
+		\node at (2,0.8) {Si (p-type)};
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (4,1.6);
+		\node at (2,0.8) {Si (p-type)};
+		% oxide
+		\fill[gray] (0,1.6) rectangle (4,2.6);
+		\node at (2,2.1) {SiO2};
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (4,1.6);
+		\node at (2,0.8) {Si (p-type)};
+		% oxide
+		\fill[gray] (0,1.6) rectangle (4,2.6);
+		\node at (2,2.1) {SiO2};
+		% resist
+		\fill[orange] (0,2.6) rectangle (4,3.6);
+		\node at (2,3.1) {Resist};
+	\end{tikzpicture}
+\end{center}
+\subsection{Pattering and etching}
+\begin{center}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (4,1.6);
+		\node at (2,0.8) {Si (p-type)};
+		% oxide
+		\fill[gray] (0,1.6) rectangle (4,2.6);
+		\node at (2,2.1) {SiO2};
+		% resist 1
+		\fill[orange] (0,2.6) rectangle (2,3.6);
+		% resist 2
+		\fill[orange] (3.5,2.6) rectangle (4,3.6);
+	\end{tikzpicture}
+\end{center}
+\subsection{Infusion}
+
+\section{Implant}
+\section{Select}
+\section{Active}
+\section{Metal}
 
 
 \end{document}
