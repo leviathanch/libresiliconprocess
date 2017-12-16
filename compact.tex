@@ -27,6 +27,9 @@
 	See the Libre Silicon Public License for more details. \\
 
 	This is the specification of the free silicon manufacturing standard for manufacturing the ls018\footnotemark standard logic cells and related free technology nodes from the LibreSilicon project.
+	
+	For further clarification consult the complete documentation of the process.
+
 	\footnotetext[1]{https://github.com/leviathanch/ls018}
 \end{abstract}
 
@@ -38,7 +41,7 @@
 		\fill[YellowOrange] (0,0) rectangle (4,1.6);
 		\node at (2,0.8) {Si (p-type)};
 	\end{tikzpicture} &
-	We start with a p-type silicon wafer
+	Start with a p-type silicon wafer
 	\\ \hline 
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
 		% substrate
@@ -48,7 +51,7 @@
 		\fill[gray] (0,1.6) rectangle (4,2.6);
 		\node at (2,2.1) {SiO2};
 	\end{tikzpicture} &
-	We grow an oxide layer of approximately 1000 angstrom thickness (see documentation)
+	Grow an oxide layer
 	\\ \hline 
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
 		% substrate
@@ -61,7 +64,7 @@
 		\fill[orange] (0,2.6) rectangle (4,3.6);
 		\node at (2,3.1) {Resist};
 	\end{tikzpicture} &
-	We thin film deposit a layer of resist
+	Thin film deposit a layer of resist
 	\\ \hline
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
 		% substrate
@@ -75,7 +78,7 @@
 		% resist 2
 		\fill[orange] (3.5,2.6) rectangle (4,3.6);
 	\end{tikzpicture} &
-	We expose and develop the pattern from the GDS2 layer information
+	Expose and develop the pattern from the GDS2 layer information
 	\\ \hline 
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
 		% substrate
@@ -90,7 +93,7 @@
 		% resist 2
 		\fill[orange] (3.5,2.6) rectangle (4,3.6);
 	\end{tikzpicture} &
-	We etch the 1000 angstrom oxide layer
+	Etch the oxide layer
 	\\ \hline 
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
 		% substrate
@@ -108,7 +111,7 @@
 		\fill[Dandelion] (2,1.2) rectangle (3.5,1.6);
 		\node at (2.7,1.4) {N};
 	\end{tikzpicture} &
-	Ion implantation: Implant Phosphorus (P); n-type impurity to create N-well (see documentation)
+	 Implant Phosphorus (P); Create N-well
 	\\ \hline 
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
 		% substrate
@@ -150,7 +153,7 @@
 		\fill[gray] (0,1.6) rectangle (4,2.6);
 		\node at (2,2.1) {SiO2};
 	\end{tikzpicture} &
-	We grow an oxide layer of approximately 1000 angstrom thickness (see documentation)
+	Grow an oxide layer (see documentation)
 	\\ \hline
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
 		% substrate
@@ -162,12 +165,103 @@
 		% oxide
 		\fill[gray] (0,1.6) rectangle (4,2.6);
 		\node at (2,2.1) {SiO2};
-		% resist
-		\fill[orange] (0,2.6) rectangle (4,3.6);
-		\node at (2,3.1) {Resist};
+		% nitride
+		\fill[RoyalPurple] (0,2.6) rectangle (4,3.6);
+		\node at (2,3.1) {Nitride};
 	\end{tikzpicture} &
-	We thin film deposit a layer of resist
+	Adding a nitride layer (see documentation)
 	\\ \hline 
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (4,1.6);
+		\node at (2,0.8) {Si (p-type)};
+		% well
+		\fill[Dandelion] (2,1.2) rectangle (3.5,1.6);
+		\node at (2.7,1.4) {N};
+		% oxide
+		\fill[gray] (0,1.6) rectangle (4,2.6);
+		\node at (2,2.1) {SiO2};
+		% nitride
+		\fill[RoyalPurple] (0,2.6) rectangle (4,3.6);
+		\node at (2,3.1) {Nitride};
+		% resist
+		\fill[orange] (0,3.6) rectangle (4,4.6);
+		\node at (2,4.1) {Resist};
+	\end{tikzpicture} &
+	Thin film deposit a layer of resist
+	\\ \hline 
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (4,1.6);
+		\node at (2,0.8) {Si (p-type)};
+		% well
+		\fill[Dandelion] (2,1.2) rectangle (3.5,1.6);
+		\node at (2.7,1.4) {N};
+		% oxide
+		\fill[gray] (0,1.6) rectangle (4,2.6);
+		\node at (2,2.1) {SiO2};
+		% nitride
+		\fill[RoyalPurple] (0,2.6) rectangle (4,3.6);
+		\node at (2,3.1) {Nitride};
+		% resist 1
+		\fill[orange] (0.5,3.6) rectangle (1.5,4.6);
+		% resist 2
+		\fill[orange] (2,3.6) rectangle (3.5,4.6);
+	\end{tikzpicture} &
+	Expose and develop pattern from GDS2 file
+	\\ \hline 
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (4,1.6);
+		\node at (2,0.8) {Si (p-type)};
+		% well
+		\fill[Dandelion] (2,1.2) rectangle (3.5,1.6);
+		\node at (2.7,1.4) {N};
+		% oxide 1
+		\fill[gray] (0.5,1.6) rectangle (1.5,2.6);
+		% oxide 2
+		\fill[gray] (2,1.6) rectangle (3.5,2.6);
+		% nitride 1
+		\fill[RoyalPurple] (0.5,2.6) rectangle (1.5,3.6);
+		% nitride 2
+		\fill[RoyalPurple] (2,2.6) rectangle (3.5,3.6);
+		% resist 1
+		\fill[orange] (0.5,3.6) rectangle (1.5,4.6);
+		% resist 2
+		\fill[orange] (2,3.6) rectangle (3.5,4.6);
+	\end{tikzpicture} &
+	Etch nitride and oxide
+	\\ \hline 
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (4,1.6);
+		\node at (2,0.8) {Si (p-type)};
+		% well
+		\fill[Dandelion] (2,1.2) rectangle (3.5,1.6);
+		\node at (2.7,1.4) {N};
+		% p+1
+		\fill[Blue] (0,1.2) rectangle (0.5,1.6);
+		\node[white] at (0.3,1.4) {p+};
+		% p+2
+		\fill[Blue] (1.5,1.2) rectangle (2,1.6);
+		\node[white] at (1.7,1.4) {p+};
+		% p+3
+		\fill[Blue] (3.5,1.2) rectangle (4,1.6);
+		\node[white] at (3.7,1.4) {p+};
+		% oxide 1
+		\fill[gray] (0.5,1.6) rectangle (1.5,2.6);
+		% oxide 2
+		\fill[gray] (2,1.6) rectangle (3.5,2.6);
+		% nitride 1
+		\fill[RoyalPurple] (0.5,2.6) rectangle (1.5,3.6);
+		% nitride 2
+		\fill[RoyalPurple] (2,2.6) rectangle (3.5,3.6);
+		% resist 1
+		\fill[orange] (0.5,3.6) rectangle (1.5,4.6);
+		% resist 2
+		\fill[orange] (2,3.6) rectangle (3.5,4.6);
+	\end{tikzpicture} &
+	Implant Boron for p+ area
 \end{tabular}
 
 \section{Select}
