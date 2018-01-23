@@ -58,7 +58,6 @@ Below the general flow chart of the overall process flow can be seen. These proc
 		\node at (3.5,-5) {CMOS process};
 	\end{tikzpicture}
 \end{center}
-
 The four starting overall process steps are part of an overall active part of the technology, while the final metal (respectively contact) layers will be used for making a contact between the logic gates and macro cells and making them available to the exterior world.
 For this process p-substrate is the required basic substrate, but forks and modifications will be very well possible based on a Graphene substrate or alike, still under the LSPL.
 
@@ -80,6 +79,7 @@ In order to selectively inject charge carrying atoms into the crystalline struct
 		\node at (2,2.1) {SiO2};
 	\end{tikzpicture}
 \end{center}
+
 \subsection{Pattering and etching}
 \begin{center}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
@@ -119,6 +119,9 @@ In order to selectively inject charge carrying atoms into the crystalline struct
 		\fill[orange] (3.5,2.6) rectangle (4,3.6);
 	\end{tikzpicture}
 \end{center}
+The resist is being deposited using spin coating and then baked depending on the baking time for the specific resist.
+The layout for being exposed onto the resist is being extracted from the "nwell" layer within the GDS2 file.
+
 \subsection{Infusion}
 \begin{center}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
