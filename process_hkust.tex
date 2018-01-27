@@ -1,15 +1,15 @@
-\documentclass[10pt,a4paper,twoside]{article}
+\documentclass[a4paper,landscape]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{graphicx}
-%\usepackage{geometry}
-%\geometry{a4paper,
- %total={170mm,257mm},
- %left=20mm,
- %top=20mm,
- %right=20mm,
-% bottom=20mm,
- %}
+\usepackage{geometry}
+	\geometry{a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+	right=20mm,
+	bottom=20mm,
+}
 \usepackage[dvipsnames]{xcolor}
 \definecolor{LightGray}{gray}{0.9}
 \definecolor{NormalGray}{gray}{0.8}
@@ -52,6 +52,80 @@ Process Flow of Lanceville Technologies LibreSilicon 180nm
 	\item Substrate: P-Substrate silicon wafer <100>
 	\item Date: \today
 \end{itemize}
+
+\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.4, every node/.style={transform shape}]
+	% substrate
+	\fill[YellowOrange] (0,0) rectangle (15,2);
+	\node at (2,0.5) {Si (p-type)};
+	% oxide
+	\fill[gray] (0,1.6) rectangle (15,2.6);
+	\node at (2,2.1) {SiO2};
+\end{tikzpicture} \tiny\begin{tabular}{|c|}
+\hline
+\textbf{Wafer Cleanliness} \\
+\hline
+Clean \\
+\hline
+Clean \\
+\hline
+Clean \\
+\hline
+Clean \\
+\hline
+\end{tabular} \begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\textbf{Step Number} &
+\textbf{Equipment} &
+\textbf{Location} &
+\textbf{Cleanliness} &
+\textbf{Process} &
+\textbf{Requirements} \\
+\hline
+
+0.1 &
+A3: Sulfuric Cleaning &
+P201000 &
+Clean &
+Initial Clean &
+H2SO4 + H2O2, 10mins, 120C \\
+
+\hline
+
+0.2 &
+A2: HF:H2O (1:50) &
+P201000 &
+Clean &
+HF dip &
+1 min \\
+
+\hline
+
+0.3 &
+Spin Dryer-A &
+P201000 &
+Clean &
+Dry the wafer automatically &
+{}
+\\
+
+\hline
+
+0.4 &
+Diff. Furnace-D2 Dry/Wet Oxidation &
+P201000 &
+Clean &
+Sacrificial Oxide Growth &
+200A \\
+
+\hline
+
+\end{tabular}
+
+
+
+
+
+
 
 
 
