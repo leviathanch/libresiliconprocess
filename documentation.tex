@@ -68,19 +68,19 @@ The geometry in silicon is being shown below
 		\fill[YellowOrange] (0,0) rectangle (7.5,2);
 		\node at (2,0.5) {Si (p-type)};
 		% body
-		\fill[Melon] (0.5,1) rectangle (2,2);
+		\fill[RedOrange] (0.5,1) rectangle (2,2);
 		\node at (1,1.5) {p+};
 		% source
-		\fill[Blue] (2.5,1) rectangle (4,2);
+		\fill[ProcessBlue] (2.5,1) rectangle (4,2);
 		\node at (3,1.5) {n+};
 		% drain
-		\fill[Blue] (5.5,1) rectangle (7,2);
+		\fill[ProcessBlue] (5.5,1) rectangle (7,2);
 		\node at (6,1.5) {n+};
 		%% gate:
 		% gate oxide
 		\fill[LightGray] (3.8,2) rectangle (5.7,2.1);
 		% gate poly
-		\fill[Red] (3.8,2.1) rectangle (5.7,2.2);
+		\fill[BrickRed] (3.8,2.1) rectangle (5.7,2.2);
 		% metals ground
 		\fill[DarkGray] (1,2) rectangle (1.5,3);
 		\fill[DarkGray] (3,2) rectangle (3.5,3);
@@ -137,19 +137,19 @@ The geometry in silicon is being shown below
 		\node at (4.75,1) {N-Well};
 
 		% body
-		\fill[Blue] (0.5,1) rectangle (2,2);
+		\fill[ProcessBlue] (0.5,1) rectangle (2,2);
 		\node at (1,1.5) {n+};
 		% source
-		\fill[Melon] (2.5,1) rectangle (4,2);
+		\fill[RedOrange] (2.5,1) rectangle (4,2);
 		\node at (3,1.5) {p+};
 		% drain
-		\fill[Melon] (5.5,1) rectangle (7,2);
+		\fill[RedOrange] (5.5,1) rectangle (7,2);
 		\node at (6,1.5) {p+};
 		%% gate:
 		% gate oxide
 		\fill[LightGray] (3.8,2) rectangle (5.7,2.1);
 		% gate poly
-		\fill[Red] (3.8,2.1) rectangle (5.7,2.2);
+		\fill[BrickRed] (3.8,2.1) rectangle (5.7,2.2);
 		% metals ground
 		\fill[DarkGray] (1,2) rectangle (1.5,3);
 		\fill[DarkGray] (3,2) rectangle (3.5,3);
@@ -199,6 +199,96 @@ The example which will be used for showing the process steps will be a simple CM
 		\draw (pmos.D) to (nmos.D) to (7,2.75) to (7,1.75) [R] to (7,0);
 		\draw (7,0) to (gnd);
 	\end{circuitikz}
+\end{center}
+
+Below the cross section view of the inverter circuitry can be seen. For the run through of this process we will use this cross section diagram as reference.
+\begin{center}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (15,2);
+		\node at (2,0.5) {Si (p-type)};
+
+		% n-well
+		\fill[Goldenrod] (0.25,0.75) rectangle (7.25,2);
+		\node at (4.75,1) {N-Well};
+
+		% body
+		\fill[ProcessBlue] (0.5,1) rectangle (2,2);
+		\node at (1,1.5) {n+};
+		% source
+		\fill[RedOrange] (2.5,1) rectangle (4,2);
+		\node at (3,1.5) {p+};
+		% drain
+		\fill[RedOrange] (5.5,1) rectangle (7,2);
+		\node at (6,1.5) {p+};
+
+		%% gate:
+		% gate oxide
+		\fill[LightGray] (3.8,2) rectangle (5.7,2.1);
+		% gate poly
+		\fill[BrickRed] (3.8,2.1) rectangle (5.7,2.2);
+
+		% metals ground
+		\fill[DarkGray] (1,2) rectangle (1.5,3);
+		\fill[DarkGray] (3,2) rectangle (3.5,3);
+		\fill[DarkGray] (0,3) rectangle (3.5,3.2); % connection pad GND
+
+		\fill[DarkGray] (4.5,2.2) rectangle (5,3);
+		\fill[DarkGray] (4.3,3) rectangle (5.2,3.2); % connection pad VG
+
+		\fill[DarkGray] (6,2) rectangle (6.5,3);
+
+		% isolation oxides:
+		\fill[NormalGray] (0,2) rectangle (1,3);
+		\fill[NormalGray] (1.5,2) rectangle (3,3);
+		\fill[NormalGray] (3.5,2) rectangle (3.8,3);
+		\fill[NormalGray] (3.8,2.2) rectangle (4.5,3);
+		\fill[NormalGray] (5,2.2) rectangle (5.7,3);
+		\fill[NormalGray] (5.7,2) rectangle (6,3);
+		\fill[NormalGray] (6.5,2) rectangle (7.5,3);
+
+		%%% nmos:
+		% body
+		\fill[RedOrange] (13,1) rectangle (14.5,2);
+		\node at (14,1.5) {p+};
+		% source
+		\fill[ProcessBlue] (11,1) rectangle (12.5,2);
+		\node at (12,1.5) {n+};
+		% drain
+		\fill[ProcessBlue] (8,1) rectangle (9.5,2);
+		\node at (9,1.5) {n+};
+		%% gate:
+		% gate oxide
+		\fill[LightGray] (9.3,2) rectangle (11.2,2.1);
+		% gate poly
+		\fill[BrickRed] (11.2,2.1) rectangle (9.3,2.2);
+
+		% metals ground
+		\fill[DarkGray] (13.5,2) rectangle (14,3);
+		\fill[DarkGray] (11.5,2) rectangle (12,3);
+		\fill[DarkGray] (11.5,3) rectangle (15,3.2); % connection pad GND
+		
+		\fill[DarkGray] (10,2.2) rectangle (10.5,3);
+		\fill[DarkGray] (9.8,3) rectangle (10.7,3.2); % connection pad VG
+		
+		\fill[DarkGray] (8.5,2) rectangle (9,3);
+		\fill[DarkGray] (6,3) rectangle (9,3.2); % connection pad VDD
+
+		% isolation oxides:
+		\fill[NormalGray] (14,2) rectangle (15,3);
+		\fill[NormalGray] (12,2) rectangle (13.5,3);
+		\fill[NormalGray] (11.2,2) rectangle (11.5,3);
+		\fill[NormalGray] (10.5,2.2) rectangle (11.2,3);
+		\fill[NormalGray] (9.3,2.2) rectangle (10,3);
+		\fill[NormalGray] (9,2) rectangle (9.3,3);
+		\fill[NormalGray] (7.5,2) rectangle (8.5,3);
+
+		\node at (0.5,3.5) {VDD};
+		\node at (14.5,3.5) {Ground};
+		\node at (4.5,3.4) {Input};
+		\node at (10.5,3.4) {Input};
+		\node at (6.5,3.4) {Output};
+	\end{tikzpicture}
 \end{center}
 
 \newpage
