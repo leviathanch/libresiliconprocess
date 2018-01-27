@@ -42,6 +42,9 @@
 \newpage
 
 \section{Components}
+This basic initial process draft is CMOS only and for this reason only consists the two requires MOSFETs required to build CMOS technology.
+Resistors are not included within this initial process draft.
+
 \subsection{NMOS}
 The following circuit symbol will be used throughout the document for symbolizing a NMOS transistor
 \begin{center}
@@ -52,6 +55,9 @@ The following circuit symbol will be used throughout the document for symbolizin
 		\draw (gnd) to (nmos.S);
 		\draw (nmos.D) to (5,2.5) [R] to (vdd);
 		\draw (gnd) to +(-1,0) [vsourcesquare] to (nmos.G);
+		\node at (3.9,2.0) {Gate};
+		\node at (5.6,2.5) {Drain};
+		\node at (5.6,1.5) {Source};
 	\end{circuitikz}
 \end{center}
 
@@ -94,10 +100,83 @@ The geometry in silicon is being shown below
 		\fill[NormalGray] (5,2.2) rectangle (5.7,3);
 		\fill[NormalGray] (5.7,2) rectangle (6,3);
 		\fill[NormalGray] (6.5,2) rectangle (7.5,3);
+		
+		\node at (0.5,3.5) {Source};
+		\node at (4.5,3.4) {Gate};
+		\node at (6.5,3.4) {Drain};
 	\end{tikzpicture}
 \end{center}
 
+\newpage
+
 \subsection{PMOS}
+The following circuit symbol will be used throughout the document for symbolizing a PMOS transistor
+\begin{center}
+	\begin{circuitikz}
+		\node at (5,0) [ground] (gnd) {};
+		\node at (5,2) [pigfete,xscale=1,yscale=-1] (pmos) {} ;
+		\node at (4.5,5) [right] (vdd) {$V_{DD}$};
+		\draw (gnd) to (pmos.S);
+		\draw (pmos.D) to (5,2.5) [R] to (vdd);
+		\draw (gnd) to +(-1,0) [vsourcesquare] to (pmos.G);
+		\node at (3.9,2.0) {Gate};
+		\node at (5.6,2.5) {Drain};
+		\node at (5.6,1.5) {Source};
+	\end{circuitikz}
+\end{center}
+
+The geometry in silicon is being shown below
+\begin{center}
+	\begin{tikzpicture}
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (7.5,2);
+		\node at (2,0.5) {Si (p-type)};
+
+		% n-well
+		\fill[Goldenrod] (0.25,0.75) rectangle (7.25,2);
+		\node at (4.75,1) {N-Well};
+
+		% body
+		\fill[Blue] (0.5,1) rectangle (2,2);
+		\node at (1,1.5) {n+};
+		% source
+		\fill[Melon] (2.5,1) rectangle (4,2);
+		\node at (3,1.5) {p+};
+		% drain
+		\fill[Melon] (5.5,1) rectangle (7,2);
+		\node at (6,1.5) {p+};
+		%% gate:
+		% gate oxide
+		\fill[LightGray] (3.8,2) rectangle (5.7,2.1);
+		% gate poly
+		\fill[Red] (3.8,2.1) rectangle (5.7,2.2);
+		% metals ground
+		\fill[DarkGray] (1,2) rectangle (1.5,3);
+		\fill[DarkGray] (3,2) rectangle (3.5,3);
+		\fill[DarkGray] (0,3) rectangle (3.5,3.2); % connection pad GND
+
+		\fill[DarkGray] (4.5,2.2) rectangle (5,3);
+		\fill[DarkGray] (4.3,3) rectangle (5.2,3.2); % connection pad VG
+
+		\fill[DarkGray] (6,2) rectangle (6.5,3);
+		\fill[DarkGray] (5.8,3) rectangle (6.7,3.2); % connection pad VDD
+
+		% isolation oxides:
+		\fill[NormalGray] (0,2) rectangle (1,3);
+		\fill[NormalGray] (1.5,2) rectangle (3,3);
+		\fill[NormalGray] (3.5,2) rectangle (3.8,3);
+		\fill[NormalGray] (3.8,2.2) rectangle (4.5,3);
+		\fill[NormalGray] (5,2.2) rectangle (5.7,3);
+		\fill[NormalGray] (5.7,2) rectangle (6,3);
+		\fill[NormalGray] (6.5,2) rectangle (7.5,3);
+		
+		\node at (0.5,3.5) {Source};
+		\node at (4.5,3.4) {Gate};
+		\node at (6.5,3.4) {Drain};
+	\end{tikzpicture}
+\end{center}
+
+\newpage
 
 \section{Process}
 Below the general flow chart of the overall process flow can be seen. These process steps will be discussed within the following sections.
