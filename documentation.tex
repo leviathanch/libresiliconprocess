@@ -1,4 +1,5 @@
-\documentclass[12pt, a4paper, twoside, titlepage]{article}
+%\documentclass[12pt, a4paper, twoside, titlepage]{article}
+\documentclass[10pt,a4paper,oneside]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{amsmath}
@@ -13,6 +14,7 @@
 \tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=5em, text centered, rounded corners, minimum height=4em]
 \tikzstyle{line} = [draw, very thick, color=black!50, -latex']
 \tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=2.5cm,minimum height=2em]
+\usepackage[siunitx]{circuitikz}
 
 \definecolor{LightGray}{gray}{0.9}
 \definecolor{NormalGray}{gray}{0.8}
@@ -37,8 +39,67 @@
 	This is the specification of the free silicon manufacturing standard for manufacturing the ls018\footnotemark standard logic cells and related free technology nodes from the LibreSilicon project.
 	\footnotetext[1]{https://github.com/leviathanch/ls018}
 \end{abstract}
+\newpage
 
-\section{Overall process}
+\section{Components}
+\subsection{NMOS}
+The following circuit symbol will be used throughout the document for symbolizing a NMOS transistor
+\begin{center}
+	\begin{circuitikz}
+		\node at (5,0) [ground] (gnd) {};
+		\node at (5,2) [nigfete] (nmos) {} ;
+		\node at (4.5,5) [right] (vdd) {$V_{DD}$};
+		\draw (gnd) to (nmos.S);
+		\draw (nmos.D) to (5,2.5) [R] to (vdd);
+		\draw (gnd) to +(-1,0) [vsourcesquare] to (nmos.G);
+	\end{circuitikz}
+\end{center}
+
+The geometry in silicon is being shown below
+\begin{center}
+	\begin{tikzpicture}
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (7.5,2);
+		\node at (2,0.5) {Si (p-type)};
+		% body
+		\fill[Melon] (0.5,1) rectangle (2,2);
+		\node at (1,1.5) {p+};
+		% source
+		\fill[Blue] (2.5,1) rectangle (4,2);
+		\node at (3,1.5) {n+};
+		% drain
+		\fill[Blue] (5.5,1) rectangle (7,2);
+		\node at (6,1.5) {n+};
+		%% gate:
+		% gate oxide
+		\fill[LightGray] (3.8,2) rectangle (5.7,2.1);
+		% gate poly
+		\fill[Red] (3.8,2.1) rectangle (5.7,2.2);
+		% metals ground
+		\fill[DarkGray] (1,2) rectangle (1.5,3);
+		\fill[DarkGray] (3,2) rectangle (3.5,3);
+		\fill[DarkGray] (0,3) rectangle (3.5,3.2); % connection pad GND
+
+		\fill[DarkGray] (4.5,2.2) rectangle (5,3);
+		\fill[DarkGray] (4.3,3) rectangle (5.2,3.2); % connection pad VG
+
+		\fill[DarkGray] (6,2) rectangle (6.5,3);
+		\fill[DarkGray] (5.8,3) rectangle (6.7,3.2); % connection pad VDD
+
+		% isolation oxides:
+		\fill[NormalGray] (0,2) rectangle (1,3);
+		\fill[NormalGray] (1.5,2) rectangle (3,3);
+		\fill[NormalGray] (3.5,2) rectangle (3.8,3);
+		\fill[NormalGray] (3.8,2.2) rectangle (4.5,3);
+		\fill[NormalGray] (5,2.2) rectangle (5.7,3);
+		\fill[NormalGray] (5.7,2) rectangle (6,3);
+		\fill[NormalGray] (6.5,2) rectangle (7.5,3);
+	\end{tikzpicture}
+\end{center}
+
+\subsection{PMOS}
+
+\section{Process}
 Below the general flow chart of the overall process flow can be seen. These process steps will be discussed within the following sections.
 \begin{center}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
@@ -61,8 +122,8 @@ Below the general flow chart of the overall process flow can be seen. These proc
 The four starting overall process steps are part of an overall active part of the technology, while the final metal (respectively contact) layers will be used for making a contact between the logic gates and macro cells and making them available to the exterior world.
 For this process p-substrate is the required basic substrate, but forks and modifications will be very well possible based on a Graphene substrate or alike, still under the LSPL.
 
-\section{Well}
-\subsection{Dioxide layer}
+\subsection{Well}
+\subsubsection{Dioxide layer}
 \begin{center}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
 		% substrate
@@ -81,7 +142,7 @@ For this process p-substrate is the required basic substrate, but forks and modi
 In order to selectively inject charge carrying atoms into the crystalline structure a protective dioxide ($SiO_2$) layer needs to be grown on top of a p-type substrate.
 There is no clear general equation perfectly describing the absorption behavior of silicon dioxide but the industrial best practice is a layer of around 1$\mu$m (1000nm) thickness.
 
-\subsection{Pattering and etching}
+\subsubsection{Pattering and etching}
 \begin{center}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
 		% substrate
@@ -122,10 +183,12 @@ There is no clear general equation perfectly describing the absorption behavior 
 \end{center}
 The resist is being deposited using spin coating and then baked depending on the baking time for the specific resist.
 The layout for being exposed onto the resist is being extracted from the "nwell" layer within the GDS2 file.
+The thickness of the resist layer and the backing duration will variate depending on the specific equipment for which this process will be implemented with.
 
-\subsection{Infusion}
+\subsubsection{Infusion}
 \begin{center}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
+	%\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
+	\begin{tikzpicture}
 		% substrate
 		\fill[YellowOrange] (0,0) rectangle (4,1.6);
 		\node at (2,0.8) {Si (p-type)};
@@ -147,9 +210,7 @@ The starting material is a p-type, <100> oriented silicon with a doping concentr
 The n-well is implanted with a $P^{31}$ dose of $2.5\times10^{12}cm^{-2}$ at an energy of 100 KeV.
 The n-well is then annealed, oxidized for 32 minutes at 1000\degree C, and then driven-in for 960 minutes at 1150\degree C in an inert ambient.
 
-\section{Implant}
-\section{Select}
-\section{Active}
+\subsection{Implant}
 \begin{center}
 	%\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
 	\begin{tikzpicture}
@@ -200,7 +261,112 @@ The n-well is then annealed, oxidized for 32 minutes at 1000\degree C, and then 
 
 	\end{tikzpicture}
 \end{center}
-\section{Metal}
+
+\subsection{Select}
+\begin{center}
+	%\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
+	\begin{tikzpicture}
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (4,1.6);
+		\node at (2,0.8) {Si (p-type)};
+
+		%% active regions 1:
+		% p-active 1
+		\fill[blue] (0,1.3) rectangle (0.5,1.6);
+		% p-active 2
+		\fill[blue] (1.55,1.3) rectangle (2.05,1.6);
+		% p-active 3
+		\fill[blue] (3.5,1.3) rectangle (4,1.6);
+
+		% oxide 1
+		\fill[NormalGray] (0,1.6) rectangle (0.5,2);
+		% oxide 2
+		\fill[NormalGray] (1.55,1.6) rectangle (2.05,2);
+		% oxide 3
+		\fill[NormalGray] (3.5,1.6) rectangle (4,2);
+
+		%% active regions 2
+		% gate oxide 1
+		\fill[DarkGray] (0.9,1.6) rectangle (1.1,1.7);
+		% gate oxide 2
+		\fill[DarkGray] (2.45,1.6) rectangle (2.65,1.7);
+		% poly 1
+		\fill[red] (0.9,1.7) rectangle (1.1,2);
+		% poly 2
+		\fill[red] (2.45,1.7) rectangle (2.65,2);
+
+		% n-active 1
+		\fill[green] (0.55,1.4) rectangle (0.95,1.6);
+		% n-active 2
+		\fill[green] (1.05,1.4) rectangle (1.45,1.6);
+
+		% n-well
+		\fill[Dandelion] (2.1,1.2) rectangle (3.45,1.6);
+		\node at (2.7,1.4) {N};
+		
+		% p-active nwell 1
+		\fill[blue] (2.15,1.4) rectangle (2.5,1.6);
+		% p-active nwell 2
+		\fill[blue] (2.6,1.4) rectangle (2.95,1.6);
+		% n-active nwell 1
+		\fill[green] (3.1,1.4) rectangle (3.3,1.6);
+
+	\end{tikzpicture}
+\end{center}
+
+\subsection{Active}
+\begin{center}
+	%\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
+	\begin{tikzpicture}
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (4,1.6);
+		\node at (2,0.8) {Si (p-type)};
+
+		%% active regions 1:
+		% p-active 1
+		\fill[blue] (0,1.3) rectangle (0.5,1.6);
+		% p-active 2
+		\fill[blue] (1.55,1.3) rectangle (2.05,1.6);
+		% p-active 3
+		\fill[blue] (3.5,1.3) rectangle (4,1.6);
+
+		% oxide 1
+		\fill[NormalGray] (0,1.6) rectangle (0.5,2);
+		% oxide 2
+		\fill[NormalGray] (1.55,1.6) rectangle (2.05,2);
+		% oxide 3
+		\fill[NormalGray] (3.5,1.6) rectangle (4,2);
+
+		%% active regions 2
+		% gate oxide 1
+		\fill[DarkGray] (0.9,1.6) rectangle (1.1,1.7);
+		% gate oxide 2
+		\fill[DarkGray] (2.45,1.6) rectangle (2.65,1.7);
+		% poly 1
+		\fill[red] (0.9,1.7) rectangle (1.1,2);
+		% poly 2
+		\fill[red] (2.45,1.7) rectangle (2.65,2);
+
+		% n-active 1
+		\fill[green] (0.55,1.4) rectangle (0.95,1.6);
+		% n-active 2
+		\fill[green] (1.05,1.4) rectangle (1.45,1.6);
+
+		% n-well
+		\fill[Dandelion] (2.1,1.2) rectangle (3.45,1.6);
+		\node at (2.7,1.4) {N};
+		
+		% p-active nwell 1
+		\fill[blue] (2.15,1.4) rectangle (2.5,1.6);
+		% p-active nwell 2
+		\fill[blue] (2.6,1.4) rectangle (2.95,1.6);
+		% n-active nwell 1
+		\fill[green] (3.1,1.4) rectangle (3.3,1.6);
+
+	\end{tikzpicture}
+\end{center}
+
+\subsection{Metal}
 
 
 \end{document}
