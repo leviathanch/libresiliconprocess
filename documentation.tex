@@ -178,6 +178,30 @@ The geometry in silicon is being shown below
 
 \newpage
 
+\section{CMOS example}
+The example which will be used for showing the process steps will be a simple CMOS inverter of which the schematics are drawn below
+\begin{center}
+	\begin{circuitikz}
+		\node at (5,0) [ground] (gnd) {};
+		\node at (5,2) [nigfete] (nmos) {} ;
+		\node at (5,4) [pigfete] (pmos) {} ;
+		\node at (4.5,7) [right] (vdd) {$V_{DD}$};
+		\draw (gnd) to (nmos.S);
+		\draw (pmos.S) to (5,4.5) [R] to (vdd);
+		\draw (gnd) to +(-2,0) [vsourcesquare] to (3,1.75);
+		\node at (3.9,2.0) {Gate};
+		\node at (5.6,2.5) {Drain};
+		\node at (5.6,1.5) {Source};
+		\draw (nmos.G) to (3,1.75) to (3,4.275) to (pmos.G);
+		\node at (3.9,4.0) {Gate};
+		\node at (5.6,3.5) {Drain};
+		\node at (5.6,4.5) {Source};
+		\draw (pmos.D) to (nmos.D) to (7,2.75) to (7,1.75) [R] to (7,0);
+		\draw (7,0) to (gnd);
+	\end{circuitikz}
+\end{center}
+
+\newpage
 \section{Process}
 Below the general flow chart of the overall process flow can be seen. These process steps will be discussed within the following sections.
 \begin{center}
