@@ -320,13 +320,42 @@ The starting material is a p-type, <100> oriented silicon with a doping concentr
 
 \newpage
 
+\subsection{Initial cleaning}
+In order to remove the initial naturally grown silicon dioxide from the wafer acid is being applied to the wafer.
+
+\begin{center}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (15,2);
+		\node at (2,0.5) {Si (p-type)};
+		% oxide
+		\fill[gray] (0,2) rectangle (15,2.3);
+		\node at (2,2.1) {SiO};
+	\end{tikzpicture}
+
+	\includegraphics[scale=0.01]{down_arrow.png}
+
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (15,2);
+		\node at (2,0.5) {Si (p-type)};
+	\end{tikzpicture}
+\end{center}
+
+This needs to be done because the naturally grown initially existing silicon oxide is not pure and may contain contamination which may render the final product unusable.
+
+The sulfuric acid mixture, $H_2 S O_4 + H_2 O_2$ is being applied to the wafer for 10 minutes at a temperature of 120 \degree C. \\
+After the sulfuric cleaning a HF (HF:H$_2$O , 1:50) dip is being performed for one minute. \\
+Hydrofluoric acid (HF) is used to remove native silicon dioxide from wafers. Since it acts quickly, one needs to only expose the wafer fro a short time ("dip"). \\
+After that the wafer needs to be dried and quickly processed further before new uncontrolled natural oxide can build up on the wafer through the contact with air.
+
 \subsection{Well}
 In order to build CMOS (Complementary metal–oxide–semiconductor/P and N MOS) on the same substrate an n-well is required for building the complementary P-channel transistor for a n-p-channel logic circuitry as shown above in the example section.
 The n-well will serve us as an island of n-doped substrate within the p-doped basis substrate.
 The cross section as well as the top view of the targeted geometry are shown below.
 
 \begin{center}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.4, every node/.style={transform shape}]
 		% substrate
 		\fill[YellowOrange] (0,0) rectangle (15,2);
 		\node at (2,0.5) {Si (p-type)};
@@ -334,13 +363,15 @@ The cross section as well as the top view of the targeted geometry are shown bel
 		\fill[Goldenrod] (0.25,0.75) rectangle (7.25,2);
 		\node at (4.75,1) {N-Well};
 	\end{tikzpicture}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
-		% resist
-		\fill[YellowOrange] (0,0) rectangle (15,10);
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.4, every node/.style={transform shape}]
 		% substrate
-		\fill[Goldenrod] (0.25,0.5) rectangle (7.25,9.5);
+		\fill[YellowOrange] (0,0) rectangle (15,10);
+		% n-well
+		\fill[Goldenrod] (0.25,0.5) rectangle (7.25,7.25);
 	\end{tikzpicture}
 \end{center}
+
+
 
 \subsubsection{Dioxide layer}
 In order to selectively inject charge carrying atoms into the crystalline structure a protective dioxide ($SiO_2$) layer needs to be grown on top of a p-type substrate.
@@ -362,10 +393,12 @@ In order to selectively inject charge carrying atoms into the crystalline struct
 		\node at (2,2.1) {SiO2};
 	\end{tikzpicture}
 \end{center}
-There is no clear general equation perfectly describing the absorption behavior of silicon dioxide but the industrial best practice is a layer of around (500nm$\approx$5000\normalfont\AA) thickness or more.
+There is no clear general equation perfectly describing the dopant absorption behavior of silicon dioxide but the industrial best practice is a layer of around (500nm$\approx$5000\normalfont\AA) thickness or more.
 For this purpose the wafer is being oxidized for at least 90 minutes at 1000\degree C using wet oxidation which results in a dioxide layer at least 500nm($\approx$5000\normalfont\AA) in thickness.
 
-\subsubsection{Patterning and etching}
+\subsubsection{Patterning}
+The resist is being deposited using spin coating and then baked depending on the baking time for the specific resist.
+The layout for being exposed onto the resist is being extracted from the "nwell" layer within the GDS2 file.
 \begin{center}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
 		% substrate
@@ -397,7 +430,28 @@ For this purpose the wafer is being oxidized for at least 90 minutes at 1000\deg
 		% resist
 		\fill[orange] (0,0) rectangle (15,10);
 		% substrate
-		\fill[gray] (0.25,0.5) rectangle (7.25,9.5);
+		\fill[gray] (0.25,0.5) rectangle (7.25,7.25);
+	\end{tikzpicture}
+\end{center}
+The thickness of the resist layer and the backing duration will variate depending on the specific equipment for which this process will be implemented with.
+
+\subsubsection{Etching}
+\begin{center}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (15,2);
+		\node at (2,0.5) {Si (p-type)};
+		% oxide
+		\fill[gray] (0,2) rectangle (15,2.6);
+		% resist
+		\fill[orange] (0,2.6) rectangle (0.25,3.2);
+		\fill[orange] (7.25,2.6) rectangle (15,3.2);
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
+		% resist
+		\fill[orange] (0,0) rectangle (15,10);
+		% substrate
+		\fill[gray] (0.25,0.5) rectangle (7.25,7.25);
 	\end{tikzpicture}
 
 	\includegraphics[scale=0.01]{down_arrow.png}
@@ -417,12 +471,35 @@ For this purpose the wafer is being oxidized for at least 90 minutes at 1000\deg
 		% resist
 		\fill[orange] (0,0) rectangle (15,10);
 		% substrate
-		\fill[YellowOrange] (0.25,0.5) rectangle (7.25,9.5);
+		\fill[YellowOrange] (0.25,0.5) rectangle (7.25,7.25);
 	\end{tikzpicture}
 \end{center}
-The resist is being deposited using spin coating and then baked depending on the baking time for the specific resist.
-The layout for being exposed onto the resist is being extracted from the "nwell" layer within the GDS2 file.
-The thickness of the resist layer and the backing duration will variate depending on the specific equipment for which this process will be implemented with.
+
+\subsubsection{Cleaning}
+\begin{center}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (15,2);
+		\node at (2,0.5) {Si (p-type)};
+		% oxide
+		\fill[gray] (0,2) rectangle (0.25,2.6);
+		\fill[gray] (7.25,2) rectangle (15,2.6);
+		% resist
+		\fill[orange] (0,2.6) rectangle (0.25,3.2);
+		\fill[orange] (7.25,2.6) rectangle (15,3.2);
+	\end{tikzpicture}
+
+	\includegraphics[scale=0.01]{down_arrow.png}
+
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (15,2);
+		\node at (2,0.5) {Si (p-type)};
+		% oxide
+		\fill[gray] (0,2) rectangle (0.25,2.6);
+		\fill[gray] (7.25,2) rectangle (15,2.6);
+	\end{tikzpicture}
+\end{center}
 
 \subsubsection{Predeposition}
 \begin{center}
@@ -459,9 +536,10 @@ The thickness of the resist layer and the backing duration will variate dependin
 		\fill[Goldenrod] (7.25,2.5) rectangle (15,2.6);
 	\end{tikzpicture}
 \end{center}
-The n-well is implanted with a $P^{31}$ dose of $2.5\times10^{12}cm^{-2}$ at an energy of 100 KeV.
+The n-well is implanted with a Phosphorus ($P^{31}$) dose of $2.5\times10^{12}cm^{-2}$ at an energy of 100 KeV.
 
 \subsubsection{Infusion}
+In order to drive the carrier atoms deeper into the crystalline structure the wafer needs to be driven in after predeposition.
 \begin{center}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
 		% substrate
@@ -514,9 +592,10 @@ The n-well is implanted with a $P^{31}$ dose of $2.5\times10^{12}cm^{-2}$ at an 
 		\fill[Goldenrod] (7.25,2.5) rectangle (15,2.6);
 	\end{tikzpicture}
 \end{center}
-The n-well is then annealed, oxidized (250nm$\approx$2500\normalfont\AA) for 32 minutes at 1000\degree C, and then driven-in for 960 minutes at 1150\degree C in an inert ambient.
+The n-well is annealed, oxidized (250nm$\approx$2500\normalfont\AA) for 32 minutes at 1000\degree C, and then driven-in for 960 minutes at 1150\degree C in an inert ambient.
 
-\subsubsection{Cleaning}
+\subsubsection{Oxide removal}
+We want an oxide free wafer with the n-well accessible for the further process steps.
 \begin{center}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
 		% substrate
@@ -547,9 +626,43 @@ The n-well is then annealed, oxidized (250nm$\approx$2500\normalfont\AA) for 32 
 \end{center}
 We use hydrofluoric acid, because it doesn't etch silicon at all but is very aggressive towards $SiO_2$
 
+For hydrofluoric acid in combination with $SiO_2$ the following reaction formula can be used
+\begin{equation}
+4 H F_{(aq]} + SiO_{2(s]} \rightarrow SiF_{4(g]} \uparrow + 2 H_{2} O_{(l]}
+\end{equation}
+while with non oxidized silicon there is no reaction.
+
 \newpage
 
 \subsection{Active}
+\begin{center}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.4, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (15,2);
+		\node at (2,0.5) {Si (p-type)};
+		% n-well
+		\fill[Goldenrod] (0.25,0.75) rectangle (7.25,2);
+		\node at (4.75,1) {N-Well};
+
+		% gate oxide
+		\fill[LightGray] (3.8,2) rectangle (5.7,2.1);
+		\fill[LightGray] (9.3,2) rectangle (11.2,2.1);
+		
+		% gate poly
+		\fill[BrickRed] (3.8,2.1) rectangle (5.7,2.2);
+		\fill[BrickRed] (9.3,2.1) rectangle (11.2,2.2);
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.4, every node/.style={transform shape}]
+		\fill[YellowOrange] (0,0) rectangle (15,10);
+		% n-well
+		\fill[Goldenrod] (0.25,0.5) rectangle (7.25,7.25);
+		% resist
+		\fill[BrickRed] (3.8,1.25) rectangle (5.7,9);
+		\fill[BrickRed] (9.3,1.25) rectangle (11.2,9);
+		\fill[BrickRed] (5.7,8) rectangle (11.2,9);
+	\end{tikzpicture}
+\end{center}
+
 \subsubsection{Gate oxide growth}
 \begin{center}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
@@ -606,7 +719,7 @@ We use hydrofluoric acid, because it doesn't etch silicon at all but is very agg
 
 \subsubsection{Patterning}
 \begin{center}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
 		% substrate
 		\fill[YellowOrange] (0,0) rectangle (15,2);
 		\node at (2,0.5) {Si (p-type)};
@@ -618,10 +731,13 @@ We use hydrofluoric acid, because it doesn't etch silicon at all but is very agg
 		% poly layer
 		\fill[BrickRed] (0,2.1) rectangle (15,2.2);
 	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
+		\fill[BrickRed] (0,0) rectangle (15,10);
+	\end{tikzpicture}
 
 	\includegraphics[scale=0.01]{down_arrow.png}
 
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
 		% substrate
 		\fill[YellowOrange] (0,0) rectangle (15,2);
 		\node at (2,0.5) {Si (p-type)};
@@ -635,10 +751,13 @@ We use hydrofluoric acid, because it doesn't etch silicon at all but is very agg
 		% resist layer
 		\fill[orange] (0,2.2) rectangle (15,2.8);
 	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
+		\fill[orange] (0,0) rectangle (15,10);
+	\end{tikzpicture}
 
 	\includegraphics[scale=0.01]{down_arrow.png}
 
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
 		% substrate
 		\fill[YellowOrange] (0,0) rectangle (15,2);
 		\node at (2,0.5) {Si (p-type)};
@@ -652,12 +771,19 @@ We use hydrofluoric acid, because it doesn't etch silicon at all but is very agg
 		% resist
 		\fill[orange] (3.8,2.2) rectangle (5.7,2.8);
 		\fill[orange] (9.3,2.2) rectangle (11.2,2.8);
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
+		\fill[BrickRed] (0,0) rectangle (15,10);
+		% resist
+		\fill[orange] (3.8,1.25) rectangle (5.7,9);
+		\fill[orange] (9.3,1.25) rectangle (11.2,9);
+		\fill[orange] (5.7,8) rectangle (11.2,9);
 	\end{tikzpicture}
 \end{center}
 
 \subsubsection{Etching}
 \begin{center}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
 		% substrate
 		\fill[YellowOrange] (0,0) rectangle (15,2);
 		\node at (2,0.5) {Si (p-type)};
@@ -672,10 +798,17 @@ We use hydrofluoric acid, because it doesn't etch silicon at all but is very agg
 		\fill[orange] (3.8,2.2) rectangle (5.7,2.8);
 		\fill[orange] (9.3,2.2) rectangle (11.2,2.8);
 	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
+		\fill[BrickRed] (0,0) rectangle (15,10);
+		% resist
+		\fill[orange] (3.8,1.25) rectangle (5.7,9);
+		\fill[orange] (9.3,1.25) rectangle (11.2,9);
+		\fill[orange] (5.7,8) rectangle (11.2,9);
+	\end{tikzpicture}
 
 	\includegraphics[scale=0.01]{down_arrow.png}
 
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
 		% substrate
 		\fill[YellowOrange] (0,0) rectangle (15,2);
 		\node at (2,0.5) {Si (p-type)};
@@ -695,33 +828,53 @@ We use hydrofluoric acid, because it doesn't etch silicon at all but is very agg
 		\fill[orange] (3.8,2.2) rectangle (5.7,2.8);
 		\fill[orange] (9.3,2.2) rectangle (11.2,2.8);
 	\end{tikzpicture}
-
-	\includegraphics[scale=0.01]{down_arrow.png}
-
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (15,2);
-		\node at (2,0.5) {Si (p-type)};
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
+		\fill[YellowOrange] (0,0) rectangle (15,10);
 		% n-well
-		\fill[Goldenrod] (0.25,0.75) rectangle (7.25,2);
-		\node at (4.75,1) {N-Well};
-
-		% gate oxide
-		\fill[LightGray] (3.8,2) rectangle (5.7,2.1);
-		\fill[LightGray] (9.3,2) rectangle (11.2,2.1);
-		
-		% gate poly
-		\fill[BrickRed] (3.8,2.1) rectangle (5.7,2.2);
-		\fill[BrickRed] (9.3,2.1) rectangle (11.2,2.2);
+		\fill[Goldenrod] (0.25,0.5) rectangle (7.25,7.25);
+		% resist
+		\fill[orange] (3.8,1.25) rectangle (5.7,9);
+		\fill[orange] (9.3,1.25) rectangle (11.2,9);
+		\fill[orange] (5.7,8) rectangle (11.2,9);
 	\end{tikzpicture}
 \end{center}
 Because the exact shape of the gate contact is required for a reproducible property characterization of the transistor geometry, dry etching is being used for etching the poly-oxide layer stack.
 
-\newpage
-
-\subsection{Implant}
+\subsubsection{Cleaning}
 \begin{center}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (15,2);
+		\node at (2,0.5) {Si (p-type)};
+		% n-well
+		\fill[Goldenrod] (0.25,0.75) rectangle (7.25,2);
+		\node at (4.75,1) {N-Well};
+
+		% gate oxide
+		\fill[LightGray] (3.8,2) rectangle (5.7,2.1);
+		\fill[LightGray] (9.3,2) rectangle (11.2,2.1);
+		
+		% gate poly
+		\fill[BrickRed] (3.8,2.1) rectangle (5.7,2.2);
+		\fill[BrickRed] (9.3,2.1) rectangle (11.2,2.2);
+
+		% resist
+		\fill[orange] (3.8,2.2) rectangle (5.7,2.8);
+		\fill[orange] (9.3,2.2) rectangle (11.2,2.8);
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
+		\fill[YellowOrange] (0,0) rectangle (15,10);
+		% n-well
+		\fill[Goldenrod] (0.25,0.5) rectangle (7.25,7.25);
+		% resist
+		\fill[orange] (3.8,1.25) rectangle (5.7,9);
+		\fill[orange] (9.3,1.25) rectangle (11.2,9);
+		\fill[orange] (5.7,8) rectangle (11.2,9);
+	\end{tikzpicture}
+
+	\includegraphics[scale=0.01]{down_arrow.png}
+
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
 		% substrate
 		\fill[YellowOrange] (0,0) rectangle (15,2);
 		\node at (2,0.5) {Si (p-type)};
@@ -737,11 +890,301 @@ Because the exact shape of the gate contact is required for a reproducible prope
 		\fill[BrickRed] (3.8,2.1) rectangle (5.7,2.2);
 		\fill[BrickRed] (9.3,2.1) rectangle (11.2,2.2);
 	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
+		\fill[YellowOrange] (0,0) rectangle (15,10);
+		% n-well
+		\fill[Goldenrod] (0.25,0.5) rectangle (7.25,7.25);
+		% poly
+		\fill[BrickRed] (3.8,1.25) rectangle (5.7,9);
+		\fill[BrickRed] (9.3,1.25) rectangle (11.2,9);
+		\fill[BrickRed] (5.7,8) rectangle (11.2,9);
+	\end{tikzpicture}
 \end{center}
 
 \newpage
 
-\subsection{Select}
+\subsection{p+ Implant}
+\begin{center}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.4, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (15,2);
+		\node at (2,0.5) {Si (p-type)};
+		% n-well
+		\fill[Goldenrod] (0.25,0.75) rectangle (7.25,2);
+		\node at (4.75,1) {N-Well};
+
+		% gate oxide
+		\fill[LightGray] (3.8,2) rectangle (5.7,2.1);
+		\fill[LightGray] (9.3,2) rectangle (11.2,2.1);
+		
+		% gate poly
+		\fill[BrickRed] (3.8,2.1) rectangle (5.7,2.2);
+		\fill[BrickRed] (9.3,2.1) rectangle (11.2,2.2);
+
+		% source
+		\fill[RedOrange] (2.5,1) rectangle (4,2);
+		\node at (3,1.5) {p+};
+		% drain
+		\fill[RedOrange] (5.5,1) rectangle (7,2);
+		\node at (6,1.5) {p+};
+		% body
+		\fill[RedOrange] (13,1) rectangle (14.5,2);
+		\node at (14,1.5) {p+};
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.4, every node/.style={transform shape}]
+		\fill[YellowOrange] (0,0) rectangle (15,10);
+		% n-well
+		\fill[Goldenrod] (0.25,0.5) rectangle (7.25,7.25);
+
+		% source
+		\fill[RedOrange] (2.5,1.5) rectangle (4,6);
+		% drain
+		\fill[RedOrange] (5.5,1.5) rectangle (7,6);
+		% body
+		\fill[RedOrange] (13,1.5) rectangle (14.5,6);
+
+		% poly
+		\fill[BrickRed] (3.8,1.25) rectangle (5.7,9);
+		\fill[BrickRed] (9.3,1.25) rectangle (11.2,9);
+		\fill[BrickRed] (5.7,8) rectangle (11.2,9);
+	\end{tikzpicture}
+\end{center}
+
+For the bulk of the NMOS transistors and for the source and drain of the PMOS transistors highly doped  p+ areas are required.
+In this step we're going to build these.
+
+\subsubsection{Dioxide layer}
+\begin{center}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.4, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (15,2);
+		\node at (2,0.5) {Si (p-type)};
+		% n-well
+		\fill[Goldenrod] (0.25,0.75) rectangle (7.25,2);
+		\node at (4.75,1) {N-Well};
+
+		% gate oxide
+		\fill[LightGray] (3.8,2) rectangle (5.7,2.1);
+		\fill[LightGray] (9.3,2) rectangle (11.2,2.1);
+		
+		% gate poly
+		\fill[BrickRed] (3.8,2.1) rectangle (5.7,2.2);
+		\fill[BrickRed] (9.3,2.1) rectangle (11.2,2.2);
+	\end{tikzpicture}
+
+	\includegraphics[scale=0.01]{down_arrow.png}
+	
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.4, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (15,2);
+		\node at (2,0.5) {Si (p-type)};
+		% n-well
+		\fill[Goldenrod] (0.25,0.75) rectangle (7.25,2);
+		\node at (4.75,1) {N-Well};
+
+		% gate oxide
+		\fill[LightGray] (3.8,2) rectangle (5.7,2.1);
+		\fill[LightGray] (9.3,2) rectangle (11.2,2.1);
+		
+		% gate poly
+		\fill[BrickRed] (3.8,2.1) rectangle (5.7,2.2);
+		\fill[BrickRed] (9.3,2.1) rectangle (11.2,2.2);
+		
+		% dioxide
+		\fill[NormalGray] (0,2) rectangle (3.8,2.7);
+		\fill[NormalGray] (3.8,2.2) rectangle (5.7,2.7);
+		\fill[NormalGray] (5.7,2) rectangle (9.3,2.7);
+		\fill[NormalGray] (9.3,2.2) rectangle (11.2,2.7);
+		\fill[NormalGray] (11.2,2) rectangle (15,2.7);
+	\end{tikzpicture}
+\end{center}
+
+\subsubsection{Pattering}
+\begin{center}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (15,2);
+		\node at (2,0.5) {Si (p-type)};
+		% n-well
+		\fill[Goldenrod] (0.25,0.75) rectangle (7.25,2);
+		\node at (4.75,1) {N-Well};
+
+		% gate oxide
+		\fill[LightGray] (3.8,2) rectangle (5.7,2.1);
+		\fill[LightGray] (9.3,2) rectangle (11.2,2.1);
+		
+		% gate poly
+		\fill[BrickRed] (3.8,2.1) rectangle (5.7,2.2);
+		\fill[BrickRed] (9.3,2.1) rectangle (11.2,2.2);
+		
+		% dioxide
+		\fill[NormalGray] (0,2) rectangle (3.8,2.7);
+		\fill[NormalGray] (3.8,2.2) rectangle (5.7,2.7);
+		\fill[NormalGray] (5.7,2) rectangle (9.3,2.7);
+		\fill[NormalGray] (9.3,2.2) rectangle (11.2,2.7);
+		\fill[NormalGray] (11.2,2) rectangle (15,2.7);
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
+		\fill[NormalGray] (0,0) rectangle (15,10);
+	\end{tikzpicture}
+
+	\includegraphics[scale=0.01]{down_arrow.png}
+
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (15,2);
+		\node at (2,0.5) {Si (p-type)};
+		% n-well
+		\fill[Goldenrod] (0.25,0.75) rectangle (7.25,2);
+		\node at (4.75,1) {N-Well};
+
+		% gate oxide
+		\fill[LightGray] (3.8,2) rectangle (5.7,2.1);
+		\fill[LightGray] (9.3,2) rectangle (11.2,2.1);
+		
+		% gate poly
+		\fill[BrickRed] (3.8,2.1) rectangle (5.7,2.2);
+		\fill[BrickRed] (9.3,2.1) rectangle (11.2,2.2);
+		
+		% dioxide
+		\fill[NormalGray] (0,2) rectangle (3.8,2.7);
+		\fill[NormalGray] (3.8,2.2) rectangle (5.7,2.7);
+		\fill[NormalGray] (5.7,2) rectangle (9.3,2.7);
+		\fill[NormalGray] (9.3,2.2) rectangle (11.2,2.7);
+		\fill[NormalGray] (11.2,2) rectangle (15,2.7);
+
+		% resist
+		\fill[orange] (0,2.7) rectangle (15,3.3);
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
+		\fill[orange] (0,0) rectangle (15,10);
+	\end{tikzpicture}
+
+	\includegraphics[scale=0.01]{down_arrow.png}
+
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (15,2);
+		\node at (2,0.5) {Si (p-type)};
+		% n-well
+		\fill[Goldenrod] (0.25,0.75) rectangle (7.25,2);
+		\node at (4.75,1) {N-Well};
+
+		% gate oxide
+		\fill[LightGray] (3.8,2) rectangle (5.7,2.1);
+		\fill[LightGray] (9.3,2) rectangle (11.2,2.1);
+		
+		% gate poly
+		\fill[BrickRed] (3.8,2.1) rectangle (5.7,2.2);
+		\fill[BrickRed] (9.3,2.1) rectangle (11.2,2.2);
+		
+		% dioxide
+		\fill[NormalGray] (0,2) rectangle (3.8,2.7);
+		\fill[NormalGray] (3.8,2.2) rectangle (5.7,2.7);
+		\fill[NormalGray] (5.7,2) rectangle (9.3,2.7);
+		\fill[NormalGray] (9.3,2.2) rectangle (11.2,2.7);
+		\fill[NormalGray] (11.2,2) rectangle (15,2.7);
+
+		% resist
+		\fill[orange] (0,2.7) rectangle (2.5,3.3);
+		\fill[orange] (7,2.7) rectangle (13,3.3);
+		\fill[orange] (14.5,2.7) rectangle (15,3.3);
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
+		\fill[orange] (0,0) rectangle (15,10);
+		% source & drain
+		\fill[NormalGray] (2.5,1.5) rectangle (7,6);
+		% body
+		\fill[NormalGray] (13,1.5) rectangle (14.5,6);
+	\end{tikzpicture}
+\end{center}
+
+\subsubsection{Etching}
+\begin{center}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (15,2);
+		\node at (2,0.5) {Si (p-type)};
+		% n-well
+		\fill[Goldenrod] (0.25,0.75) rectangle (7.25,2);
+		\node at (4.75,1) {N-Well};
+
+		% gate oxide
+		\fill[LightGray] (3.8,2) rectangle (5.7,2.1);
+		\fill[LightGray] (9.3,2) rectangle (11.2,2.1);
+		
+		% gate poly
+		\fill[BrickRed] (3.8,2.1) rectangle (5.7,2.2);
+		\fill[BrickRed] (9.3,2.1) rectangle (11.2,2.2);
+		
+		% dioxide
+		\fill[NormalGray] (0,2) rectangle (3.8,2.7);
+		\fill[NormalGray] (3.8,2.2) rectangle (5.7,2.7);
+		\fill[NormalGray] (5.7,2) rectangle (9.3,2.7);
+		\fill[NormalGray] (9.3,2.2) rectangle (11.2,2.7);
+		\fill[NormalGray] (11.2,2) rectangle (15,2.7);
+
+		% resist
+		% 2.5<->4
+		% 5.5 <-> 7
+		% 13 <-> 14.5
+		\fill[orange] (0,2.7) rectangle (2.5,3.3);
+		\fill[orange] (7,2.7) rectangle (13,3.3);
+		\fill[orange] (14.5,2.7) rectangle (15,3.3);
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
+		\fill[orange] (0,0) rectangle (15,10);
+		% source & drain
+		\fill[NormalGray] (2.5,1.5) rectangle (7,6);
+		% body
+		\fill[NormalGray] (13,1.5) rectangle (14.5,6);
+	\end{tikzpicture}
+
+	\includegraphics[scale=0.01]{down_arrow.png}
+
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (15,2);
+		\node at (2,0.5) {Si (p-type)};
+		% n-well
+		\fill[Goldenrod] (0.25,0.75) rectangle (7.25,2);
+		\node at (4.75,1) {N-Well};
+
+		% gate oxide
+		\fill[LightGray] (3.8,2) rectangle (5.7,2.1);
+		\fill[LightGray] (9.3,2) rectangle (11.2,2.1);
+		
+		% gate poly
+		\fill[BrickRed] (3.8,2.1) rectangle (5.7,2.2);
+		\fill[BrickRed] (9.3,2.1) rectangle (11.2,2.2);
+		
+		% dioxide
+		\fill[NormalGray] (0,2) rectangle (2.5,2.7);
+		\fill[NormalGray] (7,2) rectangle (9.3,2.7);
+		\fill[NormalGray] (9.3,2.2) rectangle (11.2,2.7);
+		\fill[NormalGray] (11.2,2) rectangle (13,2.7);
+		\fill[NormalGray] (14.5,2) rectangle (15,2.7);
+
+		% resist
+		% 2.5<->4
+		% 5.5 <-> 7
+		% 13 <-> 14.5
+		\fill[orange] (0,2.7) rectangle (2.5,3.3);
+		\fill[orange] (7,2.7) rectangle (13,3.3);
+		\fill[orange] (14.5,2.7) rectangle (15,3.3);
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
+		\fill[orange] (0,0) rectangle (15,10);
+		% source & drain
+		\fill[Goldenrod] (2.5,1.5) rectangle (7,6);
+		% body
+		\fill[YellowOrange] (13,1.5) rectangle (14.5,6);
+		% gate poly
+		\fill[BrickRed] (3.8,1.5) rectangle (5.7,6);
+	\end{tikzpicture}
+\end{center}
+
+\subsubsection{Predeposition}
 \begin{center}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
 		% substrate
@@ -758,6 +1201,70 @@ Because the exact shape of the gate contact is required for a reproducible prope
 		% gate poly
 		\fill[BrickRed] (3.8,2.1) rectangle (5.7,2.2);
 		\fill[BrickRed] (9.3,2.1) rectangle (11.2,2.2);
+		
+		% dioxide
+		\fill[NormalGray] (0,2) rectangle (2.5,2.7);
+		\fill[NormalGray] (7,2) rectangle (9.3,2.7);
+		\fill[NormalGray] (9.3,2.2) rectangle (11.2,2.7);
+		\fill[NormalGray] (11.2,2) rectangle (13,2.7);
+		\fill[NormalGray] (14.5,2) rectangle (15,2.7);
+
+		\forloop{ct}{0}{\value{ct} < 16}
+		{
+			\draw [->] (\value{ct},4) -- (\value{ct},3.2);
+			\node at (\value{ct},4.2) {P$^{31}$};
+		}
+	\end{tikzpicture}
+\end{center}
+
+\subsubsection{Infusion}
+
+\newpage
+
+\subsection{n+ Implant}
+\begin{center}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.4, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (15,2);
+		\node at (2,0.5) {Si (p-type)};
+		% n-well
+		\fill[Goldenrod] (0.25,0.75) rectangle (7.25,2);
+		\node at (4.75,1) {N-Well};
+
+		% gate oxide
+		\fill[LightGray] (3.8,2) rectangle (5.7,2.1);
+		\fill[LightGray] (9.3,2) rectangle (11.2,2.1);
+		
+		% gate poly
+		\fill[BrickRed] (3.8,2.1) rectangle (5.7,2.2);
+		\fill[BrickRed] (9.3,2.1) rectangle (11.2,2.2);
+
+		% source
+		\fill[RedOrange] (2.5,1) rectangle (4,2);
+		\node at (3,1.5) {p+};
+		% drain
+		\fill[RedOrange] (5.5,1) rectangle (7,2);
+		\node at (6,1.5) {p+};
+		% body
+		\fill[RedOrange] (13,1) rectangle (14.5,2);
+		\node at (14,1.5) {p+};
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.4, every node/.style={transform shape}]
+		\fill[YellowOrange] (0,0) rectangle (15,10);
+		% n-well
+		\fill[Goldenrod] (0.25,0.5) rectangle (7.25,7.25);
+
+		% source
+		\fill[RedOrange] (2.5,1.5) rectangle (4,6);
+		% drain
+		\fill[RedOrange] (5.5,1.5) rectangle (7,6);
+		% body
+		\fill[RedOrange] (13,1.5) rectangle (14.5,6);
+
+		% poly
+		\fill[BrickRed] (3.8,1.25) rectangle (5.7,9);
+		\fill[BrickRed] (9.3,1.25) rectangle (11.2,9);
+		\fill[BrickRed] (5.7,8) rectangle (11.2,9);
 	\end{tikzpicture}
 \end{center}
 
