@@ -20,9 +20,14 @@
 \definecolor{NormalGray}{gray}{0.8}
 \definecolor{DarkGray}{gray}{0.7}
 
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=black,bookmarksopen=true]{hyperref}
+\usepackage{bookmark}
+
+
 \title{Libre Silicon process specification}
 \date{\today} 
 \author{David Lanzendörfer}
+\makeindex
 
 \begin{document}
 \maketitle
@@ -1215,6 +1220,44 @@ In this step we're going to build these.
 			\node at (\value{ct},4.2) {B$^{11}$};
 		}
 	\end{tikzpicture}
+
+	\includegraphics[scale=0.01]{down_arrow.png}
+
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (15,2);
+		\node at (2,0.5) {Si (p-type)};
+		% n-well
+		\fill[Goldenrod] (0.25,0.75) rectangle (7.25,2);
+		\node at (4.75,1) {N-Well};
+
+		% gate oxide
+		\fill[LightGray] (3.8,2) rectangle (5.7,2.1);
+		\fill[LightGray] (9.3,2) rectangle (11.2,2.1);
+		
+		% gate poly
+		\fill[BrickRed] (3.8,2.1) rectangle (5.7,2.2);
+		\fill[BrickRed] (9.3,2.1) rectangle (11.2,2.2);
+		
+		% dioxide
+		\fill[NormalGray] (0,2) rectangle (2.5,2.7);
+		\fill[NormalGray] (7,2) rectangle (9.3,2.7);
+		\fill[NormalGray] (9.3,2.2) rectangle (11.2,2.7);
+		\fill[NormalGray] (11.2,2) rectangle (13,2.7);
+		\fill[NormalGray] (14.5,2) rectangle (15,2.7);
+		
+		% source
+		\fill[RedOrange] (2.5,1.85) rectangle (3.8,2);
+		% drain
+		\fill[RedOrange] (5.7,1.85) rectangle (7,2);
+		% body
+		\fill[RedOrange] (13,1.85) rectangle (14.5,2);
+
+		\fill[RedOrange] (0,2.7) rectangle (2.5,2.8);
+		\fill[RedOrange] (3.8,2.2) rectangle (5.7,2.4);
+		\fill[RedOrange] (7,2.7) rectangle (13,2.8);
+		\fill[RedOrange] (14.5,2.7) rectangle (15,2.8);
+	\end{tikzpicture}
 \end{center}
 
 The p+ islands are implanted with a Boron ($B^{11}$) dose of $4\times10^{11}cm^{-2}$ at an energy of 35 KeV.
@@ -1250,6 +1293,17 @@ The p+ islands are implanted with a Boron ($B^{11}$) dose of $4\times10^{11}cm^{
 		% body
 		\fill[RedOrange] (13,1) rectangle (14.5,2);
 		\node at (14,1.5) {p+};
+
+		% body
+		\fill[ProcessBlue] (0.5,1) rectangle (2,2);
+		\node at (1,1.5) {n+};
+		% source
+		\fill[ProcessBlue] (11,1) rectangle (12.5,2);
+		\node at (12,1.5) {n+};
+		% drain
+		\fill[ProcessBlue] (8,1) rectangle (9.5,2);
+		\node at (9,1.5) {n+};
+
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.4, every node/.style={transform shape}]
 		\fill[YellowOrange] (0,0) rectangle (15,10);
@@ -1262,6 +1316,13 @@ The p+ islands are implanted with a Boron ($B^{11}$) dose of $4\times10^{11}cm^{
 		\fill[RedOrange] (5.5,1.5) rectangle (7,6);
 		% body
 		\fill[RedOrange] (13,1.5) rectangle (14.5,6);
+		
+		% body
+		\fill[ProcessBlue] (0.5,1.5) rectangle (2,6);
+		% source
+		\fill[ProcessBlue] (11,1.5) rectangle (12.5,6);
+		% drain
+		\fill[ProcessBlue] (8,1.5) rectangle (9.5,6);
 
 		% poly
 		\fill[BrickRed] (3.8,1.25) rectangle (5.7,9);
@@ -1291,5 +1352,8 @@ The p+ islands are implanted with a Boron ($B^{11}$) dose of $4\times10^{11}cm^{
 		\fill[BrickRed] (9.3,2.1) rectangle (11.2,2.2);
 	\end{tikzpicture}
 \end{center}
+
+\newpage
+\tableofcontents
 
 \end{document}
