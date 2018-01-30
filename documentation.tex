@@ -665,7 +665,7 @@ In order to drive the carrier atoms deeper into the crystalline structure the wa
 		\fill[gray] (8.25,2) rectangle (20,2.8);
 		
 		\fill[Goldenrod] (0,2.5) rectangle (0.25,2.6);
-		\fill[Goldenrod] (7.25,2.5) rectangle (15,2.6);
+		\fill[Goldenrod] (8.25,2.5) rectangle (20,2.6);
 	\end{tikzpicture}
 \end{center}
 In this step the wafer is  driven-in for 960 minutes at 1150\degree C in an inert ambient.
@@ -709,7 +709,7 @@ For hydrofluoric acid in combination with $SiO_2$ the following reaction formula
 while with non oxidized silicon there is no reaction.
 
 \newpage
-\subsection{Channel stop}
+\subsection{Channel stop and field oxide}
 The channel-stop is material with the primary function to limit the spread of the channel area and to prevent the formation of parasitic channels.
 It is a highly doped p+ area.
 Its top view and cross section can be seen below.
@@ -892,7 +892,7 @@ The channel-stop region is always accompanied by the field oxide layer and share
 
 \subsubsection{Cleaning}
 \begin{center}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
 		% substrate
 		\fill[YellowOrange] (0,0) rectangle (20,2);
 		\node at (2,0.5) {Si (p-type)};
@@ -909,15 +909,10 @@ The channel-stop region is always accompanied by the field oxide layer and share
 		\fill[orange] (1,3.2) rectangle (8.5,3.8);
 		\fill[orange] (11.5,3.2) rectangle (19,3.8);
 	\end{tikzpicture}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
-		\fill[YellowOrange] (0,0) rectangle (20,12);
-		\fill[orange] (1,1.25) rectangle (8.5,7.5);
-		\fill[orange] (11.5,1.25) rectangle (19,7.5);
-	\end{tikzpicture}
 
 	\includegraphics[scale=0.01]{down_arrow.png}
 
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
 		% substrate
 		\fill[YellowOrange] (0,0) rectangle (20,2);
 		\node at (2,0.5) {Si (p-type)};
@@ -931,14 +926,53 @@ The channel-stop region is always accompanied by the field oxide layer and share
 		\fill[purple] (1,2.6) rectangle (8.5,3.2);
 		\fill[purple] (11.5,2.6) rectangle (19,3.2);
 	\end{tikzpicture}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
-		\fill[YellowOrange] (0,0) rectangle (20,12);
-		\fill[purple] (1,1.25) rectangle (8.5,7.5);
-		\fill[purple] (11.5,1.25) rectangle (19,7.5);
+\end{center}
+
+\subsubsection{Predeposition}
+\begin{center}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (20,2);
+		\node at (2,0.5) {Si (p-type)};
+		% n-well
+		\fill[Goldenrod] (1.25,0.75) rectangle (8.25,2);
+		\node at (4.75,1) {N-Well};
+		% oxide
+		\fill[gray] (1,2) rectangle (8.5,2.6);
+		\fill[gray] (11.5,2) rectangle (19,2.6);
+		% nitride
+		\fill[purple] (1,2.6) rectangle (8.5,3.2);
+		\fill[purple] (11.5,2.6) rectangle (19,3.2);
+
+		\forloop{ct}{0}{\value{ct} < 21}
+		{
+			\draw [->] (\value{ct},4.5) -- (\value{ct},3.5);
+			\node at (\value{ct},4.8) {B$^{11}$};
+		}
+	\end{tikzpicture}
+
+	\includegraphics[scale=0.01]{down_arrow.png}
+
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (20,2);
+		\node at (2,0.5) {Si (p-type)};
+		% n-well
+		\fill[Goldenrod] (1.25,0.75) rectangle (8.25,2);
+		\node at (4.75,1) {N-Well};
+		% oxide
+		\fill[gray] (1,2) rectangle (8.5,2.6);
+		\fill[gray] (11.5,2) rectangle (19,2.6);
+		% nitride
+		\fill[purple] (1,2.6) rectangle (8.5,3.2);
+		\fill[purple] (11.5,2.6) rectangle (19,3.2);
+		% channel stop
+		\fill[RedOrange] (0,1.8) rectangle (1,2);
+		\fill[RedOrange] (8.5,1.8) rectangle (11.5,2);
+		\fill[RedOrange] (19,1.8) rectangle (20,2);
 	\end{tikzpicture}
 \end{center}
 
-\newpage
 \subsection{Field oxide}
 \begin{center}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
@@ -971,6 +1005,160 @@ The channel-stop region is always accompanied by the field oxide layer and share
 		\fill[DarkGray] (0,7.5) rectangle (20,12);
 	\end{tikzpicture}
 \end{center}
+
+\subsubsection{Thick oxide layer}
+\begin{center}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (20,2);
+		\node at (2,0.5) {Si (p-type)};
+		% n-well
+		\fill[Goldenrod] (1.25,0.75) rectangle (8.25,2);
+		\node at (4.75,1) {N-Well};
+		% oxide
+		\fill[gray] (1,2) rectangle (8.5,2.6);
+		\fill[gray] (11.5,2) rectangle (19,2.6);
+		% nitride
+		\fill[purple] (1,2.6) rectangle (8.5,3.2);
+		\fill[purple] (11.5,2.6) rectangle (19,3.2);
+		% channel stop
+		\fill[RedOrange] (0,1.8) rectangle (1,2);
+		\fill[RedOrange] (8.5,1.8) rectangle (11.5,2);
+		\fill[RedOrange] (19,1.8) rectangle (20,2);
+	\end{tikzpicture}
+
+	\includegraphics[scale=0.01]{down_arrow.png}
+
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (20,2);
+		\node at (2,0.5) {Si (p-type)};
+		% n-well
+		\fill[Goldenrod] (1.25,0.75) rectangle (8.25,2);
+		\node at (4.75,1) {N-Well};
+		% oxide
+		\fill[gray] (1,2) rectangle (8.5,2.6);
+		\fill[gray] (11.5,2) rectangle (19,2.6);
+		% nitride
+		\fill[purple] (1,2.6) rectangle (8.5,3.2);
+		\fill[purple] (11.5,2.6) rectangle (19,3.2);
+		% channel stop
+		\fill[RedOrange] (0,1.8) rectangle (1,2);
+		\fill[RedOrange] (8.5,1.8) rectangle (11.5,2);
+		\fill[RedOrange] (19,1.8) rectangle (20,2);
+		%field oxides:
+		\fill[DarkGray] (0,2) rectangle (1,4);
+		\fill[DarkGray] (8.5,2) rectangle (11.5,4);
+		\fill[DarkGray] (19,2) rectangle (20,4);
+	\end{tikzpicture}
+\end{center}
+
+\subsubsection{Infusion}
+\begin{center}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (20,2);
+		\node at (2,0.5) {Si (p-type)};
+		% n-well
+		\fill[Goldenrod] (1.25,0.75) rectangle (8.25,2);
+		\node at (4.75,1) {N-Well};
+		% oxide
+		\fill[gray] (1,2) rectangle (8.5,2.6);
+		\fill[gray] (11.5,2) rectangle (19,2.6);
+		% nitride
+		\fill[purple] (1,2.6) rectangle (8.5,3.2);
+		\fill[purple] (11.5,2.6) rectangle (19,3.2);
+		% channel stop
+		\fill[RedOrange] (0,1.8) rectangle (1,2);
+		\fill[RedOrange] (8.5,1.8) rectangle (11.5,2);
+		\fill[RedOrange] (19,1.8) rectangle (20,2);
+		%field oxides:
+		\fill[DarkGray] (0,2) rectangle (1,4);
+		\fill[DarkGray] (8.5,2) rectangle (11.5,4);
+		\fill[DarkGray] (19,2) rectangle (20,4);
+	\end{tikzpicture}
+
+	\includegraphics[scale=0.01]{down_arrow.png}
+
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (20,2);
+		\node at (2,0.5) {Si (p-type)};
+		% n-well
+		\fill[Goldenrod] (1.25,0.75) rectangle (8.25,2);
+		\node at (4.75,1) {N-Well};
+		% oxide
+		\fill[gray] (1,2) rectangle (8.5,2.6);
+		\fill[gray] (11.5,2) rectangle (19,2.6);
+		% nitride
+		\fill[purple] (1,2.6) rectangle (8.5,3.2);
+		\fill[purple] (11.5,2.6) rectangle (19,3.2);
+		% channel stop
+		\fill[RedOrange] (0,1.5) rectangle (1,2);
+		\fill[RedOrange] (8.5,1.5) rectangle (11.5,2);
+		\fill[RedOrange] (19,1.5) rectangle (20,2);
+		%field oxides:
+		\fill[DarkGray] (0,2) rectangle (1,4);
+		\fill[DarkGray] (8.5,2) rectangle (11.5,4);
+		\fill[DarkGray] (19,2) rectangle (20,4);
+	\end{tikzpicture}
+\end{center}
+
+\subsubsection{Patterning}
+\begin{center}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (20,2);
+		\node at (2,0.5) {Si (p-type)};
+		% n-well
+		\fill[Goldenrod] (1.25,0.75) rectangle (8.25,2);
+		\node at (4.75,1) {N-Well};
+		% oxide
+		\fill[gray] (1,2) rectangle (8.5,2.6);
+		\fill[gray] (11.5,2) rectangle (19,2.6);
+		% nitride
+		\fill[purple] (1,2.6) rectangle (8.5,3.2);
+		\fill[purple] (11.5,2.6) rectangle (19,3.2);
+		% channel stop
+		\fill[RedOrange] (0,1.5) rectangle (1,2);
+		\fill[RedOrange] (8.5,1.5) rectangle (11.5,2);
+		\fill[RedOrange] (19,1.5) rectangle (20,2);
+		%field oxides:
+		\fill[DarkGray] (0,2) rectangle (1,4);
+		\fill[DarkGray] (8.5,2) rectangle (11.5,4);
+		\fill[DarkGray] (19,2) rectangle (20,4);
+	\end{tikzpicture}
+
+	\includegraphics[scale=0.01]{down_arrow.png}
+
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (20,2);
+		\node at (2,0.5) {Si (p-type)};
+		% n-well
+		\fill[Goldenrod] (1.25,0.75) rectangle (8.25,2);
+		\node at (4.75,1) {N-Well};
+		% oxide
+		\fill[gray] (1,2) rectangle (8.5,2.6);
+		\fill[gray] (11.5,2) rectangle (19,2.6);
+		% nitride
+		\fill[purple] (1,2.6) rectangle (8.5,3.2);
+		\fill[purple] (11.5,2.6) rectangle (19,3.2);
+		% channel stop
+		\fill[RedOrange] (0,1.5) rectangle (1,2);
+		\fill[RedOrange] (8.5,1.5) rectangle (11.5,2);
+		\fill[RedOrange] (19,1.5) rectangle (20,2);
+		%field oxides:
+		\fill[DarkGray] (0,2) rectangle (1,4);
+		\fill[DarkGray] (8.5,2) rectangle (11.5,4);
+		\fill[DarkGray] (19,2) rectangle (20,4);
+		% resist
+		\fill[orange] (0,4) rectangle (1,4.6);
+		\fill[orange] (8.5,4) rectangle (11.5,4.6);
+		\fill[orange] (19,4) rectangle (20,4.6);
+	\end{tikzpicture}
+\end{center}
+
 
 \newpage
 \subsection{Active}
