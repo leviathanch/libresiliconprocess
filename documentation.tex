@@ -2879,4 +2879,362 @@ The p+ islands are implanted with a Boron ($B^{11}$) dose of $4\times10^{11}cm^{
 	\end{tikzpicture}
 \end{center}
 
+\subsubsection{Sacrificial oxide}
+\begin{center}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (20,2);
+		\node at (2,0.5) {Si (p-type)};
+		% n-well
+		\fill[Goldenrod] (1.25,0.75) rectangle (8.25,2);
+		\node at (4.75,1) {N-Well};
+		% gate oxide
+		\fill[LightGray] (4.8,2) rectangle (6.7,2.1);
+		\fill[LightGray] (13.3,2) rectangle (15.2,2.1);
+		% gate poly
+		\fill[BrickRed] (4.8,2.1) rectangle (6.7,2.2);
+		\fill[BrickRed] (13.3,2.1) rectangle (15.2,2.2);
+		% dioxide
+		\fill[NormalGray] (1,2) rectangle (1.6,2.7); % fox
+		\fill[NormalGray] (2.9,2) rectangle (3.5,2.7); % fox
+		\fill[NormalGray] (8,2) rectangle (8.5,2.7);
+		\fill[NormalGray] (11,2) rectangle (12,2.7); % fox
+		\fill[NormalGray] (16.5,2) rectangle (17,2.7); % fox
+		\fill[NormalGray] (18.5,2) rectangle (20,2.7);
+		% dioxide 2nd
+		\fill[NormalGray] (1,2.8) rectangle (1.6,3.3); % fox
+		\fill[NormalGray] (2.9,2.8) rectangle (3.5,3.3); % fox
+		\fill[NormalGray] (3.5,2) rectangle (4.8,2.8);
+		\fill[NormalGray] (4.8,2.4) rectangle (6.7,2.8);
+		\fill[NormalGray] (6.7,2) rectangle (8,2.8);
+		\fill[NormalGray] (8,2.8) rectangle (8.5,3.3);
+		\fill[NormalGray] (11.5,2.8) rectangle (12,3.3); % fox
+		\fill[NormalGray] (16.5,2.8) rectangle (17,3.3); % fox
+		\fill[NormalGray] (17,2) rectangle (18.5,2.8);
+		\fill[NormalGray] (18.5,2.8) rectangle (19,3.3);
+		\fill[NormalGray] (0,4.1) rectangle (1,4.2);
+		\fill[NormalGray] (8.5,4.1) rectangle (11.5,4.2);
+		\fill[NormalGray] (19,4.1) rectangle (20,4.2);
+		% p+
+		\fill[RedOrange] (0,4) rectangle (1,4.1);
+		\fill[RedOrange] (1,2.7) rectangle (1.6,2.8);
+		\fill[RedOrange] (2.9,2.7) rectangle (3.5,2.8);
+		\fill[RedOrange] (8,2.7) rectangle (8.5,2.8);
+		\fill[RedOrange] (8.5,4) rectangle (11.5,4.1);
+		\fill[RedOrange] (11.5,2.7) rectangle (12,2.8); % fox
+		\fill[RedOrange] (16.5,2.7) rectangle (17,2.8); % fox
+		\fill[RedOrange] (18.5,2.7) rectangle (19,2.8);
+		\fill[RedOrange] (19,4) rectangle (20,4.1);
+		\fill[RedOrange] (3.4,1.2) rectangle (4.9,2);
+		\fill[RedOrange] (4.8,2.2) rectangle (6.7,2.4);
+		\fill[RedOrange] (6.6,1.2) rectangle (8.1,2);
+		\fill[RedOrange] (16.9,1.2) rectangle (18.7,2);
+		% n+
+		\fill[ProcessBlue] (1.6,1.8) rectangle (2.9,2);
+		\fill[ProcessBlue] (12,1.8) rectangle (13.3,2);
+		\fill[ProcessBlue] (15.2,1.8) rectangle (16.5,2);
+		% n+ on oxide
+		\fill[ProcessBlue] (0,4.2) rectangle (1,4.3);
+		\fill[ProcessBlue] (1,3.3) rectangle (1.6,3.4);
+		\fill[ProcessBlue] (2.9,3.3) rectangle (3.5,3.4);
+		\fill[ProcessBlue] (3.5,2.8) rectangle (8,2.9);
+		\fill[ProcessBlue] (8,3.3) rectangle (8.5,3.4);
+		\fill[ProcessBlue] (8.5,4.2) rectangle (11.5,4.3);
+		\fill[ProcessBlue] (11.5,3.3) rectangle (12,3.4);
+		\fill[ProcessBlue] (13.3,2.2) rectangle (15.2,2.3);
+		\fill[ProcessBlue] (16.5,3.3) rectangle (17,3.4);
+		\fill[ProcessBlue] (17,2.8) rectangle (18.5,2.9);
+		\fill[ProcessBlue] (18.5,3.3) rectangle (19,3.4);
+		\fill[ProcessBlue] (19,4.2) rectangle (20,4.3);
+		%field oxides:
+		\fill[DarkGray] (0,2) rectangle (1,4);
+		\fill[DarkGray] (8.5,2) rectangle (11.5,4);
+		\fill[DarkGray] (19,2) rectangle (20,4);
+		% channel stop
+		\fill[RedOrange] (0,1.5) rectangle (1,2);
+		\fill[RedOrange] (8.5,1.5) rectangle (11.5,2);
+		\fill[RedOrange] (19,1.5) rectangle (20,2);
+	\end{tikzpicture}
+
+	\includegraphics[scale=0.01]{down_arrow.png}
+
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (20,2);
+		\node at (2,0.5) {Si (p-type)};
+		% n-well
+		\fill[Goldenrod] (1.25,0.75) rectangle (8.25,2);
+		\node at (4.75,1) {N-Well};
+		% gate oxide
+		\fill[LightGray] (4.8,2) rectangle (6.7,2.1);
+		\fill[LightGray] (13.3,2) rectangle (15.2,2.1);
+		% gate poly
+		\fill[BrickRed] (4.8,2.1) rectangle (6.7,2.2);
+		\fill[BrickRed] (13.3,2.1) rectangle (15.2,2.2);
+		% dioxide
+		\fill[NormalGray] (1,2) rectangle (1.6,2.7); % fox
+		\fill[NormalGray] (2.9,2) rectangle (3.5,2.7); % fox
+		\fill[NormalGray] (8,2) rectangle (8.5,2.7);
+		\fill[NormalGray] (11,2) rectangle (12,2.7); % fox
+		\fill[NormalGray] (16.5,2) rectangle (17,2.7); % fox
+		\fill[NormalGray] (18.5,2) rectangle (20,2.7);
+		% dioxide 2nd
+		\fill[NormalGray] (1,2.8) rectangle (1.6,3.3); % fox
+		\fill[NormalGray] (2.9,2.8) rectangle (3.5,3.3); % fox
+		\fill[NormalGray] (3.5,2) rectangle (4.8,2.8);
+		\fill[NormalGray] (4.8,2.4) rectangle (6.7,2.8);
+		\fill[NormalGray] (6.7,2) rectangle (8,2.8);
+		\fill[NormalGray] (8,2.8) rectangle (8.5,3.3);
+		\fill[NormalGray] (11.5,2.8) rectangle (12,3.3); % fox
+		\fill[NormalGray] (16.5,2.8) rectangle (17,3.3); % fox
+		\fill[NormalGray] (17,2) rectangle (18.5,2.8);
+		\fill[NormalGray] (18.5,2.8) rectangle (19,3.3);
+		\fill[NormalGray] (0,4.1) rectangle (1,4.2);
+		\fill[NormalGray] (8.5,4.1) rectangle (11.5,4.2);
+		\fill[NormalGray] (19,4.1) rectangle (20,4.2);
+		% p+
+		\fill[RedOrange] (0,4) rectangle (1,4.1);
+		\fill[RedOrange] (1,2.7) rectangle (1.6,2.8);
+		\fill[RedOrange] (2.9,2.7) rectangle (3.5,2.8);
+		\fill[RedOrange] (8,2.7) rectangle (8.5,2.8);
+		\fill[RedOrange] (8.5,4) rectangle (11.5,4.1);
+		\fill[RedOrange] (11.5,2.7) rectangle (12,2.8); % fox
+		\fill[RedOrange] (16.5,2.7) rectangle (17,2.8); % fox
+		\fill[RedOrange] (18.5,2.7) rectangle (19,2.8);
+		\fill[RedOrange] (19,4) rectangle (20,4.1);
+		\fill[RedOrange] (3.4,1.2) rectangle (4.9,2);
+		\fill[RedOrange] (4.8,2.2) rectangle (6.7,2.4);
+		\fill[RedOrange] (6.6,1.2) rectangle (8.1,2);
+		\fill[RedOrange] (16.9,1.2) rectangle (18.7,2);
+		% n+
+		\fill[ProcessBlue] (1.6,1.8) rectangle (2.9,2);
+		\fill[ProcessBlue] (12,1.8) rectangle (13.3,2);
+		\fill[ProcessBlue] (15.2,1.8) rectangle (16.5,2);
+		% n+ on oxide
+		\fill[ProcessBlue] (0,4.2) rectangle (1,4.3);
+		\fill[ProcessBlue] (1,3.3) rectangle (1.6,3.4);
+		\fill[ProcessBlue] (2.9,3.3) rectangle (3.5,3.4);
+		\fill[ProcessBlue] (3.5,2.8) rectangle (8,2.9);
+		\fill[ProcessBlue] (8,3.3) rectangle (8.5,3.4);
+		\fill[ProcessBlue] (8.5,4.2) rectangle (11.5,4.3);
+		\fill[ProcessBlue] (11.5,3.3) rectangle (12,3.4);
+		\fill[ProcessBlue] (13.3,2.2) rectangle (15.2,2.3);
+		\fill[ProcessBlue] (16.5,3.3) rectangle (17,3.4);
+		\fill[ProcessBlue] (17,2.8) rectangle (18.5,2.9);
+		\fill[ProcessBlue] (18.5,3.3) rectangle (19,3.4);
+		\fill[ProcessBlue] (19,4.2) rectangle (20,4.3);
+		% oxide on n+
+		\fill[NormalGray] (0,4.3) rectangle (1,4.4);
+		\fill[NormalGray] (1,3.4) rectangle (1.6,3.7);
+		\fill[NormalGray] (2.9,3.4) rectangle (3.5,3.7);
+		\fill[NormalGray] (3.5,2.9) rectangle (8,3.5);
+		\fill[NormalGray] (8,3.4) rectangle (8.5,3.7);
+		\fill[NormalGray] (8.5,4.3) rectangle (11.5,4.4);
+		\fill[NormalGray] (11.5,3.4) rectangle (12,3.7);
+		\fill[NormalGray] (13.3,2.3) rectangle (15.2,3.5);
+		\fill[NormalGray] (16.5,3.4) rectangle (17,3.7);
+		\fill[NormalGray] (17,2.9) rectangle (18.5,3.5);
+		\fill[NormalGray] (18.5,3.4) rectangle (19,3.7);
+		\fill[NormalGray] (19,4.3) rectangle (20,4.4);
+		\fill[NormalGray] (1.6,2) rectangle (3,3.5); % close fox
+		\fill[NormalGray] (12,2) rectangle (13.3,3.5); % close fox
+		\fill[NormalGray] (15.2,2) rectangle (16.5,3.5); % close fox
+		%field oxides:
+		\fill[DarkGray] (0,2) rectangle (1,4);
+		\fill[DarkGray] (8.5,2) rectangle (11.5,4);
+		\fill[DarkGray] (19,2) rectangle (20,4);
+		% channel stop
+		\fill[RedOrange] (0,1.5) rectangle (1,2);
+		\fill[RedOrange] (8.5,1.5) rectangle (11.5,2);
+		\fill[RedOrange] (19,1.5) rectangle (20,2);
+	\end{tikzpicture}
+\end{center}
+
+\subsubsection{Infusion}
+\begin{center}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (20,2);
+		\node at (2,0.5) {Si (p-type)};
+		% n-well
+		\fill[Goldenrod] (1.25,0.75) rectangle (8.25,2);
+		\node at (4.75,1) {N-Well};
+		% gate oxide
+		\fill[LightGray] (4.8,2) rectangle (6.7,2.1);
+		\fill[LightGray] (13.3,2) rectangle (15.2,2.1);
+		% gate poly
+		\fill[BrickRed] (4.8,2.1) rectangle (6.7,2.2);
+		\fill[BrickRed] (13.3,2.1) rectangle (15.2,2.2);
+		% dioxide
+		\fill[NormalGray] (1,2) rectangle (1.6,2.7); % fox
+		\fill[NormalGray] (2.9,2) rectangle (3.5,2.7); % fox
+		\fill[NormalGray] (8,2) rectangle (8.5,2.7);
+		\fill[NormalGray] (11,2) rectangle (12,2.7); % fox
+		\fill[NormalGray] (16.5,2) rectangle (17,2.7); % fox
+		\fill[NormalGray] (18.5,2) rectangle (20,2.7);
+		% dioxide 2nd
+		\fill[NormalGray] (1,2.8) rectangle (1.6,3.3); % fox
+		\fill[NormalGray] (2.9,2.8) rectangle (3.5,3.3); % fox
+		\fill[NormalGray] (3.5,2) rectangle (4.8,2.8);
+		\fill[NormalGray] (4.8,2.4) rectangle (6.7,2.8);
+		\fill[NormalGray] (6.7,2) rectangle (8,2.8);
+		\fill[NormalGray] (8,2.8) rectangle (8.5,3.3);
+		\fill[NormalGray] (11.5,2.8) rectangle (12,3.3); % fox
+		\fill[NormalGray] (16.5,2.8) rectangle (17,3.3); % fox
+		\fill[NormalGray] (17,2) rectangle (18.5,2.8);
+		\fill[NormalGray] (18.5,2.8) rectangle (19,3.3);
+		\fill[NormalGray] (0,4.1) rectangle (1,4.2);
+		\fill[NormalGray] (8.5,4.1) rectangle (11.5,4.2);
+		\fill[NormalGray] (19,4.1) rectangle (20,4.2);
+		% p+
+		\fill[RedOrange] (0,4) rectangle (1,4.1);
+		\fill[RedOrange] (1,2.7) rectangle (1.6,2.8);
+		\fill[RedOrange] (2.9,2.7) rectangle (3.5,2.8);
+		\fill[RedOrange] (8,2.7) rectangle (8.5,2.8);
+		\fill[RedOrange] (8.5,4) rectangle (11.5,4.1);
+		\fill[RedOrange] (11.5,2.7) rectangle (12,2.8); % fox
+		\fill[RedOrange] (16.5,2.7) rectangle (17,2.8); % fox
+		\fill[RedOrange] (18.5,2.7) rectangle (19,2.8);
+		\fill[RedOrange] (19,4) rectangle (20,4.1);
+		\fill[RedOrange] (3.4,1.2) rectangle (4.9,2);
+		\fill[RedOrange] (4.8,2.2) rectangle (6.7,2.4);
+		\fill[RedOrange] (6.6,1.2) rectangle (8.1,2);
+		\fill[RedOrange] (16.9,1.2) rectangle (18.7,2);
+		% n+
+		\fill[ProcessBlue] (1.6,1.8) rectangle (2.9,2);
+		\fill[ProcessBlue] (12,1.8) rectangle (13.3,2);
+		\fill[ProcessBlue] (15.2,1.8) rectangle (16.5,2);
+		% n+ on oxide
+		\fill[ProcessBlue] (0,4.2) rectangle (1,4.3);
+		\fill[ProcessBlue] (1,3.3) rectangle (1.6,3.4);
+		\fill[ProcessBlue] (2.9,3.3) rectangle (3.5,3.4);
+		\fill[ProcessBlue] (3.5,2.8) rectangle (8,2.9);
+		\fill[ProcessBlue] (8,3.3) rectangle (8.5,3.4);
+		\fill[ProcessBlue] (8.5,4.2) rectangle (11.5,4.3);
+		\fill[ProcessBlue] (11.5,3.3) rectangle (12,3.4);
+		\fill[ProcessBlue] (13.3,2.2) rectangle (15.2,2.3);
+		\fill[ProcessBlue] (16.5,3.3) rectangle (17,3.4);
+		\fill[ProcessBlue] (17,2.8) rectangle (18.5,2.9);
+		\fill[ProcessBlue] (18.5,3.3) rectangle (19,3.4);
+		\fill[ProcessBlue] (19,4.2) rectangle (20,4.3);
+		% oxide on n+
+		\fill[NormalGray] (0,4.3) rectangle (1,4.4);
+		\fill[NormalGray] (1,3.4) rectangle (1.6,3.7);
+		\fill[NormalGray] (2.9,3.4) rectangle (3.5,3.7);
+		\fill[NormalGray] (3.5,2.9) rectangle (8,3.5);
+		\fill[NormalGray] (8,3.4) rectangle (8.5,3.7);
+		\fill[NormalGray] (8.5,4.3) rectangle (11.5,4.4);
+		\fill[NormalGray] (11.5,3.4) rectangle (12,3.7);
+		\fill[NormalGray] (13.3,2.3) rectangle (15.2,3.5);
+		\fill[NormalGray] (16.5,3.4) rectangle (17,3.7);
+		\fill[NormalGray] (17,2.9) rectangle (18.5,3.5);
+		\fill[NormalGray] (18.5,3.4) rectangle (19,3.7);
+		\fill[NormalGray] (19,4.3) rectangle (20,4.4);
+		\fill[NormalGray] (1.6,2) rectangle (3,3.5); % close fox
+		\fill[NormalGray] (12,2) rectangle (13.3,3.5); % close fox
+		\fill[NormalGray] (15.2,2) rectangle (16.5,3.5); % close fox
+		%field oxides:
+		\fill[DarkGray] (0,2) rectangle (1,4);
+		\fill[DarkGray] (8.5,2) rectangle (11.5,4);
+		\fill[DarkGray] (19,2) rectangle (20,4);
+		% channel stop
+		\fill[RedOrange] (0,1.5) rectangle (1,2);
+		\fill[RedOrange] (8.5,1.5) rectangle (11.5,2);
+		\fill[RedOrange] (19,1.5) rectangle (20,2);
+	\end{tikzpicture}
+
+	\includegraphics[scale=0.01]{down_arrow.png}
+
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+		% substrate
+		\fill[YellowOrange] (0,0) rectangle (20,2);
+		\node at (2,0.5) {Si (p-type)};
+		% n-well
+		\fill[Goldenrod] (1.25,0.75) rectangle (8.25,2);
+		\node at (4.75,1) {N-Well};
+		% gate oxide
+		\fill[LightGray] (4.8,2) rectangle (6.7,2.1);
+		\fill[LightGray] (13.3,2) rectangle (15.2,2.1);
+		% gate poly
+		\fill[BrickRed] (4.8,2.1) rectangle (6.7,2.2);
+		\fill[BrickRed] (13.3,2.1) rectangle (15.2,2.2);
+		% dioxide
+		\fill[NormalGray] (1,2) rectangle (1.6,2.7); % fox
+		\fill[NormalGray] (2.9,2) rectangle (3.5,2.7); % fox
+		\fill[NormalGray] (8,2) rectangle (8.5,2.7);
+		\fill[NormalGray] (11,2) rectangle (12,2.7); % fox
+		\fill[NormalGray] (16.5,2) rectangle (17,2.7); % fox
+		\fill[NormalGray] (18.5,2) rectangle (20,2.7);
+		% dioxide 2nd
+		\fill[NormalGray] (1,2.8) rectangle (1.6,3.3); % fox
+		\fill[NormalGray] (2.9,2.8) rectangle (3.5,3.3); % fox
+		\fill[NormalGray] (3.5,2) rectangle (4.8,2.8);
+		\fill[NormalGray] (4.8,2.4) rectangle (6.7,2.8);
+		\fill[NormalGray] (6.7,2) rectangle (8,2.8);
+		\fill[NormalGray] (8,2.8) rectangle (8.5,3.3);
+		\fill[NormalGray] (11.5,2.8) rectangle (12,3.3); % fox
+		\fill[NormalGray] (16.5,2.8) rectangle (17,3.3); % fox
+		\fill[NormalGray] (17,2) rectangle (18.5,2.8);
+		\fill[NormalGray] (18.5,2.8) rectangle (19,3.3);
+		\fill[NormalGray] (0,4.1) rectangle (1,4.2);
+		\fill[NormalGray] (8.5,4.1) rectangle (11.5,4.2);
+		\fill[NormalGray] (19,4.1) rectangle (20,4.2);
+		% p+
+		\fill[RedOrange] (0,4) rectangle (1,4.1);
+		\fill[RedOrange] (1,2.7) rectangle (1.6,2.8);
+		\fill[RedOrange] (2.9,2.7) rectangle (3.5,2.8);
+		\fill[RedOrange] (8,2.7) rectangle (8.5,2.8);
+		\fill[RedOrange] (8.5,4) rectangle (11.5,4.1);
+		\fill[RedOrange] (11.5,2.7) rectangle (12,2.8); % fox
+		\fill[RedOrange] (16.5,2.7) rectangle (17,2.8); % fox
+		\fill[RedOrange] (18.5,2.7) rectangle (19,2.8);
+		\fill[RedOrange] (19,4) rectangle (20,4.1);
+		\fill[RedOrange] (3.4,1.2) rectangle (4.9,2);
+		\fill[RedOrange] (4.8,2.2) rectangle (6.7,2.4);
+		\fill[RedOrange] (6.6,1.2) rectangle (8.1,2);
+		\fill[RedOrange] (16.9,1.2) rectangle (18.7,2);
+		% n+
+		\fill[ProcessBlue] (1.5,1.2) rectangle (3,2);
+		\fill[ProcessBlue] (11.9,1.2) rectangle (13.4,2);
+		\fill[ProcessBlue] (15.1,1.2) rectangle (16.6,2);
+		% n+ on oxide
+		\fill[ProcessBlue] (0,4.2) rectangle (1,4.3);
+		\fill[ProcessBlue] (1,3.3) rectangle (1.6,3.4);
+		\fill[ProcessBlue] (2.9,3.3) rectangle (3.5,3.4);
+		\fill[ProcessBlue] (3.5,2.8) rectangle (8,2.9);
+		\fill[ProcessBlue] (8,3.3) rectangle (8.5,3.4);
+		\fill[ProcessBlue] (8.5,4.2) rectangle (11.5,4.3);
+		\fill[ProcessBlue] (11.5,3.3) rectangle (12,3.4);
+		\fill[ProcessBlue] (13.3,2.2) rectangle (15.2,2.3);
+		\fill[ProcessBlue] (16.5,3.3) rectangle (17,3.4);
+		\fill[ProcessBlue] (17,2.8) rectangle (18.5,2.9);
+		\fill[ProcessBlue] (18.5,3.3) rectangle (19,3.4);
+		\fill[ProcessBlue] (19,4.2) rectangle (20,4.3);
+		% oxide on n+
+		\fill[NormalGray] (0,4.3) rectangle (1,4.4);
+		\fill[NormalGray] (1,3.4) rectangle (1.6,3.7);
+		\fill[NormalGray] (2.9,3.4) rectangle (3.5,3.7);
+		\fill[NormalGray] (3.5,2.9) rectangle (8,3.5);
+		\fill[NormalGray] (8,3.4) rectangle (8.5,3.7);
+		\fill[NormalGray] (8.5,4.3) rectangle (11.5,4.4);
+		\fill[NormalGray] (11.5,3.4) rectangle (12,3.7);
+		\fill[NormalGray] (13.3,2.3) rectangle (15.2,3.5);
+		\fill[NormalGray] (16.5,3.4) rectangle (17,3.7);
+		\fill[NormalGray] (17,2.9) rectangle (18.5,3.5);
+		\fill[NormalGray] (18.5,3.4) rectangle (19,3.7);
+		\fill[NormalGray] (19,4.3) rectangle (20,4.4);
+		\fill[NormalGray] (1.6,2) rectangle (3,3.5); % close fox
+		\fill[NormalGray] (12,2) rectangle (13.3,3.5); % close fox
+		\fill[NormalGray] (15.2,2) rectangle (16.5,3.5); % close fox
+		%field oxides:
+		\fill[DarkGray] (0,2) rectangle (1,4);
+		\fill[DarkGray] (8.5,2) rectangle (11.5,4);
+		\fill[DarkGray] (19,2) rectangle (20,4);
+		% channel stop
+		\fill[RedOrange] (0,1.5) rectangle (1,2);
+		\fill[RedOrange] (8.5,1.5) rectangle (11.5,2);
+		\fill[RedOrange] (19,1.5) rectangle (20,2);
+	\end{tikzpicture}
+\end{center}
+
 \end{document}
