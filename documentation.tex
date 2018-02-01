@@ -24,6 +24,7 @@
 \usepackage[colorlinks=true,linkcolor=blue,urlcolor=black,bookmarksopen=true]{hyperref}
 \usepackage{bookmark}
 
+\usepackage[srcmeas]{circdia}
 
 \title{Libre Silicon process specification}
 \date{\today} 
@@ -48,15 +49,117 @@
 \newpage
 \tableofcontents
 \newpage
-
 \section{Discrete components}
 This basic initial process draft is CMOS only and for this reason only consists the two MOSFET typed n/p required to build CMOS technology.
 Resistors are not included within this initial process draft.
 
+\subsection{CMOS in a nutshell}
+
+This basic initial project is dedicated to the CMOS Technology only and for this reason two types of metal–oxide–semiconductor field-effect transistors (MOSFET) are required.
+
+Historicaly, the first chips with MOSFETs on the mass market were p-channel MOSFETs in enhancement-mode.
+
+\begin{center}
+	\begin{figure}[h]
+		\begin{center}
+			\begin{circuitdiagram}[draft*]{20}{20}
+				\power{15}{18.5}{U}{}  % power above pmos
+				\wire{15}{18}{15}{16}   % wire above pmos
+				\trans{penh}{13}{14}{R}{}{} % pmos -> right
+				\Voltarrow{14}{18}{10}{16}{u}{$-V_{GS}$}
+				\wire{15}{12}{15}{8}   % wire below pmos
+				\resis{15}{5}{V}{$R_D$}{}  % resistor on drain
+				\wire{15}{1}{15}{2}   % wire below pmos
+				\ground{15}{0.5}{D}  % ground below resistor
+				\othersrc[\sigsym{-rec}]{o}{5.5}{15.5}{H}{}{signal}
+				\pin{9.5}{15.5}{R}{}	% pin in
+				\ground{2.5}{0.5}{D}  % ground below signal source
+				\wire{2.5}{1}{2.5}{15.5}   % wire below signal
+				\junct{15}{10}   % dot
+				\wire{15}{10}{16}{10}   % wire before out
+				\pin{17}{10}{R}{out}	% pin out
+			\end{circuitdiagram}
+		\end{center}
+		\caption{enhancement-mode PMOS transistor use-case}
+	\end{figure}
+\end{center}
+
+The sectional view of a PMOS transistor in silicon is being shown below
+\begin{center}
+\end{center}
+
+Historicaly later, faster chips with MOSFETs on the mass market were marked as n-channel MOSFETs in enhancement mode also.
+
+\begin{center}
+	\begin{figure}[h]
+		\begin{center}
+			\begin{circuitdiagram}[draft*]{20}{20}
+				\power{15}{18.5}{U}{}  % power above resistor
+				\wire{15}{17}{15}{18}   % wire above resistor
+				\resis{15}{14}{V}{$R_D$}{}  % resistor on drain
+				\wire{15}{11}{15}{8}   % wire between resistor and nmos
+				\trans{nenh}{13}{6}{R}{}{} % nmos -> right
+				\Voltarrow{10}{4}{14}{1}{d}{$+V_{GS}$}
+				\wire{15}{1}{15}{4}   % wire below nmos
+				\ground{15}{0.5}{D}  % ground below nmos
+				\othersrc[\sigsym{rec}]{o}{5.5}{4.5}{H}{}{signal}
+				\pin{9.5}{4.5}{R}{}	% pin in
+				\ground{2.5}{0.5}{D}  % ground below signal source
+				\wire{2.5}{1}{2.5}{4.5}   % wire below signal
+				\junct{15}{10}   % dot
+				\wire{15}{10}{16}{10}   % wire before out
+				\pin{17}{10}{R}{out}	% pin out
+			\end{circuitdiagram}
+		\end{center}
+		\caption{enhancement-mode NMOS transistor use-case}
+	\end{figure}
+\end{center}
+
+The sectional view of a NMOS transistor in silicon is being shown here also.
+\begin{center}
+\end{center}
+
+Both technologies, the older NMOS as the newer PMOS, have the same disadvantage. Every time, the transistor is switched on, the current between Drain and Source of the transistor is limited by the Resistor on Drain only. Higher currents here meaning also higher power consumption for the chip where the transistors are integrated also. If the transistors are switched off, now currents flows between Drain and Source anymore, the power consumption of the chip also goes low.
+Et violà, the US-Patent with Number 3356858\footnotemark changed the world and combines both technologies to the new complementary metal-oxide-semiconductor (CMOS) technology. Instead of every transistor is working against a weak resistor, the transistor works against a complementary switched-off transistor. With the Eyes of our antecessor CMOS doubles the transistor count, but contemporary chips all are build in CMOS.
+\footnotetext[1]{https://www.google.com/patents/US3356858}
+
+\begin{center}
+	\begin{figure}[h]
+		\begin{center}
+			\begin{circuitdiagram}[draft*]{20}{20}
+				\power{15}{18.5}{U}{}  % power above pmos 
+				\wire{15}{16}{15}{18}   % wire above pmos
+				\trans{penh}{13}{14}{R}{}{} % pmos -> right
+				\Voltarrow{14}{18}{10}{16}{u}{$-V_{GS}$}
+				\wire{15}{8}{15}{12}   % wire between pmos and nmos
+				\trans{nenh}{13}{6}{R}{}{} % nmos -> right
+				\Voltarrow{10}{4}{14}{1}{d}{$+V_{GS}$}
+				\wire{15}{1}{15}{4}   % wire below nmos
+				\ground{15}{0.5}{D}  % ground below nmos
+				\othersrc[\sigsym{rec}]{o}{5}{10}{H}{}{signal}
+				\pin{9}{10}{R}{}	% pin in
+				\wire{9.5}{10}{10}{10}   % wire before gates
+				\wire{10}{15.5}{10}{4.5}   % wire between gates
+				\junct{10}{10}   % dot
+				\ground{2}{0.5}{D}  % ground below signal source
+				\wire{2}{1}{2}{10}   % wire below signal
+				\junct{15}{10}   % dot
+				\wire{15}{10}{16}{10}   % wire before out
+				\pin{17}{10}{R}{out}	% pin out
+			\end{circuitdiagram}
+		\end{center}
+		\caption{complementary PMOS and NMOS transistor couple use-case}
+	\end{figure}
+\end{center}
+
+The sectional view of a NMOS and PMOS transistors couple in silicon - building the CMOS technology - are being shown here also.
+\begin{center}
+\end{center}
+
 \subsection{NMOS}
 The following circuit symbol will be used throughout the document for symbolizing a NMOS transistor
 \begin{center}
-	\begin{circuitikz}
+	\begin{circuitikz}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
 		\node at (5,0) [ground] (gnd) {};
 		\node at (5,2) [nigfete] (nmos) {} ;
 		\node at (4.5,5) [right] (vdd) {$V_{DD}$};
@@ -71,7 +174,7 @@ The following circuit symbol will be used throughout the document for symbolizin
 
 The geometry in silicon is being shown below
 \begin{center}
-	\begin{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
 		% substrate
 		\fill[YellowOrange] (0,0) rectangle (10,2);
 		\node at (2,0.5) {Si (p-type)};
@@ -123,12 +226,10 @@ The geometry in silicon is being shown below
 	\end{tikzpicture}
 \end{center}
 
-\newpage
-
 \subsection{PMOS}
 The following circuit symbol will be used throughout the document for symbolizing a PMOS transistor
 \begin{center}
-	\begin{circuitikz}
+	\begin{circuitikz}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
 		\node at (5,0) [ground] (gnd) {};
 		\node at (5,2) [pigfete,xscale=1,yscale=-1] (pmos) {} ;
 		\node at (4.5,5) [right] (vdd) {$V_{DD}$};
@@ -143,7 +244,7 @@ The following circuit symbol will be used throughout the document for symbolizin
 
 The geometry in silicon is being shown below
 \begin{center}
-	\begin{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
 		% substrate
 		\fill[YellowOrange] (0,0) rectangle (10,2);
 		\node at (2,0.5) {Si (p-type)};
