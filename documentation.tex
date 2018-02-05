@@ -23,6 +23,7 @@
 
 \usepackage[colorlinks=true,linkcolor=blue,urlcolor=black,bookmarksopen=true]{hyperref}
 \usepackage{bookmark}
+\usepackage{hyperref}
 
 \usepackage[srcmeas]{circdia}
 
@@ -363,6 +364,10 @@ For the run through of this process we will use this cross section diagram as re
 \end{center}
 
 \newpage
+\section{Physics}
+\input{physics_infusion.tex}
+\newpage
+
 \section{Process}
 Below the general flow chart of the overall process flow can be seen. These process steps will be discussed within the following sections.
 \begin{center}
@@ -466,53 +471,6 @@ In order to selectively inject charge carrying atoms into the crystalline struct
 		\node at (2,2.1) {SiO2};
 	\end{tikzpicture}
 \end{center}
-
-The redistribution process depends on the ratio of the solubility of the doping material in silicon and SiO$ _2$. At the Si/SiO$ _2$ interface the dopants are redistributed by segregation until the ratio of their concentration at the interface is the same as the ratio of their solubility in both materials. The ratio of dopant solubility is expressed by the segregation coefficient $m$ which is
-\begin{equation}
-\displaystyle m = \frac{\mathrm{solubility in silicon}}{\mathrm{solubility in SiO_2}}
-\end{equation}
-
-As listed in Table 1 below there are dopant species which solubilize better in SiO$ _2$ than in silicon ($ m < 1$) and species which have a reversed behavior ($ m > 1$).
-In case of $ m < 1$, as for Boron, the dopant concentration is enhanced at the SiO$ _2$ side, whereas beneath the interface, there is a dopant depletion at the silicon surface.
-For reversed solubility ratios ($ m > 1$, like Phosphorus), only few dopant atoms penetrate the interface.
-In order to obtain the by $ m$ determined concentration ratio at the interface, dopant atoms from deeper silicon zones diffuse back to the surface zone.
-Therefore, the dopant concentration at the silicon surface is enhanced, as illustrated in Fig. 4.1b.
-In Fig. 4.1 $ C_c$ denotes the dopant concentration in the silicon surface zone before oxidation. $ x$ is the distance from the silicon surface.
-
-\begin{center}
-	\begin{table}
-		\begin{tabular}{|c|c|c|c|c|c|}
-			\hline
-			Dopant species &
-			Boron &
-			Phosphor &
-			Antimon &
-			Arsen &
-			Gallium \\
-			\hline
-			$m$ &
-			0.1-0.3 &
-			10 &
-			10 &
-			10 &
-			20 \\
-			\hline
-		\end{tabular}
-		\caption{Segregation coefficients $m$ for important dopant species in silicon}
-	\end{table}
-\end{center}
-
-\begin{center}
-	\begin{figure}[h]
-		\begin{center}
-			\includegraphics[width=0.75\linewidth]{img349.png}
-		\end{center}
-		\caption{Schematic illustration of dopant redistribution}
-	\end{figure}
-\end{center}
-
-%The dopand redistribution for the moving Si/SiO$ _2$ interface can be described with a diffusion model as presented in the next section.
-
 The industrial best practice is a layer of around (500nm$\approx$5000\normalfont\AA) thickness or more.
 For this purpose the wafer is being oxidized for at least 90 minutes at 1000\degree C using wet oxidation which results in a dioxide layer at least 500nm($\approx$5000\normalfont\AA) in thickness.
 
