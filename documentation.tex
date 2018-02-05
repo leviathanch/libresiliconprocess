@@ -24,6 +24,7 @@
 \usepackage[colorlinks=true,linkcolor=blue,urlcolor=black,bookmarksopen=true]{hyperref}
 \usepackage{bookmark}
 \usepackage{hyperref}
+\usepackage{sepfootnotes}
 
 \usepackage[srcmeas]{circdia}
 
@@ -44,13 +45,11 @@
 	This design is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 	See the Libre Silicon Public License for more details. \\
 
-	This is the specification of the free silicon manufacturing standard for manufacturing the LibreSilicon standard logic cells\footnotemark and related free technology nodes from the LibreSilicon project.
-	\footnotetext[1]{https://github.com/chipforge/StdCellLib}
+	This is the specification of the free silicon manufacturing standard for manufacturing the LibreSilicon standard logic cells\footnote{https://github.com/chipforge/StdCellLib} and related free technology nodes from the LibreSilicon project.
 \end{abstract}
 \newpage
 \tableofcontents
 \newpage
-\section{CMOS in a nutshell}
 \input{cmos_nutshell.tex}
 \newpage
 \section{Physics}
@@ -58,67 +57,10 @@
 \newpage
 
 \section{Process}
-Below the general flow chart of the overall process flow can be seen. These process steps will be discussed within the following sections.
-\begin{center}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
-		% Place nodes
-		\node [block] (well) {Well};
-		\node [block, below of=well] (implant) {Implant};
-		\node [block, below of=implant] (select) {Select};
-		\node [block, below of=select] (active) {Active};
-		\node [block, below of=active] (metal) {Metal 1-6};
-		% Draw edges
-		\path [line] (well) -- (implant);
-		\path [line] (implant) -- (select);
-		\path [line] (select) -- (active);
-		\path [line] (active) -- (metal);
-		
-		\draw[dotted] (-2,-10.5) rectangle (2,1.5);
-		\node at (3.5,-5) {CMOS process};
-	\end{tikzpicture}
-\end{center}
-The four starting overall process steps are part of an overall active part of the technology, while the final metal (respectively contact) layers will be used for making a contact between the logic gates and macro cells and making them available to the exterior world.
-For this process p-substrate is the required basic substrate, but forks and modifications will be very well possible based on a Graphene substrate or alike, still under the LSPL.
-The decision to use an n-well approach is based largely on the compatibility with the existing nMOS process.
-The starting material is a p-type, <100> oriented silicon with a doping concentration of $\approx 9\times10^{14}cm^{-3}$.
-
+\input{process_overview.tex}
 \newpage
-
-\subsection{Initial cleaning}
-In order to remove the initial naturally grown silicon dioxide from the wafer, acid is being applied to the wafer which leads to a pure silicon substrate wafer as in the process illustration shown below.
-
-\begin{center}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (20,2);
-		\node at (2,0.5) {Si (p-type)};
-		% oxide
-		\fill[gray] (0,2) rectangle (15,2.3);
-		\node at (2,2.1) {SiO};
-	\end{tikzpicture}
-
-	\includegraphics[scale=0.01]{down_arrow.png}
-
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (20,2);
-		\node at (2,0.5) {Si (p-type)};
-	\end{tikzpicture}
-\end{center}
-
-This needs to be done because the naturally grown initially existing silicon oxide is not pure and may contain contamination which may render the final product unusable.
-
-\subsubsection{Sulfuric Cleaning}
-The sulfuric acid mixture, $H_2 S O_4 + H_2 O_2$ is being applied to the wafer for 10 minutes at a temperature of 120 \degree C.
-
-\subsubsection{HF dip}
-After the sulfuric cleaning a HF (HF:H$_2$O , 1:50) dip is being performed for one minute. \\
-Hydrofluoric acid (HF) is used to remove native silicon dioxide from wafers. Since it acts quickly, one needs to only expose the wafer for a short time ("dip"). \\
-After that the wafer needs to be dried and quickly processed further before new uncontrolled natural oxide can build up on the wafer through the contact with air.
-
+\input{process_initial_clean.tex}
 \newpage
-
-\subsection{Well}
 \input{well.tex}
 
 \newpage
