@@ -1,23 +1,38 @@
-Below the general flow chart of the overall process flow can be seen. These process steps will be discussed within the following sections.
+\section{Process}
+
+Below the general flow chart of the overall process flow can be seen in \autoref{full_flow}.
+These process steps will be discussed within the following sections.
+
 \begin{center}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
-		% Place nodes
-		\node [block] (well) {Well};
-		\node [block, below of=well] (implant) {Implant};
-		\node [block, below of=implant] (select) {Select};
-		\node [block, below of=select] (active) {Active};
-		\node [block, below of=active] (metal) {Metal 1-6};
-		% Draw edges
-		\path [line] (well) -- (implant);
-		\path [line] (implant) -- (select);
-		\path [line] (select) -- (active);
-		\path [line] (active) -- (metal);
-		
-		\draw[dotted] (-2,-10.5) rectangle (2,1.5);
-		\node at (3.5,-5) {CMOS process};
-	\end{tikzpicture}
+	\begin{figure}[h]
+		\begin{center}
+			\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
+				% Place nodes
+				\node [block] (clean1) at (0,15) {Initial cleaning};
+				\node [block, right of=clean1] (well) {Well};
+				\node [block, below of=well] (fox) {Channel stop and field oxide};
+				\node [block, below of=fox] (active) {Active};
+				\node [block, below of=active] (pp) {p+ Implant};
+				\node [block, below of=pp] (np) {n+ Implant};
+				\node [block, right of=np] (metal) {Metal 1-6};
+				% Draw edges
+				\path [line] (clean1) -- (well);
+				\path [line] (well) -- (fox);
+				\path [line] (fox) -- (active);
+				\path [line] (active) -- (pp);
+				\path [line] (pp) -- (np);
+				\path [line] (np) -- (metal);
+				
+				\draw[dotted] (1.5,2) rectangle (4.5,16);
+				\node at (6,8) {CMOS process};
+			\end{tikzpicture}
+		\end{center}
+		\caption{Frontend and backend process flow}
+		\label{full_flow}
+	\end{figure}
 \end{center}
-The four starting overall process steps are part of an overall active part of the technology, while the final metal (respectively contact) layers will be used for making a contact between the logic gates and macro cells and making them available to the exterior world.
+
+The five starting overall process steps are part of an overall active part of the technology, while the final metal (respectively contact) layers will be used for making a contact between the logic gates and macro cells and making them available to the exterior world.
 For this process p-substrate is the required basic substrate, but forks and modifications will be very well possible based on a Graphene substrate or alike, still under the LSPL.
 The decision to use an n-well approach is based largely on the compatibility with the existing nMOS process.
 The starting material is a p-type, <100> oriented silicon with a doping concentration of $\approx 9\times10^{14}cm^{-3}$.
