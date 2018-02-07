@@ -1,41 +1,10 @@
 \subsection{Active}
 \begin{center}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (20,2);
-		\node at (2,0.5) {Si (p-type)};
-		% n-well
-		\fill[Goldenrod] (1.25,0.75) rectangle (8.25,2);
-		\node at (4.75,1) {N-Well};
-		% gate oxide
-		\fill[LightGray] (4.8,2) rectangle (6.7,2.1);
-		\fill[LightGray] (13.3,2) rectangle (15.2,2.1);
-		% gate poly
-		\fill[BrickRed] (4.8,2.1) rectangle (6.7,2.2);
-		\fill[BrickRed] (13.3,2.1) rectangle (15.2,2.2);
-		%field oxides:
-		\fill[DarkGray] (0,2) rectangle (1,4);
-		\fill[DarkGray] (8.5,2) rectangle (11.5,4);
-		\fill[DarkGray] (19,2) rectangle (20,4);
-		% channel stop
-		\fill[RedOrange] (0,1.5) rectangle (1,2);
-		\fill[RedOrange] (8.5,1.5) rectangle (11.5,2);
-		\fill[RedOrange] (19,1.5) rectangle (20,2);
+		\input{tikz_process_steps/4.a.tex}
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
-		\fill[YellowOrange] (0,0) rectangle (20,10);
-		% n-well
-		\fill[Goldenrod] (1.25,1.5) rectangle (8.25,7.25);
-		% field oxide
-		\fill[DarkGray] (0,0) rectangle (1,12);
-		\fill[DarkGray] (8.5,0) rectangle (11.5,12);
-		\fill[DarkGray] (19,0) rectangle (20,12);
-		\fill[DarkGray] (0,0) rectangle (20,1.25);
-		\fill[DarkGray] (0,7.5) rectangle (20,12);
-		% poly
-		\fill[BrickRed] (4.8,1.75) rectangle (6.7,9);
-		\fill[BrickRed] (13.3,1.75) rectangle (15.2,9);
-		\fill[BrickRed] (6.7,8) rectangle (15.2,9);
+		\input{tikz_process_steps/4.b.tex}
 	\end{tikzpicture}
 \end{center}
 
@@ -45,223 +14,56 @@ The thinner the layer is, the steeper the edges of the CMOS circuitry will be, h
 
 \begin{center}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (20,2);
-		\node at (2,0.5) {Si (p-type)};
-		% n-well
-		\fill[Goldenrod] (1.25,0.75) rectangle (8.25,2);
-		\node at (4.75,1) {N-Well};
-		%field oxides:
-		\fill[DarkGray] (0,2) rectangle (1,4);
-		\fill[DarkGray] (8.5,2) rectangle (11.5,4);
-		\fill[DarkGray] (19,2) rectangle (20,4);
-		% channel stop
-		\fill[RedOrange] (0,1.5) rectangle (1,2);
-		\fill[RedOrange] (8.5,1.5) rectangle (11.5,2);
-		\fill[RedOrange] (19,1.5) rectangle (20,2);
-	\end{tikzpicture}
-
-	\includegraphics[scale=0.01]{down_arrow.png}
-	
+		\input{tikz_process_steps/4.1.a.tex}
+	\end{tikzpicture} \\
+	\includegraphics[scale=0.01]{down_arrow.png} \\
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (20,2);
-		\node at (2,0.5) {Si (p-type)};
-		% n-well
-		\fill[Goldenrod] (1.25,0.75) rectangle (8.25,2);
-		\node at (4.75,1) {N-Well};
-		% gate oxide layer
-		\fill[LightGray] (0,2) rectangle (20,2.1);
-		%field oxides:
-		\fill[DarkGray] (0,2) rectangle (1,4);
-		\fill[DarkGray] (8.5,2) rectangle (11.5,4);
-		\fill[DarkGray] (19,2) rectangle (20,4);
-		% channel stop
-		\fill[RedOrange] (0,1.5) rectangle (1,2);
-		\fill[RedOrange] (8.5,1.5) rectangle (11.5,2);
-		\fill[RedOrange] (19,1.5) rectangle (20,2);
+		\input{tikz_process_steps/4.1.b.tex}
 	\end{tikzpicture}
 \end{center}
 
 \subsubsection{Polysilicon growth}
 \begin{center}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (20,2);
-		\node at (2,0.5) {Si (p-type)};
-		% n-well
-		\fill[Goldenrod] (1.25,0.75) rectangle (8.25,2);
-		\node at (4.75,1) {N-Well};
-		% gate oxide layer
-		\fill[LightGray] (0,2) rectangle (20,2.1);
-		%field oxides:
-		\fill[DarkGray] (0,2) rectangle (1,4);
-		\fill[DarkGray] (8.5,2) rectangle (11.5,4);
-		\fill[DarkGray] (19,2) rectangle (20,4);
-		% channel stop
-		\fill[RedOrange] (0,1.5) rectangle (1,2);
-		\fill[RedOrange] (8.5,1.5) rectangle (11.5,2);
-		\fill[RedOrange] (19,1.5) rectangle (20,2);
-	\end{tikzpicture}
-
-	\includegraphics[scale=0.01]{down_arrow.png}
-
+		\input{tikz_process_steps/4.2.a.tex}
+	\end{tikzpicture} \\
+	\includegraphics[scale=0.01]{down_arrow.png} \\
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (20,2);
-		\node at (2,0.5) {Si (p-type)};
-		% n-well
-		\fill[Goldenrod] (1.25,0.75) rectangle (8.25,2);
-		\node at (4.75,1) {N-Well};
-		% gate oxide layer
-		\fill[LightGray] (0,2) rectangle (20,2.1);
-		% poly layer
-		\fill[BrickRed] (0,2.1) rectangle (20,2.2);
-		%field oxides:
-		\fill[DarkGray] (0,2) rectangle (1,4);
-		\fill[DarkGray] (8.5,2) rectangle (11.5,4);
-		\fill[DarkGray] (19,2) rectangle (20,4);
-		% channel stop
-		\fill[RedOrange] (0,1.5) rectangle (1,2);
-		\fill[RedOrange] (8.5,1.5) rectangle (11.5,2);
-		\fill[RedOrange] (19,1.5) rectangle (20,2);
+		\input{tikz_process_steps/4.2.b.tex}
 	\end{tikzpicture}
 \end{center}
 
 \subsubsection{Patterning}
 \begin{center}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (20,2);
-		\node at (2,0.5) {Si (p-type)};
-		% n-well
-		\fill[Goldenrod] (1.25,0.75) rectangle (8.25,2);
-		\node at (4.75,1) {N-Well};
-		% gate oxide layer
-		\fill[LightGray] (0,2) rectangle (20,2.1);
-		% poly layer
-		\fill[BrickRed] (0,2.1) rectangle (20,2.2);
-		%field oxides:
-		\fill[DarkGray] (0,2) rectangle (1,4);
-		\fill[DarkGray] (8.5,2) rectangle (11.5,4);
-		\fill[DarkGray] (19,2) rectangle (20,4);
-		% channel stop
-		\fill[RedOrange] (0,1.5) rectangle (1,2);
-		\fill[RedOrange] (8.5,1.5) rectangle (11.5,2);
-		\fill[RedOrange] (19,1.5) rectangle (20,2);
+		\input{tikz_process_steps/4.3.a.tex}
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
-		\fill[BrickRed] (0,0) rectangle (20,10);
-	\end{tikzpicture}
-
-	\includegraphics[scale=0.01]{down_arrow.png}
-
+		\input{tikz_process_steps/4.3.at.tex}
+	\end{tikzpicture} \\
+	\includegraphics[scale=0.01]{down_arrow.png} \\
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (20,2);
-		\node at (2,0.5) {Si (p-type)};
-		% n-well
-		\fill[Goldenrod] (1.25,0.75) rectangle (8.25,2);
-		\node at (4.75,1) {N-Well};
-		% gate oxide layer
-		\fill[LightGray] (0,2) rectangle (20,2.1);
-		% poly layer
-		\fill[BrickRed] (0,2.1) rectangle (20,2.2);
-		% resist
-		\fill[orange] (4.8,2.2) rectangle (6.7,2.8);
-		\fill[orange] (13.3,2.2) rectangle (15.2,2.8);
-		%field oxides:
-		\fill[DarkGray] (0,2) rectangle (1,4);
-		\fill[DarkGray] (8.5,2) rectangle (11.5,4);
-		\fill[DarkGray] (19,2) rectangle (20,4);
-		% channel stop
-		\fill[RedOrange] (0,1.5) rectangle (1,2);
-		\fill[RedOrange] (8.5,1.5) rectangle (11.5,2);
-		\fill[RedOrange] (19,1.5) rectangle (20,2);
+		\input{tikz_process_steps/4.3.b.tex}
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
-		\fill[BrickRed] (0,0) rectangle (20,10);
-		% resist
-		\fill[orange] (4.8,1.75) rectangle (6.7,9);
-		\fill[orange] (13.3,1.75) rectangle (15.2,9);
-		\fill[orange] (6.7,8) rectangle (15.2,9);
+		\input{tikz_process_steps/4.3.bt.tex}
 	\end{tikzpicture}
 \end{center}
 
 \subsubsection{Etching}
 \begin{center}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (20,2);
-		\node at (2,0.5) {Si (p-type)};
-		% n-well
-		\fill[Goldenrod] (1.25,0.75) rectangle (8.25,2);
-		\node at (4.75,1) {N-Well};
-		% gate oxide layer
-		\fill[LightGray] (0,2) rectangle (20,2.1);
-		% poly layer
-		\fill[BrickRed] (0,2.1) rectangle (20,2.2);
-		% resist
-		\fill[orange] (4.8,2.2) rectangle (6.7,2.8);
-		\fill[orange] (13.3,2.2) rectangle (15.2,2.8);
-		%field oxides:
-		\fill[DarkGray] (0,2) rectangle (1,4);
-		\fill[DarkGray] (8.5,2) rectangle (11.5,4);
-		\fill[DarkGray] (19,2) rectangle (20,4);
-		% channel stop
-		\fill[RedOrange] (0,1.5) rectangle (1,2);
-		\fill[RedOrange] (8.5,1.5) rectangle (11.5,2);
-		\fill[RedOrange] (19,1.5) rectangle (20,2);
+		\input{tikz_process_steps/4.4.a.tex}
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
-		\fill[BrickRed] (0,0) rectangle (20,10);
-		% resist
-		\fill[orange] (4.8,1.75) rectangle (6.7,9);
-		\fill[orange] (13.3,1.75) rectangle (15.2,9);
-		\fill[orange] (4.8,8) rectangle (15.2,9);
-	\end{tikzpicture}
-
-	\includegraphics[scale=0.01]{down_arrow.png}
-
+		\input{tikz_process_steps/4.4.at.tex}
+	\end{tikzpicture} \\
+	\includegraphics[scale=0.01]{down_arrow.png} \\
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (20,2);
-		\node at (2,0.5) {Si (p-type)};
-		% n-well
-		\fill[Goldenrod] (1.25,0.75) rectangle (8.25,2);
-		\node at (4.75,1) {N-Well};
-		% gate oxide
-		\fill[LightGray] (4.8,2) rectangle (6.7,2.1);
-		\fill[LightGray] (13.3,2) rectangle (15.2,2.1);
-		% gate poly
-		\fill[BrickRed] (4.8,2.1) rectangle (6.7,2.2);
-		\fill[BrickRed] (13.3,2.1) rectangle (15.2,2.2);
-		% resist
-		\fill[orange] (4.8,2.2) rectangle (6.7,2.8);
-		\fill[orange] (13.3,2.2) rectangle (15.2,2.8);
-		%field oxides:
-		\fill[DarkGray] (0,2) rectangle (1,4);
-		\fill[DarkGray] (8.5,2) rectangle (11.5,4);
-		\fill[DarkGray] (19,2) rectangle (20,4);
-		% channel stop
-		\fill[RedOrange] (0,1.5) rectangle (1,2);
-		\fill[RedOrange] (8.5,1.5) rectangle (11.5,2);
-		\fill[RedOrange] (19,1.5) rectangle (20,2);
+		\input{tikz_process_steps/4.4.b.tex}
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
-		\fill[YellowOrange] (0,0) rectangle (20,10);
-		% n-well
-		\fill[Goldenrod] (1.25,1.5) rectangle (8.25,7.25);
-		% field oxide
-		\fill[DarkGray] (0,0) rectangle (1,12);
-		\fill[DarkGray] (8.5,0) rectangle (11.5,12);
-		\fill[DarkGray] (19,0) rectangle (20,12);
-		\fill[DarkGray] (0,0) rectangle (20,1.25);
-		\fill[DarkGray] (0,7.5) rectangle (20,12);
-		% resist
-		\fill[orange] (4.8,1.75) rectangle (6.7,9);
-		\fill[orange] (13.3,1.75) rectangle (15.2,9);
-		\fill[orange] (4.8,8) rectangle (15.2,9);
+		\input{tikz_process_steps/4.4.bt.tex}
 	\end{tikzpicture}
 \end{center}
 Because the exact shape of the gate contact is required for a reproducible property characterization of the transistor geometry, dry etching is being used for etching the poly-oxide layer stack.
@@ -269,83 +71,16 @@ Because the exact shape of the gate contact is required for a reproducible prope
 \subsubsection{Cleaning}
 \begin{center}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (20,2);
-		\node at (2,0.5) {Si (p-type)};
-		% n-well
-		\fill[Goldenrod] (1.25,0.75) rectangle (8.25,2);
-		\node at (4.75,1) {N-Well};
-		% gate oxide
-		\fill[LightGray] (4.8,2) rectangle (6.7,2.1);
-		\fill[LightGray] (13.3,2) rectangle (15.2,2.1);
-		% gate poly
-		\fill[BrickRed] (4.8,2.1) rectangle (6.7,2.2);
-		\fill[BrickRed] (13.3,2.1) rectangle (15.2,2.2);
-		% resist
-		\fill[orange] (4.8,2.2) rectangle (6.7,2.8);
-		\fill[orange] (13.3,2.2) rectangle (15.2,2.8);
-		%field oxides:
-		\fill[DarkGray] (0,2) rectangle (1,4);
-		\fill[DarkGray] (8.5,2) rectangle (11.5,4);
-		\fill[DarkGray] (19,2) rectangle (20,4);
-		% channel stop
-		\fill[RedOrange] (0,1.5) rectangle (1,2);
-		\fill[RedOrange] (8.5,1.5) rectangle (11.5,2);
-		\fill[RedOrange] (19,1.5) rectangle (20,2);
+		\input{tikz_process_steps/4.5.a.tex}
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
-		\fill[YellowOrange] (0,0) rectangle (20,10);
-		% n-well
-		\fill[Goldenrod] (1.25,1.5) rectangle (8.25,7.25);
-		% field oxide
-		\fill[DarkGray] (0,0) rectangle (1,12);
-		\fill[DarkGray] (8.5,0) rectangle (11.5,12);
-		\fill[DarkGray] (19,0) rectangle (20,12);
-		\fill[DarkGray] (0,0) rectangle (20,1.25);
-		\fill[DarkGray] (0,7.5) rectangle (20,12);
-		% resist
-		\fill[orange] (4.8,1.75) rectangle (6.7,9);
-		\fill[orange] (13.3,1.75) rectangle (15.2,9);
-		\fill[orange] (4.8,8) rectangle (15.2,9);
-	\end{tikzpicture}
-
-	\includegraphics[scale=0.01]{down_arrow.png}
-
+		\input{tikz_process_steps/4.5.at.tex}
+	\end{tikzpicture} \\
+	\includegraphics[scale=0.01]{down_arrow.png} \\
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (20,2);
-		\node at (2,0.5) {Si (p-type)};
-		% n-well
-		\fill[Goldenrod] (1.25,0.75) rectangle (8.25,2);
-		\node at (4.75,1) {N-Well};
-		% gate oxide
-		\fill[LightGray] (4.8,2) rectangle (6.7,2.1);
-		\fill[LightGray] (13.3,2) rectangle (15.2,2.1);
-		% gate poly
-		\fill[BrickRed] (4.8,2.1) rectangle (6.7,2.2);
-		\fill[BrickRed] (13.3,2.1) rectangle (15.2,2.2);
-		%field oxides:
-		\fill[DarkGray] (0,2) rectangle (1,4);
-		\fill[DarkGray] (8.5,2) rectangle (11.5,4);
-		\fill[DarkGray] (19,2) rectangle (20,4);
-		% channel stop
-		\fill[RedOrange] (0,1.5) rectangle (1,2);
-		\fill[RedOrange] (8.5,1.5) rectangle (11.5,2);
-		\fill[RedOrange] (19,1.5) rectangle (20,2);
+		\input{tikz_process_steps/4.5.b.tex}
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
-		\fill[YellowOrange] (0,0) rectangle (20,10);
-		% n-well
-		\fill[Goldenrod] (1.25,1.5) rectangle (8.25,7.25);
-		% field oxide
-		\fill[DarkGray] (0,0) rectangle (1,12);
-		\fill[DarkGray] (8.5,0) rectangle (11.5,12);
-		\fill[DarkGray] (19,0) rectangle (20,12);
-		\fill[DarkGray] (0,0) rectangle (20,1.25);
-		\fill[DarkGray] (0,7.5) rectangle (20,12);
-		% poly
-		\fill[BrickRed] (4.8,1.75) rectangle (6.7,9);
-		\fill[BrickRed] (13.3,1.75) rectangle (15.2,9);
-		\fill[BrickRed] (4.8,8) rectangle (15.2,9);
+		\input{tikz_process_steps/4.5.bt.tex}
 	\end{tikzpicture}
 \end{center}
