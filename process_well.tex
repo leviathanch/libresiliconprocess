@@ -5,18 +5,10 @@ The cross section as well as the top view of the targeted geometry are shown bel
 
 \begin{center}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (20,2);
-		\node at (2,0.5) {Si (p-type)};
-		% n-well
-		\fill[Goldenrod] (1.25,0.75) rectangle (8.25,2);
-		\node at (4.75,1) {N-Well};
+		\input{tikz_process_steps/2.a.tex}
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (20,12);
-		% n-well
-		\fill[Goldenrod] (1.25,1.5) rectangle (8.25,7.25);
+		\input{tikz_process_steps/2.b.tex}
 	\end{tikzpicture}
 \end{center}
 
@@ -24,20 +16,11 @@ The cross section as well as the top view of the targeted geometry are shown bel
 In order to selectively inject charge carrying atoms into the crystalline structure a protective dioxide ($SiO_2$) layer needs to be grown on top of a p-type substrate.
 \begin{center}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (20,2);
-		\node at (2,0.5) {Si (p-type)};
-	\end{tikzpicture}
-
-	\includegraphics[scale=0.01]{down_arrow.png}
-
+		\input{tikz_process_steps/2.1.a.tex}
+	\end{tikzpicture} \\
+	\includegraphics[scale=0.01]{down_arrow.png} \\
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (20,2);
-		\node at (2,0.5) {Si (p-type)};
-		% oxide
-		\fill[gray] (0,2) rectangle (20,2.6);
-		\node at (2,2.1) {SiO2};
+		\input{tikz_process_steps/2.1.b.tex}
 	\end{tikzpicture}
 \end{center}
 The industrial best practice is a layer of around (500nm$\approx$5000\normalfont\AA) thickness or more.
@@ -48,34 +31,17 @@ The resist is being deposited using spin coating and then baked depending on the
 The layout for being exposed onto the resist is being extracted from the "nwell" layer within the GDS2 file.
 \begin{center}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (20,2);
-		\node at (2,0.5) {Si (p-type)};
-		% oxide
-		\fill[gray] (0,2) rectangle (20,2.6);
+		\input{tikz_process_steps/2.2.a.tex}
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
-		% resist
-		\fill[gray] (0,0) rectangle (20,12);
-	\end{tikzpicture}
-
-	\includegraphics[scale=0.01]{down_arrow.png}
-
+		\input{tikz_process_steps/2.2.at.tex}
+	\end{tikzpicture} \\
+	\includegraphics[scale=0.01]{down_arrow.png} \\
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (20,2);
-		\node at (2,0.5) {Si (p-type)};
-		% oxide
-		\fill[gray] (0,2) rectangle (20,2.6);
-		% resist
-		\fill[orange] (0,2.6) rectangle (1.25,3.2);
-		\fill[orange] (8.25,2.6) rectangle (20,3.2);
+		\input{tikz_process_steps/2.2.b.tex}
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
-		% resist
-		\fill[orange] (0,0) rectangle (20,12);
-		% substrate
-		\fill[gray] (1.25,1.5) rectangle (8.25,7.25);
+		\input{tikz_process_steps/2.2.bt.tex}
 	\end{tikzpicture}
 \end{center}
 The thickness of the resist layer and the backing duration will variate depending on the specific equipment for which this process will be implemented with.
@@ -83,40 +49,17 @@ The thickness of the resist layer and the backing duration will variate dependin
 \subsubsection{Etching}
 \begin{center}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (20,2);
-		\node at (2,0.5) {Si (p-type)};
-		% oxide
-		\fill[gray] (0,2) rectangle (20,2.6);
-		% resist
-		\fill[orange] (0,2.6) rectangle (1.25,3.2);
-		\fill[orange] (8.25,2.6) rectangle (20,3.2);
+		\input{tikz_process_steps/2.3.a.tex}
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
-		% resist
-		\fill[orange] (0,0) rectangle (20,12);
-		% substrate
-		\fill[gray] (1.25,1.5) rectangle (8.25,7.25);
-	\end{tikzpicture}
-
-	\includegraphics[scale=0.01]{down_arrow.png}
-
+		\input{tikz_process_steps/2.3.at.tex}
+	\end{tikzpicture} \\
+	\includegraphics[scale=0.01]{down_arrow.png} \\
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (20,2);
-		\node at (2,0.5) {Si (p-type)};
-		% oxide
-		\fill[gray] (0,2) rectangle (1.25,2.6);
-		\fill[gray] (8.25,2) rectangle (20,2.6);
-		% resist
-		\fill[orange] (0,2.6) rectangle (1.25,3.2);
-		\fill[orange] (8.25,2.6) rectangle (20,3.2);
+		\input{tikz_process_steps/2.3.b.tex}
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
-		% resist
-		\fill[orange] (0,0) rectangle (20,12);
-		% substrate
-		\fill[YellowOrange] (1.25,1.5) rectangle (8.25,7.25);
+		\input{tikz_process_steps/2.3.bt.tex}
 	\end{tikzpicture}
 \end{center}
 
