@@ -91,7 +91,7 @@ The p+ islands are implanted with a Boron ($B^{11}$) dose of $4\times10^{11}cm^{
 	\end{tikzpicture}
 \end{center}
 
-\subsubsection{Infusion}
+\subsubsection{Drive-in}
 \begin{center}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
 		\input{tikz_process_steps/5.7.a.tex}
@@ -101,3 +101,21 @@ The p+ islands are implanted with a Boron ($B^{11}$) dose of $4\times10^{11}cm^{
 		\input{tikz_process_steps/5.7.b.tex}
 	\end{tikzpicture}
 \end{center}
+
+\subsubsection{Oxide removal}
+In the final step before the  next mask we need to remove the impure oxide layer for further processing of the wafer.
+
+\begin{center}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+		\input{tikz_process_steps/5.8.a.tex}
+	\end{tikzpicture} \\
+	\includegraphics[scale=0.01]{down_arrow.png} \\
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+		\input{tikz_process_steps/5.8.b.tex}
+	\end{tikzpicture}
+\end{center}
+
+For this purpose we use a wet etching method selectively etching away the before grown, each approximately 250nm thick layers of oxide, together 500nm.
+Because we don't want to reduce the thick oxide of the field oxide area too much we limit the etching time  here, so that we at worst etch maybe a 10% of it.
+Since we have grown it to be around 750nm we can afford to loose around 75nm or so.
+

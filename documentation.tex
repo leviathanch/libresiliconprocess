@@ -10,10 +10,6 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{tikz}
 \usetikzlibrary{arrows,automata,shapes}
-\tikzstyle{decision} = [diamond, draw, fill=blue!20, text width=4.5em, text badly centered, node distance=2.5cm, inner sep=0pt]
-\tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=5em, text centered, rounded corners, minimum height=4em]
-\tikzstyle{line} = [draw, very thick, color=black!50, -latex']
-\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=2.5cm,minimum height=2em]
 \usepackage[siunitx]{circuitikz}
 
 \definecolor{LightGray}{gray}{0.9}
@@ -27,6 +23,10 @@
 \usepackage{sepfootnotes}
 
 \usepackage[srcmeas]{circdia}
+
+\usepackage{float}
+\floatstyle{boxed} 
+\restylefloat{figure}
 
 \title{Libre Silicon process specification}
 \date{\today} 
@@ -59,6 +59,7 @@
 \section{Chemistry}
 \input{chemistry_etching.tex}
 \newpage
+\section{Process}
 \input{process_overview.tex}
 \newpage
 \input{process_initial_clean.tex}

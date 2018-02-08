@@ -1,21 +1,27 @@
-\section{Process}
+%\tikzstyle{decision} = [diamond, draw, fill=blue!20, text width=4.5em, text badly centered, node distance=2.5cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=3cm, text centered, rounded corners, minimum height=1.5cm]
+\tikzstyle{line} = [draw, very thick, color=black!50, -latex']
+%\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=2.5cm,minimum height=2em]
 
 Below the general flow chart of the overall process flow can be seen in \autoref{full_flow}.
 These process steps will be discussed within the following sections.
-
 \begin{center}
 	\begin{figure}[h]
 		\begin{center}
-			\begin{tikzpicture}[node distance = 4cm, auto, thick,scale=0.5, every node/.style={transform shape}]
-				% Place nodes
+			\begin{tikzpicture}[node distance=2cm, thick,scale=0.6, every node/.style={transform shape}]
+				%% Place nodes
+				%pre proces
 				\node [block] (clean1) at (0,20) {Initial cleaning};
-				\node [block, right of=clean1] (well) {Well};
+				%active CMOS				
+				\node [block] (well) at (4,20) {Well};
 				\node [block, below of=well] (fox) {Channel stop and field oxide};
 				\node [block, below of=fox] (active) {Active};
 				\node [block, below of=active] (pp) {p+ Implant};
 				\node [block, below of=pp] (np) {n+ Implant};
-				\node [block, right of=np] (metal) {Metal 1-6};
-				% Draw edges
+				%post proces
+				\node [block] (metal) at (8,12) {Metal 1-6};
+
+				%% Draw edges
 				\path [line] (clean1) -- (well);
 				\path [line] (well) -- (fox);
 				\path [line] (fox) -- (active);
@@ -23,16 +29,24 @@ These process steps will be discussed within the following sections.
 				\path [line] (pp) -- (np);
 				\path [line] (np) -- (metal);
 				
-				\draw[dotted] (2,2) rectangle (6,22);
-				\node at (4,2.5) {CMOS process};
+				\draw[dotted] (2,10) rectangle (6,22);
+				\node at (4,10.5) {CMOS process};
 			\end{tikzpicture}
 		\end{center}
 		\caption{Frontend and backend process flow}
 		\label{full_flow}
 	\end{figure}
 \end{center}
-
-The five starting overall process steps are part of an overall active part of the technology, while the final metal (respectively contact) layers will be used for making a contact between the logic gates and macro cells and making them available to the exterior world.
+The five overall process steps are part of an active part of the technology, while the final metal (respectively contact) layers will be used for making a contact between the logic gates and macro cells and making them available to the exterior world.
 For this process p-substrate is the required basic substrate, but forks and modifications will be very well possible based on a Graphene substrate or alike, still under the LSPL.
-The decision to use an n-well approach is based largely on the compatibility with the existing nMOS process.
-The starting material is a p-type, <100> oriented silicon with a doping concentration of $\approx 9\times10^{14}cm^{-3}$.
+The starting material is a p-type, <100> oriented silicon with a doping concentration of $\approx 9\times10^{14}cm^{-3}$. \\
+\textbf{Reasons for using p-substrate}:\begin{itemize}
+\item We can't use two different substrates for our design because in the design both PMOS and NMOS is present.
+We have to choose which is more beneficial from fabrication point of view.
+In general or say it's true that NMOS devices are always more in the Semiconductor Industry in comparison to PMOS devices.
+For your reference-SRAM requires 6 transistors (4 NMOS, 2 PMOS).
+\item Another reason for more number of NMOS is because of difference of mobility of electron and holes.
+Electron mobility is almost twice of holes mobility and because of this ON-RESISTANCE of n-channel device is half of p-channel device with the same geometry and under the same operating conditions.
+That means to achieve same impedance size of n-channel transistors is almost half of p-channel devices.
+Same thing I can say in the different way that for same size of wafer, we can have more number of NMOS (means can perform more logical operation) in comparison to PMOS.
+\end{itemize}
