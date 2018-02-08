@@ -1,14 +1,18 @@
 \subsection{Etching silicon dioxide}
 A very "selective" chemical for SiO2 - i.e. does not etch silicon at all - is hydrofluoric acid (HF). If used directly such etchant has a too fast and aggresive action on the oxide, making very difficult the undercut and the linewidth control. For such reason, HF is universally used as a "buffered" solution, which can keep the etch rate low and constant, by moderating the PH level of the bath. This allows the etching time to be reliably correlated to the etching depth.
 
-The industry standard buffered hydrofluoric acid solution (BHF) has the following formulation:
+The industry standard buffered hydrofluoric acid solution (BHF\label{BHF}) has the following formulation:
+\begin{itemize}
+	\item 6 volumes of ammonium floride (NH4F, 40\% solution)
+	\item 1 volume of HF.
+\end{itemize}
 
-- 6 volumes of ammonium floride (NH4F, 40% solution) - 1 volume of HF.
-
-This can be prepared, for example, by mixing 113 g of NH4F in 170 ml of H2O, and adding 28 ml of HF. The etch rate at room temperature can range from 1000 to 2500 Å/min. This depends on the actual density of the oxide which, as an amorphous layer, can have a more compact structure (if thermally grown in is oxygen) or less compact (if grown by CVD). The following etching reaction holds:
+This can be prepared, for example, by mixing 113 g of NH4F in 170 ml of H2O, and adding 28 ml of HF. The etch rate at room temperature can range from 1000 to 2500 Å/min (100-250nm/min).
+This depends on the actual density of the oxide which, as an amorphous layer, can have a more compact structure (if thermally grown in is oxygen) or less compact (if grown by CVD).
+The following etching reaction holds:
 
 \begin{equation}
-SiO_2 + 6HF \rightarrow H_2SiF_6 + H_2O
+	SiO_2 + 6HF \rightarrow H_2SiF_6 + H_2O
 \end{equation}
 
 where $H_2SiF_6$ is water soluble.

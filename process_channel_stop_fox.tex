@@ -3,95 +3,95 @@
 The channel-stop is material with the primary function to limit the spread of the channel area and to prevent the formation of parasitic channels.
 It is a highly doped p+ area.
 On top of the channel stop impurities is a thick layer of silicon oxide which has the primary function of isolating all the transistors from each other.
-
-Its top view and cross section can be seen below.
-
-\begin{center}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
 		\input{tikz_process_steps/3.a.tex}
 	\end{tikzpicture}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
 		\input{tikz_process_steps/3.b.tex}
 	\end{tikzpicture}
-\end{center}
-
+	\caption{Channel stop and field oxide}
+	\label{channelstop_fox_target}
+\end{figure}
 It surrounds all the active areas and covers all the non-active area.
 The channel-stop region is always accompanied by the field oxide layer and shares the same layout mask with it.
+The top view and cross section of the targeted geometry can be seen in \autoref{channelstop_fox_target}.
 
 \subsubsection{Dioxide layer}
 \begin{center}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/3.1.a.tex}
 	\end{tikzpicture} \\
 	\includegraphics[scale=0.01]{down_arrow.png} \\
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/3.1.b.tex}
 	\end{tikzpicture}
 \end{center}
 
 \subsubsection{Nitride layer}
 \begin{center}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/3.2.a.tex}
 	\end{tikzpicture} \\
 	\includegraphics[scale=0.01]{down_arrow.png} \\
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/3.2.b.tex}
 	\end{tikzpicture}
 \end{center}
 
 \subsubsection{Patterning}
 \begin{center}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/3.3.a.tex}
 	\end{tikzpicture}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/3.3.at.tex}
 	\end{tikzpicture} \\
 	\includegraphics[scale=0.01]{down_arrow.png} \\
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/3.3.b.tex}
 	\end{tikzpicture}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/3.3.bt.tex}
 	\end{tikzpicture}
 \end{center}
 
 \subsubsection{Etching}
 \begin{center}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/3.4.a.tex}
 	\end{tikzpicture}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/3.4.at.tex}
 	\end{tikzpicture} \\
 	\includegraphics[scale=0.01]{down_arrow.png} \\
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/3.4.b.tex}
 	\end{tikzpicture}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.2, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/3.4.bt.tex}
 	\end{tikzpicture}
 \end{center}
 
 \subsubsection{Cleaning}
 \begin{center}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/3.5.a.tex}
 	\end{tikzpicture} \\
 	\includegraphics[scale=0.01]{down_arrow.png} \\
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/3.5.b.tex}
 	\end{tikzpicture}
 \end{center}
 
 \subsubsection{Injection}
 \begin{center}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/3.6.a.tex}
 	\end{tikzpicture} \\
 	\includegraphics[scale=0.01]{down_arrow.png} \\
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/3.6.b.tex}
 	\end{tikzpicture}
 \end{center}
@@ -99,11 +99,11 @@ The channel-stop region is always accompanied by the field oxide layer and share
 \subsubsection{Thick oxide layer}
 The initial thickness of this field region is $\approx$7500\normalfont\AA, but is later reduced to $\approx$6000\normalfont\AA by various unmasked $SiO_2$ etches prior to  the polysilicon deposition.
 \begin{center}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/3.7.a.tex}
 	\end{tikzpicture} \\
 	\includegraphics[scale=0.01]{down_arrow.png} \\
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/3.7.b.tex}
 	\end{tikzpicture}
 \end{center}
@@ -111,22 +111,22 @@ The thick field oxide is grown in a pyrogenic steam ambient (partial pressure of
 
 \subsubsection{Patterning}
 \begin{center}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/3.8.a.tex}
 	\end{tikzpicture} \\
 	\includegraphics[scale=0.01]{down_arrow.png} \\
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/3.8.b.tex}
 	\end{tikzpicture}
 \end{center}
 
 \subsubsection{Etching}
 \begin{center}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/3.9.a.tex}
 	\end{tikzpicture} \\
 	\includegraphics[scale=0.01]{down_arrow.png} \\
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/3.9.b.tex}
 	\end{tikzpicture}
 \end{center}

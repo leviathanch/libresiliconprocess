@@ -1,45 +1,41 @@
-%\tikzstyle{decision} = [diamond, draw, fill=blue!20, text width=4.5em, text badly centered, node distance=2.5cm, inner sep=0pt]
 \tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=3cm, text centered, rounded corners, minimum height=1.5cm]
 \tikzstyle{line} = [draw, very thick, color=black!50, -latex']
-%\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=2.5cm,minimum height=2em]
 
 Below the general flow chart of the overall process flow can be seen in \autoref{full_flow}.
 These process steps will be discussed within the following sections.
-\begin{center}
-	\begin{figure}[h]
-		\begin{center}
-			\begin{tikzpicture}[node distance=2cm, thick,scale=0.6, every node/.style={transform shape}]
-				%% Place nodes
-				%pre proces
-				\node [block] (clean1) at (0,20) {Initial cleaning};
-				%active CMOS				
-				\node [block] (well) at (4,20) {Well};
-				\node [block, below of=well] (fox) {Channel stop and field oxide};
-				\node [block, below of=fox] (active) {Active};
-				\node [block, below of=active] (pp) {p+ Implant};
-				\node [block, below of=pp] (np) {n+ Implant};
-				%post proces
-				\node [block] (metal) at (8,12) {Metal 1-6};
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance=2cm, thick,scale=0.6, every node/.style={transform shape}]
+		%% Place nodes
+		%pre proces
+		\node [block] (clean1) at (0,20) {Initial cleaning};
+		%active CMOS				
+		\node [block] (well) at (4,20) {Well};
+		\node [block, below of=well] (fox) {Channel stop and field oxide};
+		\node [block, below of=fox] (active) {Active};
+		\node [block, below of=active] (pp) {p+ Implant};
+		\node [block, below of=pp] (np) {n+ Implant};
+		%post proces
+		\node [block] (metal) at (8,12) {Metal 1-6};
 
-				%% Draw edges
-				\path [line] (clean1) -- (well);
-				\path [line] (well) -- (fox);
-				\path [line] (fox) -- (active);
-				\path [line] (active) -- (pp);
-				\path [line] (pp) -- (np);
-				\path [line] (np) -- (metal);
-				
-				\draw[dotted] (2,10) rectangle (6,22);
-				\node at (4,10.5) {CMOS process};
-			\end{tikzpicture}
-		\end{center}
-		\caption{Frontend and backend process flow}
-		\label{full_flow}
-	\end{figure}
-\end{center}
+		%% Draw edges
+		\path [line] (clean1) -- (well);
+		\path [line] (well) -- (fox);
+		\path [line] (fox) -- (active);
+		\path [line] (active) -- (pp);
+		\path [line] (pp) -- (np);
+		\path [line] (np) -- (metal);
+		
+		\draw[dotted] (2,10) rectangle (6,22);
+		\node at (4,10.5) {CMOS process};
+	\end{tikzpicture}
+	\caption{Frontend and backend process flow}
+	\label{full_flow}
+\end{figure}
 The five overall process steps are part of an active part of the technology, while the final metal (respectively contact) layers will be used for making a contact between the logic gates and macro cells and making them available to the exterior world.
 For this process p-substrate is the required basic substrate, but forks and modifications will be very well possible based on a Graphene substrate or alike, still under the LSPL.
 The starting material is a p-type, <100> oriented silicon with a doping concentration of $\approx 9\times10^{14}cm^{-3}$. \\
+
 \textbf{Reasons for using p-substrate}:\begin{itemize}
 \item We can't use two different substrates for our design because in the design both PMOS and NMOS is present.
 We have to choose which is more beneficial from fabrication point of view.
