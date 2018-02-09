@@ -10,11 +10,11 @@ These process steps will be discussed within the following sections.
 		%pre proces
 		\node [block] (clean1) at (0,20) {Initial cleaning};
 		%active CMOS				
-		\node [block] (isolation) at (4,20) {Isolation (STI)};
-		\node [block, below of=isolation] (well) {N-Well};
-		\node [block, below of=well] (active) {Active};
-		\node [block, below of=active] (np) {n+ Implant};
-		\node [block, below of=np] (pp) {p+ Implant};
+		\node [block] (isolation) at (4,20) {Isolation (STI)\\ \autoref{sti}};
+		\node [block, below of=isolation] (well) {N-Well\\ \autoref{well}};
+		\node [block, below of=well] (active) {Active\\ \autoref{active}};
+		\node [block, below of=active] (np) {n+ Implant\\ \autoref{nimplant}};
+		\node [block, below of=np] (pp) {p+ Implant\\ \autoref{pimplant}};
 		%post proces
 		\node [block] (metal) at (8,12) {Metal 1-6};
 
