@@ -1,18 +1,21 @@
 \subsection{Active}
-\begin{center}
+\begin{figure}[H]
+	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
 		\input{tikz_process_steps/active.a.tex}
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
 		\input{tikz_process_steps/active.b.tex}
 	\end{tikzpicture}
-\end{center}
+	\caption{Active area geometry target}
+\end{figure}
 
 \subsubsection{Gate oxide growth}
 The thickness of the gate oxide depends the capacity (slew rate) of the transistor.
 The thinner the layer is, the steeper the edges of the CMOS circuitry will be, however also the threshold voltage will be reduced the thinner the gate oxide gets.
 
-\begin{center}
+\begin{figure}[H]
+	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/active.1.a.tex}
 	\end{tikzpicture} \\
@@ -20,10 +23,12 @@ The thinner the layer is, the steeper the edges of the CMOS circuitry will be, h
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/active.1.b.tex}
 	\end{tikzpicture}
-\end{center}
+	\caption{Gate oxide layer growth}
+\end{figure}
 
 \subsubsection{Polysilicon growth}
-\begin{center}
+\begin{figure}[H]
+	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/active.2.a.tex}
 	\end{tikzpicture} \\
@@ -31,7 +36,8 @@ The thinner the layer is, the steeper the edges of the CMOS circuitry will be, h
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/active.2.b.tex}
 	\end{tikzpicture}
-\end{center}
+	\caption{Polysilicon layer growth}
+\end{figure}
 
 \subsubsection{Patterning}
 \begin{center}
