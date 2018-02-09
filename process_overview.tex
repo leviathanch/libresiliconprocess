@@ -10,23 +10,23 @@ These process steps will be discussed within the following sections.
 		%pre proces
 		\node [block] (clean1) at (0,20) {Initial cleaning};
 		%active CMOS				
-		\node [block] (well) at (4,20) {Well};
-		\node [block, below of=well] (fox) {Channel stop and field oxide};
-		\node [block, below of=fox] (active) {Active};
+		\node [block] (isolation) at (4,20) {Isolation (STI)};
+		\node [block, below of=isolation] (well) {N-Well};
+		\node [block, below of=well] (active) {Active};
 		\node [block, below of=active] (pp) {p+ Implant};
 		\node [block, below of=pp] (np) {n+ Implant};
 		%post proces
 		\node [block] (metal) at (8,12) {Metal 1-6};
 
 		%% Draw edges
-		\path [line] (clean1) -- (well);
-		\path [line] (well) -- (fox);
-		\path [line] (fox) -- (active);
+		\path [line] (clean1) -- (isolation);
+		\path [line] (isolation) -- (well);
+		\path [line] (well) -- (active);
 		\path [line] (active) -- (pp);
 		\path [line] (pp) -- (np);
 		\path [line] (np) -- (metal);
 		
-		\draw[dotted] (2,10) rectangle (6,22);
+		\draw[dotted] (2,10) rectangle (6,21);
 		\node at (4,10.5) {CMOS process};
 	\end{tikzpicture}
 	\caption{Frontend and backend process flow}

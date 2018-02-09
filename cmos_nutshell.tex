@@ -29,60 +29,7 @@ The sectional view of a PMOS transistor in silicon is being shown below
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (10,2);
-		\node at (2,0.5) {Si (p-type)};
-
-		% n-well
-		\fill[Goldenrod] (1.25,0.75) rectangle (8.25,2);
-		\node at (5.75,1) {N-Well};
-
-		% body
-		\fill[ProcessBlue] (1.5,1) rectangle (3,2);
-		\node at (2,1.5) {n+};
-		% source
-		\fill[RedOrange] (3.5,1) rectangle (5,2);
-		\node at (4,1.5) {p+};
-		% drain
-		\fill[RedOrange] (6.5,1) rectangle (8,2);
-		\node at (7,1.5) {p+};
-		%% gate:
-		% gate oxide
-		\fill[LightGray] (4.8,2) rectangle (6.7,2.1);
-		% gate poly
-		\fill[BrickRed] (4.8,2.1) rectangle (6.7,2.2);
-
-		% metals ground
-		\fill[DarkDarkGray] (2,2) rectangle (2.5,3);
-		\fill[DarkDarkGray] (4,2) rectangle (4.5,3);
-		\fill[DarkDarkGray] (1,3) rectangle (4.5,3.2); % connection pad GND
-
-		\fill[DarkDarkGray] (5.5,2.2) rectangle (6,3);
-		\fill[DarkDarkGray] (5.3,3) rectangle (6.2,3.2); % connection pad VG
-
-		\fill[DarkDarkGray] (7,2) rectangle (7.5,3);
-		\fill[DarkDarkGray] (6.8,3) rectangle (7.7,3.2); % connection pad VDD
-
-		% isolation oxides:
-		\fill[NormalGray] (1,2) rectangle (2,3);
-		\fill[NormalGray] (2.5,2) rectangle (4,3);
-		\fill[NormalGray] (4.5,2) rectangle (4.8,3);
-		\fill[NormalGray] (4.8,2.2) rectangle (5.5,3);
-		\fill[NormalGray] (6,2.2) rectangle (6.7,3);
-		\fill[NormalGray] (6.7,2) rectangle (7,3);
-		\fill[NormalGray] (7.5,2) rectangle (8.5,3);
-
-		\node at (1.5,3.5) {Source};
-		\node at (5.5,3.4) {Gate};
-		\node at (7.5,3.4) {Drain};
-
-		%field oxides:
-		\fill[DarkGray] (0,2) rectangle (1,4);
-		\fill[DarkGray] (8.5,2) rectangle (10,4);
-		\fill[RedOrange] (0,1.5) rectangle (1,2);
-		\node at (0.5,1.75) {p+};
-		\fill[RedOrange] (8.5,1.5) rectangle (10,2);
-		\node at (9.5,1.75) {p+};
+		\input{introduction_graphics/pmos.tex}
 	\end{tikzpicture}
 	\caption{Sectional view of a PMOS transistor}
 \end{figure}
@@ -115,54 +62,7 @@ The sectional view of a NMOS transistor in silicon is being shown here also.
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (10,2);
-		\node at (2,0.5) {Si (p-type)};
-		% body
-		\fill[RedOrange] (1.5,1) rectangle (3,2);
-		\node at (2,1.5) {p+};
-		% source
-		\fill[ProcessBlue] (3.5,1) rectangle (5,2);
-		\node at (4,1.5) {n+};
-		% drain
-		\fill[ProcessBlue] (6.5,1) rectangle (8,2);
-		\node at (7,1.5) {n+};
-		%% gate:
-		% gate oxide
-		\fill[LightGray] (4.8,2) rectangle (6.7,2.1);
-		% gate poly
-		\fill[BrickRed] (4.8,2.1) rectangle (6.7,2.2);
-		% metals ground
-		\fill[DarkDarkGray] (2,2) rectangle (2.5,3);
-		\fill[DarkDarkGray] (4,2) rectangle (4.5,3);
-		\fill[DarkDarkGray] (1,3) rectangle (4.5,3.2); % connection pad GND
-
-		\fill[DarkDarkGray] (5.5,2.2) rectangle (6,3);
-		\fill[DarkDarkGray] (5.3,3) rectangle (6.2,3.2); % connection pad VG
-
-		\fill[DarkDarkGray] (7,2) rectangle (7.5,3);
-		\fill[DarkDarkGray] (6.8,3) rectangle (7.7,3.2); % connection pad VDD
-
-		% isolation oxides:
-		\fill[NormalGray] (1,2) rectangle (2,3);
-		\fill[NormalGray] (2.5,2) rectangle (4,3);
-		\fill[NormalGray] (4.5,2) rectangle (4.8,3);
-		\fill[NormalGray] (4.8,2.2) rectangle (5.5,3);
-		\fill[NormalGray] (6,2.2) rectangle (6.7,3);
-		\fill[NormalGray] (6.7,2) rectangle (7,3);
-		\fill[NormalGray] (7.5,2) rectangle (8.5,3);
-
-		%field oxides:
-		\fill[DarkGray] (0,2) rectangle (1,4);
-		\fill[DarkGray] (8.5,2) rectangle (10,4);
-		\fill[RedOrange] (0,1.5) rectangle (1,2);
-		\node at (0.5,1.75) {p+};
-		\fill[RedOrange] (8.5,1.5) rectangle (10,2);
-		\node at (9.5,1.75) {p+};
-
-		\node at (1.5,3.5) {Source};
-		\node at (5.5,3.4) {Gate};
-		\node at (7.5,3.4) {Drain};
+		\input{introduction_graphics/nmos.tex}
 	\end{tikzpicture}
 	\caption{Sectional view of a NMOS transistor}
 \end{figure}
@@ -201,105 +101,7 @@ For the run through of this process we will use this cross section diagram as re
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (20,2);
-		\node at (2,0.5) {Si (p-type)};
-		% n-well
-		\fill[Goldenrod] (1.25,0.75) rectangle (8.25,2);
-		\node at (5.75,1) {N-Well};
-		% body
-		\fill[ProcessBlue] (1.5,1) rectangle (3,2);
-		\node at (2,1.5) {n+};
-		% source
-		\fill[RedOrange] (3.5,1) rectangle (5,2);
-		\node at (4,1.5) {p+};
-		% drain
-		\fill[RedOrange] (6.5,1) rectangle (8,2);
-		\node at (7,1.5) {p+};
-		%% gate:
-		% gate oxide
-		\fill[LightGray] (4.8,2) rectangle (6.7,2.1);
-		% gate poly
-		\fill[BrickRed] (4.8,2.1) rectangle (6.7,2.2);
-		% isolation oxides:
-		\fill[NormalGray] (1,2) rectangle (2,3);
-		\fill[NormalGray] (2.5,2) rectangle (4,3);
-		\fill[NormalGray] (4.5,2) rectangle (4.8,3);
-		\fill[NormalGray] (4.8,2.2) rectangle (5.5,3);
-		\fill[NormalGray] (6,2.2) rectangle (6.7,3);
-		\fill[NormalGray] (6.7,2) rectangle (7,3);
-		\fill[NormalGray] (7.5,2) rectangle (8.5,3);
-
-		%field oxides:
-		\fill[DarkGray] (0,2) rectangle (1,4);
-		\fill[DarkGray] (8.5,2) rectangle (11.5,4);
-		\fill[DarkGray] (19,2) rectangle (20,4);
-
-		\fill[RedOrange] (0,1.5) rectangle (1,2);
-		\fill[RedOrange] (8.5,1.5) rectangle (11.5,2);
-		\fill[RedOrange] (19,1.5) rectangle (20,2);
-
-		\node at (0.5,1.75) {p+};
-		\node at (9.5,1.75) {p+};
-		\node at (19.5,1.75) {p+};
-
-		%%% nmos:
-		% body
-		\fill[RedOrange] (17,1) rectangle (18.5,2);
-		\node at (18,1.5) {p+};
-		% source
-		\fill[ProcessBlue] (15,1) rectangle (16.5,2);
-		\node at (16,1.5) {n+};
-		% drain
-		\fill[ProcessBlue] (12,1) rectangle (13.5,2);
-		\node at (13,1.5) {n+};
-
-		%% gate:
-		% gate oxide
-		\fill[LightGray] (13.3,2) rectangle (15.2,2.1);
-		% gate poly
-		\fill[BrickRed] (13.3,2.1) rectangle (15.2,2.2);
-
-		% metals
-		\fill[DarkDarkGray] (17.5,2) rectangle (18,3);
-		\fill[DarkDarkGray] (15.5,2) rectangle (16,3);
-		\fill[DarkDarkGray] (15.5,3) rectangle (19,3.2); % connection pad GND
-
-		\fill[DarkDarkGray] (14,2.2) rectangle (14.5,3);
-		\fill[DarkDarkGray] (13.8,3) rectangle (14.7,3.2); % connection pad VG
-
-		\fill[DarkDarkGray] (12.5,2) rectangle (13,3);
-		\fill[DarkDarkGray] (12.3,3) rectangle (13.2,3.2); % connection pad VDD
-
-		\fill[DarkDarkGray] (2,2) rectangle (2.5,3);
-		\fill[DarkDarkGray] (4,2) rectangle (4.5,3);
-		\fill[DarkDarkGray] (1,3) rectangle (4.5,3.2); % connection pad GND
-
-		\fill[DarkDarkGray] (5.5,2.2) rectangle (6,3);
-		\fill[DarkDarkGray] (5.3,3) rectangle (6.2,3.2); % connection pad VG
-
-		\fill[DarkDarkGray] (7,2) rectangle (7.5,3);
-		\fill[DarkDarkGray] (6.8,3) rectangle (7.7,3.2); % connection pad VDD
-
-		% isolation oxides:
-		\fill[NormalGray] (18,2) rectangle (19,3);
-		\fill[NormalGray] (16,2) rectangle (17.5,3);
-		\fill[NormalGray] (15.2,2) rectangle (15.5,3);
-		\fill[NormalGray] (14.5,2.2) rectangle (15.2,3);
-		\fill[NormalGray] (13.3,2.2) rectangle (14,3);
-		\fill[NormalGray] (13,2) rectangle (13.3,3);
-		\fill[NormalGray] (11.5,2) rectangle (12.5,3);
-
-		\node at (1.5,3.5) {VDD};
-		\node at (16.5,3.5) {Ground};
-		\node at (5.5,3.4) {Input};
-		\node at (14,3.4) {Input};
-		\node at (7,3.4) {Output};
-		\node at (12.5,3.4) {Output};
-
-		\node at (0.5,4.2) {Field oxide};
-		\node at (9.5,4.2) {Field oxide};
-		\node at (19.5,4.2) {Field oxide};
+		\input{introduction_graphics/cmos.tex}
 	\end{tikzpicture}
 	\caption{Sectional view of a NMOS-PMOS transistor circuit}
 \end{figure}
