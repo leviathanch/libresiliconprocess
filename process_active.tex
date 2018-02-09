@@ -40,7 +40,8 @@ The thinner the layer is, the steeper the edges of the CMOS circuitry will be, h
 \end{figure}
 
 \subsubsection{Patterning}
-\begin{center}
+\begin{figure}[H]
+	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/active.3.a.tex}
 	\end{tikzpicture}
@@ -54,10 +55,12 @@ The thinner the layer is, the steeper the edges of the CMOS circuitry will be, h
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/active.3.bt.tex}
 	\end{tikzpicture}
-\end{center}
+	\caption{Polysilicon contact mask}
+\end{figure}
 
 \subsubsection{Etching}
-\begin{center}
+\begin{figure}[H]
+	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/active.4.a.tex}
 	\end{tikzpicture}
@@ -71,11 +74,13 @@ The thinner the layer is, the steeper the edges of the CMOS circuitry will be, h
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/active.4.bt.tex}
 	\end{tikzpicture}
-\end{center}
+	\caption{Polysilicon contact etched}
+\end{figure}
 Because the exact shape of the gate contact is required for a reproducible property characterization of the transistor geometry, dry etching is being used for etching the poly-oxide layer stack.
 
 \subsubsection{Cleaning}
-\begin{center}
+\begin{figure}[H]
+	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/active.5.a.tex}
 	\end{tikzpicture}
@@ -89,4 +94,5 @@ Because the exact shape of the gate contact is required for a reproducible prope
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/active.5.bt.tex}
 	\end{tikzpicture}
-\end{center}
+	\caption{Resist removal}
+\end{figure}
