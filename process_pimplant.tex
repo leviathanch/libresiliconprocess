@@ -13,111 +13,92 @@
 For the bulk of the NMOS transistors and for the source and drain of the PMOS transistors highly doped  p+ areas are required.
 In this step we're going to build these.
 
-\subsubsection{Dioxide layer}
-\begin{center}
+\subsubsection{Mask dioxide layer}
+\begin{figure}[H]
+	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/pimplant.1.a.tex}
-	\end{tikzpicture} \\
-	\includegraphics[scale=0.01]{down_arrow.png} \\
+	\end{tikzpicture}\\
+	\includegraphics[scale=0.01]{down_arrow.png}\\
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/pimplant.1.b.tex}
 	\end{tikzpicture}
-\end{center}
+	\caption{Oxide layer}
+\end{figure}
 
 \subsubsection{Pattering}
-\begin{center}
+\begin{figure}[H]
+	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/pimplant.2.a.tex}
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/pimplant.2.at.tex}
-	\end{tikzpicture} \\
-	\includegraphics[scale=0.01]{down_arrow.png} \\
+	\end{tikzpicture}\\
+	\includegraphics[scale=0.01]{down_arrow.png}\\
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/pimplant.2.b.tex}
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/pimplant.2.bt.tex}
 	\end{tikzpicture}
-\end{center}
+	\caption{P+ region resist mask}
+\end{figure}
 
 \subsubsection{Etching}
-\begin{center}
+\begin{figure}[H]
+	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/pimplant.3.a.tex}
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/pimplant.3.at.tex}
-	\end{tikzpicture} \\
-	\includegraphics[scale=0.01]{down_arrow.png} \\
+	\end{tikzpicture}\\
+	\includegraphics[scale=0.01]{down_arrow.png}\\
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/pimplant.3.b.tex}
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/pimplant.3.bt.tex}
 	\end{tikzpicture}
-\end{center}
+	\caption{P+ region opened}
+\end{figure}
 
 \subsubsection{Cleaning}
-\begin{center}
+\begin{figure}[H]
+	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/pimplant.4.a.tex}
-	\end{tikzpicture} \\
-	\includegraphics[scale=0.01]{down_arrow.png} \\
+	\end{tikzpicture}\\
+	\includegraphics[scale=0.01]{down_arrow.png}\\
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/pimplant.4.b.tex}
 	\end{tikzpicture}
-\end{center}
+	\caption{Resist removal}
+\end{figure}
 
-\subsubsection{Predeposition}
-\begin{center}
+\subsubsection{Injection}
+\begin{figure}[H]
+	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/pimplant.5.a.tex}
-	\end{tikzpicture} \\
-	\includegraphics[scale=0.01]{down_arrow.png} \\
+	\end{tikzpicture}\\
+	\includegraphics[scale=0.01]{down_arrow.png}\\
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/pimplant.5.b.tex}
 	\end{tikzpicture}
-\end{center}
+	\caption{P+ injection process}
+\end{figure}
 
-The p+ islands are implanted with a Boron ($B^{11}$) dose of $4\times10^{11}cm^{-2}$ at an energy of 35 KeV.
-
-\subsubsection{Sacrificial oxide}
-\begin{center}
+\subsubsection{Oxide removal}
+\begin{figure}[H]
+	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/pimplant.6.a.tex}
-	\end{tikzpicture} \\
-	\includegraphics[scale=0.01]{down_arrow.png} \\
+	\end{tikzpicture}\\
+	\includegraphics[scale=0.01]{down_arrow.png}\\
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/pimplant.6.b.tex}
 	\end{tikzpicture}
-\end{center}
-
-\subsubsection{Drive-in}
-\begin{center}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/pimplant.7.a.tex}
-	\end{tikzpicture} \\
-	\includegraphics[scale=0.01]{down_arrow.png} \\
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/pimplant.7.b.tex}
-	\end{tikzpicture}
-\end{center}
-
-\subsubsection{Oxide removal}
-In the final step before the  next mask we need to remove the impure oxide layer for further processing of the wafer.
-
-\begin{center}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/pimplant.8.a.tex}
-	\end{tikzpicture} \\
-	\includegraphics[scale=0.01]{down_arrow.png} \\
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/pimplant.8.b.tex}
-	\end{tikzpicture}
-\end{center}
-
-For this purpose we use a wet etching method selectively etching away the before grown, each approximately 250nm thick layers of oxide, together 500nm.
-Because we don't want to reduce the thick oxide of the field oxide area too much we limit the etching time  here, so that we at worst etch maybe a 10% of it.
-Since we have grown it to be around 750nm we can afford to loose around 75nm or so.
-
+	\caption{Oxide removal}
+\end{figure}

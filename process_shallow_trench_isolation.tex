@@ -1,0 +1,24 @@
+\subsection{Shallow trench isolation}\label{sti}
+Shallow trench isolation (STI), also known as box isolation technique, is an integrated circuit feature which prevents electric current leakage between adjacent semiconductor device components.
+STI is generally used on CMOS process technology nodes of 250 nanometers and smaller.
+Older CMOS technologies and non-MOS technologies commonly use isolation based on LOCOS.
+\footnote{Quirk, Michael \& Julian Serda (2001). Semiconductor Manufacturing Technology: Instructor's Manual Archived September 28, 2007, at the Wayback Machine., p. 25.} \\
+The geometry of a substrate with STI implemented can be seen in \autoref{sti_target}.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.a.tex}
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.b.tex}
+	\end{tikzpicture}
+	\caption{Shallow trench isolation target geometry}
+	\label{sti_target}
+\end{figure}
+
+We choose the STI approach because we wanna scale the technology node down in the future below 250nm and wanna ensure backwards compatibility of our process.
+
+\subsubsection{Pad oxide}
+\subsubsection{Etching}
+Dry etching (RIE)

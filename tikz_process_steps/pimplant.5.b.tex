@@ -1,38 +1,14 @@
-% substrate
-\fill[YellowOrange] (0,0) rectangle (20,2);
-\node at (2,0.5) {Si (p-type)};
-% n-well
-\fill[Goldenrod] (1.25,0.75) rectangle (8.25,2);
-\node at (4.75,1) {N-Well};
-% gate oxide
-\fill[LightGray] (4.8,2) rectangle (6.7,2.1);
-\fill[LightGray] (13.3,2) rectangle (15.2,2.1);
-% gate poly
-\fill[BrickRed] (4.8,2.1) rectangle (6.7,2.2);
-\fill[BrickRed] (13.3,2.1) rectangle (15.2,2.2);
-% dioxide
-\fill[NormalGray] (0,2) rectangle (3.5,2.7);
-\fill[NormalGray] (8,2) rectangle (13.3,2.7);
-\fill[NormalGray] (13.3,2.2) rectangle (15.2,2.7);
-\fill[NormalGray] (15.2,2) rectangle (17,2.7);
-\fill[NormalGray] (18.5,2) rectangle (20,2.7);
-% p+
-\fill[RedOrange] (0,4) rectangle (1,4.1);
-\fill[RedOrange] (1,2.7) rectangle (3.5,2.8);
-\fill[RedOrange] (8,2.7) rectangle (8.5,2.8);
-\fill[RedOrange] (8.5,4) rectangle (11.5,4.1);
-\fill[RedOrange] (11.5,2.7) rectangle (17,2.8);
-\fill[RedOrange] (18.5,2.7) rectangle (19,2.8);
-\fill[RedOrange] (19,4) rectangle (20,4.1);
-\fill[RedOrange] (3.5,1.8) rectangle (4.8,2);
-\fill[RedOrange] (4.8,2.2) rectangle (6.7,2.3);
-\fill[RedOrange] (6.7,1.8) rectangle (8,2);
-\fill[RedOrange] (17,1.8) rectangle (18.5,2);
-%field oxides:
-\fill[DarkGray] (0,2) rectangle (1,4);
-\fill[DarkGray] (8.5,2) rectangle (11.5,4);
-\fill[DarkGray] (19,2) rectangle (20,4);
-% channel stop
-\fill[RedOrange] (0,1.5) rectangle (1,2);
-\fill[RedOrange] (8.5,1.5) rectangle (11.5,2);
-\fill[RedOrange] (19,1.5) rectangle (20,2);
+\input{tikz_process_steps/nimplant.a.tex}
+% oxide
+\fill[gray] (0,2) rectangle (3.5,3);
+\fill[gray] (8,2) rectangle (13.3,3);
+\fill[gray] (13.3,2.6) rectangle (15.2,3);
+\fill[gray] (15.2,2) rectangle (17,3);
+\fill[gray] (18.5,2) rectangle (20,3);
+
+\fill[RedOrange] (3.5,1) rectangle (5,2);
+\node at (4,1.5) {p+};
+\fill[RedOrange] (6.5,1) rectangle (8,2);
+\node at (7,1.5) {p+};
+\fill[RedOrange] (17,1) rectangle (18.5,2);
+\node at (18,1.5) {p+};
