@@ -12,27 +12,25 @@ These process steps will be discussed within the following sections.
 		%active CMOS				
 		\node [block] (isolation) at (4,20) {Isolation (STI)\\ \autoref{sti}};
 		\node [block, below of=isolation] (well) {N-Well\\ \autoref{well}};
-		\node [block, below of=well] (active) {Active\\ \autoref{active}};
-		\node [block, below of=active] (np) {n+ Implant\\ \autoref{nimplant}};
+		\node [block, below of=well] (np) {n+ Implant\\ \autoref{nimplant}};
 		\node [block, below of=np] (pp) {p+ Implant\\ \autoref{pimplant}};
 		%post proces
-		\node [block] (metal) at (8,12) {Metal 1-6};
+		\node [block] (metal) at (8,14) {Metal 1-6};
 
 		%% Draw edges
 		\path [line] (clean1) -- (isolation);
 		\path [line] (isolation) -- (well);
-		\path [line] (well) -- (active);
-		\path [line] (active) -- (np);
+		\path [line] (well) -- (np);
 		\path [line] (np) -- (pp);
 		\path [line] (pp) -- (metal);
 
-		\draw[dotted] (2,10) rectangle (6,21);
-		\node at (4,10.5) {CMOS process};
+		\draw[dotted] (2,12) rectangle (6,21);
+		\node at (4,12.5) {CMOS process};
 	\end{tikzpicture}
 	\caption{Frontend and backend process flow}
 	\label{full_flow}
 \end{figure}
-The five overall process steps are part of an active part of the technology, while the final metal (respectively contact) layers will be used for making a contact between the logic gates and macro cells and making them available to the exterior world.
+The four overall process steps are part of an active part of the technology, while the final metal (respectively contact) layers will be used for making a contact between the logic gates and macro cells and making them available to the exterior world.
 For this process p-substrate is the required basic substrate, but forks and modifications will be very well possible based on a Graphene substrate or alike, still under the LSPL.
 The starting material is a p-type, <100> oriented silicon with a doping concentration of $\approx 9\times10^{14}cm^{-3}$. \\
 
