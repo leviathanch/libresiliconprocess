@@ -8,24 +8,26 @@ These process steps will be discussed within the following sections.
 	\begin{tikzpicture}[node distance=2cm, thick,scale=0.6, every node/.style={transform shape}]
 		%% Place nodes
 		%pre proces
-		\node [block] (clean1) at (0,20) {Initial cleaning};
+		\node [block] (clean1) at (0,20) {Initial cleaning\\ \autoref{initial_clean}};
 		%active CMOS				
 		\node [block] (isolation) at (4,20) {Isolation (STI)\\ \autoref{sti}};
 		\node [block, below of=isolation] (well) {N-Well\\ \autoref{well}};
 		\node [block, below of=well] (np) {n+ Implant\\ \autoref{nimplant}};
 		\node [block, below of=np] (pp) {p+ Implant\\ \autoref{pimplant}};
+		\node [block, below of=pp] (gate) {Gate contacts\\ \autoref{gate}};
 		%post proces
-		\node [block] (metal) at (8,14) {Metal 1-6};
+		\node [block] (metal) at (8,12) {Metal 1-6};
 
 		%% Draw edges
 		\path [line] (clean1) -- (isolation);
 		\path [line] (isolation) -- (well);
 		\path [line] (well) -- (np);
 		\path [line] (np) -- (pp);
-		\path [line] (pp) -- (metal);
+		\path [line] (pp) -- (gate);
+		\path [line] (gate) -- (metal);
 
-		\draw[dotted] (2,12) rectangle (6,21);
-		\node at (4,12.5) {CMOS process};
+		\draw[dotted] (2,10) rectangle (6,21);
+		\node at (4,10.5) {CMOS process};
 	\end{tikzpicture}
 	\caption{Frontend and backend process flow}
 	\label{full_flow}
