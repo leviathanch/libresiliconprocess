@@ -22,6 +22,40 @@ We choose the STI approach because we wanna scale the technology node down in th
 As can be seen in \autoref{cmos_nutshell}, the n-well and the STI trench are supposed to have approximately the same depth.
 Because the n-well will be $\approx 4 \mu m$ in depth (\autoref{well}) we have to match this with our trench depth.
 
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.layout.tex}
+	\end{tikzpicture}
+	\caption{Shallow trench isolation layout}
+	\label{sti_layout}
+\end{figure}
+
+\subsubsection{Initial cleaning}
+In order to remove the initial naturally grown silicon dioxide from the wafer, acid is being applied to the wafer which leads to a pure silicon substrate wafer as in the process illustration shown below.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.1.a.tex}
+	\end{tikzpicture} \\
+	\includegraphics[scale=0.01]{down_arrow.png} \\
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.1.b.tex}
+	\end{tikzpicture}
+	\caption{Initial cleaning}
+\end{figure}
+
+This needs to be done because the naturally grown initially existing silicon oxide is not pure and may contain contamination which may render the final product unusable.
+
+\subsubsection{Sulfuric Cleaning}
+The sulfuric acid mixture, $H_2 S O_4 + H_2 O_2$ is being applied to the wafer for 10 minutes at a temperature of 120 \degree C.
+
+\subsubsection{HF dip}
+After the sulfuric cleaning a HF (HF:$H_2O$,1:50) dip is being performed for one minute. \\
+Hydrofluoric acid (HF) is used to remove native silicon dioxide from wafers. Since it acts quickly, one needs to only expose the wafer for a short time ("dip"). \\
+After that the wafer needs to be dried and quickly processed further before new uncontrolled natural oxide can build up on the wafer through the contact with air.
+
 \subsubsection{Pad oxide}
 \subsubsection{Nitride layer}
 \subsubsection{Patterning}

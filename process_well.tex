@@ -19,6 +19,15 @@ The dopant dose will be: $2.5\times10^{12}cm^{-2}$
 The surface concentration of the n-well ($\approx 1 \times 10^{16} cm^{-3}$) is determined primarily by the need to maintain a sufficient high surface concentration to prevent field inversion of the n-well.
 The depth of the n-well ($\approx 4 \mu m$) is then determined by the need to prevent punch-through of the parasitic vertical pnp transistor under worst case bias conditions.
 
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
+		\input{tikz_process_steps/well.layout.tex}
+	\end{tikzpicture}
+	\caption{N-Well layout}
+	\label{well_layout}
+\end{figure}
+
 \subsubsection{Mask dioxide layer}
 In order to selectively inject charge carrying atoms into the crystalline structure a protective dioxide ($SiO_2$) layer needs to be grown on top of a p-type substrate.
 \begin{figure}[H]

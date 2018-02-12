@@ -1,16 +1,15 @@
-\documentclass[10pt,a4paper,twoside]{article}
+\documentclass[a4paper,landscape]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{graphicx}
 \usepackage{geometry}
-\geometry{
- a4paper,
- total={170mm,257mm},
- left=20mm,
- top=20mm,
- right=20mm,
- bottom=20mm,
- }
+	\geometry{a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+	right=20mm,
+	bottom=20mm,
+}
 \usepackage[dvipsnames]{xcolor}
 \definecolor{LightGray}{gray}{0.9}
 \definecolor{NormalGray}{gray}{0.8}
@@ -21,9 +20,10 @@
 \tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=5em, text centered, rounded corners, minimum height=4em]
 \tikzstyle{line} = [draw, very thick, color=black!50, -latex']
 \tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=2.5cm,minimum height=2em]
+\def\CrossSection {0.4}
 
 \author{David Lanzendörfer}
-\title{Generic LibreSilicon process overview}
+\title{Generic LibreSilicon process HKUST (NFF)}
 \begin{document}
 \maketitle
 
@@ -31,670 +31,71 @@
 	Copyright © 2017 LANCEVILLE TECHNOLOGY GROUP CO., LIMITED. All rights reserved. \\
 
 	This process is licensed under the Libre Silicon public license; you can redistribute it and/or modify it under the terms of the Libre Silicon public license
-	as published by the Libre Silicon alliance, either version 2 of the License, or (at your option) any later version.
+	as published by the Libre Silicon alliance, either version 1 of the License, or (at your option) any later version.
 
 	This design is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 	See the Libre Silicon Public License for more details. \\
 
-	This is the specification of the free silicon manufacturing standard for manufacturing the ls018\footnotemark standard logic cells and related free technology nodes from the LibreSilicon project.
+	This is the specification of the free silicon manufacturing standard for manufacturing the ls180nm\footnotemark standard logic cells and related free technology nodes from the LibreSilicon project.
 	
 	For further clarification consult the complete documentation of the process.
 
-	\footnotetext[1]{https://github.com/leviathanch/ls018}
+	\footnotetext[1]{https://github.com/leviathanch/ls180nm}
 \end{abstract}
 \vfill
 \newpage
 
-\section{N-Well}
-The n-well is required for CMOS technology built on a p-substrate. For this process p-substrate is required.
-\begin{center}\begin{tabular}{c c}
-	\hline 
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (4,1.6);
-		\node at (2,0.8) {Si (p-type)};
-	\end{tikzpicture} &
-	Start with a p-type silicon wafer
-	\\ \hline 
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (4,1.6);
-		\node at (2,0.8) {Si (p-type)};
-		% oxide
-		\fill[gray] (0,1.6) rectangle (4,2.6);
-		\node at (2,2.1) {SiO2};
-	\end{tikzpicture} &
-	Grow an oxide layer
-	\\ \hline 
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (4,1.6);
-		\node at (2,0.8) {Si (p-type)};
-		% oxide
-		\fill[gray] (0,1.6) rectangle (4,2.6);
-		\node at (2,2.1) {SiO2};
-		% resist
-		\fill[orange] (0,2.6) rectangle (4,3.6);
-		\node at (2,3.1) {Resist};
-	\end{tikzpicture} &
-	Thin film deposit a layer of resist
-	\\ \hline
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (4,1.6);
-		\node at (2,0.8) {Si (p-type)};
-		% oxide
-		\fill[gray] (0,1.6) rectangle (4,2.6);
-		\node at (2,2.1) {SiO2};
-		% resist 1
-		\fill[orange] (0,2.6) rectangle (2,3.6);
-		% resist 2
-		\fill[orange] (3.5,2.6) rectangle (4,3.6);
-	\end{tikzpicture} &
-	Expose and develop the pattern from the GDS2 layer information
-	\\ \hline 
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (4,1.6);
-		\node at (2,0.8) {Si (p-type)};
-		% oxide 1
-		\fill[gray] (0,1.6) rectangle (2,2.6);
-		% oxide 2
-		\fill[gray] (3.5,1.6) rectangle (4,2.6);
-		% resist 1
-		\fill[orange] (0,2.6) rectangle (2,3.6);
-		% resist 2
-		\fill[orange] (3.5,2.6) rectangle (4,3.6);
-	\end{tikzpicture} &
-	Etch the oxide layer
-	\\ \hline 
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (4,1.6);
-		\node at (2,0.8) {Si (p-type)};
-		% oxide 1
-		\fill[gray] (0,1.6) rectangle (2,2.6);
-		% oxide 2
-		\fill[gray] (3.5,1.6) rectangle (4,2.6);
-		% resist 1
-		\fill[orange] (0,2.6) rectangle (2,3.6);
-		% resist 2
-		\fill[orange] (3.5,2.6) rectangle (4,3.6);
-		% well
-		\fill[Dandelion] (2,1.2) rectangle (3.5,1.6);
-		\node at (2.7,1.4) {N};
-	\end{tikzpicture} &
-	 Implant Phosphorus (P); Create N-well
-	\\ \hline 
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (4,1.6);
-		\node at (2,0.8) {Si (p-type)};
-		% oxide 1
-		\fill[gray] (0,1.6) rectangle (2,2.6);
-		% oxide 2
-		\fill[gray] (3.5,1.6) rectangle (4,2.6);
-		% well
-		\fill[Dandelion] (2,1.2) rectangle (3.5,1.6);
-		\node at (2.7,1.4) {N};
-	\end{tikzpicture} &
-	Remove resist
-	\\ \hline 
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (4,1.6);
-		\node at (2,0.8) {Si (p-type)};
-		% well
-		\fill[Dandelion] (2,1.2) rectangle (3.5,1.6);
-		\node at (2.7,1.4) {N};
-	\end{tikzpicture} &
-	Remove oxide
-	\\ \hline 
-\end{tabular}\end{center}
-\vfill
-\newpage
+Process Flow of Lanceville Technologies LibreSilicon 180nm
 
-\section{P+ Implant}
-\begin{center}\begin{tabular}{c c}
-	\hline 
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (4,1.6);
-		\node at (2,0.8) {Si (p-type)};
-		% well
-		\fill[Dandelion] (2,1.2) rectangle (3.5,1.6);
-		\node at (2.7,1.4) {N};
-		% oxide
-		\fill[gray] (0,1.6) rectangle (4,2.6);
-		\node at (2,2.1) {SiO2};
-	\end{tikzpicture} &
-	Grow an oxide layer
-	\\ \hline
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (4,1.6);
-		\node at (2,0.8) {Si (p-type)};
-		% well
-		\fill[Dandelion] (2,1.2) rectangle (3.5,1.6);
-		\node at (2.7,1.4) {N};
-		% oxide
-		\fill[gray] (0,1.6) rectangle (4,2.6);
-		\node at (2,2.1) {SiO2};
-		% nitride
-		\fill[RoyalPurple] (0,2.6) rectangle (4,3.6);
-		\node at (2,3.1) {Nitride};
-	\end{tikzpicture} &
-	Adding a nitride layer
-	\\ \hline 
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (4,1.6);
-		\node at (2,0.8) {Si (p-type)};
-		% well
-		\fill[Dandelion] (2,1.2) rectangle (3.5,1.6);
-		\node at (2.7,1.4) {N};
-		% oxide
-		\fill[gray] (0,1.6) rectangle (4,2.6);
-		\node at (2,2.1) {SiO2};
-		% nitride
-		\fill[RoyalPurple] (0,2.6) rectangle (4,3.6);
-		\node at (2,3.1) {Nitride};
-		% resist
-		\fill[orange] (0,3.6) rectangle (4,4.6);
-		\node at (2,4.1) {Resist};
-	\end{tikzpicture} &
-	Thin film deposit a layer of resist
-	\\ \hline 
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (4,1.6);
-		\node at (2,0.8) {Si (p-type)};
-		% well
-		\fill[Dandelion] (2,1.2) rectangle (3.5,1.6);
-		\node at (2.7,1.4) {N};
-		% oxide
-		\fill[gray] (0,1.6) rectangle (4,2.6);
-		\node at (2,2.1) {SiO2};
-		% nitride
-		\fill[RoyalPurple] (0,2.6) rectangle (4,3.6);
-		\node at (2,3.1) {Nitride};
-		% resist 1
-		\fill[orange] (0.5,3.6) rectangle (1.5,4.6);
-		% resist 2
-		\fill[orange] (2,3.6) rectangle (3.5,4.6);
-	\end{tikzpicture} &
-	Expose and develop pattern from GDS2 file
-	\\ \hline 
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (4,1.6);
-		\node at (2,0.8) {Si (p-type)};
-		% well
-		\fill[Dandelion] (2,1.2) rectangle (3.5,1.6);
-		\node at (2.7,1.4) {N};
-		% oxide 1
-		\fill[gray] (0.5,1.6) rectangle (1.5,2.6);
-		% oxide 2
-		\fill[gray] (2,1.6) rectangle (3.5,2.6);
-		% nitride 1
-		\fill[RoyalPurple] (0.5,2.6) rectangle (1.5,3.6);
-		% nitride 2
-		\fill[RoyalPurple] (2,2.6) rectangle (3.5,3.6);
-		% resist 1
-		\fill[orange] (0.5,3.6) rectangle (1.5,4.6);
-		% resist 2
-		\fill[orange] (2,3.6) rectangle (3.5,4.6);
-	\end{tikzpicture} &
-	Etch nitride and oxide
-	\\ \hline 
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (4,1.6);
-		\node at (2,0.8) {Si (p-type)};
-		% well
-		\fill[Dandelion] (2,1.2) rectangle (3.5,1.6);
-		\node at (2.7,1.4) {N};
-		% p+1
-		\fill[Blue] (0,1.2) rectangle (0.5,1.6);
-		\node[white] at (0.3,1.4) {p+};
-		% p+2
-		\fill[Blue] (1.5,1.2) rectangle (2,1.6);
-		\node[white] at (1.8,1.4) {p+};
-		% p+3
-		\fill[Blue] (3.5,1.2) rectangle (4,1.6);
-		\node[white] at (3.8,1.4) {p+};
-		% oxide 1
-		\fill[gray] (0.5,1.6) rectangle (1.5,2.6);
-		% oxide 2
-		\fill[gray] (2,1.6) rectangle (3.5,2.6);
-		% nitride 1
-		\fill[RoyalPurple] (0.5,2.6) rectangle (1.5,3.6);
-		% nitride 2
-		\fill[RoyalPurple] (2,2.6) rectangle (3.5,3.6);
-		% resist 1
-		\fill[orange] (0.5,3.6) rectangle (1.5,4.6);
-		% resist 2
-		\fill[orange] (2,3.6) rectangle (3.5,4.6);
-	\end{tikzpicture} &
-	Implant Boron for p+ area
-	\\ \hline 
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (4,1.6);
-		\node at (2,0.8) {Si (p-type)};
-		% well
-		\fill[Dandelion] (2,1.2) rectangle (3.5,1.6);
-		\node at (2.7,1.4) {N};
-		% p+1
-		\fill[Blue] (0,1.2) rectangle (0.5,1.6);
-		\node[white] at (0.3,1.4) {p+};
-		% p+2
-		\fill[Blue] (1.5,1.2) rectangle (2,1.6);
-		\node[white] at (1.8,1.4) {p+};
-		% p+3
-		\fill[Blue] (3.5,1.2) rectangle (4,1.6);
-		\node[white] at (3.8,1.4) {p+};
-		% oxide 1
-		\fill[gray] (0.5,1.6) rectangle (1.5,2.6);
-		% oxide 2
-		\fill[gray] (2,1.6) rectangle (3.5,2.6);
-		% nitride 1
-		\fill[RoyalPurple] (0.5,2.6) rectangle (1.5,3.6);
-		% nitride 2
-		\fill[RoyalPurple] (2,2.6) rectangle (3.5,3.6);
-	\end{tikzpicture} &
-	Remove the resist
-	\\ \hline 
-\end{tabular}\end{center}
-\vfill
-\newpage
+\begin{itemize}
+	\item Project: LibreSilicon 180nm
+	\item Name: Lanceville Technologies Group
+	\item Substrate: P-Substrate silicon wafer <100>
+	\item Date: \today
+\end{itemize}
 
-\section{Poly}
-\begin{center}\begin{tabular}{c c}
-	\hline 
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (4,1.6);
-		\node at (2,0.8) {Si (p-type)};
-		% well
-		\fill[Dandelion] (2,1.2) rectangle (3.5,1.6);
-		\node at (2.7,1.4) {N};
-		% p+1
-		\fill[Blue] (0,1.2) rectangle (0.5,1.6);
-		\node[white] at (0.3,1.4) {p+};
-		% p+2
-		\fill[Blue] (1.5,1.2) rectangle (2,1.6);
-		\node[white] at (1.8,1.4) {p+};
-		% p+3
-		\fill[Blue] (3.5,1.2) rectangle (4,1.6);
-		\node[white] at (3.8,1.4) {p+};
-		% (thin) oxide
-		\fill[gray] (0,1.6) rectangle (4,1.8);
-	\end{tikzpicture} &
-	Grow thin gate oxide
-	\\ \hline
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (4,1.6);
-		\node at (2,0.8) {Si (p-type)};
-		% well
-		\fill[Dandelion] (2,1.2) rectangle (3.5,1.6);
-		\node at (2.7,1.4) {N};
-		% p+1
-		\fill[Blue] (0,1.2) rectangle (0.5,1.6);
-		\node[white] at (0.3,1.4) {p+};
-		% p+2
-		\fill[Blue] (1.5,1.2) rectangle (2,1.6);
-		\node[white] at (1.8,1.4) {p+};
-		% p+3
-		\fill[Blue] (3.5,1.2) rectangle (4,1.6);
-		\node[white] at (3.8,1.4) {p+};
-		% (thin) oxide
-		\fill[gray] (0,1.6) rectangle (4,1.8);
-		% poly
-		\fill[red] (0,1.8) rectangle (4,2);
-	\end{tikzpicture} &
-	Grow poly silicon
-	\\ \hline
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (4,1.6);
-		\node at (2,0.8) {Si (p-type)};
-		% well
-		\fill[Dandelion] (2,1.2) rectangle (3.5,1.6);
-		\node at (2.7,1.4) {N};
-		% p+1
-		\fill[Blue] (0,1.2) rectangle (0.5,1.6);
-		\node[white] at (0.3,1.4) {p+};
-		% p+2
-		\fill[Blue] (1.5,1.2) rectangle (2,1.6);
-		\node[white] at (1.8,1.4) {p+};
-		% p+3
-		\fill[Blue] (3.5,1.2) rectangle (4,1.6);
-		\node[white] at (3.8,1.4) {p+};
-		% (thin) oxide
-		\fill[gray] (0,1.6) rectangle (4,1.8);
-		% poly
-		\fill[red] (0,1.8) rectangle (4,2);
-		% resist
-		\fill[orange] (0,2) rectangle (4,3);
-	\end{tikzpicture} &
-	Add resist
-	\\ \hline
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (4,1.6);
-		\node at (2,0.8) {Si (p-type)};
-		% well
-		\fill[Dandelion] (2,1.2) rectangle (3.5,1.6);
-		\node at (2.7,1.4) {N};
-		% p+1
-		\fill[Blue] (0,1.2) rectangle (0.5,1.6);
-		\node[white] at (0.3,1.4) {p+};
-		% p+2
-		\fill[Blue] (1.5,1.2) rectangle (2,1.6);
-		\node[white] at (1.8,1.4) {p+};
-		% p+3
-		\fill[Blue] (3.5,1.2) rectangle (4,1.6);
-		\node[white] at (3.8,1.4) {p+};
-		% (thin) oxide
-		\fill[gray] (0,1.6) rectangle (4,1.8);
-		% poly
-		\fill[red] (0,1.8) rectangle (4,2);
-		% resist 1
-		\fill[orange] (0.9,2) rectangle (1.1,3);
-		% resist 2
-		\fill[orange] (2.6,2) rectangle (2.8,3);
-	\end{tikzpicture} &
-	Expose and develop pattern from GDS2 file
-	\\ \hline
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (4,1.6);
-		\node at (2,0.8) {Si (p-type)};
-		% well
-		\fill[Dandelion] (2,1.2) rectangle (3.5,1.6);
-		\node at (2.7,1.4) {N};
-		% p+1
-		\fill[Blue] (0,1.2) rectangle (0.5,1.6);
-		\node[white] at (0.3,1.4) {p+};
-		% p+2
-		\fill[Blue] (1.5,1.2) rectangle (2,1.6);
-		\node[white] at (1.8,1.4) {p+};
-		% p+3
-		\fill[Blue] (3.5,1.2) rectangle (4,1.6);
-		\node[white] at (3.8,1.4) {p+};
-		% (thin) oxide 1
-		\fill[gray] (0.9,1.6) rectangle (1.1,1.8);
-		% (thin) oxide 2
-		\fill[gray] (2.6,1.6) rectangle (2.8,1.8);
-		% poly h1
-		\fill[red] (0.9,1.8) rectangle (1.1,2);
-		% poly h1
-		\fill[red] (2.6,1.8) rectangle (2.8,2);
-		% resist 1
-		\fill[orange] (0.9,2) rectangle (1.1,3);
-		% resist 2
-		\fill[orange] (2.6,2) rectangle (2.8,3);
-	\end{tikzpicture} &
-	Precision etching (suggestion: Dry etching)
-	\\ \hline
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (4,1.6);
-		\node at (2,0.8) {Si (p-type)};
-		% well
-		\fill[Dandelion] (2,1.2) rectangle (3.5,1.6);
-		\node at (2.7,1.4) {N};
-		% p+1
-		\fill[Blue] (0,1.2) rectangle (0.5,1.6);
-		\node[white] at (0.3,1.4) {p+};
-		% p+2
-		\fill[Blue] (1.5,1.2) rectangle (2,1.6);
-		\node[white] at (1.8,1.4) {p+};
-		% p+3
-		\fill[Blue] (3.5,1.2) rectangle (4,1.6);
-		\node[white] at (3.8,1.4) {p+};
-		% (thin) oxide 1
-		\fill[gray] (0.9,1.6) rectangle (1.1,1.8);
-		% (thin) oxide 2
-		\fill[gray] (2.6,1.6) rectangle (2.8,1.8);
-		% poly h1
-		\fill[red] (0.9,1.8) rectangle (1.1,2);
-		% poly h1
-		\fill[red] (2.6,1.8) rectangle (2.8,2);
-	\end{tikzpicture} &
-	Remove resist
-	\\ \hline
-\end{tabular}\end{center}
-\vfill
-\newpage
+\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSection, every node/.style={transform shape}]
+	\input{tikz_process_steps/sti.a.tex}
+\end{tikzpicture} \small \begin{tabular}{|c|c|c|}
+\hline
+\textbf{Step Number} &
+\textbf{Process} &
+\textbf{Requirements} \\
+\hline
 
-\section{Implant}
-\begin{center}\begin{tabular}{c c}
-	\hline
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (4,1.6);
-		\node at (2,0.8) {Si (p-type)};
-		% well
-		\fill[Dandelion] (2,1.2) rectangle (3.5,1.6);
-		\node at (2.7,1.4) {N};
-		% p+1
-		\fill[Blue] (0,1.2) rectangle (0.5,1.6);
-		\node[white] at (0.3,1.4) {p+};
-		% p+2
-		\fill[Blue] (1.5,1.2) rectangle (2,1.6);
-		\node[white] at (1.8,1.4) {p+};
-		% p+3
-		\fill[Blue] (3.5,1.2) rectangle (4,1.6);
-		\node[white] at (3.8,1.4) {p+};
-		\fill[DarkGray] (3.5,1.6) rectangle (4,2.6);
-		% (thin) oxide 1
-		\fill[NormalGray] (0.9,1.6) rectangle (1.1,1.8);
-		% (thin) oxide 2
-		\fill[NormalGray] (2.6,1.6) rectangle (2.8,1.8);
-		% poly h1
-		\fill[red] (0.9,1.8) rectangle (1.1,2);
-		% poly h1
-		\fill[red] (2.6,1.8) rectangle (2.8,2);
-		%% oxide growth:
-		% (protective) oxide 1
-		\fill[DarkGray] (0.5,1.6) rectangle (0.9,2.6);
-		% (protective) oxide 2
-		\fill[DarkGray] (0.9,2) rectangle (1.1,2.6);
-		% (protective) oxide 3
-		\fill[DarkGray] (1.1,1.6) rectangle (1.5,2.6);
-		% (protective) oxide 4
-		\fill[DarkGray] (1.1,1.6) rectangle (1.5,2.6);
-		% (protective) oxide 5
-		\fill[DarkGray] (2.0,1.6) rectangle (2.6,2.6);
-		% (protective) oxide 6
-		\fill[DarkGray] (2.6,2) rectangle (2.8,2.6);
-		% (protective) oxide 7
-		\fill[DarkGray] (2.8,1.6) rectangle (3.5,2.6);
-	\end{tikzpicture} &
-	Grow oxide
-	\\ \hline
-\end{tabular}\end{center}
-\vfill
-\newpage
+0.1 &
+Initial Clean &
+H2SO4 + H2O2, 10mins, 120C \\
+
+\hline
+
+0.2 &
+HF dip &
+1 min \\
+
+\hline
+
+0.3 &
+Dry the wafer automatically &
+{}
+\\
+
+\hline
+
+0.4 &
+Silicon dioxide growth &
+1000nm \\
+
+\hline
+
+\end{tabular}
 
 
-\section{Field oxide}
-\begin{center}\begin{tabular}{c c}
-	\hline 
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (4,1.6);
-		\node at (2,0.8) {Si (p-type)};
-		% well
-		\fill[Dandelion] (2,1.2) rectangle (3.5,1.6);
-		\node at (2.7,1.4) {N};
-		% p+1
-		\fill[Blue] (0,1.2) rectangle (0.5,1.6);
-		\node[white] at (0.3,1.4) {p+};
-		% p+2
-		\fill[Blue] (1.5,1.2) rectangle (2,1.6);
-		\node[white] at (1.8,1.4) {p+};
-		% p+3
-		\fill[Blue] (3.5,1.2) rectangle (4,1.6);
-		\node[white] at (3.8,1.4) {p+};
-		% (field) oxide 1
-		\fill[LightGray] (0,1.6) rectangle (0.5,2.6);
-		% oxide 2
-		\fill[gray] (0.5,1.6) rectangle (1.5,2.6);
-		% (field) oxide 3
-		\fill[LightGray] (1.5,1.6) rectangle (2,2.6);
-		% oxide 4
-		\fill[gray] (2,1.6) rectangle (3.5,2.6);
-		% (field) oxide 5
-		\fill[LightGray] (3.5,1.6) rectangle (4,2.6);
-		% nitride 1
-		\fill[RoyalPurple] (0.5,2.6) rectangle (1.5,3.6);
-		% nitride 2
-		\fill[RoyalPurple] (2,2.6) rectangle (3.5,3.6);
-	\end{tikzpicture} &
-	Grow oxide layer
-	\\ \hline
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (4,1.6);
-		\node at (2,0.8) {Si (p-type)};
-		% well
-		\fill[Dandelion] (2,1.2) rectangle (3.5,1.6);
-		\node at (2.7,1.4) {N};
-		% p+1
-		\fill[Blue] (0,1.2) rectangle (0.5,1.6);
-		\node[white] at (0.3,1.4) {p+};
-		% p+2
-		\fill[Blue] (1.5,1.2) rectangle (2,1.6);
-		\node[white] at (1.8,1.4) {p+};
-		% p+3
-		\fill[Blue] (3.5,1.2) rectangle (4,1.6);
-		\node[white] at (3.8,1.4) {p+};
-		% (field) oxide 1
-		\fill[LightGray] (0,1.6) rectangle (0.5,2.6);
-		% oxide 2
-		\fill[gray] (0.5,1.6) rectangle (1.5,2.6);
-		% (field) oxide 3
-		\fill[LightGray] (1.5,1.6) rectangle (2,2.6);
-		% oxide 4
-		\fill[gray] (2,1.6) rectangle (3.5,2.6);
-		% (field) oxide 5
-		\fill[LightGray] (3.5,1.6) rectangle (4,2.6);
-		% nitride 1
-		\fill[RoyalPurple] (0.5,2.6) rectangle (1.5,3.6);
-		% nitride 2
-		\fill[RoyalPurple] (2,2.6) rectangle (3.5,3.6);
-		% (field) resist 1
-		\fill[orange] (0,2.6) rectangle (0.5,3.6);
-		% (field) resist 2
-		\fill[orange] (1.5,2.6) rectangle (2,3.6);
-		% (field) resist 3
-		\fill[orange] (3.5,2.6) rectangle (4,3.6);
-		% (field) resist 4
-		\fill[orange] (0,3.6) rectangle (4,4);
-	\end{tikzpicture} &
-	Add resist
-	\\ \hline
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (4,1.6);
-		\node at (2,0.8) {Si (p-type)};
-		% well
-		\fill[Dandelion] (2,1.2) rectangle (3.5,1.6);
-		\node at (2.7,1.4) {N};
-		% p+1
-		\fill[Blue] (0,1.2) rectangle (0.5,1.6);
-		\node[white] at (0.3,1.4) {p+};
-		% p+2
-		\fill[Blue] (1.5,1.2) rectangle (2,1.6);
-		\node[white] at (1.8,1.4) {p+};
-		% p+3
-		\fill[Blue] (3.5,1.2) rectangle (4,1.6);
-		\node[white] at (3.8,1.4) {p+};
-		% (field) oxide 1
-		\fill[LightGray] (0,1.6) rectangle (0.5,2.6);
-		% oxide 2
-		\fill[gray] (0.5,1.6) rectangle (1.5,2.6);
-		% (field) oxide 3
-		\fill[LightGray] (1.5,1.6) rectangle (2,2.6);
-		% oxide 4
-		\fill[gray] (2,1.6) rectangle (3.5,2.6);
-		% (field) oxide 5
-		\fill[LightGray] (3.5,1.6) rectangle (4,2.6);
-		% nitride 1
-		\fill[RoyalPurple] (0.5,2.6) rectangle (1.5,3.6);
-		% nitride 2
-		\fill[RoyalPurple] (2,2.6) rectangle (3.5,3.6);
-		% (field) resist 1
-		\fill[orange] (0,2.6) rectangle (0.5,4.6);
-		% (field) resist 2
-		\fill[orange] (1.5,2.6) rectangle (2,4.6);
-		% (field) resist 3
-		\fill[orange] (3.5,2.6) rectangle (4,4.6);
-	\end{tikzpicture} &
-	Expose and develop pattern from GDS2 file
-	\\ \hline
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (4,1.6);
-		\node at (2,0.8) {Si (p-type)};
-		% well
-		\fill[Dandelion] (2,1.2) rectangle (3.5,1.6);
-		\node at (2.7,1.4) {N};
-		% p+1
-		\fill[Blue] (0,1.2) rectangle (0.5,1.6);
-		\node[white] at (0.3,1.4) {p+};
-		% p+2
-		\fill[Blue] (1.5,1.2) rectangle (2,1.6);
-		\node[white] at (1.8,1.4) {p+};
-		% p+3
-		\fill[Blue] (3.5,1.2) rectangle (4,1.6);
-		\node[white] at (3.8,1.4) {p+};
-		% (field) oxide 1
-		\fill[LightGray] (0,1.6) rectangle (0.5,2.6);
-		% (field) oxide 3
-		\fill[LightGray] (1.5,1.6) rectangle (2,2.6);
-		% (field) oxide 5
-		\fill[LightGray] (3.5,1.6) rectangle (4,2.6);
-		% (field) resist 1
-		\fill[orange] (0,2.6) rectangle (0.5,4.6);
-		% (field) resist 2
-		\fill[orange] (1.5,2.6) rectangle (2,4.6);
-		% (field) resist 3
-		\fill[orange] (3.5,2.6) rectangle (4,4.6);
-	\end{tikzpicture} &
-	Etch the oxide and nitride layer
-	\\ \hline
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
-		% substrate
-		\fill[YellowOrange] (0,0) rectangle (4,1.6);
-		\node at (2,0.8) {Si (p-type)};
-		% well
-		\fill[Dandelion] (2,1.2) rectangle (3.5,1.6);
-		\node at (2.7,1.4) {N};
-		% p+1
-		\fill[Blue] (0,1.2) rectangle (0.5,1.6);
-		\node[white] at (0.3,1.4) {p+};
-		% p+2
-		\fill[Blue] (1.5,1.2) rectangle (2,1.6);
-		\node[white] at (1.8,1.4) {p+};
-		% p+3
-		\fill[Blue] (3.5,1.2) rectangle (4,1.6);
-		\node[white] at (3.8,1.4) {p+};
-		% (field) oxide 1
-		\fill[LightGray] (0,1.6) rectangle (0.5,2.6);
-		% (field) oxide 3
-		\fill[LightGray] (1.5,1.6) rectangle (2,2.6);
-		% (field) oxide 5
-		\fill[LightGray] (3.5,1.6) rectangle (4,2.6);
-	\end{tikzpicture} &
-	Remove resist
-	\\ \hline
-\end{tabular}\end{center}
-\vfill
-\newpage
+
+
+
+
+
+
 
 \end{document}

@@ -12,11 +12,6 @@
 \usetikzlibrary{arrows,automata,shapes}
 \usepackage[siunitx]{circuitikz}
 
-\definecolor{LightGray}{gray}{0.9}
-\definecolor{NormalGray}{gray}{0.8}
-\definecolor{DarkGray}{gray}{0.7}
-\definecolor{DarkDarkGray}{gray}{0.5}
-
 \usepackage[colorlinks=true,linkcolor=blue,urlcolor=black,bookmarksopen=true]{hyperref}
 \usepackage{bookmark}
 \usepackage{hyperref}
@@ -37,6 +32,11 @@
 \def\CrossSectionOnly{0.3}
 \def\CrossAndTopSection{0.2}
 \def\CrossAndTopSectionBig{0.3}
+
+\definecolor{LightGray}{gray}{0.9}
+\definecolor{NormalGray}{gray}{0.8}
+\definecolor{DarkGray}{gray}{0.7}
+\definecolor{DarkDarkGray}{gray}{0.5}
 
 \begin{document}
 \maketitle
@@ -78,5 +78,9 @@
 \input{process_pimplant.tex}
 \newpage
 \input{process_gate.tex}
+\newpage
+\input{process_via1.tex}
+\newpage
+\input{process_metal1.tex}
 
 \end{document}

@@ -7,8 +7,6 @@ These process steps will be discussed within the following sections.
 	\centering
 	\begin{tikzpicture}[node distance=2cm, thick,scale=0.6, every node/.style={transform shape}]
 		%% Place nodes
-		%pre proces
-		\node [block] (clean1) at (0,20) {Initial cleaning\\ \autoref{initial_clean}};
 		%active CMOS				
 		\node [block] (isolation) at (4,20) {Isolation (STI)\\ \autoref{sti}};
 		\node [block, below of=isolation] (well) {N-Well\\ \autoref{well}};
@@ -16,23 +14,29 @@ These process steps will be discussed within the following sections.
 		\node [block, below of=np] (pp) {p+ Implant\\ \autoref{pimplant}};
 		\node [block, below of=pp] (gate) {Gate contacts\\ \autoref{gate}};
 		%post proces
-		\node [block] (metal) at (8,12) {Metal 1-6};
+		\node [block] (via1) at (8,12) {First via\\ \autoref{via1}};
+		\node [block, above of=via1] (metal1) {First metal\\ \autoref{metal1}};
 
 		%% Draw edges
-		\path [line] (clean1) -- (isolation);
 		\path [line] (isolation) -- (well);
 		\path [line] (well) -- (np);
 		\path [line] (np) -- (pp);
 		\path [line] (pp) -- (gate);
-		\path [line] (gate) -- (metal);
+		\path [line] (gate) -- (via1);
+		\path [line] (via1) -- (metal1);
+
+		\draw[dotted] (1.5,9) rectangle (10.5,21.5);
+		\node at (4,9.5) {Front-end processing};
 
 		\draw[dotted] (2,10) rectangle (6,21);
 		\node at (4,10.5) {CMOS process};
+		\draw[dotted] (6,10) rectangle (10,21);
+		\node at (8,10.5) {Interconnect};
 	\end{tikzpicture}
 	\caption{Frontend and backend process flow}
 	\label{full_flow}
 \end{figure}
-The four overall process steps are part of an active part of the technology, while the final metal (respectively contact) layers will be used for making a contact between the logic gates and macro cells and making them available to the exterior world.
+The five overall process steps are part of an active part of the technology, while the final metal (respectively contact) layers will be used for making a contact between the logic gates and macro cells and making them available to the exterior world.
 For this process p-substrate is the required basic substrate, but forks and modifications will be very well possible based on a Graphene substrate or alike, still under the LSPL.
 The starting material is a p-type, <100> oriented silicon with a doping concentration of $\approx 9\times10^{14}cm^{-3}$. \\
 
