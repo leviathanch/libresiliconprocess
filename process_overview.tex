@@ -1,7 +1,7 @@
 \tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=3cm, text centered, rounded corners, minimum height=1.5cm]
 \tikzstyle{line} = [draw, very thick, color=black!50, -latex']
 
-Below the general flow chart of the overall process flow can be seen in \autoref{full_flow}.
+The general flow chart of the overall process flow can be seen in \autoref{full_flow}.
 These process steps will be discussed within the following sections.
 \begin{figure}[H]
 	\centering
@@ -14,8 +14,11 @@ These process steps will be discussed within the following sections.
 		\node [block, below of=np] (pp) {p+ Implant\\ \autoref{pimplant}};
 		\node [block, below of=pp] (gate) {Gate contacts\\ \autoref{gate}};
 		%post proces
-		\node [block] (via1) at (8,12) {First via\\ \autoref{via1}};
+		\node [block] (via1) at (8,12) {First vias\\ \autoref{via1}};
 		\node [block, above of=via1] (metal1) {First metal\\ \autoref{metal1}};
+		\node [block, above of=metal1] (via2) {Additional vias\\ \autoref{via2}};
+		\node [block, above of=via2] (metal2) {Additional metal\\ \autoref{metal2}};
+		\node (repeat) at (10.5,18.5) {Repeat};
 
 		%% Draw edges
 		\path [line] (isolation) -- (well);
@@ -24,21 +27,28 @@ These process steps will be discussed within the following sections.
 		\path [line] (pp) -- (gate);
 		\path [line] (gate) -- (via1);
 		\path [line] (via1) -- (metal1);
-
-		\draw[dotted] (1.5,9) rectangle (10.5,21.5);
-		\node at (4,9.5) {Front-end processing};
+		\path [line] (metal1) -- (via2);
+		\path [line] (via2) -- (metal2);
+		\path [line] (metal2) -- +(3,0) -- +(3,-2) -- (via2);
 
 		\draw[dotted] (2,10) rectangle (6,21);
 		\node at (4,10.5) {CMOS process};
-		\draw[dotted] (6,10) rectangle (10,21);
+		\draw[dotted] (6,10) rectangle (12,21);
 		\node at (8,10.5) {Interconnect};
+
+		%\draw[dotted] (1.5,9) rectangle (10.5,21.5);
+		%\node at (4,9.5) {Front-end processing};
+
+		%\draw[dotted] (11,9) rectangle (15,21.5);
+		%\node at (13,9.5) {Back-end processing};
 	\end{tikzpicture}
 	\caption{Frontend and backend process flow}
 	\label{full_flow}
 \end{figure}
 The five overall process steps are part of an active part of the technology, while the final metal (respectively contact) layers will be used for making a contact between the logic gates and macro cells and making them available to the exterior world.
+
 For this process p-substrate is the required basic substrate, but forks and modifications will be very well possible based on a Graphene substrate or alike, still under the LSPL.
-The starting material is a p-type, <100> oriented silicon with a doping concentration of $\approx 9\times10^{14}cm^{-3}$. \\
+The starting material is a p-type, <100> oriented silicon with a doping concentration of $\approx 9\times10^{14}cm^{-3}$.\\
 
 \textbf{Reasons for using p-substrate}:\begin{itemize}
 \item We can't use two different substrates for our design because in the design both PMOS and NMOS is present.
@@ -49,4 +59,20 @@ For your reference-SRAM requires 6 transistors (4 NMOS, 2 PMOS).
 Electron mobility is almost twice of holes mobility and because of this ON-RESISTANCE of n-channel device is half of p-channel device with the same geometry and under the same operating conditions.
 That means to achieve same impedance size of n-channel transistors is almost half of p-channel devices.
 Same thing I can say in the different way that for same size of wafer, we can have more number of NMOS (means can perform more logical operation) in comparison to PMOS.
+\end{itemize}
+
+For the isolation (\autoref{sti})  in this design the STI approach is being chosen.
+Shallow trench isolation (STI), also known as box isolation technique, is an integrated circuit feature which prevents electric current leakage between adjacent semiconductor device components.\footnote{https://www.google.com/patents/US7985656}
+STI is generally used on CMOS process technology nodes of 250 nanometers and smaller.
+
+\textbf{Reasons for using box isolation}:\begin{itemize}
+\item We want to be forward compatible to future LibreSilicon nodes with a size of 100nm or smaller
+\item It simplifies the construction of the gate and allows us to use Aluminum instead of Polysilicon for the gate contact
+\end{itemize}
+
+The interconnects and the gate electrode are being made using Aluminum.
+
+\textbf{Reasons for using Aluminum}:\begin{itemize}
+\item Aluminum is easy to etch compared to copper
+\item It doesn't doing "strange things" when making contact with doped areas, like copper does
 \end{itemize}

@@ -1,8 +1,4 @@
 \subsection{Shallow trench isolation}\label{sti}
-Shallow trench isolation (STI), also known as box isolation technique, is an integrated circuit feature which prevents electric current leakage between adjacent semiconductor device components.
-STI is generally used on CMOS process technology nodes of 250 nanometers and smaller.
-Older CMOS technologies and non-MOS technologies commonly use isolation based on LOCOS.
-\footnote{Quirk, Michael \& Julian Serda (2001). Semiconductor Manufacturing Technology: Instructor's Manual Archived September 28, 2007, at the Wayback Machine., p. 25.} \\
 The geometry of a substrate with STI implemented can be seen in \autoref{sti_target}.
 
 \begin{figure}[H]
@@ -17,8 +13,6 @@ The geometry of a substrate with STI implemented can be seen in \autoref{sti_tar
 	\label{sti_target}
 \end{figure}
 
-We choose the STI approach because we wanna scale the technology node down in the future below 250nm and wanna ensure backwards compatibility of our process.
-
 As can be seen in \autoref{cmos_nutshell}, the n-well and the STI trench are supposed to have approximately the same depth.
 Because the n-well will be $\approx 4 \mu m$ in depth (\autoref{well}) we have to match this with our trench depth.
 
@@ -32,12 +26,17 @@ Because the n-well will be $\approx 4 \mu m$ in depth (\autoref{well}) we have t
 \end{figure}
 
 In \autoref{sti_layout} we can see the layout for the STI area.
-The STI area will be everywhere, where no active areas are, so the mask will be inverted for the exposure in this step.
+The STI area will be everywhere, where no active areas are.
+The deep isolating oxide needs to be grown out of trenches which can't been etched out of the silicon by using resist as a mask.
+For that reason we will have to resort to a protective mask made from a nitride layer which has to be etched before hand.
+So the mask will be exposed onto positive resist on top of the nitride in order to form a protective mask covering the active areas from having etched trenches into them as show in \autoref{sti_nitride_etch}.
+After that we will use a dry etching method for cutting into the silicon substrate and making the active area become islands with trenches in between, as shown in \autoref{sti_trench_etch}.
+After these steps we have to remove the nitride mask, for which we expose the same mask again, only this time to a layer of inverted resist.
 
 \newpage
 
 \subsubsection{Initial cleaning}
-In order to remove the initial naturally grown silicon dioxide from the wafer, acid is being applied to the wafer which leads to a pure silicon substrate wafer as in the process illustration shown below.
+In order to remove the initial naturally grown silicon dioxide from the wafer, acid is being applied to the wafer which leads to a pure silicon substrate wafer as in the process illustration shown in \autoref{initial_cleaning}.
 
 \begin{figure}[H]
 	\centering
@@ -49,6 +48,7 @@ In order to remove the initial naturally grown silicon dioxide from the wafer, a
 		\input{tikz_process_steps/sti.1.b.tex}
 	\end{tikzpicture}
 	\caption{Initial cleaning}
+	\label{initial_cleaning}
 \end{figure}
 
 This needs to be done because the naturally grown initially existing silicon oxide is not pure and may contain contamination which may render the final product unusable.
@@ -62,8 +62,136 @@ Hydrofluoric acid (HF) is used to remove native silicon dioxide from wafers. Sin
 After that the wafer needs to be dried and quickly processed further before new uncontrolled natural oxide can build up on the wafer through the contact with air.
 
 \subsubsection{Pad oxide}
+We need a thin layer of oxide as surface to grow our protective nitride layer on top.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.4.a.tex}
+	\end{tikzpicture} \\
+	\includegraphics[scale=0.01]{down_arrow.png} \\
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.4.b.tex}
+	\end{tikzpicture}
+	\caption{Pad oxide growth}
+\end{figure}
+
+The thin layer of "pad" oxide (around 300nm) is grown in dry ambient for 45 minutes at 1000\degree C.\footnote{http://cleanroom.byu.edu/OxideTimeCalc}
+
 \subsubsection{Nitride layer}
-\subsubsection{Patterning}
-\subsubsection{Etching}
+
+We need a protective nitride layer for dry etching the trenches into the silicon. This nitride will be grown in this step.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.5.a.tex}
+	\end{tikzpicture} \\
+	\includegraphics[scale=0.01]{down_arrow.png} \\
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.5.b.tex}
+	\end{tikzpicture}
+	\caption{Nitride growth}
+\end{figure}
+
+The required thickness of this layer is not that critical, it can very well variate between 6nm and 10nm.\footnote{https://www.google.com/patents/US7985656}
+
+\subsubsection{Patterning positive}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.6.a.tex}
+	\end{tikzpicture} \\
+	\includegraphics[scale=0.01]{down_arrow.png} \\
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.6.b.tex}
+	\end{tikzpicture}
+	\caption{Patterning with positive resist}
+\end{figure}
+
+\subsubsection{Nitride etching}\label{sti_nitride_etch}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.7.a.tex}
+	\end{tikzpicture} \\
+	\includegraphics[scale=0.01]{down_arrow.png} \\
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.7.b.tex}
+	\end{tikzpicture}
+	\caption{Nitride mask etching}
+\end{figure}
+
+\subsubsection{Resist removal}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.8.a.tex}
+	\end{tikzpicture} \\
+	\includegraphics[scale=0.01]{down_arrow.png} \\
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.8.b.tex}
+	\end{tikzpicture}
+	\caption{Resist removal}
+\end{figure}
+
+\subsubsection{Silicon etching}\label{sti_trench_etch}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.9.a.tex}
+	\end{tikzpicture} \\
+	\includegraphics[scale=0.01]{down_arrow.png} \\
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.9.b.tex}
+	\end{tikzpicture}
+	\caption{Trench etching}
+\end{figure}
+
 Dry etching (RIE)
+
 \subsubsection{Deep oxidation}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.10.a.tex}
+	\end{tikzpicture} \\
+	\includegraphics[scale=0.01]{down_arrow.png} \\
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.10.b.tex}
+	\end{tikzpicture}
+	\caption{Resist removal}
+\end{figure}
+
+\subsubsection{Oxide deposition}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.11.a.tex}
+	\end{tikzpicture} \\
+	\includegraphics[scale=0.01]{down_arrow.png} \\
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.11.b.tex}
+	\end{tikzpicture}
+	\caption{Resist removal}
+\end{figure}
+
+\subsubsection{Patterning negative}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.12.a.tex}
+	\end{tikzpicture} \\
+	\includegraphics[scale=0.01]{down_arrow.png} \\
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.12.b.tex}
+	\end{tikzpicture}
+	\caption{Patterning with negative resist}
+\end{figure}
