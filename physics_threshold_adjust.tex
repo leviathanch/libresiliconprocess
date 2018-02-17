@@ -1,0 +1,17 @@
+\subsection{Threshold voltage ($V_T$) adjustment}
+At some point in the future this will be of very high relevance, because the lower the size of the transistors gets the higher the offset to $V_{Tp}$ and $V_{Tn}$ needs to become in order to stay on TTL 5V logic level or at least compensating for the lowered voltages in order to reach at least the 3.3V CMOS logic levels.
+
+And adjustment of the threshold voltage can be achieved by:
+\begin{itemize}
+\item A relatively small dose $N_I$ (units: ions/$cm^2$) of dopant atoms is implanted into the near-surface  region of the semiconductor.
+\item When the MOS device is biased in depletion or inversion, the implanted dopants add to (or substract from) the depletion charge near the oxide-semiconductor interface
+\end{itemize}
+
+The formula to calculate the voltage offset is:
+\begin{equation}
+\Delta V_T = -\frac{q N_I}{C_{ox}} 
+\left\{\begin{matrix}
+N_I > 0\ for\ donor\ atoms\ (Phosporus) \\
+N_I < 0\ for\ acceptor\ atoms\ (Boron)
+\end{matrix}\right.
+\end{equation}
