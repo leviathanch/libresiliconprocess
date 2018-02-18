@@ -1,4 +1,4 @@
-\subsection{Threshold voltage ($V_T$)}
+\subsection{Threshold voltage ($V_T$)}\label{transistor_threshold_calculation}
 The formula for calculating the threshold voltage of a MOS device is the following:
 \begin{equation}
 V_T = V_{t-mos} + V_{FB}
@@ -108,12 +108,11 @@ V_T = \phi_F + \frac{2 \sqrt{\epsilon_{Si} q N_A \phi_F }-Q_f}{C_{ox}} + \phi_{M
 V_T = \frac{k T}{q} ln\left(\frac{N_A}{N_i}\right) + \frac{2 \sqrt{\epsilon_{Si} q N_A \frac{k T}{q} ln\left(\frac{N_A}{N_i}\right) }-Q_f}{C_{ox}} + \phi_{M} - \frac{E_g}{2 q}
 \end{equation}
 \begin{equation}
- \boxed{
+\boxed{
 \Rightarrow
 V_T = \frac{k T}{q} ln\left(\frac{N_A}{N_i}\right) + \frac{2 \sqrt{\epsilon_{Si} N_A k T ln\left(\frac{N_A}{N_i}\right) }-Q_f}{C_{ox}} + \phi_{M} - \frac{E_g}{2 q}
 }
 \end{equation}
-
 
 With the variables being the following:
 \begin{itemize}
@@ -121,6 +120,7 @@ With the variables being the following:
 \item $N_i$ is the carrier concentration in intrinsic (undoped) silicon. $N_i$ is equal to $1.45 \times 10^{10} cm^{-3}$ at 300\degree K
 \item $\phi_M = 4.1 V$ is the "work function" of our metal at the gate (multiplied with q) (Only Aluminum is practical for this process)
 \item $E_g$ is the band gap energy of silicon: $\left(1.16-0.704 \times 10^{-3} \frac{T^2}{T+1108} \right)^5$
-\item $C_{ox}$ is the oxide capacitance
+\item $C_{ox}$ is the capacity of the gate oxide (which can be increased by adding another layer of silicon-nitride or alike)
+\item $Q_{fc}$ is the surface state charge
 \end{itemize}
 

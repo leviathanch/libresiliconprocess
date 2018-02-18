@@ -1,0 +1,31 @@
+\subsection{NMOS threshold}
+First we take a look at the worst case of 4 stacked NMOS transistors, which is the highest stacking amount which will be possible in technologies relying on this process.
+\input{process_design_graphics/schematic_AND4.tex}
+As shown in  \autoref{TTL_logic_levels} our acceptable voltages for our CMOS "ON" state range from 2V to VDD (which typically is around $5V\pm0.25V$)
+
+\begin{equation}
+V_{on} \geq 2V
+\end{equation}
+
+Because there are four transistors dividing the voltage by being in series, the power supply voltage is being divided by the amount of transistors in series.
+In order to match the threshold voltages of all of the transistors, which is needed for a working digital logic, the following equation need to be satisfied
+
+\begin{equation}
+V_{on} > 4 \cdot V_{Tn}
+\end{equation}
+
+Lets assume the worst case with
+
+\begin{equation}
+V_{on} = 2V
+\end{equation}
+
+Which leads to the required worst case threshold tolerance value
+
+\begin{equation}
+4 \cdot V_{Tn} < 2V
+\Rightarrow
+V_{Tn} < 500mV
+\end{equation}
+ 
+ Using the equation from \autoref{transistor_threshold_calculation} we can now set in this value and play around with the parameters.

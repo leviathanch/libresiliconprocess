@@ -1,4 +1,6 @@
 \documentclass[10pt,a4paper,oneside]{article}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
 \input{global_color_scheme.tex}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
@@ -17,7 +19,7 @@
 \usepackage{hyperref}
 \usepackage{sepfootnotes}
 
-\usepackage[srcmeas]{circdia}
+\usepackage[digital,srcmeas]{circdia}
 
 \usepackage{float}
 \floatstyle{boxed} 
@@ -70,6 +72,12 @@
 \section{Process design}
 \input{process_design_overview.tex}
 \input{process_design_requirements.tex}
+\input{process_design_substrate.tex}
+\input{process_design_isolation.tex}
+\input{process_design_interconnect.tex}
+\input{process_design_gate.tex}
+\input{process_design_nmos.tex}
+\input{process_design_pmos.tex}
 \newpage
 \section{Process steps}
 \input{process_overview.tex}\label{process_overview}

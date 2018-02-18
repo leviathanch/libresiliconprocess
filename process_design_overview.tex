@@ -1,33 +1,24 @@
+We need to optimize our process to be TTL compatible (5V logic levels) and at the same time being as fast and power efficient as possible.
+In order to have a good propagation delay with a technology node of around $1\mu m$ we will have to have gates with up to four stacked MOS transistors.
 
-\subsection{Substrate}
-For this process p-substrate is the required basic substrate, but forks and modifications will be very well possible based on a Graphene substrate or alike, still under the LSPL.
-The starting material is a p-type, <100> oriented silicon with a doping concentration of $\approx 9\times10^{14}cm^{-3}$.\\
+Acceptable input signal voltages range from 0 volts to 0.8 volts for a low logic state, and 2 volts to 5 volts for a high logic state.
+Acceptable output signal voltages shall range from 0 volts to 0.5 volts for a low logic state, and 2.7 volts to 5 volts for a high logic state\footnote{\url{https://www.allaboutcircuits.com/textbook/digital/chpt-3/logic-signal-voltage-levels}}
 
-\textbf{Reasons for using p-substrate}:\begin{itemize}
-\item We can't use two different substrates for our design because in the design both PMOS and NMOS is present.
-We have to choose which is more beneficial from fabrication point of view.
-In general or say it's true that NMOS devices are always more in the Semiconductor Industry in comparison to PMOS devices.
-For your reference-SRAM requires 6 transistors (4 NMOS, 2 PMOS).
-\item Another reason for more number of NMOS is because of difference of mobility of electron and holes.
-Electron mobility is almost twice of holes mobility and because of this ON-RESISTANCE of n-channel device is half of p-channel device with the same geometry and under the same operating conditions.
-That means to achieve same impedance size of n-channel transistors is almost half of p-channel devices.
-Same thing I can say in the different way that for same size of wafer, we can have more number of NMOS (means can perform more logical operation) in comparison to PMOS.
-\end{itemize}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{logic_levels.png}
+	\caption{TTL logic levels}
+	\label{TTL_logic_levels}
+\end{figure}
 
-\subsection{Isolation}
-For the isolation (\autoref{sti})  in this design the STI approach is being chosen.
-Shallow trench isolation (STI), also known as box isolation technique, is an integrated circuit feature which prevents electric current leakage between adjacent semiconductor device components.\footnote{https://www.google.com/patents/US7985656}
-STI is generally used on CMOS process technology nodes of 250 nanometers and smaller.\\
+As shown in \autoref{TTL_logic_levels} we have some margin to make our PMOS and NMOS transistors work with each other in order to form a CMOS circuit which is actually working without getting warm.
 
-\textbf{Reasons for using box isolation}:\begin{itemize}
-\item We want to be forward compatible to future LibreSilicon nodes with a size of 100nm or smaller
-\item It simplifies the construction of the gate and allows us to use Aluminum instead of Polysilicon for the gate contact
-\end{itemize}
-
-\subsection{Interconnect}
-The interconnects and the gate electrode are being made using Aluminum.\\
-
-\textbf{Reasons for using Aluminum}:\begin{itemize}
-\item Aluminum is easy to etch compared to copper
-\item It isn't contaminating everything and doesn't require special separated setup for handling
-\end{itemize}
+Or more clearly defined
+\begin{equation}
+V_{off} \leq 0.8V
+\end{equation}
+and
+\begin{equation}
+V_{on} \geq 2V
+\end{equation}
+which are limits, elementary to our design.
