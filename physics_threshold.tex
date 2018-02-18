@@ -1,1 +1,126 @@
 \subsection{Threshold voltage ($V_T$)}
+The formula for calculating the threshold voltage of a MOS device is the following:
+\begin{equation}
+V_T = V_{t-mos} + V_{FB}
+\end{equation}
+where $V_{t-mos}$ is the ideal threshold voltage of an ideal MOS capacitor and $V_{FB}$ is what is termed flat-band voltage and $V_{t-mos}$ is the threshold.
+The MOS threshold voltage, $V_{t-mos}$ is calculated by considering the MOS capacitor structure that form the gate of the MOS transistor.
+The ideal threshold voltage may be expressed as:
+\begin{equation}
+V_{t-mos}=2 \phi_F + \frac{Q_b}{C_{ox}}
+\end{equation}
+with
+\begin{equation}
+Q_b
+=
+\sqrt{2 \epsilon_{Si} q N_A ( 2 \phi_F + V_{SB}) }
+\end{equation}
+\begin{equation}
+\phi_F
+=
+V_{th} ln\left(\frac{N_A}{N_i}\right)
+=
+\frac{k T}{q} ln\left(\frac{N_A}{N_i}\right)
+\end{equation}
+where $C_{ox}$ is the oxide capacitance and $Q_b$ which is called the bulk charge term and $V_{th}$ is the thermal voltage.\footnote{\url{https://en.wikipedia.org/wiki/Boltzmann_constant\#Role_in_semiconductor_physics:_the_thermal_voltage}}
+
+Because we put source and bulk onto the same potential in our CMOS circuit as shown in \autoref{process_design} we can put $V_{BS}=0$ which results in the following new equation for $Q_B$:
+\begin{equation}
+V_{BS}=0
+\Rightarrow
+Q_b
+=
+\sqrt{2 \epsilon_{Si} q N_A 2 \phi_F }
+=
+2 \sqrt{\epsilon_{Si} q N_A \phi_F }
+\end{equation}
+
+ $V_{FB}$, is given by:
+\begin{equation}
+V_{FB}
+=
+\phi_{MS}-\frac{Q_f}{C_{ox}}-\frac{1}{C_{ox}}\int_{0}^{t_{ox}}\frac{x}{x_{ox}}\rho(x) dx
+\end{equation}
+We assume the oxide doesn't contain any charge, which makes the equation fall together into
+\begin{equation}
+\rho(x)=0
+\Rightarrow
+V_{FB}
+=
+\phi_{MS}-\frac{Q_f}{C_{ox}}
+\end{equation}
+with
+\begin{equation}
+\phi_{MS}
+=
+\phi_{M} - \phi_{S}
+=
+\phi_{M} -  \left( \frac{E_g}{2 q} + \phi_F \right)
+=
+\phi_{M} - \frac{E_g}{2 q} - \phi_F
+\end{equation}
+
+We now can put the equation together:
+\begin{equation}
+V_T = V_{t-mos} + V_{FB}
+\end{equation}
+\begin{equation}
+V_{t-mos}=2 \phi_F + \frac{Q_b}{C_{ox}}
+\Rightarrow
+V_T = 2 \phi_F + \frac{Q_b}{C_{ox}} + V_{FB}
+\end{equation}
+\begin{equation}
+V_{FB}
+=
+\phi_{MS}-\frac{Q_f}{C_{ox}}
+\Rightarrow
+V_T = 2 \phi_F + \frac{Q_b}{C_{ox}} + \phi_{MS}-\frac{Q_f}{C_{ox}}
+\end{equation}
+\begin{equation}
+Q_b
+=
+2 \sqrt{\epsilon_{Si} q N_A \phi_F }
+\Rightarrow
+V_T = 2 \phi_F + \frac{2 \sqrt{\epsilon_{Si} q N_A \phi_F }}{C_{ox}} + \phi_{MS}-\frac{Q_f}{C_{ox}}
+\end{equation}
+
+
+\begin{equation}
+\phi_{MS}
+=
+\phi_{M} - \frac{E_g}{2 q}-\phi_F
+\Rightarrow
+V_T = 2 \phi_F + \frac{2 \sqrt{\epsilon_{Si} q N_A \phi_F }}{C_{ox}} + \phi_{M} - \frac{E_g}{2 q}-\phi_F -\frac{Q_f}{C_{ox}}
+\end{equation}
+\begin{equation}
+\Rightarrow
+V_T = \phi_F + \frac{2 \sqrt{\epsilon_{Si} q N_A \phi_F }-Q_f}{C_{ox}} + \phi_{M} - \frac{E_g}{2 q}
+\end{equation}
+
+
+\begin{equation}
+\phi_F
+=
+\frac{k T}{q} ln\left(\frac{N_A}{N_i}\right)
+\end{equation}
+\begin{equation}
+\Rightarrow
+V_T = \frac{k T}{q} ln\left(\frac{N_A}{N_i}\right) + \frac{2 \sqrt{\epsilon_{Si} q N_A \frac{k T}{q} ln\left(\frac{N_A}{N_i}\right) }-Q_f}{C_{ox}} + \phi_{M} - \frac{E_g}{2 q}
+\end{equation}
+\begin{equation}
+ \boxed{
+\Rightarrow
+V_T = \frac{k T}{q} ln\left(\frac{N_A}{N_i}\right) + \frac{2 \sqrt{\epsilon_{Si} N_A k T ln\left(\frac{N_A}{N_i}\right) }-Q_f}{C_{ox}} + \phi_{M} - \frac{E_g}{2 q}
+}
+\end{equation}
+
+
+With the variables being the following:
+\begin{itemize}
+\item $N_A$ is the substrate doping (which in the case of our chosen basis substrate is approximately $9\times10^{14}cm^{-3}$ (see \autoref{process_overview}))
+\item $N_i$ is the carrier concentration in intrinsic (undoped) silicon. $N_i$ is equal to $1.45 \times 10^{10} cm^{-3}$ at 300\degree K
+\item $\phi_M = 4.1 V$ is the "work function" of our metal at the gate (multiplied with q) (Only Aluminum is practical for this process)
+\item $E_g$ is the band gap energy of silicon: $\left(1.16-0.704 \times 10^{-3} \frac{T^2}{T+1108} \right)^5$
+\item $C_{ox}$ is the oxide capacitance
+\end{itemize}
+
