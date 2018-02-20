@@ -46,16 +46,17 @@ V_{FB}
 \phi_{MS}-\frac{Q_f}{C_{ox}}-\frac{1}{C_{ox}}\int_{0}^{t_{ox}}\frac{x}{x_{ox}}\rho(x) dx
 \end{equation}
 
-We assume the oxide doesn't contain any charge, which makes the equation fall together into
+Because we're not yet dealing with non-volatile memory devices which contain an oxide surface state charge we can just set $Q_f=0$ as well as $\rho(x)$
 \begin{equation}
 \rho(x)=0
-\Rightarrow
 V_{FB}
 =
-\phi_{MS}-\frac{Q_f}{C_{ox}}
+\phi_{MS}
 \end{equation}
 with
 \begin{equation}
+V_{FB}
+=
 \phi_{MS}
 =
 \phi_{M} - \phi_{S}
@@ -63,17 +64,12 @@ with
 \phi_{M} -  \left(\chi + \frac{E_g}{2} + \phi_F \right)
 \end{equation}
 
-We now can put the equation together:
+And because of the simplifications we did to $F_{FB}$ which essentially led to $F_{FB}=\phi_{MS}$ we get to:
 \begin{equation}
-V_T = V_{t-mos} + V_{FB}
-\end{equation}
-\begin{equation}
-V_{t-mos}=2 \phi_F + \frac{Q_b}{C_{ox}}
-\Rightarrow
-V_T = 2 \phi_F + \frac{Q_b}{C_{ox}} + V_{FB}
+V_T = V_{t-mos} + \phi_{MS}
 \end{equation}
 
-With the variables being the following:
+With the variables and constants being the following we now can put the formula together:
 \begin{itemize}
 \item $N_A \approx 9\times10^{14}cm^{-3}$ is the substrate doping (of our chosen basis substrate. also see \autoref{process_overview})
 \item $N_i$ is the carrier concentration in intrinsic (undoped) silicon. $N_i$ is equal to $1.45 \times 10^{10} cm^{-3}$ at 300\degree K
@@ -108,7 +104,6 @@ $\beta [K]$ &
 \label{band_gap_parameters}
 \end{table}
 \item $C_{ox} \left[\frac{F}{cm^2}\right]$ is the capacity of the gate oxide
-\item $Q_{fc}$ is the surface state charge (which we assume zero for a simple CMOS circuit without NVM devices)
 \item $\epsilon_0 = 8.85 \cdot 10−14 \frac{F}{cm}. $ is the electric permittivity in vacuum
 \item $\epsilon_{Si} =11.68 \cdot \epsilon_0$ is the relative permittivity of silicon
 \item $\epsilon_{ox} = 3.9 \cdot \epsilon_0$ is the relative permittivity of silicon oxide
@@ -117,3 +112,12 @@ $\beta [K]$ &
 \item $k=8.6173303 \cdot 10^{-5} \frac{eV}{K}$ is the Boltzmann constant
 \item $q=1.602 \cdot 10^{-19} C$ is the elementary charge
 \end{itemize}
+
+That's our target equation, in which the capacity has the unit $\frac{F}{cm^2}$ and $V_T$ has the unit Volt:
+\begin{equation}
+\boxed{
+V_T= \frac{1.66 \cdot 10^{-7}}{C_{ox}}-0.094
+}
+\end{equation}
+
+This equation will be used further on to find the optimum gate oxide thickness for our transistors.
