@@ -29,3 +29,22 @@ V_{Tn} < 500mV
 \end{equation}
  
  Using the equation from \autoref{transistor_threshold_calculation} we can now set in this value and play around with the parameters.
+ 
+ \begin{equation}
+V_T = \left( \frac{1.320724546433521 \cdot 10^{-8}}{C_{ox}}+2.953020707838256 \right)  V
+\end{equation}
+
+For safety reasons we take 10\% of the worst case as a error margin which leads us to the following new equation to solve
+ \begin{equation}
+V_T = 450mV
+\end{equation}
+
+And by setting the capacity of the gate (assuming it's silicon oxide only) into dependency of its thickness $C_{ox}=\frac{\epsilon_{ox}}{t_{ox}}$ with $\epsilon_{ox} = \epsilon_{0} \cdot 3.9$ we end up with the following equation:
+\begin{equation}
+V_T=3778.718117674845*t_ox+2.953020707838256
+\end{equation}
+
+We see that we even with no gate oxide at all (which doesn't make sense, since it would be a short circuit) would still end up with a threshold voltage of around 3V.
+We have to variate the doping in order to make sure we get a threshold value low enough for accommodating  stacked transistors.
+
+

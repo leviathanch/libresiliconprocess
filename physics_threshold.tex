@@ -5,42 +5,47 @@ V_T = V_{t-mos} + V_{FB}
 \end{equation}
 where $V_{t-mos}$ is the ideal threshold voltage of an ideal MOS capacitor and $V_{FB}$ is what is termed flat-band voltage and $V_{t-mos}$ is the threshold.
 The MOS threshold voltage, $V_{t-mos}$ is calculated by considering the MOS capacitor structure that form the gate of the MOS transistor.
+
 The ideal threshold voltage may be expressed as:
 \begin{equation}
 V_{t-mos}=2 \phi_F + \frac{Q_b}{C_{ox}}
 \end{equation}
-with
 \begin{equation}
 Q_b
 =
 \sqrt{2 \epsilon_{Si} q N_A ( 2 \phi_F + V_{SB}) }
 \end{equation}
+where $C_{ox}$ is the oxide capacitance and $Q_b$ which is called the bulk charge term.\\
+
+The bulk potential is given by:
 \begin{equation}
 \phi_F
 =
-V_{th} ln\left(\frac{N_A}{N_i}\right)
+V_{th} ln\left(\frac{p}{N_i}\right)
 =
-\frac{k T}{q} ln\left(\frac{N_A}{N_i}\right)
+-V_{th} ln\left(\frac{n}{N_i}\right)
 \end{equation}
-where $C_{ox}$ is the oxide capacitance and $Q_b$ which is called the bulk charge term and $V_{th}$ is the thermal voltage.\footnote{\url{https://en.wikipedia.org/wiki/Boltzmann_constant\#Role_in_semiconductor_physics:_the_thermal_voltage}}
-
-Because we put source and bulk onto the same potential in our CMOS circuit as shown in \autoref{process_design} we can put $V_{BS}=0$ which results in the following new equation for $Q_B$:
+As can be seen from the above equations, the bulk potential is positive for p-type substrates and negative for n-type substrates.
+$V_{th}$ is the thermal voltage.\footnote{\url{https://en.wikipedia.org/wiki/Boltzmann_constant\#Role_in_semiconductor_physics:_the_thermal_voltage}}
 \begin{equation}
-V_{BS}=0
-\Rightarrow
+V_{th} = \frac{k T}{q} 
+\end{equation}
+
+Since we connect bulk and source and are using p-substrate we can simplify the equation to become
+\begin{equation}
 Q_b
 =
-\sqrt{2 \epsilon_{Si} q N_A 2 \phi_F }
-=
-2 \sqrt{\epsilon_{Si} q N_A \phi_F }
+2 \sqrt{\epsilon_{Si} q N_A V_{th} ln\left(\frac{N_A}{N_i}\right) }
 \end{equation}
 
- $V_{FB}$, is given by:
+
+$V_{FB}$, is given by:
 \begin{equation}
 V_{FB}
 =
 \phi_{MS}-\frac{Q_f}{C_{ox}}-\frac{1}{C_{ox}}\int_{0}^{t_{ox}}\frac{x}{x_{ox}}\rho(x) dx
 \end{equation}
+
 We assume the oxide doesn't contain any charge, which makes the equation fall together into
 \begin{equation}
 \rho(x)=0
@@ -55,9 +60,7 @@ with
 =
 \phi_{M} - \phi_{S}
 =
-\phi_{M} -  \left( \frac{E_g}{2 q} + \phi_F \right)
-=
-\phi_{M} - \frac{E_g}{2 q} - \phi_F
+\phi_{M} -  \left(\chi + \frac{E_g}{2} + \phi_F \right)
 \end{equation}
 
 We now can put the equation together:
@@ -69,58 +72,48 @@ V_{t-mos}=2 \phi_F + \frac{Q_b}{C_{ox}}
 \Rightarrow
 V_T = 2 \phi_F + \frac{Q_b}{C_{ox}} + V_{FB}
 \end{equation}
-\begin{equation}
-V_{FB}
-=
-\phi_{MS}-\frac{Q_f}{C_{ox}}
-\Rightarrow
-V_T = 2 \phi_F + \frac{Q_b}{C_{ox}} + \phi_{MS}-\frac{Q_f}{C_{ox}}
-\end{equation}
-\begin{equation}
-Q_b
-=
-2 \sqrt{\epsilon_{Si} q N_A \phi_F }
-\Rightarrow
-V_T = 2 \phi_F + \frac{2 \sqrt{\epsilon_{Si} q N_A \phi_F }}{C_{ox}} + \phi_{MS}-\frac{Q_f}{C_{ox}}
-\end{equation}
-
-
-\begin{equation}
-\phi_{MS}
-=
-\phi_{M} - \frac{E_g}{2 q}-\phi_F
-\Rightarrow
-V_T = 2 \phi_F + \frac{2 \sqrt{\epsilon_{Si} q N_A \phi_F }}{C_{ox}} + \phi_{M} - \frac{E_g}{2 q}-\phi_F -\frac{Q_f}{C_{ox}}
-\end{equation}
-\begin{equation}
-\Rightarrow
-V_T = \phi_F + \frac{2 \sqrt{\epsilon_{Si} q N_A \phi_F }-Q_f}{C_{ox}} + \phi_{M} - \frac{E_g}{2 q}
-\end{equation}
-
-
-\begin{equation}
-\phi_F
-=
-\frac{k T}{q} ln\left(\frac{N_A}{N_i}\right)
-\end{equation}
-\begin{equation}
-\Rightarrow
-V_T = \frac{k T}{q} ln\left(\frac{N_A}{N_i}\right) + \frac{2 \sqrt{\epsilon_{Si} q N_A \frac{k T}{q} ln\left(\frac{N_A}{N_i}\right) }-Q_f}{C_{ox}} + \phi_{M} - \frac{E_g}{2 q}
-\end{equation}
-\begin{equation}
-\boxed{
-\Rightarrow
-V_T = \frac{k T}{q} ln\left(\frac{N_A}{N_i}\right) + \frac{2 \sqrt{\epsilon_{Si} N_A k T ln\left(\frac{N_A}{N_i}\right) }-Q_f}{C_{ox}} + \phi_{M} - \frac{E_g}{2 q}
-}
-\end{equation}
 
 With the variables being the following:
 \begin{itemize}
-\item $N_A$ is the substrate doping (which in the case of our chosen basis substrate is approximately $9\times10^{14}cm^{-3}$ (see \autoref{process_overview}))
+\item $N_A \approx 9\times10^{14}cm^{-3}$ is the substrate doping (of our chosen basis substrate. also see \autoref{process_overview})
 \item $N_i$ is the carrier concentration in intrinsic (undoped) silicon. $N_i$ is equal to $1.45 \times 10^{10} cm^{-3}$ at 300\degree K
 \item $\phi_M = 4.1 V$ is the "work function" of our metal at the gate (multiplied with q) (Only Aluminum is practical for this process)
-\item $E_g$ is the band gap energy of silicon: $\left(1.16-0.704 \times 10^{-3} \frac{T^2}{T+1108} \right)^5$
-\item $C_{ox}$ is the capacity of the gate oxide (which can be increased by adding another layer of silicon-nitride or alike)
-\item $Q_{fc}$ is the surface state charge
+\item $E_g(T) = E_g(0) - \frac{\alpha T^2}{T+\beta} = 1.166 - 4.73 \cdot 10^{-4} \cdot \frac{T^2}{T+636} [eV]$ is the band gap energy of silicon at a given temperature\footnote{https://ecee.colorado.edu/~bart/book/eband5.htm} for which the parameters can be taken from \autoref{band_gap_parameters}
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+{} &
+\textbf{Germanium} &
+\textbf{Silicon} &
+\textbf{GaAs} \\
+\hline
+$Eg(0) [eV]$ &
+0.7437 &
+1.166 &
+1.519 \\
+\hline
+$\alpha [eV/K]$ &
+4.77 x 10-4 &
+4.73 x 10-4 &
+5.41 x 10-4 \\
+\hline
+$\beta [K]$ &
+235 &
+636 &
+204 \\
+\hline
+\end{tabular}
+\caption{Band cap energy parameters}
+\label{band_gap_parameters}
+\end{table}
+\item $C_{ox} \left[\frac{F}{cm^2}\right]$ is the capacity of the gate oxide
+\item $Q_{fc}$ is the surface state charge (which we assume zero for a simple CMOS circuit without NVM devices)
+\item $\epsilon_0 = 8.85 \cdot 10−14 \frac{F}{cm}. $ is the electric permittivity in vacuum
+\item $\epsilon_{Si} =11.68 \cdot \epsilon_0$ is the relative permittivity of silicon
+\item $\epsilon_{ox} = 3.9 \cdot \epsilon_0$ is the relative permittivity of silicon oxide
+\item $t_{ox} [cm]$ is the thickness of the oxide layer in cm
+\item $\chi = 4.05 eV$ is the electron affinity of a silicon crystal surface\footnote{\url{https://en.wikipedia.org/wiki/Electron_affinity}}
+\item $k=8.6173303 \cdot 10^{-5} \frac{eV}{K}$ is the Boltzmann constant
+\item $q=1.602 \cdot 10^{-19} C$ is the elementary charge
 \end{itemize}
-

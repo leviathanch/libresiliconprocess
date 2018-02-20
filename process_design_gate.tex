@@ -1,1 +1,19 @@
 \subsection{MOS gate}
+The wires and the MOS gates can be modeled as an RC low-pass filter, for that reason the time constant $\tau=RC$ is limiting the clock frequency of our CMOS circuitry.
+However, we can't just make the gate ultra thin, because lowered capacity also creates lowered thresholds, which will be a very big problem, as soon as we go into the 100nm range and lower.
+
+We arbitrarily defined the thickness of the gate to be $t_{ox}=40 nm=40 \cdot 10^{-9}m$ which leads to a oxide capacity of 
+\begin{equation}
+C_{ox}=\frac{\epsilon_{ox}}{t_{ox}}
+\end{equation}
+
+With the variables being:
+\begin{itemize}
+\item $\epsilon_0 = 8.85 \cdot 10−12 \frac{F}{m}. $ is the electric permittivity in vacuum
+\item $\epsilon_{Si} =3.9 \cdot \epsilon_0$ is the relative permittivity of silicon dioxide
+\end{itemize}
+
+\begin{equation}
+\Rightarrow
+C_{ox}=\frac{\epsilon_{ox}}{t_{ox}} = 862.875*10^-6 F = 862 uF
+\end{equation}
