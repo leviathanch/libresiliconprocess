@@ -1,0 +1,49 @@
+\subsection{Diffusion (Doping)}
+
+Although the diffusion process of donors and acceptors into the silicon crystal is a three dimensional process for simplicity we first only discuss the one dimensional mathematics for it in order to get a "simple" equation for the depth-time-temperature relation.
+
+The diffusion coefficient is as well material as well as temperature dependent  and can be calculated with the following equation:
+\begin{equation}
+D = D_0 \cdot \exp\left(-\frac{E_a}{k \cdot T}\right)
+\end{equation}
+With $k=8.62 \cdot 10^{-5} \frac{eV}{K}$ being the Boltzman constant and in \autoref{absolute_diffusion_coefficients} we can see the $D_0$ and $E_a$ values for the most common materials\footnote{ISBN 3-8023-1588:Hoppe Bernhard, Mikroelektronik 2, Page 24, Table 2.1} which we can use within the further calculations for our well dimensioning phases. The temperature usually is in the area of $1000\degree C$ or in Kelvin $1273.15\degree K$.
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		Element &
+		$D_0$ $\left[\frac{cm^2}{s}\right]$ &
+		$E_a$ $\left[eV\right]$ \\
+		\hline
+		P &
+		10.50 &
+		3.69 \\
+		\hline
+		As &
+		0.32 &
+		3.56 \\
+		\hline
+		Sb &
+		5.60 &
+		3.95 \\
+		\hline
+		B &
+		10.50 &
+		3.69 \\
+		\hline
+		Al &
+		8.00 &
+		3.47 \\
+		\hline
+		Ga &
+		3.60 &
+		3.51 \\
+		\hline
+		Cu &
+		0.0025 &
+		0.65 \\
+		\hline
+	\end{tabular}
+	\label{absolute_diffusion_coefficients}
+	\caption{$D_0$ and $E_a$ values for Boron and Phosphorus}
+\end{table}

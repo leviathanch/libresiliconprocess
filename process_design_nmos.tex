@@ -29,7 +29,50 @@ Which leads to the required worst case threshold tolerance value
 V_{Tn} < 500mV
 \end{equation}
  
- Using the equation from \autoref{transistor_threshold_calculation} we can now set in this value and play around with the parameters.
+Using the equation from \autoref{transistor_threshold_calculation} we can now set in this value and play around with the parameters.
+  
+With the variables and constants being the following we now can put the formula together:
+\begin{itemize}
+\item $N_A \approx 9\times10^{14}cm^{-3} = 9\times10^{20}m^{-3}$ is the substrate doping (of our chosen basis substrate. also see \autoref{process_overview})
+\item $N_i$ is the carrier concentration in intrinsic (undoped) silicon. $N_i$ is equal to $1.45 \times 10^{10} cm^{-3} = 1.45 \times 10^{16} m^{-3}$ at 300\degree K
+\item $\phi_M = 4.1 eV$ is the "work function" of our metal at the gate (Aluminum)
+\item $E_g(T) = E_g(0) - \frac{\alpha T^2}{T+\beta} = 1.166 - 4.73 \cdot 10^{-4} \cdot \frac{T^2}{T+636} [eV]$ is the band gap energy of silicon at a given temperature\footnote{https://ecee.colorado.edu/~bart/book/eband5.htm} for which the parameters can be taken from \autoref{band_gap_parameters}
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+{} &
+\textbf{Germanium} &
+\textbf{Silicon} &
+\textbf{GaAs} \\
+\hline
+$Eg(0) [eV]$ &
+0.7437 &
+1.166 &
+1.519 \\
+\hline
+$\alpha [eV/K]$ &
+4.77 x 10-4 &
+4.73 x 10-4 &
+5.41 x 10-4 \\
+\hline
+$\beta [K]$ &
+235 &
+636 &
+204 \\
+\hline
+\end{tabular}
+\caption{Band cap energy parameters}
+\label{band_gap_parameters}
+\end{table}
+\item $C_{ox} \left[\frac{F}{m^2}\right]$ is the capacity of the gate oxide
+\item $\epsilon_0 = 8.85 \cdot 10^{-14} \frac{F}{cm}.= 8.85 \cdot 10^{-12} \frac{F}{m} $ is the electric permittivity in vacuum
+\item $\epsilon_{Si} =11.68 \cdot \epsilon_0$ is the relative permittivity of silicon
+\item $\epsilon_{ox} = 3.9 \cdot \epsilon_0$ is the relative permittivity of silicon oxide
+\item $t_{ox} [cm]$ is the thickness of the oxide layer in cm
+\item $\chi = 4.05 eV$ is the electron affinity of a silicon crystal surface\footnote{\url{https://en.wikipedia.org/wiki/Electron_affinity}}
+\item $q=1.602 \cdot 10^{-19} C$ is the elementary charge
+\end{itemize} 
  
  \begin{equation}
 V_T= \frac{1.66 \cdot 10^{-7}}{C_{ox}}-0.094

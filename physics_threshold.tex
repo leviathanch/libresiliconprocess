@@ -25,11 +25,20 @@ V_{th} ln\left(\frac{p}{N_i}\right)
 =
 -V_{th} ln\left(\frac{n}{N_i}\right)
 \end{equation}
-As can be seen from the above equations, the bulk potential is positive for p-type substrates and negative for n-type substrates.
+Tthe bulk potential is positive for p-type substrates and negative for n-type substrates.
+
 $V_{th}$ is the thermal voltage.\footnote{\url{https://en.wikipedia.org/wiki/Boltzmann_constant\#Role_in_semiconductor_physics:_the_thermal_voltage}}
 \begin{equation}
-V_{th} = \frac{k T}{q} 
+V_{th} = \frac{k T}{q} \approx 0.026 \frac{J}{C} = 0.026 V = 26mV
 \end{equation}
+With the variables being:
+\begin{itemize}
+\item $k=1.38064852\cdot 10{-23}  \frac{J}{K}$ is the Boltzmann constant
+\item $q=1.602 \cdot 10^{-19} C$ is the elementary charge
+\item $T= 300 \degree K$ the temperature, which we assume to be the room temperature for simplicity further on in this document as well.
+\end{itemize}
+We can directly switch $\frac{J}{C}$ with Volts because these two units are equal!\footnote{https://en.wikipedia.org/wiki/Volt}
+Also $V_{th}$ will be treated as a constant for any further calculations within this document.
 
 Since we connect bulk and source and are using p-substrate we can simplify the equation to become
 \begin{equation}
@@ -69,49 +78,7 @@ And because of the simplifications we did to $F_{FB}$ which essentially led to $
 V_T = V_{t-mos} + \phi_{MS}
 \end{equation}
 
-With the variables and constants being the following we now can put the formula together:
-\begin{itemize}
-\item $N_A \approx 9\times10^{14}cm^{-3}$ is the substrate doping (of our chosen basis substrate. also see \autoref{process_overview})
-\item $N_i$ is the carrier concentration in intrinsic (undoped) silicon. $N_i$ is equal to $1.45 \times 10^{10} cm^{-3}$ at 300\degree K
-\item $\phi_M = 4.1 V$ is the "work function" of our metal at the gate (multiplied with q) (Only Aluminum is practical for this process)
-\item $E_g(T) = E_g(0) - \frac{\alpha T^2}{T+\beta} = 1.166 - 4.73 \cdot 10^{-4} \cdot \frac{T^2}{T+636} [eV]$ is the band gap energy of silicon at a given temperature\footnote{https://ecee.colorado.edu/~bart/book/eband5.htm} for which the parameters can be taken from \autoref{band_gap_parameters}
-\begin{table}[H]
-\centering
-\begin{tabular}{|c|c|c|c|}
-\hline
-{} &
-\textbf{Germanium} &
-\textbf{Silicon} &
-\textbf{GaAs} \\
-\hline
-$Eg(0) [eV]$ &
-0.7437 &
-1.166 &
-1.519 \\
-\hline
-$\alpha [eV/K]$ &
-4.77 x 10-4 &
-4.73 x 10-4 &
-5.41 x 10-4 \\
-\hline
-$\beta [K]$ &
-235 &
-636 &
-204 \\
-\hline
-\end{tabular}
-\caption{Band cap energy parameters}
-\label{band_gap_parameters}
-\end{table}
-\item $C_{ox} \left[\frac{F}{cm^2}\right]$ is the capacity of the gate oxide
-\item $\epsilon_0 = 8.85 \cdot 10−14 \frac{F}{cm}. $ is the electric permittivity in vacuum
-\item $\epsilon_{Si} =11.68 \cdot \epsilon_0$ is the relative permittivity of silicon
-\item $\epsilon_{ox} = 3.9 \cdot \epsilon_0$ is the relative permittivity of silicon oxide
-\item $t_{ox} [cm]$ is the thickness of the oxide layer in cm
-\item $\chi = 4.05 eV$ is the electron affinity of a silicon crystal surface\footnote{\url{https://en.wikipedia.org/wiki/Electron_affinity}}
-\item $k=8.6173303 \cdot 10^{-5} \frac{eV}{K}$ is the Boltzmann constant
-\item $q=1.602 \cdot 10^{-19} C$ is the elementary charge
-\end{itemize}
+
 
 That's our target equation, in which the capacity has the unit $\frac{F}{cm^2}$ and $V_T$ has the unit Volt:
 \begin{equation}

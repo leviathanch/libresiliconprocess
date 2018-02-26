@@ -9,20 +9,22 @@ These process steps will be discussed within the following sections.
 		%% Place nodes
 		%active CMOS				
 		\node [block] (isolation) at (4,20) {Isolation (STI)\\ \autoref{sti}};
-		\node [block, below of=isolation] (well) {N-Well\\ \autoref{well}};
-		\node [block, below of=well] (np) {n+ Implant\\ \autoref{nimplant}};
+		\node [block, below of=isolation] (nwell) {N-Well\\ \autoref{nwell_chapter}};
+		\node [block, below of=nwell] (pwell) {P-Well\\ \autoref{pwell_chapter}};
+		\node [block, below of=pwell] (np) {n+ Implant\\ \autoref{nimplant}};
 		\node [block, below of=np] (pp) {p+ Implant\\ \autoref{pimplant}};
 		\node [block, below of=pp] (gate) {Gate contacts\\ \autoref{gate}};
 		%post proces
-		\node [block] (via1) at (8,12) {First vias\\ \autoref{via1}};
+		\node [block] (via1) at (8,10) {First vias\\ \autoref{via1}};
 		\node [block, above of=via1] (metal1) {First metal\\ \autoref{metal1}};
 		\node [block, above of=metal1] (via2) {Additional vias\\ \autoref{via2}};
 		\node [block, above of=via2] (metal2) {Additional metal\\ \autoref{metal2}};
-		\node (repeat) at (10.5,18.5) {Repeat};
+		\node (repeat) at (10.5,16.5) {Repeat};
 
 		%% Draw edges
-		\path [line] (isolation) -- (well);
-		\path [line] (well) -- (np);
+		\path [line] (isolation) -- (nwell);
+		\path [line] (nwell) -- (pwell);
+		\path [line] (pwell) -- (np);
 		\path [line] (np) -- (pp);
 		\path [line] (pp) -- (gate);
 		\path [line] (gate) -- (via1);
@@ -31,10 +33,10 @@ These process steps will be discussed within the following sections.
 		\path [line] (via2) -- (metal2);
 		\path [line] (metal2) -- +(3,0) -- +(3,-2) -- (via2);
 
-		\draw[dotted] (2,10) rectangle (6,21);
-		\node at (4,10.5) {CMOS process};
-		\draw[dotted] (6,10) rectangle (12,21);
-		\node at (8,10.5) {Interconnect};
+		\draw[dotted] (2,8) rectangle (6,21);
+		\node at (4,8.5) {CMOS process};
+		\draw[dotted] (6,8) rectangle (12,21);
+		\node at (8,8.5) {Interconnect};
 
 		%\draw[dotted] (1.5,9) rectangle (10.5,21.5);
 		%\node at (4,9.5) {Front-end processing};
