@@ -2,6 +2,11 @@
 
 Although the diffusion process of donors and acceptors into the silicon crystal is a three dimensional process for simplicity we first only discuss the one dimensional mathematics for it in order to get a "simple" equation for the depth-time-temperature relation.
 
+We start with Ficks law (for all German speakers: Yes that's his name, not me shouting about this problem) where the dopant concentration N is coupled with time and place
+\begin{equation}
+\frac{\partial N}{\partial t} = D \cdot \frac{\partial^2 N}{\partial x^2}
+\end{equation}
+
 The diffusion coefficient is as well material as well as temperature dependent  and can be calculated with the following equation:
 \begin{equation}
 D = D_0 \cdot \exp\left(-\frac{E_a}{k \cdot T}\right)
@@ -47,3 +52,21 @@ With $k=8.62 \cdot 10^{-5} \frac{eV}{K}$ being the Boltzman constant and in \aut
 	\label{absolute_diffusion_coefficients}
 	\caption{$D_0$ and $E_a$ values for Boron and Phosphorus}
 \end{table}
+
+The law stated above
+\begin{equation}
+\frac{\partial N}{\partial t} = D \cdot \frac{\partial^2 N}{\partial x^2} 
+\end{equation}
+has the same form as the temperature conductivity equation (Laplace) for which we already have a general solution
+\begin{equation}
+\frac{\partial u}{\partial t} = a^2 \cdot \frac{\partial^2 u}{\partial x^2} 
+\end{equation}
+
+Which means that we can map the general solution for the temperature conductivity equations after Laplace
+\begin{equation}
+u(x,t) = \frac{1}{2 \cdot a \cdot \sqrt{\pi \cdot t}} \cdot \int_{-\infty}^{\infty}{f(a)\cdot\exp\left(\frac{-(x-a)^2}{4 \cdot a^2 \cdot t^2}\right)}da
+\end{equation}
+to our Ficks law with $a=\sqrt{D}$ und $u=N$
+\begin{equation}
+N(x,t) = \frac{1}{2 \cdot \sqrt{D} \cdot \sqrt{\pi \cdot t}} \cdot \int_{-\infty}^{\infty}{f(\sqrt{D})\cdot\exp\left(\frac{-(x-\sqrt{D})^2}{4 \cdot D \cdot t^2}\right)}da
+\end{equation}
