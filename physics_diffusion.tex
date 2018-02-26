@@ -70,3 +70,51 @@ to our Ficks law with $a=\sqrt{D}$ und $u=N$
 \begin{equation}
 N(x,t) = \frac{1}{2 \cdot \sqrt{D} \cdot \sqrt{\pi \cdot t}} \cdot \int_{-\infty}^{\infty}{f(\sqrt{D})\cdot\exp\left(\frac{-(x-\sqrt{D})^2}{4 \cdot D \cdot t^2}\right)}da
 \end{equation}
+with the edge conditions
+\begin{equation}
+N( x=0 , t > 0 ) = N_0
+\end{equation}
+\begin{equation}
+N( x \geq 0 ,  t = 0 ) = 0
+\end{equation}
+we get the resulting function from the solving process for the Laplace temperature conduction equations
+\begin{equation}
+u(x,t)=u_0 \cdot erfc\left(\frac{x}{2 \cdot a \cdot \sqrt{t}}\right)
+\end{equation}
+with the error function being an integral of the form
+\begin{equation}
+erfc(z)
+=
+\left(1-\frac{2}{\sqrt{\pi}}\right)\cdot\int_0^z{e^{-a^2}}da
+\end{equation}
+
+Or in case of our dopant concentration equation we can replace a with the square root of the diffusion coefficient in order to get the error function for our dopant density euqtion:
+\begin{equation}
+erfc(z)
+=
+\left(1-\frac{2}{\sqrt{\pi}}\right)\cdot\int_0^z{e^{-D}}d\sqrt{D}
+\end{equation}
+\begin{equation}
+N(x,t)
+=
+N_0 \cdot erfc\left(\frac{x}{2 \cdot \sqrt{D \cdot t}}\right)
+=
+N_0 \cdot erfc\left(\frac{x}{x_l(t)}\right)
+\end{equation}
+Now we can extract the layer thickness respectively the depth of the well in dependency of the time and the temperature:
+\begin{equation}
+x_l(t) = 2 \cdot \sqrt{D \cdot t}
+\end{equation}
+\begin{equation}
+x_l(t) = 2 \cdot \sqrt{D_0 \cdot \exp\left(-\frac{E_a}{k \cdot T}\right) \cdot t}
+\end{equation}
+
+And plot the result for multiple different drive in times
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{dopants_depth.png}
+	\caption{Different drive in times}
+\end{figure}
+
+
+
