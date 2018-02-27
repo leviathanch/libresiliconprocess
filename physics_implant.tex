@@ -1,14 +1,11 @@
-\subsection{Ion implant and drive-in}
-We can use the following equation to calculate the carrier distribution after implantation and annealing
+\subsection{Ion implant}
+We can use the following equation to calculate the carrier distribution after implantation:
 \begin{equation}
 N(x,t)
 =
-\frac{Q}{\sqrt{2\pi} \sqrt{\Delta R_p^2+2 D t}}
-\cdot
-\exp\left(
--\frac{(x-R_p)^2}{2 \cdot (\Delta R_p^2+2 D t)}
-\right)
+N_p \exp\left(-\frac{(x-R_p)^2}{2\Delta R_p^2}\right)
+=
+\frac{Q}{\sqrt{2\pi}\Delta R_p}\exp\left(-\frac{(x-R_p)^2}{2\Delta R_p^2}\right)
 \end{equation}
 
- $R_p$
-\footnote{\url{http://cleanroom.byu.edu/rangestraggle}}
+Where the projected range ($R_p$) and the projected straggle ($\Delta R_p$) need to be looked up in tables or looked up using an online tool like the one linked in the footnote\footnote{\url{http://cleanroom.byu.edu/rangestraggle}}

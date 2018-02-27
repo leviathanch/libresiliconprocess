@@ -16,8 +16,9 @@ The diffusion coefficient is as well material as well as temperature dependent  
 \begin{equation}
 D = D_0 \cdot \exp\left(-\frac{E_a}{k \cdot T}\right)
 \end{equation}
-With $k=8.62 \cdot 10^{-5} \frac{eV}{K}$ being the Boltzman constant and in \autoref{absolute_diffusion_coefficients} we can see the $D_0$ and $E_a$ values for the most common materials\footnote{ISBN 3-8023-1588:Hoppe Bernhard, Mikroelektronik 2, Page 24, Table 2.1} which we can use within the further calculations for our well dimensioning phases. The temperature usually is in the area of $1000\degree C$ or in Kelvin $1273.15\degree K$.
+With $k=8.62 \cdot 10^{-5} \frac{eV}{K}$ being the Boltzman constant and in table \ref{table:absolute_diffusion_coefficients} we can see the $D_0$ and $E_a$ values for the most common materials\footnote{ISBN 3-8023-1588:Hoppe Bernhard, Mikroelektronik 2, Page 24, Table 2.1} which we can use within the further calculations for our well dimensioning phases. The temperature usually is in the area of $1000\degree C$ or in Kelvin $1273.15\degree K$.
 \begin{table}[H]
+	\label{table:absolute_diffusion_coefficients}
 	\centering
 	\begin{tabular}{|c|c|c|}
 		\hline
@@ -54,7 +55,6 @@ With $k=8.62 \cdot 10^{-5} \frac{eV}{K}$ being the Boltzman constant and in \aut
 		0.65 \\
 		\hline
 	\end{tabular}
-	\label{absolute_diffusion_coefficients}
 	\caption{$D_0$ and $E_a$ values for Boron and Phosphorus}
 \end{table}
 
@@ -74,6 +74,7 @@ u(x,t) = \frac{1}{2 \cdot a \cdot \sqrt{\pi \cdot t}} \cdot \int_{-\infty}^{\inf
 to our Ficks law with $a=\sqrt{D}$ und $u=N$
 \begin{equation}
 N(x,t) = \frac{1}{2 \cdot \sqrt{D} \cdot \sqrt{\pi \cdot t}} \cdot \int_{-\infty}^{\infty}{f(\sqrt{D})\cdot\exp\left(\frac{-(x-\sqrt{D})^2}{4 \cdot D \cdot t^2}\right)}da
+\label{eq:ficks_law_expanded}
 \end{equation}
 with the edge conditions
 \begin{equation}
