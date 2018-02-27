@@ -13,7 +13,7 @@ V_{t-mos}=2 \phi_F + \frac{Q_b}{C_{ox}}
 \begin{equation}
 Q_b
 =
-\sqrt{2 \epsilon_{Si} q N_A ( \left| 2 \phi_F \right| + V_{SB}) }
+\sqrt{2 \epsilon_{Si} \cdot q \cdot N_{implant}  \cdot  ( \left| 2 \phi_F \right| + V_{SB}) }
 \end{equation}
 where $C_{ox}$ is the oxide capacitance and $Q_b$ which is called the bulk charge term.\\
 
@@ -21,9 +21,9 @@ The bulk potential is given by:
 \begin{equation}
 \phi_F
 =
-V_{th} ln\left(\frac{p}{N_i}\right)
+V_{th} \cdot ln\left(\frac{p}{N_i}\right)
 =
-V_{th} ln\left(\frac{N_i}{n}\right)
+V_{th} \cdot ln\left(\frac{N_i}{n}\right)
 \end{equation}
 
 $V_{th}$ is the thermal voltage.\footnote{\url{https://en.wikipedia.org/wiki/Boltzmann_constant\#Role_in_semiconductor_physics:_the_thermal_voltage}}
@@ -36,14 +36,27 @@ With the variables being:
 \item $q=1.602 \cdot 10^{-19} C$ is the elementary charge
 \item $T= 300 \degree K$ the temperature, which we assume to be the room temperature for simplicity further on in this document as well.
 \end{itemize}
+
+\begin{mdframed}[linewidth=2pt,linecolor=red]
 We can directly switch $\frac{J}{C}$ with Volts because these two units are equal!\footnote{\url{https://en.wikipedia.org/wiki/Volt}}
 Also $V_{th}$ will be treated as a constant for any further calculations within this document.
+\end{mdframed}
 
-Since we connect bulk and source and are using p-substrate we can simplify the equation to become
+Since we connect bulk and source $V_{SB}=0$ we can simplify the equation to become
 \begin{equation}
 Q_b
 =
-2 \sqrt{\epsilon_{Si} q V_{th} ln\left(\frac{N_{implant}}{N_{inert}}\right) \cdot N_{implant} }
+\sqrt{2\cdot\epsilon_{Si}\cdot q\cdot N_{implant} \cdot  ( \left| 2 \cdot \phi_F \right|) }
+\end{equation}
+\begin{equation}
+Q_b
+=
+2\cdot\sqrt{\epsilon_{Si}\cdot q\cdot N_{implant}\cdot \left| \phi_F \right| }
+\end{equation}
+\begin{equation}
+Q_b
+=
+2 \sqrt{\epsilon_{Si}\cdot q\cdot V_{th}\cdot ln\left(\frac{N_{implant}}{N_{inert}}\right) \cdot N_{implant} }
 \end{equation}
 
 
@@ -76,9 +89,7 @@ And because of the simplifications we did to $F_{FB}$ which essentially led to $
 V_T = V_{t-mos} + \phi_{MS}
 \end{equation}
 
-
-
-That's our target equation, in which the capacity has the unit $\frac{F}{cm^2}$ and $V_T$ has the unit Volt:
+That's our target equation, in which the capacity has the unit $\frac{F}{m^2}$ and $V_T$ has the unit Volt:
 \begin{equation}
 \boxed{
 V_T= \frac{1.66 \cdot 10^{-7}}{C_{ox}}-0.094
