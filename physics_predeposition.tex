@@ -1,6 +1,11 @@
-\subsection{Predeposition}
+\subsection{Constant source diffusion (Predeposition)}
 
 Although the diffusion process of donors and acceptors into the silicon crystal is a three dimensional process for simplicity we first only discuss the one dimensional mathematics for it in order to get a "simple" equation for the depth-time-temperature relation.
+
+\begin{mdframed}[linewidth=2pt,linecolor=red]
+This is only valid for a constant source of dopants on the surface of the wafer (for instance gas).
+These equations are being used for predicting the pre-deposition step (in case this process would be adapted by someone for predeposition instead of ion implant)
+\end{mdframed}
 
 We start with Ficks law (for all German speakers: Yes that's his name, not me shouting about this problem) where the dopant concentration N is coupled with time and place
 \begin{equation}
@@ -116,5 +121,10 @@ And plot the result for multiple different drive in times
 	\caption{Different predeposition times}
 \end{figure}
 
+We can now describe the dosage based on the time and temperature of the diffusion
 
+\begin{equation}
+Q=\frac{2}{\sqrt{\pi}} \cdot N_0 \cdot \sqrt{D \cdot t}
+\end{equation}
 
+Where $N_0$ (concentration at the surface) equals the maximum solubility of a given element (e.g. Boron) within the given medium (e.g. Silicon).
