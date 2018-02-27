@@ -7,7 +7,7 @@ This is only valid for a constant source of dopants on the surface of the wafer 
 These equations are being used for predicting the pre-deposition step (in case this process would be adapted by someone for predeposition instead of ion implant)
 \end{mdframed}
 
-We start with Ficks law (for all German speakers: Yes that's his name, not me shouting about this problem) where the dopant concentration N is coupled with time and place
+We start with Ficks\footnote{\url{https://en.wikipedia.org/wiki/Fick\%27s_laws_of_diffusion}} law (for all German speakers: Yes that's his name) where the dopant concentration N is coupled with time and place
 \begin{equation}
 \frac{\partial N}{\partial t} = D \cdot \frac{\partial^2 N}{\partial x^2}
 \end{equation}
@@ -128,4 +128,4 @@ We can now describe the dosage based on the time and temperature of the diffusio
 Q=\frac{2}{\sqrt{\pi}} \cdot N_0 \cdot \sqrt{D \cdot t}
 \end{equation}
 
-Where $N_0$ (concentration at the surface) equals the maximum solubility of a given element (e.g. Boron) within the given medium (e.g. Silicon).
+Where $N_0$ (concentration at the surface) equals the maximum solubility of a given element (e.g. Boron) within the given medium (e.g. Silicon).\footnote{If someone really wants to do this in his basement he can google these values and make a pull request}

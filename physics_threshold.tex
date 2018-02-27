@@ -13,7 +13,7 @@ V_{t-mos}=2 \phi_F + \frac{Q_b}{C_{ox}}
 \begin{equation}
 Q_b
 =
-\sqrt{2 \epsilon_{Si} q N_A ( 2 \phi_F + V_{SB}) }
+\sqrt{2 \epsilon_{Si} q N_A ( \left| 2 \phi_F \right| + V_{SB}) }
 \end{equation}
 where $C_{ox}$ is the oxide capacitance and $Q_b$ which is called the bulk charge term.\\
 
@@ -23,9 +23,8 @@ The bulk potential is given by:
 =
 V_{th} ln\left(\frac{p}{N_i}\right)
 =
--V_{th} ln\left(\frac{n}{N_i}\right)
+V_{th} ln\left(\frac{N_i}{n}\right)
 \end{equation}
-Tthe bulk potential is positive for p-type substrates and negative for n-type substrates.
 
 $V_{th}$ is the thermal voltage.\footnote{\url{https://en.wikipedia.org/wiki/Boltzmann_constant\#Role_in_semiconductor_physics:_the_thermal_voltage}}
 \begin{equation}
@@ -44,7 +43,7 @@ Since we connect bulk and source and are using p-substrate we can simplify the e
 \begin{equation}
 Q_b
 =
-2 \sqrt{\epsilon_{Si} q N_A V_{th} ln\left(\frac{N_A}{N_i}\right) }
+2 \sqrt{\epsilon_{Si} q V_{th} ln\left(\frac{N_{implant}}{N_{inert}}\right) \cdot N_{implant} }
 \end{equation}
 
 
