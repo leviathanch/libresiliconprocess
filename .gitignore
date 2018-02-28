@@ -1,2 +1,5 @@
 *.log
 */*.log
+*.aux
+*.idx
+*.toc
