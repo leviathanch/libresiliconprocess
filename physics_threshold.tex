@@ -101,6 +101,12 @@ V_T = 2 \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q\cdot V_{th}\cdot ln\left(\fr
 \begin{equation}
 V_T = 2 \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q\cdot V_{th}\cdot ln\left(\frac{N_{implant}}{N_{inert}}\right) \cdot N_{implant} }}{C_{ox}} + \phi_{M} -  \left(\chi + \frac{E_g}{2 q} + \phi_F \right)
 \end{equation}
+\begin{equation}
+V_T = 2 \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q\cdot V_{th}\cdot ln\left(\frac{N_{implant}}{N_{inert}}\right) \cdot N_{implant} }}{C_{ox}} + \phi_{M} -  \chi - \frac{E_g}{2 q} - \phi_F
+\end{equation}
+\begin{equation}
+V_T = \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q\cdot V_{th}\cdot ln\left(\frac{N_{implant}}{N_{inert}}\right) \cdot N_{implant} }}{C_{ox}} + \phi_{M} -  \chi - \frac{E_g}{2 q}
+\end{equation}
 
 With the variables and constants being the following we now can put the formula together:
 \begin{itemize}
@@ -144,5 +150,15 @@ $\beta [K]$ &
 \item $E_{ef} = q \cdot \chi = 4.05 eV$ is the electron affinity of a silicon crystal surface\footnote{\url{https://en.wikipedia.org/wiki/Electron_affinity}}
 \item $q=1.602 \cdot 10^{-19} C$ is the elementary charge
 \end{itemize} 
+
+The contact potential from the Aluminum contact to the surface of the gate (silicon below the oxide) is fixed for $T=300\degree K$:
+\begin{equation}
+\phi_{M} -  \chi - \frac{E_g}{2 q} = 4.1V - 4.05V - \frac{1.12eV}{2 q} = 4.1V - 4.05V - 0.56V = -0.51V
+\end{equation}
+
+From that we get
+\begin{equation}
+V_T = \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q\cdot V_{th}\cdot ln\left(\frac{N_{implant}}{N_{inert}}\right) \cdot N_{implant} }}{C_{ox}} - 0.51V
+\end{equation}
 
 This equation will be used further on to find the optimum gate oxide thickness for our transistors.
