@@ -1,4 +1,4 @@
-\subsection{MOS gate}
+\subsection{MOS gate}\label{gate_dimensioning}
 As the continuous down-scaling of the device size has lead to very thin gate oxides, the leakage current that can flow from the channel to the gate comes into the order of the subthreshold leakage current and the gate cannot be considered as an ideally insulated electrode anymore.
 This affects the circuit functionality and increases the standby power consumption due to the static gate current.
 For dynamic logic concepts the gate leakage drastically reduces the maximum clock cycle time\footnote{N. Wang, Digital MOS Integrated Circuits, Prentice-Hall, Englewood Cliffs, NJ, 1989}.
@@ -93,9 +93,9 @@ We can now plot multiple leakages for N- and P-channel transistors with a gate o
 	\label{leagage_currents}
 \end{figure}
 In \autoref{leagage_currents} we see that with our gate oxide thickness this is really no problem, as we had expected.
-From 0V up to 5V and further there is basically no leage on the gate from the sub threshold current with $V_{Tn} \approx 0.28V$ and $V_{Tp} \approx -0.29V$.
-That's good enough, as we will see in \autoref{nmos_gate_dimensioning} and \autoref{pmos_gate_dimensioning}.
-There is actually a reduction of current when reaching the threshold because of the inversion of the capacity in the depletion zone, but I didn't include this into the calculation, because "TL;DR".
+From 0V up to 5V and further there is basically no leakage on the gate from the sub threshold current with $V_{Tn} \approx 0.28V$ and $V_{Tp} \approx -0.29V$.
+That's good enough, as we will see in \autoref{nmos_dimensioning} and \autoref{pmos_dimensioning}.
+There is actually a reduction of current when reaching the threshold because of the inversion of the capacity in the depletion zone\footnote{\url{https://people.eecs.berkeley.edu/~hu/Chenming-Hu_ch5.pdf}}, but I didn't include this into the calculation, because "TL;DR".
 It's a TODO for release 2.1 of this process which will go sub $1 \mu m$
 
 \subsubsection{Gate tunneling current}

@@ -1,4 +1,4 @@
-\subsection{NMOS threshold}\label{nmos_gate_dimensioning}
+\subsection{NMOS threshold}\label{nmos_dimensioning}
 First we take a look at the worst case of 4 stacked NMOS transistors, which is the highest stacking amount which will be possible in technologies relying on this process.
 
 \input{process_design_graphics/schematic_AND4.tex}
@@ -29,34 +29,7 @@ Which leads to the required worst case threshold tolerance value
 V_{Tn} < 500mV
 \end{equation}
  
-Using the equation from \autoref{transistor_threshold_calculation} we can now set in this value and play around with the parameters.
+With the values derived from \autoref{gate_dimensioning} and a surface concentration for our P-well of $10^{22}\frac{1}{m^3}$ we are already set because $\approx 0.28V$ are already better than we need.
+
+So we target a surface concentration of $10^{22}\frac{1}{m^3}$ which gives us margin of error in case of temperature variations and too long diffusion.
   
-
- 
- \begin{equation}
-V_T= \frac{1.66 \cdot 10^{-7}}{C_{ox}}-0.094
-\end{equation}
-
-For safety reasons we take 10\% of the worst case as a error margin which leads us to the following new equation to solve
- \begin{equation}
-V_T = 450mV
-\end{equation}
-
-This gives us the constraint of
-\begin{equation}
-0.45 V = \left( \frac{1.66 \cdot 10^{-7}}{C_{ox}}-0.094 \right) V
-\end{equation}
-
-We solve for the target capacity (in $\frac{F}{cm^2}$) which gives us the desired threshold voltage:
-\begin{equation}
-\Rightarrow
-C_{ox}
-=
-3.057 \cdot {10}^{-7} \frac{F}{cm^2}
-\end{equation}
-\begin{equation}
-\Rightarrow
-C_{ox}
-=
-305.7 \frac{nF}{cm^2}
-\end{equation}

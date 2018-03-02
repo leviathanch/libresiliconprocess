@@ -1,9 +1,11 @@
-\input{tikz_process_steps/sti.a.tex}
-% phosphorus
-\fill[nwell] (1,1.8) rectangle (8.5,2);
-\node at (4.75,1.9) {n+};
+\input{tikz_process_steps/nwell.a.tex}
+
+% boron
+\fill[pwell] (11.5,1.8) rectangle (19,2);
+
 % oxide
-\fill[isolationoxide] (0,2) rectangle (1,2.6);
-\fill[isolationoxide] (8.5,2) rectangle (20,2.6);
-\fill[nwell] (0,2.5) rectangle (1,2.6);
-\fill[nwell] (8.5,2.5) rectangle (20,2.6);
+\fill[isolationoxide] (0,2) rectangle (11.5,2.6);
+\fill[isolationoxide] (19,2) rectangle (20,2.6);
+
+\fill[pwell] (0,2.5) rectangle (11.5,2.6);
+\fill[pwell] (19,2.5) rectangle (20,2.6);
