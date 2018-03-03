@@ -31,5 +31,12 @@ V_{Tn} < 500mV
  
 With the values derived from \autoref{gate_dimensioning} and a surface concentration for our P-well of $10^{22}\frac{1}{m^3}$ we are already set because $\approx 0.28V$ are already better than we need.
 
-So we target a surface concentration of $10^{22}\frac{1}{m^3}$ which gives us margin of error in case of temperature variations and too long diffusion.
-  
+So we target a surface concentration of $10^{16}\frac{1}{cm^3}=10^{22}\frac{1}{m^3}$ which gives us margin of error in case of temperature variations and too long diffusion.
+
+The depletion zone thickness at its peak will be $W_{dmax} \approx 2.73 \cdot 10^{-7} m = 273 nm$ so making the well $\approx 2 \mu m$ is ok.
+
+$\approx 2 \mu m$ come mainly from the need to fulfill the condition from \autoref{physics_drive_in}
+
+\begin{equation}
+x_e = 2 \cdot \sqrt{D_e \cdot t_e} \gg 2 \cdot \sqrt{D_v \cdot t_v} = x_v
+\end{equation}
