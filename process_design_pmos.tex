@@ -2,10 +2,51 @@
 Now we take a look at the worst case of 4 stacked PMOS transistors, which is the highest stacking amount which will be possible in technologies relying on this process.
 \input{process_design_graphics/schematic_OR4.tex}
 
+$\approx 4 \mu m$ come mainly from the need to fulfill the condition from \autoref{physics_drive_in}
 
-With our $\phi_F$ for a doped n-well
 \begin{equation}
-\phi_F
-=
-V_{th} ln\left(\frac{{N_A \cdot N_D}}{N_i^2}\right)
+x_e = 2 \cdot \sqrt{D_e \cdot t_e} \gg 2 \cdot \sqrt{D_v \cdot t_v} = x_v
 \end{equation}
+
+We already got the background ($N_B \approx 7 \cdot 10^{14} \frac{1}{cm^3}=7 \cdot 10^{20} \frac{1}{m^3}$) concentration from the specs of the basis substrate.
+
+We use a drive in temperature of $1150 \degree C$ which is  $T = 1423.15 \degree K$ in Kelvin which gives us the diffusion coefficient $D=9.1 \cdot 10^{-17}  \frac{m^2}{s}$
+
+Now using
+\begin{equation}
+N(x,t)
+=
+\frac{Q}{\sqrt{\pi\cdot D \cdot t}} \cdot \exp\left(\frac{-x^2}{4 \cdot D \cdot t}\right)
+\end{equation}
+
+We set the conditions and get the required diffusion time as well as the initial dosage in one shot:
+\begin{equation}
+N(0,t)
+=
+\frac{Q}{\sqrt{\pi\cdot D \cdot t}}
+=
+N_p-N_B
+=
+7 \cdot 10^{20} \frac{1}{m^3}
+\end{equation}
+\begin{equation}
+x
+=
+2 \cdot \sqrt{D \cdot t}
+=
+4 \mu m
+=
+4 \cdot 10^{-6} m
+\end{equation}
+\begin{equation}
+\Rightarrow
+Q
+=
+7 \cdot 10^{20} \frac{1}{m^3} \cdot \sqrt{\pi\cdot D \cdot t}
+=
+7 \cdot 10^{20} \frac{1}{m^3} \cdot \sqrt{\pi} \cdot 2 \cdot 10^{-6} m
+\approx
+\underline{2.48 \cdot 10^{15} \frac{1}{m^2}}
+\end{equation}
+
+TODO
