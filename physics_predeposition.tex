@@ -85,27 +85,27 @@ N( x \geq 0 ,  t = 0 ) = 0
 \end{equation}
 we get the resulting function from the solving process for the Laplace temperature conduction equations
 \begin{equation}
-u(x,t)=u_0 \cdot erfc\left(\frac{x}{2 \cdot a \cdot \sqrt{t}}\right)
+u(x,t)=u_0 \cdot\erfc\left(\frac{x}{2 \cdot a \cdot \sqrt{t}}\right)
 \end{equation}
 with the error function being an integral of the form
 \begin{equation}
-erfc(z)
+\erfc(z)
 =
 \left(1-\frac{2}{\sqrt{\pi}}\right)\cdot\int_0^z{e^{-a^2}}da
 \end{equation}
 
 Or in case of our dopant concentration equation we can replace a with the square root of the diffusion coefficient in order to get the error function for our dopant density equation:
 \begin{equation}
-erfc(z)
+\erfc(z)
 =
 \left(1-\frac{2}{\sqrt{\pi}}\right)\cdot\int_0^z{e^{-D}}d\sqrt{D}
 \end{equation}
 \begin{equation}
 N(x,t)
 =
-N_0 \cdot erfc\left(\frac{x}{2 \cdot \sqrt{D \cdot t}}\right)
+N_0 \cdot\erfc\left(\frac{x}{2 \cdot \sqrt{D \cdot t}}\right)
 =
-N_0 \cdot erfc\left(\frac{x}{x_l(t)}\right)
+N_0 \cdot\erfc\left(\frac{x}{x_l(t)}\right)
 \end{equation}
 Now we can extract the layer thickness and the depth of the well in dependency of the time and the temperature, respectively:
 \begin{equation}
