@@ -45,12 +45,13 @@ We already got the background ($N_B \approx 7 \cdot 10^{14} \frac{1}{cm^3}=7 \cd
 N_p - N_B = 10^{22}\frac{1}{m^3} - 7 \cdot 10^{20} \frac{1}{m^3} = 9.3 \cdot 10^{21} \frac{1}{m^3}
 \end{equation}
 
-
-$\approx 4 \mu m$ come mainly from the need to fulfill the condition from \autoref{physics_drive_in}
+The depth of the p-well $\approx 2 \mu m$ comes mainly from the need to fulfill the condition from \autoref{physics_drive_in}
 
 \begin{equation}
 x_e = 2 \cdot \sqrt{D_e \cdot t_e} \gg 2 \cdot \sqrt{D_v \cdot t_v} = x_v
 \end{equation}
+
+\newpage
 
 We already got the background ($N_B \approx 7 \cdot 10^{14} \frac{1}{cm^3}=7 \cdot 10^{20} \frac{1}{m^3}$) concentration from the specs of the basis substrate.
 
@@ -78,19 +79,30 @@ x
 =
 2 \cdot \sqrt{D \cdot t}
 =
-4 \mu m
+2 \mu m
 =
-4 \cdot 10^{-6} m
+2 \cdot 10^{-6} m
+\end{equation}
+\begin{equation}
+\Rightarrow
+t \approx 11018s \approx \underline{3h}
 \end{equation}
 \begin{equation}
 \Rightarrow
 Q
 =
 7 \cdot 10^{20} \frac{1}{m^3} \cdot \sqrt{\pi\cdot D \cdot t}
-=
-7 \cdot 10^{20} \frac{1}{m^3} \cdot \sqrt{\pi} \cdot 2 \cdot 10^{-6} m
 \approx
-\underline{2.48 \cdot 10^{15} \frac{1}{m^2}}
+\underline{1.64 \cdot 10^{16} \frac{1}{m^2}}
 \end{equation}
 
-TODO
+If we plot the functions from our calculation we can yield the below graphics\footnote{see simulation/diffusion\_pwell.wxmx}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{p-well-diffusion.png}
+	\caption{Dopant concentration after 3 hours}
+	\label{pwell_drive_in_outcome}
+\end{figure}
+
+In \autoref{pwell_drive_in_outcome} we can see that after three hours we already have the desired even gradient which and deep penetration of dopants, which will give us a low $R_{DS}$.
