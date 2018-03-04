@@ -75,7 +75,7 @@ N_p-N_B
 \begin{equation}
 x
 =
-2 \cdot \sqrt{D \cdot t}
+2 \cdot \sqrt{D \cdot t \cdot\ln\left(\frac{N_T}{N_B}\right)}
 =
 2 \mu m
 =
@@ -83,7 +83,7 @@ x
 \end{equation}
 \begin{equation}
 \Rightarrow
-t \approx 11018s \approx \underline{3h}
+t \approx 4259s \approx \underline{70 min}
 \end{equation}
 \begin{equation}
 \Rightarrow
@@ -91,7 +91,7 @@ Q
 =
 7 \cdot 10^{20} \frac{1}{m^3} \cdot \sqrt{\pi\cdot D \cdot t}
 \approx
-\underline{1.64 \cdot 10^{16} \frac{1}{m^2}}
+\underline{1.02 \cdot 10^{16} \frac{1}{m^2}}
 \end{equation}
 
 If we plot the functions from our calculation we can yield the below graphics\footnote{see simulation/diffusion\_pwell.wxmx}
@@ -99,8 +99,8 @@ If we plot the functions from our calculation we can yield the below graphics\fo
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\textwidth]{p-well-diffusion.png}
-	\caption{Dopant concentration after 3 hours}
+	\caption{Dopant concentration after around 70 minutes}
 	\label{pwell_drive_in_outcome}
 \end{figure}
 
-In \autoref{pwell_drive_in_outcome} we can see that after three hours we already have the desired even gradient which and deep penetration of dopants, which will give us a low $R_{DS}$.
+In \autoref{pwell_drive_in_outcome} we can see that after roughly an hour we already have the desired even gradient and deep penetration of dopants, which will give us a low $R_{DS}$.
