@@ -186,7 +186,9 @@ We take the machine "DRIE Etcher \#1" from HKUST\footnote{\url{http://www.nff.us
 	\caption{Resist removal}
 \end{figure}
 
-\subsubsection{Patterning negative}
+\subsubsection{Nitride+pad oxide etching}
+
+Now we have to remove the nitride mask for further processing.
 
 \begin{figure}[H]
 	\centering
@@ -197,38 +199,7 @@ We take the machine "DRIE Etcher \#1" from HKUST\footnote{\url{http://www.nff.us
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/sti.12.b.tex}
 	\end{tikzpicture}
-	\caption{Patterning with negative resist}
-\end{figure}
-
-\subsubsection{Nitride+pad oxide etching}
-
-Now we have to remove the nitride mask for further processing.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.13.a.tex}
-	\end{tikzpicture} \\
-	\includegraphics[scale=0.01]{down_arrow.png} \\
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.13.b.tex}
-	\end{tikzpicture}
 	\caption{Trench etching}
 \end{figure}
 
 We use the reflux method as described in \autoref{chemistry_reflux}
-
-
-\subsubsection{Resist removal}
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.14.a.tex}
-	\end{tikzpicture} \\
-	\includegraphics[scale=0.01]{down_arrow.png} \\
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.14.b.tex}
-	\end{tikzpicture}
-	\caption{Cleaning wafer}
-\end{figure}
