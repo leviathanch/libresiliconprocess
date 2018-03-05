@@ -71,24 +71,26 @@ $V_{FB}$, is given by:
 \begin{equation}
 V_{FB}
 =
-\phi_{MS}-\frac{Q_f}{C_{ox}}-\frac{1}{C_{ox}}\int_{0}^{t_{ox}}\frac{x}{x_{ox}}\rho(x) dx
+\phi_{MS}-\frac{Q_SS}{C_{ox}}-\frac{1}{C_{ox}}\int_{0}^{t_{ox}}\frac{x}{x_{ox}}\rho(x) dx
 \end{equation}
 
-Because we're not yet dealing with non-volatile memory devices which contain an oxide surface state charge we can just set $Q_f=0$ as well as $\rho(x)=0$
+Because we're not yet dealing with non-volatile memory devices which contain an oxide surface state charge we can just $\rho(x)=0$.
+$Q_{SS}$ is a value which has to be measured.
+
 \begin{equation}
 V_{FB}
 =
-\phi_{MS}
+\phi_{MS} - \frac{Q_{SS}}{C_{ox}}
 \end{equation}
 with
 \begin{equation}
 V_{FB}
 =
-\phi_{MS}
+\phi_{MS} - \frac{Q_{SS}}{C_{ox}}
 =
-\phi_{M} - \phi_{S}
+\phi_{M} - \phi_{S} - \frac{Q_{SS}}{C_{ox}}
 =
-\phi_{M} -  \left(\chi + \frac{E_g}{2 q} + \phi_F \right)
+\phi_{M} -  \left(\chi + \frac{E_g}{2 q} + \phi_F \right) - \frac{Q_{SS}}{C_{ox}}
 \end{equation}
 
 And because of the simplifications we did to $F_{FB}$ which essentially led to $F_{FB}=\phi_{MS}$ we get to:
@@ -102,18 +104,19 @@ V_T = 2 \phi_F + \frac{Q_b}{C_{ox}} + \phi_{MS}
 V_T = 2 \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q\cdot \left| \phi_F \right| \cdot N_{implant} }}{C_{ox}} + \phi_{MS}
 \end{equation}
 \begin{equation}
-V_T = 2 \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q\cdot \left| \phi_F \right| \cdot N_{implant} }}{C_{ox}} + \phi_{M} -  \left(\chi + \frac{E_g}{2 q} + \phi_F \right)
+V_T = 2 \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q\cdot \left| \phi_F \right| \cdot N_{implant} }}{C_{ox}} + \phi_{M} -  \left(\chi + \frac{E_g}{2 q} + \phi_F \right) - \frac{Q_{SS}}{C_{ox}}
 \end{equation}
 \begin{equation}
-V_T = 2 \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q\cdot \left| \phi_F \right| \cdot N_{implant} }}{C_{ox}} + \phi_{M} -  \chi - \frac{E_g}{2 q} - \phi_F
+V_T = 2 \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q\cdot \left| \phi_F \right| \cdot N_{implant} }}{C_{ox}} + \phi_{M} -  \chi - \frac{E_g}{2 q} - \phi_F - \frac{Q_{SS}}{C_{ox}}
 \end{equation}
 \begin{equation}
-V_T = \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q\cdot \left| \phi_F \right| \cdot N_{implant} }}{C_{ox}} + \phi_{M} -  \chi - \frac{E_g}{2 q}
+V_T = \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q\cdot \left| \phi_F \right| \cdot N_{implant} }}{C_{ox}} + \phi_{M} -  \chi - \frac{E_g}{2 q} - \frac{Q_{SS}}{C_{ox}}
 \end{equation}
 
 With the variables and constants being the following we now can put the formula together:
 \begin{itemize}
 \item $N_i$ is the carrier concentration in intrinsic (undoped) silicon. $N_i$ is equal to $1.45 \times 10^{10} cm^{-3} = 1.45 \times 10^{16} m^{-3}$ at 300\degree K
+\item $Q_{SS}$ depends on the process and is measured. Usually it's between $10^{9}\frac{1}{cm^2}$ and $10^{10}\frac{1}{cm^2}$
 \item $E_M = q\cdot\phi_M = 4.1 eV$ is the "work function" of our metal at the gate (Aluminum)
 \item $E_g=E_g(300) [eV]$ \\
 $E_g(T) = E_g(0) - \frac{\alpha T^2}{T+\beta} = 1.166 - 4.73 \cdot 10^{-4} \cdot \frac{T^2}{T+636} [eV]$ is the band gap energy of silicon at a given temperature\footnote{\url{https://ecee.colorado.edu/~bart/book/eband5.htm}} for which the parameters can be taken from \autoref{band_gap_parameters}
