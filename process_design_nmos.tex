@@ -1,35 +1,36 @@
 \subsection{NMOS threshold}\label{nmos_dimensioning}
-First we take a look at the worst case of 4 stacked NMOS transistors, which is the highest stacking amount which will be possible in technologies relying on this process.
+First we take a look at the pull down network, which is being formed by the NMOS transistors.
+We have to make sure that the pull down network will effectively tie our output signal to ground, latest when reaching the voltage defined as high signal (inverter!)
 
-\input{process_design_graphics/schematic_AND4.tex}
-As shown in  \autoref{TTL_logic_levels} our acceptable voltages for our CMOS "ON" state range from 2V to VDD (which typically is around $5V\pm0.25V$)
+As shown in  \autoref{TTL_logic_levels} our acceptable voltages for our CMOS "OFF" state range from 0V to 0.8V
+
+\begin{figure}[H]
+	\centering
+	\begin{circuitdiagram}{20}{20}
+		\power{15}{18.5}{U}{}  % power above resistor
+		\wire{15}{17}{15}{18}   % wire above resistor
+		\resis{15}{14}{V}{$R_D$}{}  % resistor on drain
+		\wire{15}{11}{15}{8}   % wire between resistor and nmos
+		\trans{nenh}{13}{6}{R}{}{} % nmos -> right
+		\Voltarrow{10}{4}{14}{1}{d}{$+V_{GS}$}
+		\wire{15}{1}{15}{4}   % wire below nmos
+		\ground{15}{0.5}{D}  % ground below nmos
+		\othersrc[\sigsym{rec}]{o}{5.5}{4.5}{H}{}{signal}
+		\pin{9.5}{4.5}{R}{}	% pin in
+		\ground{2.5}{0.5}{D}  % ground below signal source
+		\wire{2.5}{1}{2.5}{4.5}   % wire below signal
+		\junct{15}{10}   % dot
+		\wire{15}{10}{16}{10}   % wire before out
+		\pin{17}{10}{R}{out}	% pin out
+	\end{circuitdiagram}
+	\caption{enhancement-mode NMOS transistor use-case}
+\end{figure}
 
 \begin{equation}
-V_{on} \geq 2V
+V_{off} \leq 0.8 V
 \end{equation}
 
-Because there are four transistors dividing the voltage by being in series, the power supply voltage is being divided by the amount of transistors in series.
-In order to match the threshold voltages of all of the transistors, which is needed for a working digital logic, the following equation need to be satisfied
-
-\begin{equation}
-V_{on} > 4 \cdot V_{Tn}
-\end{equation}
-
-Lets assume the worst case with
-
-\begin{equation}
-V_{on} = 2V
-\end{equation}
-
-Which leads to the required worst case threshold tolerance value
-
-\begin{equation}
-4 \cdot V_{Tn} < 2V
-\Rightarrow
-V_{Tn} < 500mV
-\end{equation}
- 
-With the values derived from \autoref{gate_dimensioning} and a surface concentration for our P-well of $10^{22}\frac{1}{m^3}$ we are already set because $\approx 0.39V$ are already better than we need.
+With the values derived from \autoref{gate_dimensioning} which gives us the thickness of the gate ($\approx 40nm$) we target a threshold voltage of $0.8V$,  so that we switch the pull down circuit as soon as the low-signal is on.
 
 We target a concentration of $N_p = 10^{16}\frac{1}{cm^3}=10^{22}\frac{1}{m^3}$.
 

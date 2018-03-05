@@ -1,4 +1,4 @@
-\subsection{Threshold voltage ($V_T$)}\label{transistor_threshold_calculation}
+\subsection{Threshold voltage ($V_T$)}
 The formula for calculating the threshold voltage of a MOS device is the following:
 \begin{equation}
 V_T = V_{t-mos} + V_{FB}
@@ -16,6 +16,14 @@ Q_b
 \sqrt{2 \epsilon_{Si} \cdot q \cdot N_{implant}  \cdot  ( \left| 2 \phi_F \right| + V_{SB}) }
 \end{equation}
 where $C_{ox}$ is the oxide capacitance and $Q_b$ which is called the bulk charge term.\\
+
+The threshold voltage dependence on the doping density is illustrated with \autoref{img:overview_doping_threshold} for both n-type and p-type MOSFETs with an aluminum gate metal.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{doping_thresholds_overview.png}
+	\caption{Threshold voltage of n-type (upper curve) and p-type (lower curve) MOSFETs versus substrate doping density.}
+	\label{img:overview_doping_threshold}
+\end{figure}
 
 The bulk potential is given by:
 \begin{equation}
@@ -179,8 +187,5 @@ V_{Tn} = \phi_{Fp} + \frac{2 \sqrt{\epsilon_{Si}\cdot q \cdot \left| \phi_{Fp} \
 \begin{equation}
 V_{Tp} = \phi_{Fn} + \frac{2 \sqrt{\epsilon_{Si}\cdot q \cdot \left| \phi_{Fn} \right| \cdot N_{implant} }}{C_{ox}} - 0.51V
 \end{equation}
-
-
-
 
 This equation will be used further on to find the optimum gate oxide thickness for our transistors.
