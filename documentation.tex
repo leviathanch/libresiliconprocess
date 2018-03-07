@@ -20,6 +20,7 @@
 \usepackage{bookmark}
 \usepackage{hyperref}
 \usepackage{sepfootnotes}
+\usepackage{lipsum,tocloft} 
 
 \usepackage[digital,srcmeas]{circdia}
 
@@ -41,6 +42,21 @@
 \DeclareMathOperator\erfc{erfc}
 
 \setlength{\parindent}{0pt} % get rid of annoying indents
+
+\newcommand{\listfootnotesname}{\section{List of Footnotes}}% 'List of Footnotes' title 
+\newlistof[chapter]{footnotes}{fnt}{\listfootnotesname}% New 'List of...' for footnotes 
+\let\oldfootnote\footnote % Save the old \footnote{...} command 
+\renewcommand\footnote[1]{% Redefine the new footnote to also add 'List of Footnote' entries. 
+	\refstepcounter{footnotes}% Add and step a reference to the footnote/counter. 
+	\oldfootnote{#1}% Make a regular footnote
+	\addcontentsline{fnt}{footnotes}{
+		\protect
+		\small{
+			\numberline{\thefootnotes}
+			#1
+		}
+	}% Add the 'List of...' entry. 
+}
 
 \begin{document}
 \maketitle
@@ -99,6 +115,8 @@ In case there is anything unclear, please look up this chapter and its sub-chapt
 \newpage
 \input{process_design_gate_post.tex}
 \newpage
+\input{process_design_alignment.tex}
+\newpage
 
 \section{Process steps}
 \input{process_overview.tex}\label{process_overview}
@@ -130,5 +148,8 @@ In case there is anything unclear, please look up this chapter and its sub-chapt
 \newpage
 \section{Design rules}
 \input{design_rules_overview.tex}
+
+\newpage
+\listoffootnotes \cleardoublepage
 
 \end{document}
