@@ -43,6 +43,9 @@
 
 \setlength{\parindent}{0pt} % get rid of annoying indents
 
+%\numberline{\thefootnotes}
+%%#1
+
 \newcommand{\listfootnotesname}{\section{List of Footnotes}}% 'List of Footnotes' title 
 \newlistof[chapter]{footnotes}{fnt}{\listfootnotesname}% New 'List of...' for footnotes 
 \let\oldfootnote\footnote % Save the old \footnote{...} command 
@@ -51,9 +54,9 @@
 	\oldfootnote{#1}% Make a regular footnote
 	\addcontentsline{fnt}{footnotes}{
 		\protect
-		\small{
-			\numberline{\thefootnotes}
+		\tiny{
 			#1
+			%\thefootnotes
 		}
 	}% Add the 'List of...' entry. 
 }

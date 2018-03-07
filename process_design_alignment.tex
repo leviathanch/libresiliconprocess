@@ -93,3 +93,17 @@ Using the STI (active) mask for the cross hair structure is a good choice, becau
 	\caption{Layout masks with alignment markers}
 \end{figure}
 
+The "DRIE Etcher" can't etch more precise than $0.5 \mu m$ (Minimum Line/Space: $0.5 \mu m$) which means we will have to give the cross hair structure with the dimensions as shown in \autoref{cross_hair_dimensions}
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\draw[line width=20mm, active,opacity=\OpacityLayout] (0,5) -- (10,5);
+		\draw[line width=20mm, active,opacity=\OpacityLayout] (5,0) -- (5,10);
+		\draw [|<->|] (0,4) -- (0,6); 
+		\node at (-0.5,5) {$>5 \mu m$};
+		\draw [|<->|] (0,3.5) -- (10,3.5); 
+		\node at (1,3) {$>25 \mu m$};
+	\end{tikzpicture}
+	\caption{Cross hair dimension}
+	\label{cross_hair_dimensions}
+\end{figure}
