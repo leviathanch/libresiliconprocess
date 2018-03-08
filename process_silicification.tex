@@ -1,24 +1,21 @@
-\subsection{Gate}\label{gate}
+\subsection{Silicification}\label{step_silicification}
+
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
-		\input{tikz_process_steps/gate.a.tex}
-		\node at (3,3) {Gate oxide};
-		\draw[->] (3,2.8) -- (5,2.2);
-		\node at (3,4) {Polysilicon};
-		\draw[->] (3,3.8) -- (5,3.2);
+		\input{tikz_process_steps/silicification.a.tex}
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
-		\input{tikz_process_steps/gate.b.tex}
+		\input{tikz_process_steps/silicification.b.tex}
 	\end{tikzpicture}
-	\caption{Aluminum gate contacts with gate oxide}
+	\caption{Silicide geometry target}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance =1cm, auto, thick,scale=\VLSILayout, every node/.style={transform shape}]
-		\input{tikz_process_steps/gate.layout.tex}
+		\input{tikz_process_steps/silicification.layout.tex}
 	\end{tikzpicture}
-	\caption{Gate layout}
-	\label{gate_layout}
+	\caption{Silification layout}
+	\label{silicification_layout}
 \end{figure}
