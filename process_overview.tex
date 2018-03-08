@@ -11,9 +11,9 @@ These process steps will be discussed within the following sections.
 		\node [block] (isolation) at (4,20) {Isolation (STI)\\ \autoref{sti}};
 		\node [block, below of=isolation] (nwell) {N-Well\\ \autoref{nwell_chapter}};
 		\node [block, below of=nwell] (pwell) {P-Well\\ \autoref{pwell_chapter}};
-		\node [block, below of=pwell] (np) {n+ Implant\\ \autoref{nimplant}};
+		\node [block, below of=pwell] (gate) {Gate\\ \autoref{gate}};
+		\node [block, below of=gate] (np) {n+ Implant\\ \autoref{nimplant}};
 		\node [block, below of=np] (pp) {p+ Implant\\ \autoref{pimplant}};
-		\node [block, below of=pp] (gate) {Gate\\ \autoref{gate}};
 		%post proces
 		\node [block] (via1) at (8,10) {First vias\\ \autoref{via1}};
 		\node [block, above of=via1] (metal1) {First metal\\ \autoref{metal1}};
@@ -24,10 +24,10 @@ These process steps will be discussed within the following sections.
 		%% Draw edges
 		\path [line] (isolation) -- (nwell);
 		\path [line] (nwell) -- (pwell);
-		\path [line] (pwell) -- (np);
+		\path [line] (pwell) -- (gate);
+		\path [line] (gate) -- (np);
 		\path [line] (np) -- (pp);
-		\path [line] (pp) -- (gate);
-		\path [line] (gate) -- (via1);
+		\path [line] (pp) -- (via1);
 		\path [line] (via1) -- (metal1);
 		\path [line] (metal1) -- (via2);
 		\path [line] (via2) -- (metal2);

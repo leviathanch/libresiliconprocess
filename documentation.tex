@@ -74,6 +74,12 @@
 	See the Libre Silicon Public License for more details. \\
 
 	This is the specification of the free silicon manufacturing standard for manufacturing the LibreSilicon standard logic cells\footnote{\url{https://github.com/chipforge/StdCellLib}} and related free technology nodes from the LibreSilicon project.
+
+	For this initial revision 0.1 a gate-first approach has been chosen which led to the choice of polysilicon as the gate electrode material because of the simplicity of the gate alignment.
+	For better isolation properties of the transistors and gates in overall a box-isolation approach has been chosen.
+	All of these choices have been made with the future scale down from the recent $1 \mu m$ to smaller structure sizes.
+	\textbf{This process is for manufacturing $1 \mu m$ only!}
+	But further releases which will have been tested with smaller structure sizes can be expected.
 \end{abstract}
 
 \newpage
@@ -120,7 +126,8 @@ In case there is anything unclear, please look up this chapter and its sub-chapt
 \newpage
 \input{process_design_alignment.tex}
 \newpage
-
+\input{simulation.tex}
+\newpage
 \section{Process steps}
 \input{process_overview.tex}\label{process_overview}
 \newpage
@@ -130,11 +137,11 @@ In case there is anything unclear, please look up this chapter and its sub-chapt
 \newpage
 \input{process_pwell.tex}
 \newpage
+\input{process_gate.tex}
+\newpage
 \input{process_nimplant.tex}
 \newpage
 \input{process_pimplant.tex}
-\newpage
-\input{process_gate.tex}
 \newpage
 \input{process_via1.tex}
 \newpage
