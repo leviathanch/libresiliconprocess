@@ -1,7 +1,7 @@
 \subsection{Silicification}\label{step_silicification}
 
 Titanium silicide is one of the first SALICIDE material introduced in ULSI devices owing to its low resistivity, high thermal stability, ease in deposition and compatibility with silicon processes.
-Titanium has been one of the familiar materials in ULSI productions, which is also an important advantage in practical use of titanium SALICIDE.
+Titanium has been one of the familiar materials in ULSI productions, which is also an important advantage in practical use of titanium SALICIDE.\footnote{A Study on Formation of High Resistivity Phases of Nickel Silicide at Small Area and its Solution for Scaled CMOS Devices, 07D53437, Ryuji Tomita}
 
 \begin{figure}[H]
 	\centering
@@ -32,7 +32,14 @@ The C49-$TiSi_2$ phase has an orthorhombic base-centered structure with 12 atoms
 
 The C54-$TiSi_2$ phase has an orthorhombic face-centered structure having 24 atoms per unit cell and a significantly lower resistivity ($12-20 \mu\Omega - cm$) than the C49-$TiSi_2$.
 
-We target The C54-$TiSi_2$.
+The basic formation process of titanium SALICIDE is as follows:
+
+A thin titanium film with 20-60 nm thickness is deposited on an entire wafer with MOSFETs structure.
+The deposited Ti film reacts with the exposed silicon areas such as the source/drain area and polysilicon gate electrodes by the first anneal at 600-700\degree C in $N_2$ ambient. In first anneal, C49-$TiSi_2$ phase is formed.
+Then, the unreacted titanium film on the dielectric layer such as $SiO_2$ or SiN is selectively etched by APM (Ammonia and Hydrogen Peroxide Mixture) solution.
+The final step is second anneal at 800\degree C or above to transform high-resistivity C49-$TiSi_2$ phase to low-resistivity C54-$TiSi_2$ phase at the gate electrodes and source/drain areas.
+
+\newpage
 
 \subsubsection{Oxide deposition}
 
@@ -91,6 +98,8 @@ With an etching speed of ~35 nm/min for thermal oxide and an oxide thickness of 
 The above mentioned machine is the "Oxford RIE Etcher (DRY-RIE-1)" at the NFF HKUST lab\footnote{\url{http://www.nff.ust.hk/en/equipment-and-process/equipment-list/dry-etching-and-sputtering-module.html}}
 The etching process runs on the oxide for 2 minutes.
 
+\newpage
+
 \subsubsection{Titanium deposition}
 
 We deposit a layer of titanium with a thickness of around 20-60nm which will then be reacted into titanium-silicide and titanium-polycide respectively in the further steps.
@@ -112,7 +121,7 @@ This means we run the deposition process for around 5 minutes.
 
 \subsubsection{First reaction step}
 
-The deposited Ti film reacts with the exposed silicon areas such as the source/drain area and polysilicon gate electrodes by the first anneal at 600-700 \degree C in $N_2$ ambient.
+The deposited Ti film reacts with the exposed silicon areas such as the source/drain area and polysilicon gate electrodes by the first anneal at 600-700\degree C in $N_2$ ambient.
 In this first anneal, the C49-$TiSi_2$ phase is formed.
 
 \begin{figure}[H]
@@ -126,6 +135,8 @@ In this first anneal, the C49-$TiSi_2$ phase is formed.
 	\end{tikzpicture}
 	\caption{Reaction 1}
 \end{figure}
+
+We use the "AG610 RTP (DIF-R2)" from the HKUST\footnote{\url{http://www.nff.ust.hk/en/equipment-and-process/equipment-list/thermal-diffusion-and-ion-implantation-module.html}} at 700\degree C for 240 seconds.
 
 \subsubsection{Etch}
 
@@ -158,3 +169,5 @@ The final step is a second anneal at 800 \degree C or above to transform the hig
 	\end{tikzpicture}
 	\caption{Reaction 2}
 \end{figure}
+
+We use the "AG610 RTP (DIF-R2)" from the HKUST\footnote{\url{http://www.nff.ust.hk/en/equipment-and-process/equipment-list/thermal-diffusion-and-ion-implantation-module.html}} at 800\degree C for 240 seconds.
