@@ -13,17 +13,9 @@ The cross section as well as the top view of the targeted geometry are shown in 
 	\label{nwell_target}
 \end{figure}
 
-The n-well will serve us as an island of n-doped substrate within the undoped basis substrate.
+The n-well will serve us as an island of n-doped substrate within the p-doped basis substrate.
 
-The dopant dose will be: $2.5\times10^{12}cm^{-2}$
-
-The surface concentration of the n-well ($\approx 1 \times 10^{16} cm^{-3}$) is determined primarily by the need to maintain a sufficiently high surface concentration to prevent field inversion of the n-nwell.
-
-The depth of the n-well ($\approx 2 \mu m$) is then determined by the need  to fulfill the condition from \autoref{physics_drive_in}
-
-\begin{equation}
-x_e = 2 \cdot \sqrt{D_e \cdot t_e} \gg 2 \cdot \sqrt{D_v \cdot t_v} = x_v
-\end{equation}
+The dopant dose will be $2.5\times10^{12}cm^{-2}$ as calculated in \autoref{pmos_dimensioning}.
 
 \begin{figure}[H]
 	\centering
@@ -35,7 +27,8 @@ x_e = 2 \cdot \sqrt{D_e \cdot t_e} \gg 2 \cdot \sqrt{D_v \cdot t_v} = x_v
 \end{figure}
 
 In \autoref{nwell_layout} the layout of the n-well region on top of the active area region can be seen.
-You should make the active area always a little bit bigger than the n-well area in order to avoid hitting parts of the trench oxide with your dopant.
+
+The n-well is being fit into the active area. It should even be a little bit bigger than the active area, because of possible alignment offsets
 
 \newpage
 

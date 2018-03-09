@@ -1,12 +1,13 @@
-\fill[active,opacity=\OpacityLayout] (0.75,0.5) rectangle (8.75,7.75);
-\fill[active,opacity=\OpacityLayout] (11.25,0.5) rectangle (19.25,7.75);
+\fill[active,opacity=\OpacityLayout] (1.25,1) rectangle (8.25,7.25);
+\fill[active,opacity=\OpacityLayout] (11.75,1) rectangle (18.75,7.25);
 
 \newcommand{\addLayoutLayer}[2]{
 	\node[fill=#1, opacity=\OpacityLayout, minimum size=5mm,below of=#2] (#1) {};
-	\node[right of=#1] {#1};
+	\node[right of=#1] {\parbox{1.5cm}{#1}};
+	%\node[right of=#1] {#1};
 }
 
-\node (header) at (23,12) {\textbf{Layers}}; % 
+\node (header) at (23,12) {\textbf{Layers}};
 \addLayoutLayer{nimplant}{header}
 \addLayoutLayer{pimplant}{nimplant}
 \addLayoutLayer{gatemetal}{pimplant}
@@ -17,6 +18,6 @@
 \addLayoutLayer{active}{via2}
 \addLayoutLayer{nwell}{active}
 \addLayoutLayer{pwell}{nwell}
-\addLayoutLayer{silicide}{pwell}
+\addLayoutLayer{silicide-block}{pwell}
 
 \draw[dotted] (21.5,0) rectangle (26,13);
