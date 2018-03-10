@@ -1,5 +1,10 @@
 \subsection{MOS gate material}
+We decided to use the gate-first approach because realizing the gate self-alignment is much easier this way.
+We further on decided to use the best-practice material polysilicon for the gate electrode, because it is easy to deposit and etch and virtually every manufacturer out there has at least one machine in their lab to deposit it.
+Because of its high resistance however, we had to throw in another layer of silicide in order to reduce the gate resistivity from these $100 \Omega-m$ or so to a a few Ohms per meter.
+A nice side effect is the better etch-stop properties of this low-resistance film adding to the gate, source and drain contacts.
 
+A down side is that we will have to get "a hang on" the reaction times of silicides because a lot of the details of the reactivity between silicon and titanium to form titanium-silicide seem to be under NDA and secrets of the diverse factories running their own CMOS processes.
 
 \subsection{MOS gate thickness}\label{gate_dimensioning}
 As the continuous down-scaling of the device size has lead to very thin gate oxides, the leakage current that can flow from the channel to the gate comes into the order of the subthreshold leakage current and the gate cannot be considered as an ideally insulated electrode anymore.
