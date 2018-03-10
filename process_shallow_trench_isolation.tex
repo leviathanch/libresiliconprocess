@@ -166,7 +166,9 @@ We take the machine "DRIE Etcher \#1" from HKUST(\autoref{dry_DRIE_etcher}) as r
 This means we etch for 3 minutes in order to be clearly deep enough and to compensate for different etch depths in different places.
 This way we have a good chance of having proper isolation everywhere on the wafer.
 
-\subsubsection{Deep oxidation}
+\subsubsection{Oxide deposition}
+
+Now we need to fill up the trenches with silicon dioxide and even it out afterwards.
 
 \begin{figure}[H]
 	\centering
@@ -180,7 +182,11 @@ This way we have a good chance of having proper isolation everywhere on the wafe
 	\caption{Resist removal}
 \end{figure}
 
-\subsubsection{Oxide deposition}
+
+
+\subsubsection{Hard mask removal}
+
+Now we have to remove the nitride mask for further processing.
 
 \begin{figure}[H]
 	\centering
@@ -190,22 +196,6 @@ This way we have a good chance of having proper isolation everywhere on the wafe
 	\includegraphics[scale=0.01]{down_arrow.png} \\
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/sti.11.b.tex}
-	\end{tikzpicture}
-	\caption{Resist removal}
-\end{figure}
-
-\subsubsection{Hard mask removal}
-
-Now we have to remove the nitride mask for further processing.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.12.a.tex}
-	\end{tikzpicture} \\
-	\includegraphics[scale=0.01]{down_arrow.png} \\
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.12.b.tex}
 	\end{tikzpicture}
 	\caption{Trench etching}
 \end{figure}
