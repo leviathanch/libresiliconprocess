@@ -39,6 +39,8 @@
 
 \subsubsection{Polysilicon deposition}
 
+Now we need to add the polysilicon layer for forming the gate structure after etching.
+
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
@@ -50,6 +52,12 @@
 	\end{tikzpicture}
 	\caption{Polysilicon}
 \end{figure}
+
+We use the LPCVD machine(\autoref{lpcvd_machine}) and deposit a layer of around 600nm polysilicon\footnote{\url{https://people.rit.edu/lffeee/LPCVD_Recipes.pdf}}.
+
+We set the temperatue to 650\degreesC, the gas will be Silane ($Si H_4$ ($Si + 2H_2$)), the pressure will be set to 300 mTorr with a flow of 90sccm.
+
+This will give us a growth rate of roughly 23.5 nm per minute, so for 600nm we let it grow half an hour.
 
 \subsubsection{Patterning}
 

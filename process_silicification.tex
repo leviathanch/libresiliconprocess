@@ -72,7 +72,15 @@ We make the oxide layer 50nm thick.
 	\caption{Oxide layer}
 \end{figure}
 
-We use the machine 310PC PECVD (CVD-P1) from HKUST\footnote{\url{http://www.nff.ust.hk/en/equipment-and-process/equipment-list/thermal-diffusion-and-ion-implantation-module.html}} and deposit around 50nm of silicon dioxide.
+We use the machine LPCVD machine from HKUST\autoref{lpcvd_machine} and deposit around 50nm of silicon dioxide with the following recipe\footnote{\url{https://people.rit.edu/lffeee/LPCVD_Recipes.pdf}}:
+\begin{itemize}
+	\item Temperature: 400 \degreesC  ($Si H_4 + O_2 = Si O_2 + 2 H_2$)
+	\item Pressure = 250 mTorr
+	\item Silane ($Si H_4$) flow = 40sccm
+	\item Oxygen ($O_2$) flow = 48sccm
+\end{itemize}
+
+This will give a rate of 7nm ($\pm 1nm$) per minute, so we deposit for roughly seven minutes (7 min).
 
 \subsubsection{Silicide block patterning (optional)}
 
