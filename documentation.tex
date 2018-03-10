@@ -20,6 +20,10 @@
 \usepackage[siunitx]{circuitikz}
 \usepackage{makecell}
 
+\def\WaferClean{\begin{tikzpicture}\node [fill=cyan, rounded corners=5pt] {\large Clean};\end{tikzpicture}}
+\def\WaferSemiClean{\begin{tikzpicture}\node [fill=green, rounded corners=5pt] {\large Semi clean};\end{tikzpicture}}
+\def\WaferNonStandard{\begin{tikzpicture}\node [fill=yellow, rounded corners=5pt] {\large Non standard};\end{tikzpicture}}
+
 \usepackage[colorlinks=true,linkcolor=blue,urlcolor=black,bookmarksopen=true]{hyperref}
 \usepackage{bookmark}
 \usepackage{hyperref}
@@ -175,9 +179,11 @@ In case there is anything unclear, please look up this chapter and its sub-chapt
 \section{Machines}
 \input{machines_overview.tex}
 \input{machines_mask_maker.tex}
+\newpage
 \input{machines_litho_stepper.tex}
 \input{machines_dry_DRIE.tex}
-\input{machines_polishers.tex}
+\input{machines_silicon_polisher.tex}
+\input{machines_copper_polisher.tex}
 \input{machines_nitride_etch.tex}
 
 \newpage
