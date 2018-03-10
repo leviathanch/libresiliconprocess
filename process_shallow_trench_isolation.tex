@@ -126,9 +126,11 @@ We open the access to the silicon outside of the active areas in order to etch t
 	\end{tikzpicture}
 	\caption{Nitride mask etching}
 \end{figure}
-We use the reflux method as described in \autoref{chemistry_reflux}
+We use anisotropic plasma etching for sharper borders. We etch for roughly 30 seconds. The machine properties are described in \autoref{nitride_etch_machine}.
+It has to be verified whether 30 seconds etch time are enough.
 
 \subsubsection{Resist removal}
+Now we come out of the last step which means we are \WaferSemiClean. Now we need to remove the contaminants for further processing.
 
 \begin{figure}[H]
 	\centering
@@ -141,6 +143,8 @@ We use the reflux method as described in \autoref{chemistry_reflux}
 	\end{tikzpicture}
 	\caption{Resist removal}
 \end{figure}
+
+We strip the resist, rinse and perform sulfuric cleaning.
 
 \subsubsection{Silicon etching}\label{sti_trench_etch}
 
@@ -159,6 +163,8 @@ Silicon can only be etched by a very aggressive chemical cocktail of  KOH and TM
 \end{figure}
 
 We take the machine "DRIE Etcher \#1" from HKUST(\autoref{dry_DRIE_etcher}) as reference here, which has a normal etching rate of up to $2\frac{\mu m}{min}$.
+This means we etch for 3 minutes in order to be clearly deep enough and to compensate for different etch depths in different places.
+This way we have a good chance of having proper isolation everywhere on the wafer.
 
 \subsubsection{Deep oxidation}
 
