@@ -1,6 +1,7 @@
 \def\micro{\mu m}
 \def\um{$\mu m$ }
 \def\degreesC{$\degree C$ }
+\def\percent{$\%$ }
 \documentclass[10pt,a4paper,oneside]{article}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 
@@ -170,9 +171,13 @@ In case there is anything unclear, please look up this chapter and its sub-chapt
 \input{design_rules_overview.tex}
 \input{design_rules_optical.tex}
 \newpage
+\def\MachinePictureWidth{4cm}
 \section{Machines}
 \input{machines_overview.tex}
+\input{machines_mask_maker.tex}
+\input{machines_litho_stepper.tex}
 \input{machines_dry_DRIE.tex}
+\input{machines_silicon_polisher.tex}
 
 \newpage
 \listoffootnotes \cleardoublepage
