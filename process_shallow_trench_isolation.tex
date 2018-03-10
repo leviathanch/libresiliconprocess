@@ -166,6 +166,8 @@ We take the machine "DRIE Etcher \#1" from HKUST(\autoref{dry_DRIE_etcher}) as r
 This means we etch for 3 minutes in order to be clearly deep enough and to compensate for different etch depths in different places.
 This way we have a good chance of having proper isolation everywhere on the wafer.
 
+\newpage
+
 \subsubsection{Oxide deposition}
 
 Now we need to fill up the trenches with silicon dioxide and even it out afterwards.
@@ -179,14 +181,15 @@ Now we need to fill up the trenches with silicon dioxide and even it out afterwa
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/sti.10.b.tex}
 	\end{tikzpicture}
-	\caption{Resist removal}
+	\caption{Oxide deposition}
 \end{figure}
 
-
+For this reason we put it into the furnace (\autoref{diffusion_furnace_machine}) and run a wet oxidation for roughly two days (roughly 48 hours) at 1150\degreesC.
+The timing here isn't that critical because excess oxide will be evened out anyway by the CMP process.
 
 \subsubsection{Hard mask removal}
 
-Now we have to remove the nitride mask for further processing.
+Now we have to remove the nitride mask for further processing and need to even out the oxide layer.
 
 \begin{figure}[H]
 	\centering
