@@ -1,5 +1,5 @@
 \def\micro{\mu m}
-\def\um{$\mu m$ }
+\def\um{$\micro$ }
 \def\degreesC{$\degree C$ }
 \def\percent{$\%$ }
 \documentclass[10pt,a4paper,oneside]{article}
@@ -19,6 +19,7 @@
 \usetikzlibrary{arrows,automata,shapes}
 \usepackage[siunitx]{circuitikz}
 \usepackage{makecell}
+\usepackage{array}
 
 \def\WaferClean{\begin{tikzpicture}\node [fill=cyan, rounded corners=5pt] {\large Clean};\end{tikzpicture}}
 \def\WaferSemiClean{\begin{tikzpicture}\node [fill=green, rounded corners=5pt] {\large Semi clean};\end{tikzpicture}}
@@ -176,10 +177,12 @@ In case there is anything unclear, please look up this chapter and its sub-chapt
 \input{design_rules_optical.tex}
 \newpage
 \def\MachinePictureWidth{4cm}
+\def\MachinePictureMiniPageWidth{5cm}
+\def\MachineTextMiniPageWidth{12cm}
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
 \section{Machines}
 \input{machines_overview.tex}
 \input{machines_mask_maker.tex}
-\newpage
 \input{machines_litho_stepper.tex}
 \input{machines_dry_DRIE.tex}
 \input{machines_silicon_polisher.tex}
@@ -189,6 +192,10 @@ In case there is anything unclear, please look up this chapter and its sub-chapt
 \input{machines_diffusion_furnace.tex}
 \newpage
 \input{machines_LPCVD.tex}
+\input{machines_poly_etcher.tex}
+\newpage
+\section{Resists}
+\input{resists_overview.tex}
 
 \newpage
 \listoffootnotes \cleardoublepage

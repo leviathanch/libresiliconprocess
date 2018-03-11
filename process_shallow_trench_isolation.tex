@@ -111,6 +111,10 @@ The required thickness of this layer is not that critical, it can very well vari
 
 \subsubsection{Patterning}
 
+The resist is being deposited using spin coating and then baked depending on the baking time for the specific resist.
+
+The layout for being exposed onto the resist is being extracted from the "active" layer within the GDS2 file onto a bright field mask.
+
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
@@ -122,6 +126,8 @@ The required thickness of this layer is not that critical, it can very well vari
 	\end{tikzpicture}
 	\caption{Patterning with positive resist}
 \end{figure}
+
+
 
 \subsubsection{Nitride etching}\label{sti_nitride_etch}
 We open the access to the silicon outside of the active areas in order to etch the trenches.
@@ -213,3 +219,5 @@ Now we have to remove the nitride mask for further processing and need to even o
 
 We use a CMP machine.
 The HKUST lab provides multiple "Buehler Polisher" machines(\autoref{cmp_machine_semi_clean}), which allow polishing away the hard mask \textbf{and} evening out the uneven oxide deposition in one single step!
+
+We polish away around 100nm of material. This makes sure we have an even surface at the end.

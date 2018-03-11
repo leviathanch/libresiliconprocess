@@ -1,4 +1,6 @@
 \subsection{Gate}\label{gate}
+Now we have to build the initial gate structure which contains of the 40nm thick dielectric (in our case just silicon dioxide) and the polysilicon electrode.
+
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
@@ -14,6 +16,8 @@
 	\caption{Aluminum gate contacts with gate oxide}
 \end{figure}
 
+The line spacing of the polysilicon electrode shape has to be at least 0.5\um because of the resolution of the stepper and also because of the etching process which has 0.5\um as the minimum line spacing.
+
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance =1cm, auto, thick,scale=\VLSILayout, every node/.style={transform shape}]
@@ -22,6 +26,8 @@
 	\caption{Gate layout}
 	\label{gate_layout}
 \end{figure}
+
+In \autoref{gate_layout} we can see the layout honoring the 0.5\um spacing design rule for the gate structure shape and poly-layer interconnect between NMOS and PMOS.
 
 \subsubsection{Gate oxide deposition}
 
@@ -62,7 +68,7 @@ This will give us a growth rate of roughly 23.5 nm per minute, so for 600nm we l
 \subsubsection{Patterning}
 
 The resist is being deposited using spin coating and then baked depending on the baking time for the specific resist.
-The layout for being exposed onto the resist is being extracted from the "poly" layer within the GDS2 file.
+The layout for being exposed onto the resist is being extracted from the "poly" layer within the GDS2 file onto a bright field mask.
 
 \begin{figure}[H]
 	\centering
@@ -75,8 +81,6 @@ The layout for being exposed onto the resist is being extracted from the "poly" 
 	\end{tikzpicture}
 	\caption{Resist}
 \end{figure}
-
-Bright field
 
 \subsubsection{Etching}
 
