@@ -1,6 +1,27 @@
 \subsection{PMOS threshold}\label{pmos_dimensioning}
 Now we take a look at the worst case of 4 stacked PMOS transistors, which is the highest stacking amount which will be possible in technologies relying on this process.
-\input{process_design_graphics/schematic_OR4.tex}
+
+\begin{figure}[H]
+	\centering
+	\begin{circuitdiagram}{20}{20}
+		\power{15}{18.5}{U}{}  % power above pmos
+		\wire{15}{18}{15}{16}   % wire above pmos
+		\trans{penh}{13}{14}{R}{}{} % pmos -> right
+		\Voltarrow{14}{18}{10}{16}{u}{$-V_{GS}$}
+		\wire{15}{12}{15}{8}   % wire below pmos
+		\resis{15}{5}{V}{$R_D$}{}  % resistor on drain
+		\wire{15}{1}{15}{2}   % wire below pmos
+		\ground{15}{0.5}{D}  % ground below resistor
+		\othersrc[\sigsym{-rec}]{o}{5.5}{15.5}{H}{}{signal}
+		\pin{9.5}{15.5}{R}{}	% pin in
+		\ground{2.5}{0.5}{D}  % ground below signal source
+		\wire{2.5}{1}{2.5}{15.5}   % wire below signal
+		\junct{15}{10}   % dot
+		\wire{15}{10}{16}{10}   % wire before out
+		\pin{17}{10}{R}{out}	% pin out
+	\end{circuitdiagram}
+	\caption{enhancement-mode PMOS transistor use-case}
+\end{figure}
 
 $\approx 4 \mu m$ come mainly from the need to fulfill the condition from \autoref{physics_drive_in}
 
