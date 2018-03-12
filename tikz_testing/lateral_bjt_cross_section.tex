@@ -1,0 +1,25 @@
+% substrate
+\fill[substrate] (0,0) rectangle (11,2);
+\node at (2,0.5) {Silicon substrate};
+%trenches
+\fill[isolationoxide] (0,0.75) rectangle (1.25,2);
+\fill[isolationoxide] (3.75,0.75) rectangle (5,2);
+\fill[isolationoxide] (10.5,0.75) rectangle (11,2);
+% n-well
+\fill[nwell] (1.25,0.75) rectangle (3.75,2);
+\node at (2,1) {N-Well};
+\fill[nimplant] (1.5,1.5) rectangle (3.5,2);
+\node at (2,1.65) {n+};
+% p-well
+\fill[pwell] (5,0.75) rectangle (10.5,2);
+\node at (6,1) {P-Well};
+
+\fill[nimplant] (5.25,1.5) rectangle (7.25,2);
+\node at (6,1.65) {n+};
+
+\fill[pimplant] (8.25,1.5) rectangle (10.25,2);
+\node at (9,1.65) {p+};
+
+\draw (6.25,1.5) -- (6.25,0) to[Tnpn,n=npn] (2.5,0) -- (2.5,1.5);
+
+\draw (npn.B) -- +(5,0) -- (9.25,1.5);
