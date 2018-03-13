@@ -63,7 +63,7 @@ $V_{FB}$, is given by:
 \begin{equation}
 V_{FB}
 =
-\phi_{MS}-\frac{Q_SS}{C_{ox}}-\frac{1}{C_{ox}}\int_{0}^{t_{ox}}\frac{x}{x_{ox}}\rho(x) dx
+\phi_{MS}-\frac{Q_{SS}}{C_{ox}}-\frac{1}{C_{ox}}\int_{0}^{t_{ox}}\frac{x}{x_{ox}}\rho(x) dx
 \end{equation}
 
 Because we're not yet dealing with non-volatile memory devices which contain an oxide surface state charge we can just $\rho(x)=0$.
@@ -81,6 +81,16 @@ V_{FB}
 \phi_{MS} - \frac{Q_{SS}}{C_{ox}}
 =
 \phi_{M} - \phi_{S} - \frac{Q_{SS}}{C_{ox}}
+\end{equation}
+and
+\begin{equation}
+\phi_{S}
+=
+\chi + \frac{E_g}{2 q} + \phi_F 
+\end{equation}
+we get
+\begin{equation}
+V_{FB}
 =
 \phi_{M} -  \left(\chi + \frac{E_g}{2 q} + \phi_F \right) - \frac{Q_{SS}}{C_{ox}}
 \end{equation}
