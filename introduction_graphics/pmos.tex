@@ -1,0 +1,50 @@
+% substrate
+\fill[substrate] (0,0) rectangle (10,2);
+\node at (2,0.5) {Silicon substrate};
+
+% n-well
+\fill[nwell] (1,0.75) rectangle (8.5,2);
+\node at (5.75,1) {N-Well};
+
+% body
+\fill[nimplant] (1.5,1) rectangle (3,2);
+\node at (2,1.5) {n+};
+% source
+\fill[pimplant] (3.5,1) rectangle (5,2);
+\node at (4,1.5) {p+};
+% drain
+\fill[pimplant] (6.5,1) rectangle (8,2);
+\node at (7,1.5) {p+};
+%% gate:
+% gate oxide
+\fill[gateoxide] (4.8,2) rectangle (6.7,2.1);
+% gate poly
+\fill[poly] (4.8,2.1) rectangle (6.7,2.2);
+
+% metals ground
+\fill[metal1] (2,2) rectangle (2.5,3);
+\fill[metal1] (4,2) rectangle (4.5,3);
+\fill[metal1] (0,3) rectangle (4.5,3.2); % connection pad GND
+
+\fill[metal1] (5.5,2.2) rectangle (6,3);
+\fill[metal1] (5.3,3) rectangle (6.2,3.2); % connection pad VG
+
+\fill[metal1] (7,2) rectangle (7.5,3);
+\fill[metal1] (6.8,3) rectangle (7.7,3.2); % connection pad VDD
+
+% isolation oxides:
+\fill[isolationoxide] (0,2) rectangle (2,3);
+\fill[isolationoxide] (2.5,2) rectangle (4,3);
+\fill[isolationoxide] (4.5,2) rectangle (4.8,3);
+\fill[isolationoxide] (4.8,2.2) rectangle (5.5,3);
+\fill[isolationoxide] (6,2.2) rectangle (6.7,3);
+\fill[isolationoxide] (6.7,2) rectangle (7,3);
+\fill[isolationoxide] (7.5,2) rectangle (10,3);
+
+\node at (1.5,3.5) {Source};
+\node at (5.5,3.4) {Gate};
+\node at (7.5,3.4) {Drain};
+
+% trench
+\fill[isolationoxide] (0,0.75) rectangle (1,2);
+\fill[isolationoxide] (8.5,0.75) rectangle (10,2);;
