@@ -1,0 +1,48 @@
+In order to get an idea on how strongly the actual product differs from the mathematical models being used before hand to define the initial parameters, one has to run a bunch of test wafers through the process over and over again, tweak parameters and measure out all kinds of aspects of the device.
+
+This is also important for gathering the data which will finally end up within the data sheet.
+
+In this chapter we will tackle the multiple different measurement and test objects we will need to put into the seal area during production in order to ensure the consistent quality of the chips we're going to sell in the end.\\
+
+
+
+\textbf{Testing parameters:}
+\begin{itemize}
+	\item Passive properties:
+	\begin{itemize}
+		\item The capacity per $m^2$ from the n-well to the gate electrode
+		\item The capacity per $m^2$ from  the p-well to the gate electrode
+		\item The actual resistance/m of the p-well
+		\item The actual resistance/m of the n-well
+		\item The actual resistance/m of the p-implant layer
+		\item The actual resistance/m of the n-implant layer
+		\item The actual resistance/m of the poly layer
+		\item The actual resistance/m of the silicide+p-implant layer
+		\item The actual resistance/m of the silicide+n-implant layer
+		\item The actual resistance/m of the silicide+poly layer
+	\end{itemize}
+
+	\item Diodes:
+	\begin{itemize}
+		\item ESD structure diodes (Voltage protection)
+		\item Lateral diodes
+		\item Vertical diodes
+	\end{itemize}
+
+	\item Bipolar transistors:
+	\begin{itemize}
+		\item Vertical bipolar transistor (to test latchup conditions)
+		\item Lateral bipolar transistors (to see what the beta is)
+	\end{itemize}
+
+	\item NMOS as well as PMOS:
+	\begin{itemize}
+		\item Frequency characteristics (Transient curve)
+		\item Drain-source resistance vs. gate-source voltage
+		\item Actual threshold voltage
+	\end{itemize}
+\end{itemize}
+
+Each of these values will variate based on the location on the wafer, because of diffraction towards the edge and also because of the uneven nature of the wafer.
+
+Measuring the same test structure multiple times placed at multiple locations on the wafer will allow us to calculate an effective average value and tolerance ranges for taking into account for further dimensioning of circuits..

@@ -1,0 +1,88 @@
+\def\micro{\mu m}
+\def\um{$\micro$ }
+\def\degreesC{$\degree C$ }
+\def\percent{$\%$ }
+\documentclass[10pt,a4paper,oneside]{article}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
+\input{global_color_scheme.tex}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{forloop}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{mdframed}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata,shapes}
+\usepackage[siunitx]{circuitikz}
+\usepackage{makecell}
+\usepackage{array}
+
+\def\WaferClean{\begin{tikzpicture}\node [fill=cyan, rounded corners=5pt] {\large Clean};\end{tikzpicture}}
+\def\WaferSemiClean{\begin{tikzpicture}\node [fill=green, rounded corners=5pt] {\large Semi clean};\end{tikzpicture}}
+\def\WaferNonStandard{\begin{tikzpicture}\node [fill=yellow, rounded corners=5pt] {\large Non standard};\end{tikzpicture}}
+
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=black,bookmarksopen=true]{hyperref}
+\usepackage{bookmark}
+\usepackage{hyperref}
+\usepackage{sepfootnotes}
+\usepackage{lipsum,tocloft} 
+\usetikzlibrary{positioning}
+\usetikzlibrary{patterns}
+
+\usepackage[digital,srcmeas]{circdia}
+
+\usepackage{float}
+\floatstyle{boxed} 
+\restylefloat{figure}
+
+\title{Libre Silicon process specification}
+\date{\today}
+\author{David Lanzendörfer}
+\makeindex
+
+\newcounter{ct}
+\def\CrossSectionOnly{0.3}
+\def\CrossAndTopSection{0.2}
+\def\CrossAndTopSectionBig{0.3}
+\def\VLSILayout{0.4}
+
+\DeclareMathOperator\erfc{erfc}
+
+\setlength{\parindent}{0pt} % get rid of annoying indents
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+	Copyright © 2017 LANCEVILLE TECHNOLOGY GROUP CO., LIMITED. All rights reserved. \\
+
+	This process is licensed under the Libre Silicon public license; you can redistribute it and/or modify it under the terms of the Libre Silicon public license
+	as published by the Libre Silicon alliance, either version 1 of the License, or (at your option) any later version.
+
+	This design is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+	See the Libre Silicon Public License for more details. \\
+
+	This is the specification of the free silicon manufacturing standard for manufacturing the LibreSilicon standard logic cells\footnote{\url{https://github.com/chipforge/StdCellLib}} and related free technology nodes from the LibreSilicon project.
+
+	For this initial revision 0.1 a gate-first approach has been chosen which led to the choice of polysilicon as the gate electrode material because of the simplicity of the gate alignment.
+	For better isolation properties of the transistors and gates in overall a box-isolation approach has been chosen.
+	All of these choices have been made with the future scale down from the recent $1 \mu m$ to smaller structure sizes.
+	\textbf{This process is for manufacturing $1 \mu m$ only!}
+	But further releases which will have been tested with smaller structure sizes can be expected.
+\end{abstract}
+
+\newpage
+\tableofcontents
+
+\section{Testing}
+\input{testing_overview.tex}
+\newpage
+\input{testing_diodes.tex}
+\newpage
+\input{testing_bipolars.tex}
+
+\end{document}

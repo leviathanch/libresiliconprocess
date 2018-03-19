@@ -1,0 +1,113 @@
+\subsection{n+ Implant}\label{nimplant}
+For the bulk of the PMOS transistors and for the source and drain of the NMOS transistors highly doped  n+ areas are required.
+In this step we're going to build these.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
+		\input{tikz_process_steps/nimplant.a.tex}
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
+		\input{tikz_process_steps/nimplant.b.tex}
+	\end{tikzpicture}
+	\caption{N+ implant geometry target}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance =1cm, auto, thick,scale=\VLSILayout, every node/.style={transform shape}]
+		\input{tikz_process_steps/nimplant.layout.tex}
+	\end{tikzpicture}
+	\caption{N+ layout}
+	\label{nimplant_layout}
+\end{figure}
+
+\subsubsection{Mask dioxide layer}
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/nimplant.1.a.tex}
+	\end{tikzpicture}\\
+	\includegraphics[scale=0.01]{down_arrow.png}\\
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/nimplant.1.b.tex}
+	\end{tikzpicture}
+	\caption{Oxide layer}
+\end{figure}
+
+\subsubsection{Pattering}
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/nimplant.2.a.tex}
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/nimplant.2.at.tex}
+	\end{tikzpicture}\\
+	\includegraphics[scale=0.01]{down_arrow.png}\\
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/nimplant.2.b.tex}
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/nimplant.2.bt.tex}
+	\end{tikzpicture}
+	\caption{N+ region resist mask}
+\end{figure}
+
+\subsubsection{Etching}
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/nimplant.3.a.tex}
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/nimplant.3.at.tex}
+	\end{tikzpicture}\\
+	\includegraphics[scale=0.01]{down_arrow.png}\\
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/nimplant.3.b.tex}
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/nimplant.3.bt.tex}
+	\end{tikzpicture}
+	\caption{N+ region opened}
+\end{figure}
+
+\subsubsection{Cleaning}
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/nimplant.4.a.tex}
+	\end{tikzpicture}\\
+	\includegraphics[scale=0.01]{down_arrow.png}\\
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/nimplant.4.b.tex}
+	\end{tikzpicture}
+	\caption{Resist removal}
+\end{figure}
+
+\subsubsection{Injection}
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/nimplant.5.a.tex}
+	\end{tikzpicture}\\
+	\includegraphics[scale=0.01]{down_arrow.png}\\
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/nimplant.5.b.tex}
+	\end{tikzpicture}
+	\caption{N+ injection process}
+\end{figure}
+
+\subsubsection{Oxide removal}
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/nimplant.6.a.tex}
+	\end{tikzpicture}\\
+	\includegraphics[scale=0.01]{down_arrow.png}\\
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/nimplant.6.b.tex}
+	\end{tikzpicture}
+	\caption{Oxide removal}
+\end{figure}

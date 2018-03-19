@@ -1,0 +1,12 @@
+% oxide
+\fill[isolationoxide] (0,2) rectangle (1.25,3.5);
+\fill[isolationoxide] (3,2) rectangle (11.75,3.5);
+\fill[isolationoxide] (17,2) rectangle (20,3.5);
+
+\forloop{ct}{0}{\value{ct} < 21}
+{
+	\draw [->] (\value{ct},5) -- (\value{ct},4);
+	\node at (\value{ct},5.2) {P$^{31}$};
+}
+
+\input{tikz_process_steps/gate.a.tex}

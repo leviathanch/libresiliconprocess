@@ -1,0 +1,107 @@
+\section{CMOS in a nutshell}\label{cmos_nutshell}
+This basic initial project is dedicated to the CMOS Technology only and for this reason two types of metal–oxide–semiconductor field-effect transistors (MOSFET) are required.
+
+Historically, the first chips with MOSFETs on the mass market were p-channel MOSFETs in enhancement-mode.
+
+\begin{figure}[H]
+	\centering
+	\begin{circuitdiagram}{20}{20}
+		\power{15}{18.5}{U}{}  % power above pmos
+		\wire{15}{18}{15}{16}   % wire above pmos
+		\trans{penh}{13}{14}{R}{}{} % pmos -> right
+		\Voltarrow{14}{18}{10}{16}{u}{$-V_{GS}$}
+		\wire{15}{12}{15}{8}   % wire below pmos
+		\resis{15}{5}{V}{$R_D$}{}  % resistor on drain
+		\wire{15}{1}{15}{2}   % wire below pmos
+		\ground{15}{0.5}{D}  % ground below resistor
+		\othersrc[\sigsym{-rec}]{o}{5.5}{15.5}{H}{}{signal}
+		\pin{9.5}{15.5}{R}{}	% pin in
+		\ground{2.5}{0.5}{D}  % ground below signal source
+		\wire{2.5}{1}{2.5}{15.5}   % wire below signal
+		\junct{15}{10}   % dot
+		\wire{15}{10}{16}{10}   % wire before out
+		\pin{17}{10}{R}{out}	% pin out
+	\end{circuitdiagram}
+	\caption{enhancement-mode PMOS transistor use-case}
+\end{figure}
+
+The sectional view of a PMOS transistor in silicon is shown below
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
+		\input{introduction_graphics/pmos.tex}
+	\end{tikzpicture}
+	\caption{Sectional view of a PMOS transistor}
+\end{figure}
+
+Historically later, faster chips with MOSFETs on the mass market were marked as n-channel MOSFETs in enhancement mode also.
+
+\begin{figure}[H]
+	\centering
+	\begin{circuitdiagram}{20}{20}
+		\power{15}{18.5}{U}{}  % power above resistor
+		\wire{15}{17}{15}{18}   % wire above resistor
+		\resis{15}{14}{V}{$R_D$}{}  % resistor on drain
+		\wire{15}{11}{15}{8}   % wire between resistor and nmos
+		\trans{nenh}{13}{6}{R}{}{} % nmos -> right
+		\Voltarrow{10}{4}{14}{1}{d}{$+V_{GS}$}
+		\wire{15}{1}{15}{4}   % wire below nmos
+		\ground{15}{0.5}{D}  % ground below nmos
+		\othersrc[\sigsym{rec}]{o}{5.5}{4.5}{H}{}{signal}
+		\pin{9.5}{4.5}{R}{}	% pin in
+		\ground{2.5}{0.5}{D}  % ground below signal source
+		\wire{2.5}{1}{2.5}{4.5}   % wire below signal
+		\junct{15}{10}   % dot
+		\wire{15}{10}{16}{10}   % wire before out
+		\pin{17}{10}{R}{out}	% pin out
+	\end{circuitdiagram}
+	\caption{enhancement-mode NMOS transistor use-case}
+\end{figure}
+
+The sectional view of a NMOS transistor in silicon is shown here also.
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
+		\input{introduction_graphics/nmos.tex}
+	\end{tikzpicture}
+	\caption{Sectional view of a NMOS transistor}
+\end{figure}
+
+Both technologies, the older PMOS as the newer NMOS, have the same disadvantage. Every time, the transistor is switched on, the current between drain and source of the transistor is limited by the resistor on drain only. Higher currents here means higher power consumption for the chip where the transistors are integrated as well. If the transistors are switched off, no current flows between drain and source anymore, the power consumption of the chip also goes low.
+Et viol\'{a}, the US-Patent with Number 3356858\footnote{\url{https://www.google.com/patents/US3356858}} changed the world and combines both technologies to the new complementary metal-oxide-semiconductor (CMOS) technology. Instead of every transistor working against a weak resistor, the transistor works against a complementary switched-off transistor. With the eyes of our antecessor CMOS doubles the transistor count, but contemporary chips all are built in CMOS.
+
+\begin{figure}[H]
+	\centering
+	\begin{circuitdiagram}{20}{20}
+		\power{15}{18.5}{U}{}  % power above pmos 
+		\wire{15}{16}{15}{18}   % wire above pmos
+		\trans{penh}{13}{14}{R}{}{} % pmos -> right
+		\Voltarrow{14}{18}{10}{16}{u}{$-V_{GS}$}
+		\wire{15}{8}{15}{12}   % wire between pmos and nmos
+		\trans{nenh}{13}{6}{R}{}{} % nmos -> right
+		\Voltarrow{10}{4}{14}{1}{d}{$+V_{GS}$}
+		\wire{15}{1}{15}{4}   % wire below nmos
+		\ground{15}{0.5}{D}  % ground below nmos
+		\othersrc[\sigsym{rec}]{o}{5}{10}{H}{}{signal}
+		\pin{9}{10}{R}{}	% pin in
+		\wire{9.5}{10}{10}{10}   % wire before gates
+		\wire{10}{15.5}{10}{4.5}   % wire between gates
+		\junct{10}{10}   % dot
+		\ground{2}{0.5}{D}  % ground below signal source
+		\wire{2}{1}{2}{10}   % wire below signal
+		\junct{15}{10}   % dot
+		\wire{15}{10}{16}{10}   % wire before out
+		\pin{17}{10}{R}{out}	% pin out
+	\end{circuitdiagram}
+	\caption{complementary PMOS and NMOS transistor couple use-case}
+\end{figure}
+
+Below the sectional view of the inverter circuitry can be seen.
+For the run through of this process we will use this cross section diagram as reference.
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
+		\input{introduction_graphics/cmos.tex}
+	\end{tikzpicture}
+	\caption{Sectional view of a NMOS-PMOS transistor circuit}
+\end{figure}
