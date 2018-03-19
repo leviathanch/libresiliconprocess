@@ -1,5 +1,5 @@
 % substrate
-\fill[YellowOrange] (0,0) rectangle (20,2);
+\fill[substrate] (0,0) rectangle (20,2);
 \node at (2,0.5) {Silicon substrate};
 % n-well
 \fill[nwell] (1,0.75) rectangle (8.5,2);
@@ -11,16 +11,16 @@
 \fill[nimplant] (1.5,1) rectangle (3,2);
 \node at (2,1.5) {n+};
 % source
-\fill[RedOrange] (3.5,1) rectangle (5,2);
+\fill[pimplant] (3.5,1) rectangle (5,2);
 \node at (4,1.5) {p+};
 % drain
-\fill[RedOrange] (6.5,1) rectangle (8,2);
+\fill[pimplant] (6.5,1) rectangle (8,2);
 \node at (7,1.5) {p+};
 %% gate:
 % gate oxide
 \fill[gateoxide] (4.8,2) rectangle (6.7,2.1);
 % gate poly
-\fill[BrickRed] (4.8,2.1) rectangle (6.7,2.2);
+\fill[poly] (4.8,2.1) rectangle (6.7,2.2);
 % isolation oxides:
 \fill[isolationoxide] (1,2) rectangle (2,3);
 \fill[isolationoxide] (2.5,2) rectangle (4,3);
@@ -37,7 +37,7 @@
 
 %%% nmos:
 % body
-\fill[RedOrange] (17,1) rectangle (18.5,2);
+\fill[pimplant] (17,1) rectangle (18.5,2);
 \node at (18,1.5) {p+};
 % source
 \fill[nimplant] (15,1) rectangle (16.5,2);
@@ -50,28 +50,28 @@
 % gate oxide
 \fill[gateoxide] (13.3,2) rectangle (15.2,2.1);
 % gate poly
-\fill[BrickRed] (13.3,2.1) rectangle (15.2,2.2);
+\fill[poly] (13.3,2.1) rectangle (15.2,2.2);
 
 % metals
-\fill[poly] (17.5,2) rectangle (18,3);
-\fill[poly] (15.5,2) rectangle (16,3);
-\fill[poly] (15.5,3) rectangle (19,3.2); % connection pad GND
+\fill[metal1] (17.5,2) rectangle (18,3);
+\fill[metal1] (15.5,2) rectangle (16,3);
+\fill[metal1] (15.5,3) rectangle (19,3.2); % connection pad GND
 
-\fill[poly] (14,2.2) rectangle (14.5,3);
-\fill[poly] (13.8,3) rectangle (14.7,3.2); % connection pad VG
+\fill[metal1] (14,2.2) rectangle (14.5,3);
+\fill[metal1] (13.8,3) rectangle (14.7,3.2); % connection pad VG
 
-\fill[poly] (12.5,2) rectangle (13,3);
-\fill[poly] (12.3,3) rectangle (13.2,3.2); % connection pad VDD
+\fill[metal1] (12.5,2) rectangle (13,3);
+\fill[metal1] (12.3,3) rectangle (13.2,3.2); % connection pad VDD
 
-\fill[poly] (2,2) rectangle (2.5,3);
-\fill[poly] (4,2) rectangle (4.5,3);
-\fill[poly] (1,3) rectangle (4.5,3.2); % connection pad GND
+\fill[metal1] (2,2) rectangle (2.5,3);
+\fill[metal1] (4,2) rectangle (4.5,3);
+\fill[metal1] (1,3) rectangle (4.5,3.2); % connection pad GND
 
-\fill[poly] (5.5,2.2) rectangle (6,3);
-\fill[poly] (5.3,3) rectangle (6.2,3.2); % connection pad VG
+\fill[metal1] (5.5,2.2) rectangle (6,3);
+\fill[metal1] (5.3,3) rectangle (6.2,3.2); % connection pad VG
 
-\fill[poly] (7,2) rectangle (7.5,3);
-\fill[poly] (6.8,3) rectangle (7.7,3.2); % connection pad VDD
+\fill[metal1] (7,2) rectangle (7.5,3);
+\fill[metal1] (6.8,3) rectangle (7.7,3.2); % connection pad VDD
 
 % isolation oxides:
 \fill[isolationoxide] (18,2) rectangle (19,3);
