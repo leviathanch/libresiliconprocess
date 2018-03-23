@@ -13,8 +13,10 @@ The geometry of a substrate with STI implemented can be seen in \autoref{sti_tar
 	\label{sti_target}
 \end{figure}
 
-As can be seen in \autoref{cmos_nutshell}, the n-well and the STI trench are supposed to have approximately the same depth.
+As can be seen in \autoref{cmos_nutshell}, the n-well and the STI trench are supposed to have approximately the same depth but the n-well and p-well go down a little bit further.
 Because the n-well will be $\approx 4 \mu m$ in depth we have to match this with our trench depth.
+I order to allow a sufficiently low resistance of the ESD diode but at the same time a sufficient isolation of between the standard cells a trade-ff has been done.
+The targeted depth of the box isolation is $\approx 2 \mu m$.
 
 \begin{figure}[H]
 	\centering
@@ -28,10 +30,10 @@ Because the n-well will be $\approx 4 \mu m$ in depth we have to match this with
 In \autoref{sti_layout} we can see the layout for the STI area.
 The STI area will be everywhere, where no active areas are.
 The deep isolating oxide needs to be grown out of trenches which can't been etched out of the silicon by using resist as a mask.
-For that reason we will have to resort to a protective mask made from a nitride layer which has to be etched before hand.
+For that reason we will have to resort to a protective mask made from a silicon dioxide layer which has to be etched before hand.
 So the mask will be exposed onto positive resist on top of the nitride in order to form a protective mask covering the active areas from having etched trenches into them as show in \autoref{sti_nitride_etch}.
 After that we will use a dry etching method for cutting into the silicon substrate and making the active area become islands with trenches in between, as shown in \autoref{sti_trench_etch}.
-After these steps we have to remove the nitride mask and even out the excess oxide for which polishing is the perfect method because it removes the nitride and the excess oxide at the same time.
+After these steps we have to remove the hard mask.
 
 Our minimum width and height as well as the space between the active areas comes from the line space constrain of the silicon etcher (\autoref{dry_DRIE_etcher}) and of course the optical limitations of the stepper which are as well 0.5\um.
 
@@ -64,7 +66,7 @@ Hydrofluoric acid (HF) is used to remove native silicon dioxide from wafers. Sin
 After that the wafer needs to be dried and quickly processed further before new uncontrolled natural oxide can build up on the wafer through the contact with air.
 
 \subsubsection{Hard mask (oxide)}
-We need a thin layer of oxide as surface to grow our protective nitride layer on top.
+We need a thick layer of oxide as protective hard mask to etch the trenches into the silicon.
 
 \begin{figure}[H]
 	\centering
@@ -75,19 +77,36 @@ We need a thin layer of oxide as surface to grow our protective nitride layer on
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/sti.4.b.tex}
 	\end{tikzpicture}
-	\caption{Pad oxide growth}
+	\caption{Hard mask growth}
 \end{figure}
 
-The thin layer of silicon dioxide (around 1\um) is grown in dry ambient for 45 minutes at 1000\degreesC\footnote{\url{http://cleanroom.byu.edu/OxideTimeCalc}} in the diffusion furnace (\autoref{diffusion_furnace_machine}).
+The machine "DRIE Etcher \#1 (DRY-Si-1)" (\autoref{dry_DRIE_etcher}) which we're going to use to etch the trenches has a selectivity of >80:1 which means we have to be at least $\frac{1}{80} \cdot 2 \mu m =  25 nm$ thick.
 
-\newpage
+To be safe 500nm is a good approach (TODO: Needs to experimentally verified!)
+
+The layer of silicon dioxide of around 500nm thickness is grown in wet ambient for 56 minutes at 1050\degreesC\footnote{\url{http://cleanroom.byu.edu/OxideTimeCalc}} in the diffusion furnace (\autoref{diffusion_furnace_machine}).
 
 \subsubsection{Patterning}
 
 The resist is being deposited using spin coating and then baked depending on the baking time for the specific resist.
 
-The layout for being exposed onto the resist is being extracted from the "active" layer within the GDS2 file onto a bright field mask.
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.5.a.tex}
+	\end{tikzpicture} \\
+	\includegraphics[scale=0.01]{down_arrow.png} \\
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.5.b.tex}
+	\end{tikzpicture}
+	\caption{Patterning with positive resist}
+\end{figure}
 
+The layout for being exposed onto the resist is being extracted from the "active" layer within the GDS2 file onto a dark field mask.
+A dark field mask can be used because alignment doesn't play a role yet because it's the first layer, however the alignment crosses need to be included into the mask.
+
+\subsubsection{Hard mask etching}\label{sti_mask_etch}
+We open the access to the silicon outside of the active areas in order to etch the trenches.
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
@@ -96,22 +115,6 @@ The layout for being exposed onto the resist is being extracted from the "active
 	\includegraphics[scale=0.01]{down_arrow.png} \\
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/sti.6.b.tex}
-	\end{tikzpicture}
-	\caption{Patterning with positive resist}
-\end{figure}
-
-
-
-\subsubsection{Nitride etching}\label{sti_nitride_etch}
-We open the access to the silicon outside of the active areas in order to etch the trenches.
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.7.a.tex}
-	\end{tikzpicture} \\
-	\includegraphics[scale=0.01]{down_arrow.png} \\
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.7.b.tex}
 	\end{tikzpicture}
 	\caption{Nitride mask etching}
 \end{figure}
@@ -124,11 +127,11 @@ Now we come out of the last step which means we are \WaferSemiClean. Now we need
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.8.a.tex}
+		\input{tikz_process_steps/sti.7.a.tex}
 	\end{tikzpicture} \\
 	\includegraphics[scale=0.01]{down_arrow.png} \\
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.8.b.tex}
+		\input{tikz_process_steps/sti.7.b.tex}
 	\end{tikzpicture}
 	\caption{Resist removal}
 \end{figure}
@@ -142,18 +145,30 @@ Silicon can only be etched by a very aggressive chemical cocktail of  KOH and TM
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.9.a.tex}
+		\input{tikz_process_steps/sti.8.a.tex}
 	\end{tikzpicture} \\
 	\includegraphics[scale=0.01]{down_arrow.png} \\
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.9.b.tex}
+		\input{tikz_process_steps/sti.8.b.tex}
 	\end{tikzpicture}
 	\caption{Trench etching}
 \end{figure}
 
-We take the machine "DRIE Etcher \#1" from HKUST(\autoref{dry_DRIE_etcher}) as reference here, which has a normal etching rate of up to $2\frac{\mu m}{min}$.
-This means we etch for 3 minutes in order to be clearly deep enough and to compensate for different etch depths in different places.
+\textbf{Possible approaches}:
+\begin{itemize}
+\item \textbf{"DRIE Etcher \#1" from HKUST(\autoref{dry_DRIE_etcher})} \\
+Has a normal etching rate of up to $2\frac{\mu m}{min}$.
+This means we etch for 10 minutes with a reduced etch speed of $200\frac{nm}{min}$ in order to be clearly deep enough and to compensate for different etch depths in different places.
 This way we have a good chance of having proper isolation everywhere on the wafer.
+
+\item \textbf{Chemical solution} \\
+Using a KOH solution of 20\% at 60\degreesC gives us an etch rate of roughly 25\um per hour\footnote{\url{https://cleanroom.byu.edu/KOH}}.
+With a desired depth of 2\um we will have to etch around 3 minutes in order to reach the desired depth.
+The disadvantage of this approach is the imprecision and possible under-etch of the mask.
+
+\end{itemize}
+
+\newpage
 
 \subsubsection{Oxide deposition}
 
@@ -162,11 +177,11 @@ Now we need to fill up the trenches with silicon dioxide and even it out afterwa
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.10.a.tex}
+		\input{tikz_process_steps/sti.9.a.tex}
 	\end{tikzpicture} \\
 	\includegraphics[scale=0.01]{down_arrow.png} \\
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.10.b.tex}
+		\input{tikz_process_steps/sti.9.b.tex}
 	\end{tikzpicture}
 	\caption{Oxide deposition}
 \end{figure}
@@ -181,11 +196,11 @@ Now we have to remove the nitride mask for further processing and need to even o
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.11.a.tex}
+		\input{tikz_process_steps/sti.10.a.tex}
 	\end{tikzpicture} \\
 	\includegraphics[scale=0.01]{down_arrow.png} \\
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.11.b.tex}
+		\input{tikz_process_steps/sti.10.b.tex}
 	\end{tikzpicture}
 	\caption{Trench etching}
 \end{figure}
