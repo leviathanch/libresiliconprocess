@@ -63,7 +63,7 @@ After the sulfuric cleaning a HF (HF:$H_2O$,1:50) dip is being performed for one
 Hydrofluoric acid (HF) is used to remove native silicon dioxide from wafers. Since it acts quickly, one needs to only expose the wafer for a short time ("dip"). \\
 After that the wafer needs to be dried and quickly processed further before new uncontrolled natural oxide can build up on the wafer through the contact with air.
 
-\subsubsection{Pad oxide}
+\subsubsection{Hard mask (oxide)}
 We need a thin layer of oxide as surface to grow our protective nitride layer on top.
 
 \begin{figure}[H]
@@ -78,36 +78,9 @@ We need a thin layer of oxide as surface to grow our protective nitride layer on
 	\caption{Pad oxide growth}
 \end{figure}
 
-The thin layer of "pad" oxide (around 300nm) is grown in dry ambient for 45 minutes at 1000\degreesC\footnote{\url{http://cleanroom.byu.edu/OxideTimeCalc}} in the diffusion furnace (\autoref{diffusion_furnace_machine}).
+The thin layer of silicon dioxide (around 1\um) is grown in dry ambient for 45 minutes at 1000\degreesC\footnote{\url{http://cleanroom.byu.edu/OxideTimeCalc}} in the diffusion furnace (\autoref{diffusion_furnace_machine}).
 
 \newpage
-
-\subsubsection{Nitride layer}
-
-We need a protective nitride layer for dry etching the trenches into the silicon. This nitride will be grown in this step.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.5.a.tex}
-	\end{tikzpicture} \\
-	\includegraphics[scale=0.01]{down_arrow.png} \\
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.5.b.tex}
-	\end{tikzpicture}
-	\caption{Nitride growth}
-\end{figure}
-
-The LPCVD machine from HKUST(\autoref{lpcvd_machine}) is being used with the recipe:
-\begin{itemize}
-	\item Temperature: 810\degreesC  Flat from (door to pump)
-	\item Pressure = 400 mTorr ($3 Si H_2 Cl_2 + 4 N H_3 = Si_3 N_4 + 9 H_2 + 3 Cl_2$
-	\item Dichlorsilane ($Si H_2 Cl_2$) Flow=60sccm
-	\item Ammonia ($N H_3$) flow = 150sccm
-\end{itemize}
-The resulting growth rate is around 6nm $\pm 1nm$.
-
-The required thickness of this layer is not that critical, it can very well variate between 6nm and 10nm.\footnote{\url{https://www.google.com/patents/US7985656}}, for this reason we can put it into the LPCVD for around one or two minutes with the above recipe.
 
 \subsubsection{Patterning}
 
