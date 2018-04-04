@@ -1,4 +1,5 @@
 \subsubsection{Threshold voltage with metal gate ($V_T$)}
+$V_{FB}$ is the flat band voltage and is given by:
 \begin{equation}
 V_{FB}
 =
@@ -6,7 +7,8 @@ V_{FB}
 =
 \phi_{M} - \phi_{S} - \frac{Q_{SS}}{C_{ox}}
 \end{equation}
-and
+
+With
 \begin{equation}
 \phi_{S}
 =
@@ -19,15 +21,9 @@ V_{FB}
 \phi_{M} -  \left(\chi + \frac{E_g}{2 q} + \phi_F \right) - \frac{Q_{SS}}{C_{ox}}
 \end{equation}
 
-And because of the simplifications we did to $F_{FB}$ which essentially led to $F_{FB}=\phi_{MS}$ we get to:
+And because of the simplifications we did to $F_{FB}$ we get to:
 \begin{equation}
-V_T = V_{t-mos} + \phi_{MS}
-\end{equation}
-\begin{equation}
-V_T = 2 \phi_F + \frac{Q_b}{C_{ox}} + \phi_{MS}
-\end{equation}
-\begin{equation}
-V_T = 2 \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q\cdot \left| \phi_F \right| \cdot N }}{C_{ox}} + \phi_{MS}
+V_T = 2 \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q\cdot \left| \phi_F \right| \cdot N }}{C_{ox}} + V_{FB}
 \end{equation}
 \begin{equation}
 V_T = 2 \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q\cdot \left| \phi_F \right| \cdot N }}{C_{ox}} + \phi_{M} -  \left(\chi + \frac{E_g}{2 q} + \phi_F \right) - \frac{Q_{SS}}{C_{ox}}

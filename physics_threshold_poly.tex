@@ -1,57 +1,9 @@
 \subsubsection{Threshold voltage with poly silicon gate ($V_T$)}
-The formula for calculating the threshold voltage of a MOS device is the following:
-\begin{equation}
-V_T = V_{t-mos} + V_{FB}
-\end{equation}
-where $V_{t-mos}$ is the threshold voltage of an ideal MOS capacitor, $V_{FB}$ is the flat-band voltage and $V_{t-mos}$ is the threshold.
-The MOS threshold voltage, $V_{t-mos}$ is calculated by considering the MOS capacitor structure that form the gate of the MOS transistor.
-
-The ideal threshold voltage may be expressed as:
-\begin{equation}
-V_{t-mos}=2 \phi_F + \frac{Q_b}{C_{ox}}
-\end{equation}
-\begin{equation}
-Q_b
-=
-\sqrt{2 \epsilon_{Si} \cdot q \cdot N  \cdot  ( \left| 2 \phi_F \right| + V_{SB}) }
-\end{equation}
-where $C_{ox}$ is the oxide capacitance and $Q_b$ which is called the bulk charge term.\\
-
-Since we connect bulk and source $V_{SB}=0$ we can simplify the equation to become
-\begin{equation}
-Q_b
-=
-\sqrt{2\cdot\epsilon_{Si}\cdot q\cdot N \cdot  ( \left| 2 \cdot \phi_F \right|) }
-\end{equation}
-\begin{equation}
-Q_b
-=
-2\cdot\sqrt{\epsilon_{Si}\cdot q\cdot N \cdot \left| \phi_F \right| }
-\end{equation}
-
-
 $V_{FB}$ is the flat band voltage and is given by:
 \begin{equation}
 V_{FB}
 =
-\phi_{MS}-\frac{Q_{SS}}{C_{ox}}-\frac{1}{C_{ox}}\int_{0}^{t_{ox}}\frac{x}{x_{ox}}\rho(x) dx
-\end{equation}
-
-Because we're not yet dealing with non-volatile memory devices which contain an oxide surface state charge we can just $\rho(x)=0$.
-$Q_{SS}$ is a value which has to be measured.
-
-\begin{equation}
-V_{FB}
-=
 \phi_{MS} - \frac{Q_{SS}}{C_{ox}}
-\end{equation}
-with
-\begin{equation}
-V_{FB}
-=
-\phi_{MS} - \frac{Q_{SS}}{C_{ox}}
-=
-\phi_{M} - \phi_{S} - \frac{Q_{SS}}{C_{ox}}
 \end{equation}
 
 The term $\phi_{MS}$ is the work function difference between the gate material and the silicon substrate ($\phi_{gate}-\phi_{Si}$), which may be calculated for an n+ gate over a p substrate
