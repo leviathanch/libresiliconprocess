@@ -13,44 +13,24 @@ V_{t-mos}=2 \phi_F + \frac{Q_b}{C_{ox}}
 \begin{equation}
 Q_b
 =
-\sqrt{2 \epsilon_{Si} \cdot q \cdot N_{implant}  \cdot  ( \left| 2 \phi_F \right| + V_{SB}) }
+\sqrt{2 \epsilon_{Si} \cdot q \cdot N  \cdot  ( \left| 2 \phi_F \right| + V_{SB}) }
 \end{equation}
 where $C_{ox}$ is the oxide capacitance and $Q_b$ which is called the bulk charge term.\\
-
-The bulk potential is given by:
-\begin{equation}
-\phi_F
-=
-V_{th} \cdot ln\left(\frac{p}{N_i}\right)
-=
-V_{th} \cdot ln\left(\frac{N_i}{n}\right)
-\end{equation}
-
-$V_{th}$ is the thermal voltage.\footnote{\url{https://en.wikipedia.org/wiki/Boltzmann_constant\#Role_in_semiconductor_physics:_the_thermal_voltage}}
-\begin{equation}
-V_{th} = \frac{k T}{q} \approx 0.026 \frac{J}{C} = 0.026 V = 26mV
-\end{equation}
-With the variables being:
-\begin{itemize}
-\item $k=1.38064852\cdot 10^{-23}  \frac{J}{K}$ is the Boltzmann constant
-\item $q=1.602 \cdot 10^{-19} C$ is the elementary charge
-\item $T= 300 K$ the temperature, which we assume to be the room temperature for simplicity further on in this document as well.
-\end{itemize}
 
 Since we connect bulk and source $V_{SB}=0$ we can simplify the equation to become
 \begin{equation}
 Q_b
 =
-\sqrt{2\cdot\epsilon_{Si}\cdot q\cdot N_{implant} \cdot  ( \left| 2 \cdot \phi_F \right|) }
+\sqrt{2\cdot\epsilon_{Si}\cdot q\cdot N \cdot  ( \left| 2 \cdot \phi_F \right|) }
 \end{equation}
 \begin{equation}
 Q_b
 =
-2\cdot\sqrt{\epsilon_{Si}\cdot q\cdot N_{implant}\cdot \left| \phi_F \right| }
+2\cdot\sqrt{\epsilon_{Si}\cdot q\cdot N \cdot \left| \phi_F \right| }
 \end{equation}
 
 
-$V_{FB}$, is given by:
+$V_{FB}$ is the flat band voltage and is given by:
 \begin{equation}
 V_{FB}
 =
@@ -73,73 +53,45 @@ V_{FB}
 =
 \phi_{M} - \phi_{S} - \frac{Q_{SS}}{C_{ox}}
 \end{equation}
-and
+
+The term $\phi_{MS}$ is the work function difference between the gate material and the silicon substrate ($\phi_{gate}-\phi_{Si}$), which may be calculated for an n+ gate over a p substrate
+
 \begin{equation}
-\phi_{S}
+\phi_{MSp}
 =
-\chi + \frac{E_g}{2 q} + \phi_F 
+-(\frac{E_g}{2}+\phi_{Fp})
 \end{equation}
-we get
+
+and for an n+ poly gate on an n-substrate
 \begin{equation}
-V_{FB}
+\phi_{MSn}
 =
-\phi_{M} -  \left(\chi + \frac{E_g}{2 q} + \phi_F \right) - \frac{Q_{SS}}{C_{ox}}
+-(\frac{E_g}{2}-\phi_{Fn})
 \end{equation}
 
-And because of the simplifications we did to $F_{FB}$ which essentially led to $F_{FB}=\phi_{MS}$ we get to:
-\begin{equation}
-V_T = V_{t-mos} + \phi_{MS}
-\end{equation}
-\begin{equation}
-V_T = 2 \phi_F + \frac{Q_b}{C_{ox}} + \phi_{MS}
-\end{equation}
-\begin{equation}
-V_T = 2 \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q\cdot \left| \phi_F \right| \cdot N_{implant} }}{C_{ox}} + \phi_{MS}
-\end{equation}
-\begin{equation}
-V_T = 2 \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q\cdot \left| \phi_F \right| \cdot N_{implant} }}{C_{ox}} + \phi_{M} -  \left(\chi + \frac{E_g}{2 q} + \phi_F \right) - \frac{Q_{SS}}{C_{ox}}
-\end{equation}
-\begin{equation}
-V_T = 2 \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q\cdot \left| \phi_F \right| \cdot N_{implant} }}{C_{ox}} + \phi_{M} -  \chi - \frac{E_g}{2 q} - \phi_F - \frac{Q_{SS}}{C_{ox}}
-\end{equation}
-\begin{equation}
-V_T = \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q\cdot \left| \phi_F \right| \cdot N_{implant} }}{C_{ox}} + \phi_{M} -  \chi - \frac{E_g}{2 q} - \frac{Q_{SS}}{C_{ox}}
-\end{equation}
-
-The contact potential from the Aluminum contact to the surface of the gate (silicon below the oxide) is fixed for $T=300\degree K$:
-\begin{equation}
-\phi_{M} -  \chi - \frac{E_g}{2 q} = 4.1V - 4.05V - \frac{1.12eV}{2 q} = 4.1V - 4.05V - 0.56V = -0.51V
-\end{equation}
-
-From that we get
-\begin{equation}
-V_T = \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q \cdot \left| \phi_F \right| \cdot N_{implant} }}{C_{ox}} - 0.51V
-\end{equation}
-
-Now we can calculate the thresholds for P substrate ($V_{Tp}$) and N substrate  ($V_{Tn}$), respectively the wells we build on unpredoped substrated, which makes the equation for single-doped substrate valid for both wells with
-\begin{equation}
-\phi_{Fn}
-=
-V_{th} \cdot ln\left(\frac{N_i}{N_{implant}}\right)
-\end{equation}
-\begin{equation}
-\phi_{Fp}
-=
-V_{th} \cdot ln\left(\frac{N_{implant}}{N_i}\right)
-\end{equation}
-
-Which brings us to the equations for the N-channel and P-channel thresholds:
+Now we can calculate the thresholds for P substrate ($V_{Tp}$) and N substrate  ($V_{Tn}$), respectively the wells we build on unpredoped substrated, which makes the equation for single-doped substrate valid for both wells.
 
 (N-Channel MOSFETs are built on p-substrate)
 \begin{equation}
-V_{Tn} = \phi_{Fp} + \frac{2 \sqrt{\epsilon_{Si}\cdot q \cdot \left| \phi_{Fp} \right| \cdot N_{implant} }}{C_{ox}} - 0.51V
+V_{Tn} = 2 \cdot \phi_{Fp} + \frac{2 \sqrt{\epsilon_{Si}\cdot q \cdot \left| \phi_{Fp} \right| \cdot N_p}}{C_{ox}} + \phi_{MSp} - \frac{Q_{SS}}{C_{ox}}
+\end{equation}
+\begin{equation}
+V_{Tn} = 2 \cdot \phi_{Fp} + \frac{2 \sqrt{\epsilon_{Si}\cdot q \cdot \left| \phi_{Fp} \right| \cdot N_p}}{C_{ox}} -\frac{E_g}{2} - \phi_{Fp} - \frac{Q_{SS}}{C_{ox}}
+\end{equation}
+\begin{equation}
+V_{Tn} = \phi_{Fp} + \frac{2 \sqrt{\epsilon_{Si}\cdot q \cdot \left| \phi_{Fp} \right| \cdot N_p}}{C_{ox}} -\frac{E_g}{2} - \frac{Q_{SS}}{C_{ox}}
 \end{equation}
 
 (P-Channel MOSFETs are built on n-substrate)
 \begin{equation}
-V_{Tp} = \phi_{Fn} + \frac{2 \sqrt{\epsilon_{Si}\cdot q \cdot \left| \phi_{Fn} \right| \cdot N_{implant} }}{C_{ox}} - 0.51V
+V_{Tp} = 2 \cdot \phi_{Fn} + \frac{2 \sqrt{\epsilon_{Si}\cdot q \cdot \left| \phi_{Fn} \right| \cdot N_n}}{C_{ox}} + \phi_{MSn} - \frac{Q_{SS}}{C_{ox}}
 \end{equation}
-
+\begin{equation}
+V_{Tp} = 2 \cdot \phi_{Fn} + \frac{2 \sqrt{\epsilon_{Si}\cdot q \cdot \left| \phi_{Fn} \right| \cdot N_n}}{C_{ox}} -\frac{E_g}{2} + \phi_{Fn} - \frac{Q_{SS}}{C_{ox}}
+\end{equation}
+\begin{equation}
+V_{Tp} = 3 \cdot \phi_{Fn} + \frac{2 \sqrt{\epsilon_{Si}\cdot q \cdot \left| \phi_{Fn} \right| \cdot N_n}}{C_{ox}} -\frac{E_g}{2} - \frac{Q_{SS}}{C_{ox}}
+\end{equation}
 
 This equation will be used further on to find the optimum gate oxide thickness for our transistors.
 

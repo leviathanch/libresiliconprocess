@@ -27,16 +27,16 @@ V_T = V_{t-mos} + \phi_{MS}
 V_T = 2 \phi_F + \frac{Q_b}{C_{ox}} + \phi_{MS}
 \end{equation}
 \begin{equation}
-V_T = 2 \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q\cdot \left| \phi_F \right| \cdot N_{implant} }}{C_{ox}} + \phi_{MS}
+V_T = 2 \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q\cdot \left| \phi_F \right| \cdot N }}{C_{ox}} + \phi_{MS}
 \end{equation}
 \begin{equation}
-V_T = 2 \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q\cdot \left| \phi_F \right| \cdot N_{implant} }}{C_{ox}} + \phi_{M} -  \left(\chi + \frac{E_g}{2 q} + \phi_F \right) - \frac{Q_{SS}}{C_{ox}}
+V_T = 2 \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q\cdot \left| \phi_F \right| \cdot N }}{C_{ox}} + \phi_{M} -  \left(\chi + \frac{E_g}{2 q} + \phi_F \right) - \frac{Q_{SS}}{C_{ox}}
 \end{equation}
 \begin{equation}
-V_T = 2 \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q\cdot \left| \phi_F \right| \cdot N_{implant} }}{C_{ox}} + \phi_{M} -  \chi - \frac{E_g}{2 q} - \phi_F - \frac{Q_{SS}}{C_{ox}}
+V_T = 2 \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q\cdot \left| \phi_F \right| \cdot N }}{C_{ox}} + \phi_{M} -  \chi - \frac{E_g}{2 q} - \phi_F - \frac{Q_{SS}}{C_{ox}}
 \end{equation}
 \begin{equation}
-V_T = \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q\cdot \left| \phi_F \right| \cdot N_{implant} }}{C_{ox}} + \phi_{M} -  \chi - \frac{E_g}{2 q} - \frac{Q_{SS}}{C_{ox}}
+V_T = \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q\cdot \left| \phi_F \right| \cdot N }}{C_{ox}} + \phi_{M} -  \chi - \frac{E_g}{2 q} - \frac{Q_{SS}}{C_{ox}}
 \end{equation}
 
 The contact potential from the Aluminum contact to the surface of the gate (silicon below the oxide) is fixed for $T=300\degree K$:
@@ -46,31 +46,21 @@ The contact potential from the Aluminum contact to the surface of the gate (sili
 
 From that we get
 \begin{equation}
-V_T = \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q \cdot \left| \phi_F \right| \cdot N_{implant} }}{C_{ox}} - 0.51V
+V_T = \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q \cdot \left| \phi_F \right| \cdot N }}{C_{ox}} - 0.51V
 \end{equation}
 
 Now we can calculate the thresholds for P substrate ($V_{Tp}$) and N substrate  ($V_{Tn}$), respectively the wells we build on unpredoped substrated, which makes the equation for single-doped substrate valid for both wells with
-\begin{equation}
-\phi_{Fn}
-=
-V_{th} \cdot ln\left(\frac{N_i}{N_{implant}}\right)
-\end{equation}
-\begin{equation}
-\phi_{Fp}
-=
-V_{th} \cdot ln\left(\frac{N_{implant}}{N_i}\right)
-\end{equation}
 
 Which brings us to the equations for the N-channel and P-channel thresholds:
 
 (N-Channel MOSFETs are built on p-substrate)
 \begin{equation}
-V_{Tn} = \phi_{Fp} + \frac{2 \sqrt{\epsilon_{Si}\cdot q \cdot \left| \phi_{Fp} \right| \cdot N_{implant} }}{C_{ox}} - 0.51V
+V_{Tn} = \phi_{Fp} + \frac{2 \sqrt{\epsilon_{Si}\cdot q \cdot \left| \phi_{Fp} \right| \cdot N}}{C_{ox}} - 0.51V
 \end{equation}
 
 (P-Channel MOSFETs are built on n-substrate)
 \begin{equation}
-V_{Tp} = \phi_{Fn} + \frac{2 \sqrt{\epsilon_{Si}\cdot q \cdot \left| \phi_{Fn} \right| \cdot N_{implant} }}{C_{ox}} - 0.51V
+V_{Tp} = \phi_{Fn} + \frac{2 \sqrt{\epsilon_{Si}\cdot q \cdot \left| \phi_{Fn} \right| \cdot N}}{C_{ox}} - 0.51V
 \end{equation}
 
 This equation will be used further on to find the optimum gate oxide thickness for our transistors.
