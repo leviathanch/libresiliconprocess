@@ -1,5 +1,10 @@
 *.log
 */*.log
 *.aux
+*/*.aux
 *.idx
+*/*.idx
 *.toc
+*/*.toc
+*.gz
+*/*.gz
