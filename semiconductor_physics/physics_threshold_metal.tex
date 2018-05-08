@@ -1,0 +1,64 @@
+\subsection{Threshold voltage with metal gate ($V_T$)}
+$V_{FB}$ is the flat band voltage and is given by:
+\begin{equation}
+V_{FB}
+=
+\phi_{MS} - \frac{Q_{SS}}{C_{ox}}
+=
+\phi_{M} - \phi_{S} - \frac{Q_{SS}}{C_{ox}}
+\end{equation}
+
+With
+\begin{equation}
+\phi_{S}
+=
+\chi + \frac{E_g}{2 q} + \phi_F 
+\end{equation}
+we get
+\begin{equation}
+V_{FB}
+=
+\phi_{M} -  \left(\chi + \frac{E_g}{2 q} + \phi_F \right) - \frac{Q_{SS}}{C_{ox}}
+\end{equation}
+
+And because of the simplifications we did to $F_{FB}$ we get to:
+\begin{equation}
+V_T = 2 \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q\cdot \left| \phi_F \right| \cdot N }}{C_{ox}} + V_{FB}
+\end{equation}
+\begin{equation}
+V_T = 2 \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q\cdot \left| \phi_F \right| \cdot N }}{C_{ox}} + \phi_{M} -  \left(\chi + \frac{E_g}{2 q} + \phi_F \right) - \frac{Q_{SS}}{C_{ox}}
+\end{equation}
+\begin{equation}
+V_T = 2 \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q\cdot \left| \phi_F \right| \cdot N }}{C_{ox}} + \phi_{M} -  \chi - \frac{E_g}{2 q} - \phi_F - \frac{Q_{SS}}{C_{ox}}
+\end{equation}
+\begin{equation}
+V_T = \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q\cdot \left| \phi_F \right| \cdot N }}{C_{ox}} + \phi_{M} -  \chi - \frac{E_g}{2 q} - \frac{Q_{SS}}{C_{ox}}
+\end{equation}
+
+The contact potential from the Aluminum contact to the surface of the gate (silicon below the oxide) is fixed for $T=300\degree K$:
+\begin{equation}
+\phi_{M} -  \chi - \frac{E_g}{2 q} = 4.1V - 4.05V - \frac{1.12eV}{2 q} = 4.1V - 4.05V - 0.56V = -0.51V
+\end{equation}
+
+From that we get
+\begin{equation}
+V_T = \phi_F + \frac{2 \sqrt{\epsilon_{Si}\cdot q \cdot \left| \phi_F \right| \cdot N }}{C_{ox}} - 0.51V
+\end{equation}
+
+Now we can calculate the thresholds for P substrate ($V_{Tp}$) and N substrate  ($V_{Tn}$), respectively the wells we build on unpredoped substrated, which makes the equation for single-doped substrate valid for both wells with
+
+Which brings us to the equations for the N-channel and P-channel thresholds:
+
+(N-Channel MOSFETs are built on p-substrate)
+\begin{equation}
+V_{Tn} = \phi_{Fp} + \frac{2 \sqrt{\epsilon_{Si}\cdot q \cdot \left| \phi_{Fp} \right| \cdot N}}{C_{ox}} - 0.51V
+\end{equation}
+
+(P-Channel MOSFETs are built on n-substrate)
+\begin{equation}
+V_{Tp} = \phi_{Fn} + \frac{2 \sqrt{\epsilon_{Si}\cdot q \cdot \left| \phi_{Fn} \right| \cdot N}}{C_{ox}} - 0.51V
+\end{equation}
+
+This equation will be used further on to find the optimum gate oxide thickness for our transistors.
+
+
