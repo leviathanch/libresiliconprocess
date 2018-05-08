@@ -1,0 +1,66 @@
+\def\micro{\mu m}
+\def\um{$\micro$ }
+\def\degreesC{$\degree C$ }
+\def\percent{$\%$ }
+\documentclass[10pt,a4paper,oneside]{article}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
+\input{../global_color_scheme.tex}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{forloop}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{mdframed}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata,shapes}
+\usepackage[siunitx]{circuitikz}
+\usepackage{makecell}
+\usepackage{array}
+
+\def\WaferClean{\begin{tikzpicture}\node [fill=cyan, rounded corners=5pt] {Clean};\end{tikzpicture}}
+\def\WaferSemiClean{\begin{tikzpicture}\node [fill=green, rounded corners=5pt] {Semi clean};\end{tikzpicture}}
+\def\WaferNonStandard{\begin{tikzpicture}\node [fill=yellow, rounded corners=5pt] {Non standard};\end{tikzpicture}}
+
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=black,bookmarksopen=true]{hyperref}
+\usepackage{bookmark}
+\usepackage{hyperref}
+\usepackage{sepfootnotes}
+\usepackage{lipsum,tocloft} 
+\usetikzlibrary{positioning}
+\usetikzlibrary{patterns}
+
+\usepackage{float}
+\floatstyle{boxed} 
+\restylefloat{figure}
+
+\title{Libre Silicon process design rules}
+\date{\today}
+\author{David Lanzendörfer}
+\makeindex
+
+\newcounter{ct}
+\def\CrossSectionOnly{0.3}
+\def\CrossAndTopSection{0.2}
+\def\CrossAndTopSectionBig{0.3}
+\def\VLSILayout{0.4}
+
+\DeclareMathOperator\erfc{erfc}
+
+\setlength{\parindent}{0pt} % get rid of annoying indents
+
+\begin{document}
+\begin{abstract}
+	\input{../process_abstract.tex}
+\end{abstract}
+\newpage
+\maketitle
+\input{design_rules_overview.tex}%\label{process_overview}
+\newpage
+\input{design_rules_optical.tex}
+\newpage
+\input{design_rules_etching.tex}
+\end{document}
