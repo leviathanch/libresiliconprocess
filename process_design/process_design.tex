@@ -54,24 +54,6 @@
 
 \setlength{\parindent}{0pt} % get rid of annoying indents
 
-%\numberline{\thefootnotes}
-%%#1
-
-%\newcommand{\listfootnotesname}{\section{List of Footnotes}}% 'List of Footnotes' title 
-%\newlistof[chapter]{footnotes}{fnt}{\listfootnotesname}% New 'List of...' for footnotes 
-%\let\oldfootnote\footnote % Save the old \footnote{...} command 
-%\renewcommand\footnote[1]{% Redefine the new footnote to also add 'List of Footnote' entries. 
-%	\refstepcounter{footnotes}% Add and step a reference to the footnote/counter. 
-%	\oldfootnote{#1}% Make a regular footnote
-%	\addcontentsline{fnt}{footnotes}{
-%		\protect
-%		\tiny{
-%			#1
-%			%\thefootnotes
-%		}
-%	}% Add the 'List of...' entry. 
-%}
-
 \begin{document}
 \begin{abstract}
 	\input{../process_abstract.tex}
