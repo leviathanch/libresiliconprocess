@@ -1,0 +1,54 @@
+\section{Etching silicon dioxide}
+A very "selective" chemical for $SiO_2$ - i.e. does not etch silicon at all - is hydrofluoric acid (HF). If used directly such etchant has a too fast and aggresive action on the oxide, making very difficult the undercut and the linewidth control. For such reason, HF is universally used as a "buffered" solution, which can keep the etch rate low and constant, by moderating the PH level of the bath. This allows the etching time to be reliably correlated to the etching depth.
+
+The industry standard buffered hydrofluoric acid solution (BHF\label{BHF}) has the following formulation:
+\begin{itemize}
+	\item 6 volumes of ammonium floride ($NH_4F$, 40\% solution)
+	\item 1 volume of HF.
+\end{itemize}
+This can be prepared, for example, by mixing 113 g of $NH_4F$ in 170 ml of $H_2O$, and adding 28 ml of HF.\\
+The etch rate at room temperature can range from 1000 to 2500 \r{A}/min (100-250nm/min).
+This depends on the actual density of the oxide which, as an amorphous layer, can have a more compact structure (if thermally grown in is oxygen) or less compact (if grown by CVD).
+The following etching reaction holds:
+\begin{equation}
+	SiO_2 + 6HF \rightarrow H_2SiF_6 + H_2O
+\end{equation}\\
+where $H_2SiF_6$ is water soluble.\\
+A common buffered oxide etch solution comprises a 6:1 volume ratio of 40\% $NH_4F$ in water to 49\% HF in water. This solution will etch thermally grown oxide at approximately 2 nanometres per second at 25 degrees Celsius.\label{BHF_six_to_one}
+\footnote{Wolf, S.; R.N. Tauber (1986). Silicon Processing for the VLSI Era: Volume 1 - Process Technology. pp. 532–533. ISBN 978-0-9616721-3-3} \\
+
+Another popular etching formulation is the P-etch:
+
+60 volumes of $H_2O$ + 3 vol. of HF + 2 vol. of $HNO_3$, that is: 300 ml of $H_2O$ + 15 ml of HF + 10 ml of $HNO_3$.
+
+The P-etch action is strongly dependent on oxide density, as it results from the growth technique.
+An example is reported in the literature\footnote{A. Pliskin, J.Vac.Sci Technol., vol. 14, p.1064, 1977}, indicating 120 \r{A}/min for thermal oxide and 250-700 \r{A}/min for sputtered oxide.
+
+A slow etching bath is preferred for opening mask windows for a silicon substrate.
+However, the etching process could be used just for removing the oxide film from the whole surface.
+In this case the etching speed is not critical, and a fast solution can be used, such as HF diluited 1:10 in water.
+The etching time can be easily evaluated by visually inspecting the surface.
+Once the oxide film is removed, the metal-grey color of the silicon surface appears.
+
+Sometimes a very light etch is required, for removing just a few atomic layers.
+This is the case of surface cleaning and decontamination. HF diluited 1 : 50 in water can be used.
+The etching speed will be around 70 \r{A} / min. For example, a typical 50 \r{A} "native" oxide on silicon can be removed with a 45 - 50 sec light etch.
+
+\newpage
+
+\section{Etching silicon nitride}
+Thin films made of amorphous silicon nitride ($Si_3N_4$) are usually deposited by chemical vapour deposition from silane ($SiH_4$) and ammonia ($NH_3$).
+Since they act as a barrier for water and sodium, they have a major role as passivation layers in microchip fabrication.
+Patterned nitride layers are also used as a mask for spatially selective silicon oxide growth, and as an etch mask when $SiO_2$ masks cannot be used.
+
+One example of the latter situation is given by the anisotropic etching of silicon in KOH.
+The etching rate of $SiO_2$ in KOH is nearly 1000 times slower than the etching rate of silicon, and in most cases a $SiO_2$ mask can be used successfully.
+However, a very deep selective etch may require a long etching time, and the 1000:1 etching rate ratio may result still too small to prevent the $SiO_2$ mask from being etched off before the process is completed.
+In this circumstance $Si_3N_4$, thanks to its reduced etched rate, can successfully replace the oxide mask layer.
+
+The wet etching of nitride films is often performed in concentrated hot orthophosphoric acid ($H_3PO_4$).
+The bath temperature can range from 150\degree C to 180\degree C (boiling point) with a corresponding etch rate between 10 and 100 \r{A}/min. 
+It is good practice to bring the vapours into contact with a cold surface and to drive the condensed liquid back into the etching bath.
+This technique is referred to as "reflux".\label{chemistry_reflux}
+
+The etching rates of silicon nitride, silicon oxide, and silicon in $H_3PO_4$ are respectively in the 50 : 5 : 1 ratio.
