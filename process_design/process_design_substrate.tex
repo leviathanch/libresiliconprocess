@@ -1,0 +1,58 @@
+\section{Substrate}
+
+The Hong University of science and technology (short HKUST) provides us with two types of wafers.
+
+\begin{itemize}
+	\item Prime Grade Silicon Wafer, [100] N-type
+	\begin{itemize}
+		\item Front-side polished, backside etched
+		\item Dopant: Phosphorus
+		\item Thickness: $525 \mu m \pm 25 \mu m$
+		\item Resistivity:4 to 7ohm-cm
+		\item Growth Method: CZ
+		\item Diameter: 100mm +/- 0.5 mm
+		\item Primary  \& secondary flat locations: (In compliance with the SEMI)
+			\begin{itemize}
+				\item Carbon concentration<2.5 x e16 atm/cc
+				\item Oxygen concentration < $9.0 \cdot 10^{17} \frac{atm}{cc}$
+				\item $TTV < 10 \mu m$
+				\item $TIR < 6 \mu m$
+				\item $Bow/Warp < 40 \mu m$
+			\end{itemize}
+	\end{itemize}
+	\item Prime Grade Silicon Wafer, [100] P-type
+	\begin{itemize}
+		\item Front-side polished, backside etched
+		\item Dopant: Boron
+		\item Thickness: $525 \mu m \pm 25 \mu m$
+		\item Resistivity:15 to 25 ohm-cm
+		\item Growth Method: CZ
+		\item Diameter: 100mm +/- 0.5 mm
+		\item Primary  \& secondary flat locations: (In compliance with the SEMI)
+			\begin{itemize}
+				\item Carbon concentration<2.5 x e16 atm/cc
+				\item Oxygen concentration < $9.0 \cdot 10^{17} \frac{atm}{cc}$
+				\item $TTV < 10 \mu m$
+				\item $TIR < 6 \mu m$
+				\item $Bow/Warp < 40 \mu m$
+			\end{itemize}
+	\end{itemize}
+\end{itemize}
+
+For this process the p-doped mono crystalline silicon substrate is being used, but forks and modifications will be very well possible based on a Graphene substrate or alike, still under the LSPL.
+The starting material is a p-doped <100> oriented mono crystalline silicon wafer\\
+
+\textbf{Reasons for using p-doped substrate}:\begin{itemize}
+\item We can't use two different substrates for our design because in the design both PMOS and NMOS is present.
+We have to choose which is more beneficial from fabrication point of view.
+In general or say it's true that NMOS devices are always more in the Semiconductor Industry in comparison to PMOS devices.
+For your reference-SRAM requires 6 transistors (4 NMOS, 2 PMOS).
+\item Another reason for more number of NMOS is because of difference of mobility of electron and holes.
+Electron mobility is almost twice of holes mobility and because of this ON-RESISTANCE of n-channel device is half of p-channel device with the same geometry and under the same operating conditions.
+That means to achieve same impedance size of n-channel transistors is almost half of p-channel devices.
+Same thing I can say in the different way that for same size of wafer, we can have more number of NMOS (means can perform more logical operation) in comparison to PMOS.
+\item Since we only have the choice between P and N doped substrate, we use P doped substrate, because of the carrier mobility
+\end{itemize}
+
+Using the method from \autoref{r_l_nd_relation} we get a doping concentration between $8.76 \cdot 10^{14} \frac{1}{cm^3}$ and $5.23 \cdot 10^{14} \frac{1}{cm^3}$.
+The average of this range is $N_B = \frac{8.76+5.23 }{2} \cdot 10^{14} \frac{1}{cm^3} \approx 7 \cdot 10^{14} \frac{1}{cm^3}$

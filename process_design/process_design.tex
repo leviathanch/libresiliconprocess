@@ -5,7 +5,7 @@
 \documentclass[10pt,a4paper,oneside]{article}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 
-\input{global_color_scheme.tex}
+\input{../global_color_scheme.tex}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{forloop}
@@ -74,7 +74,6 @@
 
 \begin{document}
 \maketitle
-
 \begin{abstract}
 	Copyright © 2017 LANCEVILLE TECHNOLOGY GROUP CO., LIMITED. All rights reserved. \\
 
@@ -84,7 +83,7 @@
 	This design is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 	See the Libre Silicon Public License for more details. \\
 
-	This is the specification of the free silicon manufacturing standard for manufacturing the LibreSilicon standard logic cells\footnote{\url{https://github.com/chipforge/StdCellLib}} and related free technology nodes from the LibreSilicon project.
+	This document is part of the specification of the free silicon manufacturing standard for manufacturing the LibreSilicon standard logic cells\footnote{\url{https://github.com/chipforge/StdCellLib}} and related free technology nodes from the LibreSilicon project.
 
 	For this initial revision 0.1 a gate-first approach has been chosen which led to the choice of polysilicon as the gate electrode material because of the simplicity of the gate alignment.
 	For better isolation properties of the transistors and gates in overall a box-isolation approach has been chosen.
@@ -92,71 +91,24 @@
 	\textbf{This process is for manufacturing $1 \mu m$ only!}
 	But further releases which will have been tested with smaller structure sizes can be expected.
 \end{abstract}
+\newpage
 
+\input{process_design_overview.tex}
 \newpage
-\tableofcontents
+\input{process_design_requirements.tex}
+\input{process_design_substrate.tex}
+\input{process_design_isolation.tex}
+\input{process_design_interconnect.tex}
 \newpage
-\input{cmos_nutshell.tex}
+\input{process_design_gate_pre.tex}
 \newpage
-\section{Physics}
-In this chapter we deal with all the physics related to solid state device manufacturing.
-In case there is anything unclear, please look up this chapter and its sub-chapters.
-\input{physics_resistance_doping.tex}
+\input{process_design_nmos.tex}
 \newpage
-\input{physics_infusion.tex}
+\input{process_design_pmos.tex}
 \newpage
-\input{physics_predeposition.tex}
+\input{process_design_gate_post.tex}
 \newpage
-\input{physics_implant.tex}
-\input{physics_diffusion.tex}
-\input{physics_well_diffusion.tex}
+\input{process_design_alignment.tex}
 \newpage
-\input{physics_threshold_overview.tex}
-\input{physics_threshold_metal.tex}
-\input{physics_threshold_poly.tex}
-\input{physics_threshold_adjust.tex}
-\newpage
-\section{Chemistry}
-\input{chemistry_etching.tex}
-\input{chemistry_growing.tex}
-\newpage
-\section{Testing}
-\input{testing_overview.tex}
-\newpage
-\input{testing_diodes.tex}
-\newpage
-\input{testing_bipolars.tex}
-\newpage
-\section{Design rules}
-\input{design_rules_overview.tex}
-\input{design_rules_optical.tex}
-\input{design_rules_etching.tex}
-\newpage
-\def\MachinePictureWidth{4cm}
-\def\MachinePictureMiniPageWidth{5cm}
-\def\MachineTextMiniPageWidth{12cm}
-\newcommand{\tabitem}{~~\llap{\textbullet}~~}
-\section{Machines}
-\input{machines_overview.tex}
-\input{machines_mask_maker.tex}
-\input{machines_litho_stepper.tex}
-\input{machines_thermal_RTAAG610.tex}
-\newpage
-\input{machines_dry_DRIE.tex}
-\input{machines_silicon_polisher.tex}
-\input{machines_copper_polisher.tex}
-\newpage
-\input{machines_trion_RIE_etch.tex}
-\input{machines_diffusion_furnace.tex}
-\input{machines_denton_sputter.tex}
-\newpage
-\input{machines_LPCVD.tex}
-\input{machines_poly_etcher.tex}
-\newpage
-\section{Resists}
-\input{resists_overview.tex}
-
-%\newpage
-%\listoffootnotes \cleardoublepage
-
+\input{simulation.tex}
 \end{document}

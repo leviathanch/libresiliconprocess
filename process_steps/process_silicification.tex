@@ -1,0 +1,194 @@
+\section{Silicification}\label{step_silicification}
+
+Titanium silicide is one of the first SALICIDE material introduced in ULSI devices owing to its low resistivity, high thermal stability, ease in deposition and compatibility with silicon processes.
+Titanium has been one of the familiar materials in ULSI productions, which is also an important advantage in practical use of titanium SALICIDE.\footnote{A Study on Formation of High Resistivity Phases of Nickel Silicide at Small Area and its Solution for Scaled CMOS Devices, 07D53437, Ryuji Tomita}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
+		\input{tikz_process_steps/silicification.a.tex}
+		\node at (3,4) {Silicide};
+		\draw[->] (3,3.8) -- (3,2.2);
+		\node at (5.5,5) {Polycide};
+		\draw[->] (5.5,4.8) -- (5.5,3.2);
+		\node at (8,4) {Silicide};
+		\draw[->] (8,3.8) -- (8,2.2);
+
+		\node at (12,4) {Silicide};
+		\draw[->] (12,3.8) -- (12,2.2);
+		\node at (14,5) {Polycide};
+		\draw[->] (14,4.8) -- (14,3.2);
+		\node at (17,4) {Silicide};
+		\draw[->] (17,3.8) -- (17,2.2);
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
+		\input{tikz_process_steps/silicification.b.tex}
+	\end{tikzpicture}
+	\caption{Silicide geometry target}
+	\label{policide_silicide_sections}
+\end{figure}
+
+In order to reduce the gate contact resistance as well as the source and drain resistance and in order to provide a more effective etch stop when plasma etching the contact windows to drain, source and gate, silicide/polycide is being added to the wafer as shown in \autoref{policide_silicide_sections}.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance =1cm, auto, thick,scale=\VLSILayout, every node/.style={transform shape}]
+		\input{tikz_process_steps/silicification.layout.tex}
+	\end{tikzpicture}
+	\caption{Silification layout}
+	\label{silicification_layout}
+\end{figure}
+
+When titanium and silicon are brought into contact and heated at temperatures above 500 \degree C (in the presence of excess silicon) the higher-resistivity C49-$TiSi_2$ phase forms before the low-resistivity phase.
+
+The C49-$TiSi_2$ phase has an orthorhombic base-centered structure with 12 atoms per unit cell and a resistivity of $60-90 \mu\Omega - cm$.
+
+The C54-$TiSi_2$ phase has an orthorhombic face-centered structure having 24 atoms per unit cell and a significantly lower resistivity ($12-20 \mu\Omega - cm$) than the C49-$TiSi_2$.
+
+The basic formation process of titanium SALICIDE is as follows:
+
+A thin titanium film with 20-60 nm thickness is deposited on an entire wafer with MOSFETs structure.
+The deposited Ti film reacts with the exposed silicon areas such as the source/drain area and polysilicon gate electrodes by the first anneal at 600-700\degree C in $N_2$ ambient. In first anneal, C49-$TiSi_2$ phase is formed.
+Then, the unreacted titanium film on the dielectric layer such as $SiO_2$ or SiN is selectively etched by APM (Ammonia and Hydrogen Peroxide Mixture) solution.
+The final step is second anneal at 800\degree C or above to transform high-resistivity C49-$TiSi_2$ phase to low-resistivity C54-$TiSi_2$ phase at the gate electrodes and source/drain areas.
+
+\newpage
+
+\subsection{Oxide deposition}
+
+The thickness of this CVD deposited oxide layer will be the width of the spacer after having used highly anisotropic etching in the next few steps, for this reason the thickness of the oxide decides over the distance between the silicide and the gate oxide.
+
+We make the oxide layer 50nm thick.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/silicification.1.a.tex}
+	\end{tikzpicture}\\
+	\includegraphics[scale=0.01]{down_arrow.png}\\
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/silicification.1.b.tex}
+	\end{tikzpicture}
+	\caption{Oxide layer}
+\end{figure}
+
+We use the machine LPCVD machine from HKUST\autoref{lpcvd_machine} and deposit around 50nm of silicon dioxide with the following recipe\footnote{\url{https://people.rit.edu/lffeee/LPCVD_Recipes.pdf}}:
+\begin{itemize}
+	\item Temperature: 400 \degreesC  ($Si H_4 + O_2 = Si O_2 + 2 H_2$)
+	\item Pressure = 250 mTorr
+	\item Silane ($Si H_4$) flow = 40sccm
+	\item Oxygen ($O_2$) flow = 48sccm
+\end{itemize}
+
+This will give a rate of 7nm ($\pm 1nm$) per minute, so we deposit for roughly seven minutes (7 min).
+
+\subsection{Silicide block patterning (optional)}
+
+We now have to pattern the mask for the silicide block layer which will produce oxide wherever no silicide is not desired within active areas.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/silicification.2.a.tex}
+	\end{tikzpicture}\\
+	\includegraphics[scale=0.01]{down_arrow.png}\\
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/silicification.2.b.tex}
+	\end{tikzpicture}
+	\caption{Patterning (silicide block)}
+\end{figure}
+
+\subsection{Sputter etching(Spacers)}
+
+Now we have to etch our oxide as anisotropic as possible. This means that the etching mostly only comes "from above with a few to nearly none horizontal etching.
+That means the etching process only "sees" the sidewall as a "thicker layer" and starts etching downward.
+With an etching speed of ~35 nm/min for thermal oxide and an oxide thickness of around 50nm and given that the polysilicon is much higher than 50nm we will have our desired spacer geometry forming as well as any potentially resist covered are (given silicide block is being used) with sharp etches.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/silicification.3.a.tex}
+	\end{tikzpicture}\\
+	\includegraphics[scale=0.01]{down_arrow.png}\\
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/silicification.3.b.tex}
+	\end{tikzpicture}
+	\caption{Anisotropic etching}
+\end{figure}
+
+The above mentioned machine is the "Trion RIE Etcher" at the NFF HKUST lab(\autoref{trion_RIE_etch_machine}).
+The etching process runs on the oxide for 2 minutes.
+
+\newpage
+
+\subsection{Titanium deposition}
+
+We deposit a layer of titanium with a thickness of around 20-60nm which will then be reacted into titanium-silicide and titanium-polycide respectively in the further steps.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/silicification.4.a.tex}
+	\end{tikzpicture}\\
+	\includegraphics[scale=0.01]{down_arrow.png}\\
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/silicification.4.b.tex}
+	\end{tikzpicture}
+	\caption{Titanium deposition}
+\end{figure}
+
+For this purpose we use the "Denton Sputter (SPT-Denton)" at HKUST NFF lab (\autoref{denton_sputter_machine}) which has a sputter rate of around 8.8 nm/min for titanium.
+This means we run the deposition process for around 5 minutes.
+
+\subsection{First reaction step}
+
+The deposited Ti film reacts with the exposed silicon areas such as the source/drain area and polysilicon gate electrodes by the first anneal at 600-700\degree C in $N_2$ ambient.
+In this first anneal, the C49-$TiSi_2$ phase is formed.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/silicification.5.a.tex}
+	\end{tikzpicture}\\
+	\includegraphics[scale=0.01]{down_arrow.png}\\
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/silicification.5.b.tex}
+	\end{tikzpicture}
+	\caption{Reaction 1}
+\end{figure}
+
+We use the "AG610 RTP (DIF-R2)" from the HKUST\autoref{thermal_RTAAG610_machine} at 700\degreesC for 240 seconds.
+
+\subsection{Etch}
+
+The unreacted titanium film on the dielectric layer such as $SiO_2$ or $SiN$ is selectively etched by APM (Ammonia and Hydrogen Peroxide Mixture) solution.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/silicification.6.a.tex}
+	\end{tikzpicture}\\
+	\includegraphics[scale=0.01]{down_arrow.png}\\
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/silicification.6.b.tex}
+	\end{tikzpicture}
+	\caption{Titanium etch}
+\end{figure}
+
+\subsection{Second reaction step}
+
+The final step is a second anneal at 800 \degreesC or above to transform the high-resistivity C49-$TiSi_2$ phase to the low-resistivity C54-$TiSi_2$ phase at the gate electrodes and source/drain areas.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/silicification.7.a.tex}
+	\end{tikzpicture}\\
+	\includegraphics[scale=0.01]{down_arrow.png}\\
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/silicification.7.b.tex}
+	\end{tikzpicture}
+	\caption{Reaction 2}
+\end{figure}
+
+We use the "AG610 RTP (DIF-R2)" again at 800\degree C for 240 seconds.
