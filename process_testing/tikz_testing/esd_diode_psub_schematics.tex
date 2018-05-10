@@ -1,0 +1,22 @@
+\draw (2.0,2.0) to[D,n=diode] (2.0,4.5) -- (4.0,4.5);
+\draw (6.0,2.0) to[D,n=diode] (6.0,4.5) -- (4.0,4.5);
+\draw (2.0,2.0) to[R,n=resistor] (6.0,2.0);
+
+\node at (2.0,0.5) {Bonding pad};
+\draw (0.0,0.0) rectangle (1.0,1.0);
+\draw (0.0,0.0) -- (1.0,1.0);
+\draw (0.0,1.0) -- (1.0,0.0);
+\draw (0.5,1.0) -- (0.5,2.0) -- (2.0,2.0);
+\filldraw (2.0,2.0) circle (0.1);
+
+\draw (4.0,4.5) -- (4.0,6.0);
+\filldraw (4.0,4.5) circle (0.1);
+\filldraw (4.0,6.0) circle (0.1);
+\draw[dotted,thick] (0.0,6.0) -- (8.0,6.0);
+\draw[thick] (3.0,6.0) -- (5.0,6.0);
+\node at (1.0,6.25) {VDD};
+
+\draw (6.0,2.0) -- (8.0,2.0);
+\filldraw (6.0,2.0) circle (0.1);
+\draw (8.0,1.75) rectangle (8.5,2.25);
+\node at (8.0,1.25) {Pin to core};
