@@ -1,22 +1,24 @@
 % substrate
-\fill[substrate] (0,0) rectangle (9,2);
+\fill[substrate] (0,0) rectangle (9,2.0);
 \node at (4,0.5) {Silicon substrate};
 
 % n-well
-\fill[nwell] (0.75,0.75) rectangle (4.25,2);
+\fill[nwell] (0.5,0.75) rectangle (4.5,2.0);
 \node at (2,1) {N-Well};
-\fill[nimplant] (1.5,1.5) rectangle (3.5,2);
+
+\fill[nimplant] (1.0,1.5) rectangle (4.0,2.0);
 \node at (2,1.65) {n+};
 
 % p-well
-\fill[pwell] (4.5,0.75) rectangle (8.0,2);
+\fill[pwell] (4.5,0.75) rectangle (8.5,2.0);
 \node at (6,1) {P-Well};
-\fill[pimplant] (5.25,1.5) rectangle (7.25,2);
+
+\fill[pimplant] (5.0,1.5) rectangle (8.0,2.0);
 \node at (6,1.65) {p+};
 
 %trenches
-\fill[isolationoxide] (0,1.25) rectangle (1.25,2);
-\fill[isolationoxide] (3.75,1.25) rectangle (5,2);
-\fill[isolationoxide] (7.5,1.25) rectangle (9,2);
+\fill[isolationoxide] (0,1.25) rectangle (1.0,2.0);
+\fill[isolationoxide] (4.0,1.25) rectangle (5.0,2.0);
+\fill[isolationoxide] (8.0,1.25) rectangle (9.0,2);
 
 \draw (6.25,1.5) -- (6.25,-1.5) -- (2.5,-1.5) to[D,n=diode] (2.5,1.5);
