@@ -15,7 +15,7 @@ The cross section as well as the top view of the targeted geometry are shown in 
 
 The n-well will serve us as an island of n-doped substrate within the p-doped basis substrate.
 
-The dopant dose will be $2.5\times10^{12}cm^{-2}$ as calculated in \autoref{pmos_dimensioning}.
+The dopant dose will be $2.5\times10^{12}cm^{-2}$ as calculated in the documentation of the process design leading to these steps\footnote{\url{https://github.com/leviathanch/libresiliconprocess/raw/master/process_design/process_design.pdf}}.
 
 \begin{figure}[H]
 	\centering
@@ -37,105 +37,131 @@ In order to selectively inject charge carrying atoms into the crystalline struct
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/nwell.1.a.tex}
+		\input{tikz_process_steps/nwell.mask_dioxide_layer.a.tex}
 	\end{tikzpicture} \\
 	\includegraphics[scale=0.01]{down_arrow.png} \\
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/nwell.1.b.tex}
+		\input{tikz_process_steps/nwell.mask_dioxide_layer.b.tex}
 	\end{tikzpicture}
 	\caption{Dioxide layer growth}
 \end{figure}
-The industrial best practice is a layer of around (500nm$\approx$5000\normalfont\AA) thickness or more.
-For this purpose the wafer is being oxidized for at least 90 minutes at 1000\degree C using wet oxidation which results in a dioxide layer at least 500nm($\approx$5000\normalfont\AA) in thickness.
+
+With an energy of 100keV for the implantation performed in \autoref{nwell_implant_step}, the projected range of the dopants within the oxide will be 100nm (130nm tops) \footnote{\url{http://cleanroom.byu.edu/rangestraggle}}.
+This means being on the safe side and having 300nm as the thickness is a good approach.
+
+In order to grow the 300nm thick oxide layer, the wafer is being oxidized for around 25 minutes at 1050\degree C using wet oxidation which results in a dioxide layer of around 300nm in thickness\footnote{\url{http://cleanroom.byu.edu/OxideTimeCalc}}.
 
 \subsection{Patterning}
 
-The resist is being deposited using spin coating and then baked depending on the baking time for the specific resist.
+The resist is being deposited using spray coating because the uneven nature of the oxide layer.
+After that the wafer is being soft baked depending on the baking time and temperature for the specific resist.
 The layout for being exposed onto the resist is being extracted from the "nwell" layer within the GDS2 file.
 
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/nwell.2.a.tex}
+		\input{tikz_process_steps/nwell.patterning.a.tex}
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/nwell.2.at.tex}
+		\input{tikz_process_steps/nwell.patterning.at.tex}
 	\end{tikzpicture} \\
 	\includegraphics[scale=0.01]{down_arrow.png} \\
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/nwell.2.b.tex}
+		\input{tikz_process_steps/nwell.patterning.b.tex}
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/nwell.2.bt.tex}
+		\input{tikz_process_steps/nwell.patterning.bt.tex}
 	\end{tikzpicture}
 	\caption{Cross/top view of n-well layout on resist}
 \end{figure}
 
 The thickness of the resist layer and the baking duration will variate depending on the specific equipment for which this process will be implemented with.
 
+\newpage
+
 \subsection{Etching}
 We now need to open a window in the dioxide layer, through which we will inject carrier atoms into the silicon crystal structure.
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/nwell.3.a.tex}
+		\input{tikz_process_steps/nwell.etching.a.tex}
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/nwell.3.at.tex}
+		\input{tikz_process_steps/nwell.etching.at.tex}
 	\end{tikzpicture} \\
 	\includegraphics[scale=0.01]{down_arrow.png} \\
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/nwell.3.b.tex}
+		\input{tikz_process_steps/nwell.etching.b.tex}
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/nwell.3.bt.tex}
+		\input{tikz_process_steps/nwell.etching.bt.tex}
 	\end{tikzpicture}
 	\caption{Cross/top view of n-well oxide window}
 \end{figure}
-Since the silicon dioxide layer is 500nm thick and we wanna reach the silicon below we can use wet etching as described in the chemistry chapter.
-Using BHF (6:1) (\autoref{BHF_six_to_one}) we can etch with a speed of approximately 2 nm/s at 25 \degree C, we can calculate the etching time to be $\frac{500nm}{2nm/s}$=250s=4 minutes 10 seconds (or make it rather 30 seconds instead of 10)
+
+Since the silicon dioxide layer is 300nm thick and we wanna reach the silicon below we can use wet etching as described in the chemistry chapter.\\
+
+\textbf{Possible approaches}:
+\begin{itemize}
+	\item \textbf{"DRIE Etcher \#1" from HKUST} \\
+	We can use anisotropic plasma etching for sharper borders.
+	\item \textbf{Chemical solution} \\
+	We can use buffered hydrofluoric acid (BOE (1:6)) at room temperature for a little bit over 3 minutes in order to get through the 300nm of oxide.\\
+	Too long over 3 minutes might cause under-etch however!
+\end{itemize}
 
 \subsection{Cleaning}
 In order to avoid contamination of the machines we need to make sure all the resist has been stripped off from the wafer.
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/nwell.4.a.tex}
+		\input{tikz_process_steps/nwell.cleaning.a.tex}
 	\end{tikzpicture} \\
 	\includegraphics[scale=0.01]{down_arrow.png} \\
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/nwell.4.b.tex}
+		\input{tikz_process_steps/nwell.cleaning.b.tex}
 	\end{tikzpicture}
 	\caption{Resist removal}
 \end{figure}
 Please just use the solvent for the specific resist.
 
-\subsection{Injection}
+\newpage
+
+\subsection{Implantation/Predeposition}\label{nwell_implant_step}
 We now need to inject the carriers into the upper level of the n-channel area so that we can later on drive them into the crystal during the drive-in step.
+
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/nwell.5.a.tex}
+		\input{tikz_process_steps/nwell.implantation.a.tex}
 	\end{tikzpicture} \\
 	\includegraphics[scale=0.01]{down_arrow.png} \\
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/nwell.5.b.tex}
+		\input{tikz_process_steps/nwell.implantation.b.tex}
 	\end{tikzpicture}
 	\caption{Doping process}
 \end{figure}
-The n-well is implanted with a Phosphorus ($P^{31}$) dose of $2.5\times10^{12}cm^{-2}$ at an energy of 100 KeV.
+
 The n-well is then annealed.
+
+\textbf{Possible approaches}:
+\begin{itemize}
+	\item \textbf{"CF-3000 Implanter (IMP-3000)" from HKUST} \\
+	The n-well is implanted with a Phosphorus ($P^{31}$) dose of $2.5\times10^{12}cm^{-2}$ at an energy of 100 KeV.
+	\item \textbf{Constant source diffusion} \\
+	We can add a layer of phosphorus solution and diffusing in order to have an initial concentration in order to reach the desired concentration later by main diffusion.
+\end{itemize}
 
 \subsection{Oxide for drive-in}
 Now we need to cover the now doped and annealed areas with an oxide layer for the drive-in phase.
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/nwell.6.a.tex}
+		\input{tikz_process_steps/nwell.drive_in_oxide.a.tex}
 	\end{tikzpicture} \\
 	\includegraphics[scale=0.01]{down_arrow.png} \\
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/nwell.6.b.tex}
+		\input{tikz_process_steps/nwell.drive_in_oxide.b.tex}
 	\end{tikzpicture}
 	\caption{Oxide growth}
 \end{figure}
@@ -146,26 +172,28 @@ In order to drive the carrier atoms deeper into the crystalline structure the wa
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/nwell.7.a.tex}
+		\input{tikz_process_steps/nwell.drive_in.a.tex}
 	\end{tikzpicture} \\
 	\includegraphics[scale=0.01]{down_arrow.png} \\
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/nwell.7.b.tex}
+		\input{tikz_process_steps/nwell.drive_in.b.tex}
 	\end{tikzpicture}
 	\caption{Drive-in process}
 \end{figure}
 In this step the wafer is  driven-in for 96 minutes at 1150\degree C in an inert ambient.
+
+\newpage
 
 \subsection{Oxide mask removal}
 We want to remove the silicon mask from the wafer so that the n-well becomes accessible for the further process steps but we don't want to etch "way too much" of the trench material.
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/nwell.8.a.tex}
+		\input{tikz_process_steps/nwell.oxide_mask_removal.a.tex}
 	\end{tikzpicture} \\
 	\includegraphics[scale=0.01]{down_arrow.png} \\
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/nwell.8.b.tex}
+		\input{tikz_process_steps/nwell.oxide_mask_removal.b.tex}
 	\end{tikzpicture}
 	\caption{Oxide removal}
 \end{figure}
