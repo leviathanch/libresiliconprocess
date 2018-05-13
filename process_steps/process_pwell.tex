@@ -49,7 +49,7 @@ In order to selectively inject charge carrying atoms into the crystalline struct
 With an energy of 100keV for the implantation performed in \autoref{pwell_implant_step}, the projected range of the dopants within the oxide will be 310nm (380nm tops) \footnote{\url{http://cleanroom.byu.edu/rangestraggle}}.
 This means being on the safe side and having 500nm as the thickness is a good approach.
 
-In order to grow the 300nm thick oxide layer, the wafer is being oxidized for around 56 minutes at 1050\degree C using wet oxidation which results in a dioxide layer of around 500nm in thickness\footnote{\url{http://cleanroom.byu.edu/OxideTimeCalc}}.
+In order to grow the 500nm thick oxide layer, the wafer is being oxidized for around 56 minutes at 1050\degree C using wet oxidation which results in a dioxide layer of around 500nm in thickness\footnote{\url{http://cleanroom.byu.edu/OxideTimeCalc}}.
 
 \subsection{Patterning}
 The resist is being deposited using spin coating and then baked depending on the baking time for the specific resist.
@@ -136,38 +136,15 @@ We now need to inject the carriers into the upper level of the n-channel area so
 	\end{tikzpicture}
 	\caption{Doping process}
 \end{figure}
-The P-well is implanted with a Boron ($B^{11}$) dose of $2.5\times10^{12}cm^{-2}$ at an energy of 100 KeV.
-The P-well is then annealed.
 
-\subsection{Oxide for drive-in}
-Now we need to cover the now doped and annealed areas with an oxide layer for the drive-in phase.
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/pwell.drive_in_oxide.a.tex}
-	\end{tikzpicture} \\
-	\includegraphics[scale=0.01]{down_arrow.png} \\
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/pwell.drive_in_oxide.b.tex}
-	\end{tikzpicture}
-	\caption{Oxide growth}
-\end{figure}
-The wafer is being oxidized for 32 minutes at 1000\degree C in order to achieve a cover silicon layer of 250nm thickness ($\approx$2500\normalfont\AA).
-
-\subsection{Drive-in}
-In order to drive the carrier atoms deeper into the crystalline structure the wafer needs to be driven in after predeposition.
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/pwell.drive_in.a.tex}
-	\end{tikzpicture} \\
-	\includegraphics[scale=0.01]{down_arrow.png} \\
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/pwell.drive_in.b.tex}
-	\end{tikzpicture}
-	\caption{Drive-in process}
-\end{figure}
-In this step the wafer is  driven-in for 96 minutes at 1150\degree C in an inert ambient.
+\textbf{Possible approaches}:
+\begin{itemize}
+	\item \textbf{"CF-3000 Implanter (IMP-3000)" from HKUST} \\
+	The P-well is implanted with a Boron ($B^{11}$) dose of $2.5\times10^{12}cm^{-2}$ at an energy of 100 KeV.\\
+	The P-well is then annealed.
+	\item \textbf{Constant source diffusion} \\
+	We can add a layer of Boron solution and diffusing in order to have an initial concentration in order to reach the desired concentration later by main diffusion.
+\end{itemize}
 
 \subsection{Oxide mask removal}
 We want to remove the silicon mask from the wafer so that the P-well becomes accessible for the further process steps but we don't want to etch "way too much" of the trench material.
@@ -182,8 +159,5 @@ We want to remove the silicon mask from the wafer so that the P-well becomes acc
 	\end{tikzpicture}
 	\caption{Oxide removal}
 \end{figure}
-Since the silicon dioxide layer is 750nm (500nm+250nm) thick and we wanna reach the silicon below we can use wet etching as described in the chemistry chapter.
-Using BHF (6:1) (\autoref{BHF_six_to_one}) we can etch with a speed of approximately 2 nm/s at 25 \degree C.
-We can calculate the etching time to be $\frac{750nm}{2nm/s}$=375s=6 Minutes and 15 Seconds.
 
-Etching away a "little bit too much" of the oxide isn't that bad, because the oxide within the trenches will be "filled up" again during the later steps.
+We use buffered hydrofluoric acid (BOE (1:6)) at room temperature for a little bit over 4 minutes (roughly 10 seconds more or so) in order to remove the 500nm of oxide layer.
