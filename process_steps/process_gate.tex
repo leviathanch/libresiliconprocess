@@ -33,6 +33,9 @@ In \autoref{gate_layout} we can see the layout honoring the 0.5\um spacing desig
 
 \subsection{Gate oxide deposition}
 
+Now we have to deposit the dielectric isolator between the gate electrode and the channel.
+As designed in the process design document, the layer will be 40nm thick.
+
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
@@ -44,6 +47,8 @@ In \autoref{gate_layout} we can see the layout honoring the 0.5\um spacing desig
 	\end{tikzpicture}
 	\caption{Thin oxide}
 \end{figure}
+The thickness of this layer decides over many critical key properties of the transistor, hence there should be little to no variation in the thickness of the gate oxide layer.
+For that reason we put the wafer into the diffusion furnace and perform dry oxidation at 1050\degreesC for 33 minutes and 14 seconds.\footnote{\url{http://cleanroom.byu.edu/OxideTimeCalc}}
 
 \subsection{Polysilicon deposition}
 
