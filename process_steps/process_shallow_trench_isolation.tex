@@ -29,9 +29,9 @@ The targeted depth of the box isolation is $\approx 2 \mu m$.
 
 In \autoref{sti_layout} we can see the layout for the STI area.
 The STI area will be everywhere, where no active areas are.
-The field oxide needs to be grown out of trenches which can't been etched out of the silicon by using resist as a mask.
+The field oxide needs to be grown out of trenches which can't be etched out of the silicon by using resist as a mask.
 For that reason we will have to resort to a protective mask made from a silicon dioxide layer which has to be etched before hand.
-So the mask will be exposed onto positive resist on top of the hard mask oxide layer in order to form a protective mask covering the active areas from having etched trenches into them..
+So the mask will be exposed onto positive resist on top of the hard mask oxide layer in order to form a protective mask covering the active areas from having etched trenches into them.
 After that we can either use a dry etching method or wet etching for cutting into the silicon substrate and making the active area become islands with trenches in between.
 After these steps we have to remove the hard mask.
 Our minimum width and height as well as the space between the active areas comes from the line space constrain of the silicon etcher and of course the optical limitations of the stepper which are as well 0.5\um.
@@ -91,7 +91,7 @@ The layer of silicon dioxide of around 300nm thickness is grown in wet ambient f
 
 \subsection{Hard mask: Patterning}
 
-The resist is being deposited using spin coating and then baked depending on the baking time for the specific resist.
+The resist is being deposited using spin coating and then soft baked depending on the baking time for the specific resist.
 
 \begin{figure}[H]
 	\centering
@@ -105,9 +105,7 @@ The resist is being deposited using spin coating and then baked depending on the
 	\caption{Patterning with positive resist}
 \end{figure}
 
-The layout for being exposed onto the resist is being extracted from the "active" layer within the GDS2 file onto a dark field mask.
-
-A dark field mask can be used because alignment doesn't play a role yet because it's the first layer, however the alignment crosses need to be included into the mask.
+The layout for being exposed onto the resist is being extracted from the "active" layer within the GDS2 file onto a bright field mask because we need to use the same mask again in \autoref{fox_chapter}, so alignment needs to be possible.
 
 \subsection{Hard mask: Etching}\label{sti_mask_etch}
 

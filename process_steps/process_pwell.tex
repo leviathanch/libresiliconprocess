@@ -1,5 +1,5 @@
 `\section{P-well}\label{pwell_chapter}
-In order to build CMOS on the same substrate, an P-well is required for building the complementary P-channel transistor for a n-p-channel logic circuitry as shown above in the example section.
+In order to build CMOS on the same substrate, a P-well is required for building the complementary N-channel transistor for a n-p-channel logic circuitry.
 The cross section as well as the top view of the targeted geometry are shown in \autoref{nwell_target}
 \begin{figure}[H]
 	\centering
@@ -14,7 +14,7 @@ The cross section as well as the top view of the targeted geometry are shown in 
 \end{figure}
 The P-well will serve us as an island of higher p-doped substrate within the slightly p-doped basis substrate.
 
-The dopant dose will be: $2.5\times10^{12}cm^{-2}$
+The dopant dose will be $2.5\times10^{12}cm^{-2}$ as calculated in the documentation of the process design leading to these steps\footnote{\url{https://github.com/leviathanch/libresiliconprocess/raw/master/process_design/process_design.pdf}}.
 
 \begin{figure}[H]
 	\centering
@@ -52,7 +52,7 @@ This means being on the safe side and having 500nm as the thickness is a good ap
 In order to grow the 500nm thick oxide layer, the wafer is being oxidized for around 56 minutes at 1050\degree C using wet oxidation which results in a dioxide layer of around 500nm in thickness\footnote{\url{http://cleanroom.byu.edu/OxideTimeCalc}}.
 
 \subsection{Patterning}
-The resist is being deposited using spin coating and then baked depending on the baking time for the specific resist.
+The resist is being deposited spray or spin coating (spray coating is better because of the uneven surface!) and then soft baked depending on the baking time for the specific resist.
 The layout for being exposed onto the resist is being extracted from the "pwell" layer within the GDS2 file.
 \begin{figure}[H]
 	\centering
@@ -72,6 +72,7 @@ The layout for being exposed onto the resist is being extracted from the "pwell"
 	\caption{Cross/top view of P-well layout on resist}
 \end{figure}
 The thickness of the resist layer and the baking duration will variate depending on the specific equipment for which this process will be implemented with.
+Also after the exposure and development, the hard baking shouldn't be forgotten!
 
 \newpage
 
@@ -95,7 +96,7 @@ We now need to open a window in the dioxide layer, through which we will inject 
 	\caption{Cross/top view of P-well oxide window}
 \end{figure}
 
-Since the silicon dioxide layer is 500nm thick and we wanna reach the silicon below we can use wet etching as described in the chemistry chapter.\\
+There are multiple possible approaches to etch through these 500nm of oxide.
 
 \textbf{Possible approaches}:
 \begin{itemize}
