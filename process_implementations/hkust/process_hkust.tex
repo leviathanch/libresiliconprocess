@@ -130,29 +130,50 @@ Process Flow of Lanceville Technologies LibreSilicon 180nm
 \addProcessStep{A3: Sulfuric Cleaning}{P201000}{Initial Cleaning}{H2SO4 + H2O2, 10mins @ 120\degreesC}{clean}{clean}
 \addProcessStep{A2: HF:H2O (1:50)}{P201000}{HF dip}{1 min}{clean}{clean}
 \addProcessStep{Spin Dryer-A}{P201000}{Dry the wafer automatically}{ }{clean}{clean}
-\addProcessStep{Diff. Furnace-D2 Dry/Wet Oxidation}{P201000}{Hard mask dioxide growth}{300nm, 25 minutes @ 1050\degreesC}{clean}{clean}
+\addProcessStep{Diff. Furnace-D2 Dry/Wet Oxidation}{P201000}{Hard mask dioxide growth}{100nm, 5 minutes 30 seconds @ 1050\degreesC}{clean}{clean}
 \addProcessStep{B1: Sulfuric Cleaning}{P201000}{Standard Cleaning}{H2SO4 + H2O2, 10mins @ 120\degreesC}{clean}{clean}
 \addProcessStep{Spin Dryer-B}{P201000}{Dry the wafer automatically}{ }{clean}{clean}
 \addProcessStep{SVG Coater Track}{P200100}{HMDS, PR coating, soft bake}{AZ 504, 1.2µm, soft bake: 110C 1min}{clean/semi-clean}{clean}
-\addProcessStep{ASML Stepper}{P200100}{Exposure of the active layer}{??}{clean/semi-clean}{clean}
+\addProcessStep{ASML Stepper}{P200100}{Exposure of the "active" layer}{??}{clean/semi-clean}{clean}
 \addProcessStep{SVG Developer Track}{P200100}{Develop, Hard bake}{FHD-5, 1min; hard bake: 120C, 1min}{clean/semi-clean}{clean}
 \addProcessStep{C3: BOE}{P201000}{Oxide Etch}{3 minutes 10 seconds}{clean}{clean}
 \addProcessStep{E4: Resist Strip}{P201000}{Sulfuric resist strip}{H2SO4 + H2O2,120C, 10mins}{clean/semi-clean}{clean}
 \addProcessStep{Spin Dryer-E}{P201000}{Spin dry}{}{clean/semi-clean}{clean}
-\addProcessStep{DRIE Etcher \#1 (DRY-Si-1)(We can't use KOH because of contamination control rules)}{P201000}{Etching the trenches}{2\um}{clean/semi-clean}{clean}
-\addProcessStep{C3: BOE}{P201000}{Oxide Etch}{3 minutes 10 seconds}{clean}{clean}
+\addProcessStep{DRIE Etcher \#1 (DRY-Si-1)(We can't use KOH because of contamination control rules)}{P201000}{Etching the trenches}{1 minute (2\um)}{clean/semi-clean}{clean}
+\addProcessStep{C3: BOE}{P201000}{Hard mask removal}{1 minute 10 seconds}{clean}{clean}
 \addProcessStep{Spin Dryer-E}{P201000}{Spin dry}{}{clean/semi-clean}{clean}
 }
 
 \section{P-well}
 \makeProcessTable{tikz_process_steps/pwell.a.tex}{
-\addProcessStep{A3: Sulfuric Cleaning}{P201000}{Initial Clean}{H2SO4 + H2O2, 10mins @ 120\degreesC}{clean}{clean}
-\addProcessStep{A2: HF:H2O (1:50)}{P201000}{HF dip}{1 min}{clean}{clean}
+\addProcessStep{A3: Sulfuric Cleaning}{P201000}{Default Cleaning}{H2SO4 + H2O2, 10mins @ 120\degreesC}{clean}{clean}
 \addProcessStep{Spin Dryer-A}{P201000}{Dry the wafer automatically}{ }{clean}{clean}
-\addProcessStep{Diff. Furnace-D2 Dry/Wet Oxidation}{P201000}{Hard mask dioxide growth}{300nm, 25 minutes @ 1050\degreesC}{clean}{clean}
-\addProcessStep{B1: Sulfuric Cleaning}{P201000}{Initial Clean}{H2SO4 + H2O2, 10mins @ 120\degreesC}{clean}{clean}
+\addProcessStep{Diff. Furnace-D2 Dry/Wet Oxidation}{P201000}{Hard mask dioxide growth}{500nm, 56 minutes @ 1050\degreesC}{clean}{clean}
+\addProcessStep{B1: Sulfuric Cleaning}{P201000}{Standard Cleaning}{H2SO4 + H2O2, 10mins @ 120\degreesC}{clean}{clean}
 \addProcessStep{Spin Dryer-B}{P201000}{Dry the wafer automatically}{ }{clean}{clean}
-\addProcessStep{Diff. Furnace-D2 Dry/Wet Oxidation}{P201000}{Hard mask dioxide growth}{300nm, 25 minutes @ 1050\degreesC}{clean}{clean}
+\addProcessStep{SVG Coater Track}{P200100}{HMDS, PR coating, soft bake}{AZ 504, 1.2µm, soft bake: 110C 1min}{clean/semi-clean}{clean}
+\addProcessStep{ASML Stepper}{P200100}{Exposure of the "nwell" layer}{??}{clean/semi-clean}{clean}
+\addProcessStep{SVG Developer Track}{P200100}{Develop, Hard bake}{FHD-5, 1min; hard bake: 120C, 1min}{clean/semi-clean}{clean}
+\addProcessStep{C3: BOE}{P201000}{Oxide Etch}{4 minutes 10 seconds (500nm)}{clean}{clean}
+\addProcessStep{E4: Resist Strip}{P201000}{Sulfuric resist strip}{H2SO4 + H2O2,120C, 10mins}{clean/semi-clean}{clean}
+\addProcessStep{IMP: CF--3000}{P201000}{Boron implant}{$2.5 \times 10^{12}cm^{-2}$@100keV}{clean/semi-clean}{clean}
+\addProcessStep{C3: BOE}{P201000}{Hard mask removal}{4 minutes 10 seconds (500nm)}{clean}{clean}
+}
+
+\section{N-well}
+\makeProcessTable{tikz_process_steps/nwell.a.tex}{
+\addProcessStep{A3: Sulfuric Cleaning}{P201000}{Default Cleaning}{H2SO4 + H2O2, 10mins @ 120\degreesC}{clean}{clean}
+\addProcessStep{Spin Dryer-A}{P201000}{Dry the wafer automatically}{ }{clean}{clean}
+\addProcessStep{Diff. Furnace-D2 Dry/Wet Oxidation}{P201000}{Hard mask dioxide growth}{500nm, 56 minutes @ 1050\degreesC}{clean}{clean}
+\addProcessStep{B1: Sulfuric Cleaning}{P201000}{Standard Cleaning}{H2SO4 + H2O2, 10mins @ 120\degreesC}{clean}{clean}
+\addProcessStep{Spin Dryer-B}{P201000}{Dry the wafer automatically}{ }{clean}{clean}
+\addProcessStep{SVG Coater Track}{P200100}{HMDS, PR coating, soft bake}{AZ 504, 1.2µm, soft bake: 110C 1min}{clean/semi-clean}{clean}
+\addProcessStep{ASML Stepper}{P200100}{Exposure of the "pwell" layer}{??}{clean/semi-clean}{clean}
+\addProcessStep{SVG Developer Track}{P200100}{Develop, Hard bake}{FHD-5, 1min; hard bake: 120C, 1min}{clean/semi-clean}{clean}
+\addProcessStep{C3: BOE}{P201000}{Oxide Etch}{4 minutes 10 seconds (500nm)}{clean}{clean}
+\addProcessStep{E4: Resist Strip}{P201000}{Sulfuric resist strip}{H2SO4 + H2O2,120C, 10mins}{clean/semi-clean}{clean}
+\addProcessStep{IMP: CF--3000}{P201000}{Boron implant}{$2.5 \times 10^{12}cm^{-2}$@100keV}{clean/semi-clean}{clean}
+\addProcessStep{C3: BOE}{P201000}{Hard mask removal}{4 minutes 10 seconds (500nm)}{clean}{clean}
 }
 
 %%%%%%%%%%%%% END OF DOCUMENT
