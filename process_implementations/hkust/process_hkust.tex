@@ -111,7 +111,9 @@
 \maketitle
 
 \begin{abstract}
-	\input{process_abstract.tex}
+	\input{process_abstract.tex} \\
+	Please see the document with the generic steps\footnote{\url{https://github.com/leviathanch/libresiliconprocess/raw/master/process_steps/process_steps.pdf}}
+	in order to get a detailed description of the different steps.	
 \end{abstract}
 \vfill
 \newpage
@@ -173,6 +175,9 @@ Process Flow of Lanceville Technologies LibreSilicon 180nm
 \addProcessStep{C3: BOE}{P201000}{Oxide Etch}{4 minutes 10 seconds (500nm)}{clean}{clean}
 \addProcessStep{E4: Resist Strip}{P201000}{Sulfuric resist strip}{H2SO4 + H2O2,120C, 10mins}{clean/semi-clean}{clean}
 \addProcessStep{IMP: CF--3000}{P201000}{Phosphorus implant}{$2.5 \times 10^{12}cm^{-2}$@100keV}{clean/semi-clean}{clean}
+\addProcessStep{A3: Sulfuric Cleaning}{P201000}{Default Cleaning}{H2SO4 + H2O2, 10mins @ 120\degreesC}{clean}{clean}
+\addProcessStep{Spin Dryer-A}{P201000}{Dry the wafer automatically}{ }{clean}{clean}
+\addProcessStep{Diff. Furnace-A1 Anneal/Oxidation}{P201000}{Anneal and seal off}{500nm, 56 minutes @ 1050\degreesC}{clean}{clean}
 \addProcessStep{C3: BOE}{P201000}{Hard mask removal}{4 minutes 10 seconds (500nm)}{clean}{clean}
 }
 
