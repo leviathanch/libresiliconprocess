@@ -81,11 +81,21 @@ We need a thick layer of oxide as protective hard mask to etch the trenches into
 	\caption{Hard mask growth}
 \end{figure}
 
-Because we want to etch 2\um deep into the silicon which takes 4 minutes and 30 seconds using KOH acid at 60\degreesC in \autoref{sti_trench_etch}.
+In \autoref{sti_trench_etch}.we want to etch 2\um deep into the silicon which, depending on the approach, will take a different amount of oxide for an effective hard mask. \\
 
-This means the oxide layer needs to be at least 226 nm thick, so we choose a nice round number of 300nm.
-
-The layer of silicon dioxide of around 300nm thickness is grown in wet ambient for 25 minutes at 1050\degreesC\footnote{\url{http://cleanroom.byu.edu/OxideTimeCalc}} in the diffusion furnace.
+\textbf{Possible approaches}:
+\begin{itemize}
+	\item \textbf{"DRIE Etcher \#1" from HKUST} \\
+	We can use anisotropic plasma etching for sharper borders. \\
+	With this method it takes pretty much a minute to etch 2\um deep. \\
+	In one minute the oxide will have been etched away by at most 25nm. \\
+	This means we can grow a 100nm thick layer and are well off. \\
+	Growing 100nm of dioxide takes around 5 minutes 30 seconds at 1050\degreesC in wet ambient\footnote{\url{http://cleanroom.byu.edu/OxideTimeCalc}}.
+	\item \textbf{Chemical solution} \\
+	When using KOH acid at 60\degreesC,  it takes 4 minutes and 30 seconds in order to etch 2\um deep. \\
+	This means the oxide layer needs to be at least 226 nm thick, so we choose a nice round number of 300nm. \\
+	The layer of silicon dioxide of around 300nm thickness is grown in wet ambient for 25 minutes at 1050\degreesC\footnote{\url{http://cleanroom.byu.edu/OxideTimeCalc}} in the diffusion furnace.
+\end{itemize}
 
 \newpage
 
@@ -130,8 +140,8 @@ There are dry etching and wet etching methods available for etching the oxide ha
 	\item \textbf{"DRIE Etcher \#1" from HKUST} \\
 	We can use anisotropic plasma etching for sharper borders.
 	\item \textbf{Chemical solution} \\
-	We can use buffered hydrofluoric acid (BOE (1:6)) at room temperature for a little bit over 3 minutes in order to get through the 300nm of oxide.\\
-	Too long over 3 minutes might cause under-etch however!
+	We can use buffered hydrofluoric acid (BOE (1:6)) at room temperature for a little bit over 3 minutes in order to get through the 300nm of oxide or around 1 minute for 100nm.in case RIE is being used for silicon etching\\
+	Etching too long might cause under-etch however!
 \end{itemize}
 
 \subsection{Hard mask: Resist removal}
@@ -172,10 +182,9 @@ Silicon can only be etched by a very aggressive chemical cocktail of  KOH and TM
 \textbf{Possible approaches}:
 \begin{itemize}
 \item \textbf{"DRIE Etcher \#1" from HKUST} \\
-Has a normal etching rate of up to $2\frac{\mu m}{min}$.
-This means we etch for 10 minutes with a reduced etch speed of $200\frac{nm}{min}$ in order to be clearly deep enough and to compensate for different etch depths in different places.
-This way we have a good chance of having proper isolation everywhere on the wafer.
-
+This machine a normal etching rate of up to $2\frac{\mu m}{min}$ for etching silicon. \\
+This means we etch for 1 minute in order to reach the desired depth. \\
+The selectivity to oxide is >80:1 which means the etch speed for the hard mask will be at most $\frac{1}{80}2\frac{\mu m}{min}=\frac{1}{80}2000\frac{nm}{min}=25\frac{nm}{min}$.
 \item \textbf{Chemical solution} \\
 Using a KOH solution of 20\% at 60\degreesC gives us an etch rate of roughly  26.57\um per hour\footnote{\url{http://www.lelandstanfordjunior.com/KOH.html}}.
 \begin{itemize}
@@ -204,4 +213,5 @@ Now we have to remove the oxide hard mask for further processing in order to pro
 	\caption{Trench etching}
 \end{figure}
 
-We use buffered hydrofluoric acid (BOE (1:6)) at room temperature for a little bit over 3 minutes in order to remove all of the 300nm thick oxide layer.
+We use buffered hydrofluoric acid (BOE (1:6)) at room temperature for a little bit over 3 minutes in order to remove all of the 300nm thick oxide layer and roughly 1 minute for 100nm.
+
