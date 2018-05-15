@@ -1,7 +1,9 @@
 \documentclass[a4paper,landscape]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[english]{babel}
-\usepackage{graphicx}
+\def\micro{\mu m}
+\def\um{$\micro$ }
+\def\degreesC{$\degree$C }
+\def\percent{$\%$ }
+
 \usepackage{geometry}
 	\geometry{a4paper,
 	total={170mm,257mm},
@@ -10,36 +12,106 @@
 	right=20mm,
 	bottom=20mm,
 }
-\usepackage[dvipsnames]{xcolor}
-\definecolor{gateoxide}{gray}{0.9}
-\definecolor{NormalGray}{gray}{0.8}
-\definecolor{DarkGray}{gray}{0.7}
+
+\input{global_color_scheme.tex}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{forloop}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{mdframed}
+\usepackage{graphicx}
 \usepackage{tikz}
 \usetikzlibrary{arrows,automata,shapes}
-\tikzstyle{decision} = [diamond, draw, fill=blue!20, text width=4.5em, text badly centered, node distance=2.5cm, inner sep=0pt]
-\tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=5em, text centered, rounded corners, minimum height=4em]
-\tikzstyle{line} = [draw, very thick, color=black!50, -latex']
-\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=2.5cm,minimum height=2em]
+\usepackage[siunitx]{circuitikz}
+\usepackage{makecell}
+\usepackage{array}
+
+\def\WaferClean{\begin{tikzpicture}\node [fill=cyan, rounded corners=5pt] {Clean};\end{tikzpicture}}
+\def\WaferSemiClean{\begin{tikzpicture}\node [fill=green, rounded corners=5pt] {Semi clean};\end{tikzpicture}}
+\def\WaferNonStandard{\begin{tikzpicture}\node [fill=yellow, rounded corners=5pt] {Non standard};\end{tikzpicture}}
+
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=black,bookmarksopen=true]{hyperref}
+\usepackage{bookmark}
+\usepackage{hyperref}
+\usepackage{sepfootnotes}
+\usepackage{lipsum,tocloft} 
+\usetikzlibrary{positioning}
+\usetikzlibrary{patterns}
+
+\usepackage{float}
+\floatstyle{boxed} 
+\restylefloat{figure}
+
+\newcounter{TopProcessStep}
+\newcounter{SubProcessStep}
+\setcounter{TopProcessStep}{0}
+\setcounter{SubProcessStep}{1}
+
+\def\LastCleaniness{foo}
+
+\newcommand{\getWaferCleaninessSymbol}[1]{
+	\ifthenelse{\equal{#1}{clean}} {\WaferClean} {
+		\ifthenelse{\equal{#1}{semi-clean}} {\WaferSemiClean} {
+			\ifthenelse{\equal{#1}{clean/semi-clean}} {\WaferClean/ \WaferSemiClean} {
+				\ifthenelse{\equal{#1}{non-standard}} {\WaferClean/ \WaferSemiClean} {
+					\WaferNonStandard
+				}
+			}
+		}
+	}
+}
+
+\newcommand{\makeProcessTable}[2]{
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+		\input{#1}
+	\end{tikzpicture}
+	\tiny\begin{tabular}{
+		|>{\centering}p{1cm}
+		|>{\centering}p{3cm}
+		|>{\centering}p{1cm}
+		|>{\centering}p{1.5cm}
+		|>{\centering}p{3cm}
+		|>{\centering}p{4cm}
+		|>{\centering\arraybackslash\hspace{20pt}}p{1.5cm}|}
+	\hline
+	\textbf{Step Number} &
+	\textbf{Equipment} &
+	\textbf{Location} &
+	\textbf{Cleanliness} &
+	\textbf{Process} &
+	\textbf{Requirements} &
+	\textbf{Wafer Cleanliness}
+	\setcounter{SubProcessStep}{1}
+	\addtocounter{TopProcessStep}{1} \\
+	\hline
+	#2
+	\end{tabular}
+}
+
+\newcommand{\addProcessStep}[6]{
+\arabic{TopProcessStep}.\arabic{SubProcessStep}
+\addtocounter{SubProcessStep}{1}
+&
+#1 &
+#2 &
+\getWaferCleaninessSymbol{#5} &
+#3 &
+#4 &
+\getWaferCleaninessSymbol{#6} \\
+\hline
+}
 
 \author{David Lanzendörfer}
-\title{Generic LibreSilicon process HKUST (NFF)}
+\title{LibreSilicon process HKUST (NFF)}
 \begin{document}
 \maketitle
 
 \begin{abstract}
-	Copyright © 2017 LANCEVILLE TECHNOLOGY GROUP CO., LIMITED. All rights reserved. \\
-
-	This process is licensed under the Libre Silicon public license; you can redistribute it and/or modify it under the terms of the Libre Silicon public license
-	as published by the Libre Silicon alliance, either version 1 of the License, or (at your option) any later version.
-
-	This design is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-	See the Libre Silicon Public License for more details. \\
-
-	This is the specification of the free silicon manufacturing standard for manufacturing the ls180nm\footnotemark standard logic cells and related free technology nodes from the LibreSilicon project.
-	
-	For further clarification consult the complete documentation of the process.
-
-	\footnotetext[1]{https://github.com/leviathanch/ls180nm}
+	\input{process_abstract.tex}
 \end{abstract}
 \vfill
 \newpage
@@ -47,86 +119,41 @@
 Process Flow of Lanceville Technologies LibreSilicon 180nm
 
 \begin{itemize}
-	\item Project: LibreSilicon 180nm
+	\item Project: LibreSilicon 1\um
 	\item Name: Lanceville Technologies Group
 	\item Substrate: P-Substrate silicon wafer <100>
 	\item Date: \today
 \end{itemize}
 
-\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.4, every node/.style={transform shape}]
-	% substrate
-	\fill[YellowOrange] (0,0) rectangle (15,2);
-	\node at (2,0.5) {Si (p-type)};
-	% oxide
-	\fill[gray] (0,1.6) rectangle (15,2.6);
-	\node at (2,2.1) {SiO2};
-\end{tikzpicture} \tiny\begin{tabular}{|c|}
-\hline
-\textbf{Wafer Cleanliness} \\
-\hline
-Clean \\
-\hline
-Clean \\
-\hline
-Clean \\
-\hline
-Clean \\
-\hline
-\end{tabular} \begin{tabular}{|c|c|c|c|c|c|}
-\hline
-\textbf{Step Number} &
-\textbf{Equipment} &
-\textbf{Location} &
-\textbf{Cleanliness} &
-\textbf{Process} &
-\textbf{Requirements} \\
-\hline
+\section{Shallow trench isolation}
+\makeProcessTable{tikz_process_steps/sti.a.tex}{
+\addProcessStep{A3: Sulfuric Cleaning}{P201000}{Initial Cleaning}{H2SO4 + H2O2, 10mins @ 120\degreesC}{clean}{clean}
+\addProcessStep{A2: HF:H2O (1:50)}{P201000}{HF dip}{1 min}{clean}{clean}
+\addProcessStep{Spin Dryer-A}{P201000}{Dry the wafer automatically}{ }{clean}{clean}
+\addProcessStep{Diff. Furnace-D2 Dry/Wet Oxidation}{P201000}{Hard mask dioxide growth}{300nm, 25 minutes @ 1050\degreesC}{clean}{clean}
+\addProcessStep{B1: Sulfuric Cleaning}{P201000}{Standard Cleaning}{H2SO4 + H2O2, 10mins @ 120\degreesC}{clean}{clean}
+\addProcessStep{Spin Dryer-B}{P201000}{Dry the wafer automatically}{ }{clean}{clean}
+\addProcessStep{SVG Coater Track}{P200100}{HMDS, PR coating, soft bake}{AZ 504, 1.2µm, soft bake: 110C 1min}{clean/semi-clean}{clean}
+\addProcessStep{ASML Stepper}{P200100}{Exposure of the active layer}{??}{clean/semi-clean}{clean}
+\addProcessStep{SVG Developer Track}{P200100}{Develop, Hard bake}{FHD-5, 1min; hard bake: 120C, 1min}{clean/semi-clean}{clean}
+\addProcessStep{C3: BOE}{P201000}{Oxide Etch}{3 minutes 10 seconds}{clean}{clean}
+\addProcessStep{E4: Resist Strip}{P201000}{Sulfuric resist strip}{H2SO4 + H2O2,120C, 10mins}{clean/semi-clean}{clean}
+\addProcessStep{Spin Dryer-E}{P201000}{Spin dry}{}{clean/semi-clean}{clean}
+\addProcessStep{DRIE Etcher \#1 (DRY-Si-1)(We can't use KOH because of contamination control rules)}{P201000}{Etching the trenches}{2\um}{clean/semi-clean}{clean}
+\addProcessStep{C3: BOE}{P201000}{Oxide Etch}{3 minutes 10 seconds}{clean}{clean}
+\addProcessStep{Spin Dryer-E}{P201000}{Spin dry}{}{clean/semi-clean}{clean}
+}
 
-0.1 &
-A3: Sulfuric Cleaning &
-P201000 &
-Clean &
-Initial Clean &
-H2SO4 + H2O2, 10mins, 120C \\
+\section{P-well}
+\makeProcessTable{tikz_process_steps/pwell.a.tex}{
+\addProcessStep{A3: Sulfuric Cleaning}{P201000}{Initial Clean}{H2SO4 + H2O2, 10mins @ 120\degreesC}{clean}{clean}
+\addProcessStep{A2: HF:H2O (1:50)}{P201000}{HF dip}{1 min}{clean}{clean}
+\addProcessStep{Spin Dryer-A}{P201000}{Dry the wafer automatically}{ }{clean}{clean}
+\addProcessStep{Diff. Furnace-D2 Dry/Wet Oxidation}{P201000}{Hard mask dioxide growth}{300nm, 25 minutes @ 1050\degreesC}{clean}{clean}
+\addProcessStep{B1: Sulfuric Cleaning}{P201000}{Initial Clean}{H2SO4 + H2O2, 10mins @ 120\degreesC}{clean}{clean}
+\addProcessStep{Spin Dryer-B}{P201000}{Dry the wafer automatically}{ }{clean}{clean}
+\addProcessStep{Diff. Furnace-D2 Dry/Wet Oxidation}{P201000}{Hard mask dioxide growth}{300nm, 25 minutes @ 1050\degreesC}{clean}{clean}
+}
 
-\hline
-
-0.2 &
-A2: HF:H2O (1:50) &
-P201000 &
-Clean &
-HF dip &
-1 min \\
-
-\hline
-
-0.3 &
-Spin Dryer-A &
-P201000 &
-Clean &
-Dry the wafer automatically &
-{}
-\\
-
-\hline
-
-0.4 &
-?? &
-?? &
-?? &
-Silicon dioxide growth &
-1000nm \\
-
-\hline
-
-\end{tabular}
-
-
-
-
-
-
-
-
-
+%%%%%%%%%%%%% END OF DOCUMENT
 \end{document}
