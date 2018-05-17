@@ -100,10 +100,10 @@ There are multiple possible approaches to etch through these 500nm of oxide.\\
 
 \textbf{Possible approaches}:
 \begin{itemize}
-	\item \textbf{"DRIE Etcher \#1" from HKUST} \\
+	\item \textbf{"AOE Etcher (DRY-AOE)" from HKUST} \\
 	We can use anisotropic plasma etching for sharper borders.
 	\item \textbf{Chemical solution} \\
-	We can use buffered hydrofluoric acid (BOE (1:6)) at room temperature for a little bit over 4 minutes in order to get through the 500nm of oxide.\\
+	We can use buffered hydrofluoric acid (BOE (1:6)) at room temperature for 5 minutes in order to get through the 500nm of oxide.\\
 	Too long over 4 minutes might cause under-etch however!
 \end{itemize}
 
@@ -134,6 +134,10 @@ We now need to inject the carriers into the upper level of the n-channel area so
 	\includegraphics[scale=0.01]{down_arrow.png} \\
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/pwell.implantation.b.tex}
+	\end{tikzpicture} \\
+	\includegraphics[scale=0.01]{down_arrow.png} \\
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/pwell.implantation.c.tex}
 	\end{tikzpicture}
 	\caption{Doping process}
 \end{figure}
@@ -141,14 +145,21 @@ We now need to inject the carriers into the upper level of the n-channel area so
 \textbf{Possible approaches}:
 \begin{itemize}
 	\item \textbf{"CF-3000 Implanter (IMP-3000)" from HKUST} \\
-	The P-well is implanted with a Boron ($B^{11}$) dose of $2.5\times10^{12}cm^{-2}$ at an energy of 100 KeV.\\
-	The P-well is then annealed.
+	At HKUST we have an implanter which gives us better control over the initial surface concentration. \\
+	These steps are needed to arrive with the desired geometry:
+	\begin{enumerate}
+		\item Preparing by default cleaning
+		\item The P-well is implanted with a Boron ($B^{11}$) dose of $2.5\times10^{12}cm^{-2}$ at an energy of 100 keV
+		\item The P-well is annealed for 30 minutes at 1050\degreesC in $N_2$ environment (DIF-A1)\\
+		After that the P-well will be around 1\um deep (and will become deeper during \autoref{nwell_implant_step})
+	\end{enumerate}
 	\item \textbf{Constant source diffusion} \\
 	We can add a layer of Boron solution and diffusing in order to have an initial concentration in order to reach the desired concentration later by main diffusion.
 \end{itemize}
 
 \subsection{Oxide mask removal}
-We want to remove the silicon mask from the wafer so that the P-well becomes accessible for the further process steps but we don't want to etch "way too much" of the trench material.
+Now we want to remove the silicon mask from the wafer and clean it for another clean oxide mask layer in order to perform the implantation of the N-well in the next step.
+
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
@@ -160,4 +171,5 @@ We want to remove the silicon mask from the wafer so that the P-well becomes acc
 	\end{tikzpicture}
 	\caption{Oxide removal}
 \end{figure}
-We use buffered hydrofluoric acid (BOE (1:6)) at room temperature for a little bit over 4 minutes (roughly 10 seconds more or so) in order to remove the 500nm of oxide layer.
+
+We use buffered hydrofluoric acid (BOE (1:6)) at room temperature for 5 minutes in order to remove the 500nm of oxide layer.

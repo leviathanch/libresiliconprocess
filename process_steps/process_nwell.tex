@@ -104,7 +104,7 @@ Since the silicon dioxide layer is 300nm thick and we wanna reach the silicon be
 
 \textbf{Possible approaches}:
 \begin{itemize}
-	\item \textbf{"DRIE Etcher \#1" from HKUST} \\
+	\item \textbf{"AOE Etcher (DRY-AOE)" from HKUST} \\
 	We can use anisotropic plasma etching for sharper borders.
 	\item \textbf{Chemical solution} \\
 	We can use buffered hydrofluoric acid (BOE (1:6)) at room temperature for a little bit over 3 minutes in order to get through the 300nm of oxide.\\
@@ -139,6 +139,10 @@ We now need to inject the carriers into the upper level of the n-channel area so
 	\includegraphics[scale=0.01]{down_arrow.png} \\
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/nwell.implantation.b.tex}
+	\end{tikzpicture} \\
+	\includegraphics[scale=0.01]{down_arrow.png} \\
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/nwell.implantation.c.tex}
 	\end{tikzpicture}
 	\caption{Doping process}
 \end{figure}
@@ -146,14 +150,22 @@ We now need to inject the carriers into the upper level of the n-channel area so
 \textbf{Possible approaches}:
 \begin{itemize}
 	\item \textbf{"CF-3000 Implanter (IMP-3000)" from HKUST} \\
-	The n-well is implanted with a Phosphorus ($P^{31}$) dose of $2.5\times10^{12}cm^{-2}$ at an energy of 100 KeV.\\
-	The n-well is then annealed.
+	At HKUST we have an implanter which gives us better control over the initial surface concentration. \\
+	These steps are needed to arrive with the desired geometry:
+	\begin{enumerate}
+		\item Preparing by default cleaning
+		\item The N-well is implanted with a Phosphorus ($P^{31}$) dose of $2.5\times10^{12}cm^{-2}$ at an energy of 100 keV.
+		\item The N-well is annealed for 30 minutes at 1050\degreesC in $N_2$ environment (DIF-A1)\\
+		After that the P-well will be around 2\um deep and the N-Well around 1\um deep
+	\end{enumerate}
 	\item \textbf{Constant source diffusion} \\
-	We can add a layer of phosphorus solution and diffusing in order to have an initial concentration in order to reach the desired concentration later by main diffusion.
+	We can add a layer of Phosphorus solution and diffusing in order to have an initial concentration in order to reach the desired concentration later by main diffusion.
 \end{itemize}
 
 \subsection{Oxide for drive-in}
-Now we need to cover the now doped and annealed areas with an oxide layer for the drive-in phase.
+
+Now we need to cover the now doped and annealed area with an oxide layer in order to seal it off and prevent the dopants from diffusing out of the crystal during the drive-in phase.
+
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
@@ -165,10 +177,14 @@ Now we need to cover the now doped and annealed areas with an oxide layer for th
 	\end{tikzpicture}
 	\caption{Oxide growth}
 \end{figure}
-The wafer is being oxidized for 32 minutes at 1000\degree C in order to achieve a cover silicon layer of 250nm thickness ($\approx$2500\normalfont\AA).
+
+The wafer is being oxidized for around 5 minutes at 1050\degree C in a wet environment in order to achieve a cover silicon layer of around 90nm thickness.
+
+\newpage
 
 \subsection{Drive-in}
 In order to drive the carrier atoms deeper into the crystalline structure the wafer needs to be driven in after predeposition.
+
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
@@ -180,12 +196,12 @@ In order to drive the carrier atoms deeper into the crystalline structure the wa
 	\end{tikzpicture}
 	\caption{Drive-in process}
 \end{figure}
-In this step the wafer is  driven-in for 96 minutes at 1150\degree C in an inert ambient\footnote{\url{http://cleanroom.byu.edu/DopConCalc}}
 
-\newpage
+In this step the wafer is  driven-in for 90 minutes at 1050\degree C in an inert ambient\footnote{\url{http://cleanroom.byu.edu/DopConCalc}}
 
 \subsection{Oxide mask removal}
 We want to remove the silicon mask from the wafer so that the n-well becomes accessible for the further process steps but we don't want to etch "way too much" of the trench material.
+
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
@@ -197,4 +213,5 @@ We want to remove the silicon mask from the wafer so that the n-well becomes acc
 	\end{tikzpicture}
 	\caption{Oxide removal}
 \end{figure}
+
 We use buffered hydrofluoric acid (BOE (1:6)) at room temperature for a little bit over 3 minutes (roughly 10 seconds more or so) in order to remove the 300nm of oxide layer.
