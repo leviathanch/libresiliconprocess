@@ -31,7 +31,7 @@ In \autoref{gate_layout} we can see the layout honoring the 0.5\um spacing desig
 
 \newpage
 
-\subsection{Gate oxide deposition}
+\subsection{Gate oxide deposition}\label{step_growing_gate_oxide}
 
 Now we have to deposit the dielectric isolator between the gate electrode and the channel.
 As designed in the process design document, the layer will be 40nm thick.
@@ -50,7 +50,7 @@ As designed in the process design document, the layer will be 40nm thick.
 The thickness of this layer decides over many critical key properties of the transistor, hence there should be little to no variation in the thickness of the gate oxide layer.
 For that reason we put the wafer into the diffusion furnace and perform dry oxidation at 1050\degreesC for 33 minutes and 14 seconds.\footnote{\url{http://cleanroom.byu.edu/OxideTimeCalc}}
 
-\subsection{Polysilicon deposition}
+\subsection{Polysilicon deposition}\label{step_depositing_poly}
 
 Now we need to add the polysilicon layer for forming the gate structure after etching.
 
@@ -75,7 +75,8 @@ This will give us a growth rate of roughly 23.5 nm per minute, so for 600nm we l
 \subsection{Patterning}
 
 The resist is being deposited using spin coating and then baked depending on the baking time for the specific resist.
-The layout for being exposed onto the resist is being extracted from the "poly" layer within the GDS2 file onto a bright field mask.
+The layout for being exposed onto the resist is being extracted from the "poly" layer within the GDS2 file onto a \textbf{bright field} mask.
+The requirement is a \textbf{positive} tone resist.
 
 \begin{figure}[H]
 	\centering
@@ -95,7 +96,13 @@ The layout for being exposed onto the resist is being extracted from the "poly" 
 	\caption{Resist}
 \end{figure}
 
+The thickness of the resist layer and the baking duration will variate depending on the specific equipment for which this process will be implemented with.
+Also after the exposure and development, the hard baking shouldn't be forgotten!
+
+
 \subsection{Etching}
+
+Now we've got to etch the gate structures.
 
 \begin{figure}[H]
 	\centering
@@ -114,6 +121,22 @@ The layout for being exposed onto the resist is being extracted from the "poly" 
 	\end{tikzpicture}
 	\caption{Resist}
 \end{figure}
+
+\begin{mdframed}[linewidth=2pt,linecolor=red]
+For now we only have the plasma etcher variant being verified because chemically etching polysilicon isn't allowed at the HKUST labs for contamination control reasons.
+In case you can verify this in your lab with a chemical etching method, please update this chapter and make a pull request!
+\end{mdframed}
+
+\textbf{Possible approaches}:
+\begin{itemize}
+	\item \textbf{"Poly Etcher (DRY-Poly)" from HKUST} \\
+	An anisotropic plasma etcher, in order to etch the polysilicon and gate oxide layer. \\
+	In \autoref{step_depositing_poly} we've grown 600nm of polysilicon which takes 200 seconds (= 3 minutes 20 seconds) (at 180nm/min) to etch. \\
+	The selectivity to oxide is 13:1 which leads to an oxide etching speed of around 14nm/min, in \autoref{step_growing_gate_oxide} we've grown a 40nm thick oxide layer which leads to the oxide adding another 2 minutes 51 seconds to the etching time. \\
+	All together, we will have to etch for around 6 minutes and 10 seconds.
+	\item \textbf{Chemical method} \\
+	Please add a verified method here!
+\end{itemize}
 
 \subsection{Cleaning}
 
