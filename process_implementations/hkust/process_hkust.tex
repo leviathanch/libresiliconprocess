@@ -7,10 +7,10 @@
 \usepackage{geometry}
 	\geometry{a4paper,
 	total={170mm,257mm},
-	left=20mm,
-	top=20mm,
-	right=20mm,
-	bottom=20mm,
+	left=10mm,
+	top=10mm,
+	right=10mm,
+	bottom=15mm,
 }
 
 \input{global_color_scheme.tex}
@@ -29,10 +29,6 @@
 \usepackage[siunitx]{circuitikz}
 \usepackage{makecell}
 \usepackage{array}
-
-\def\WaferClean{\begin{tikzpicture}\node [fill=cyan, rounded corners=5pt] {Clean};\end{tikzpicture}}
-\def\WaferSemiClean{\begin{tikzpicture}\node [fill=green, rounded corners=5pt] {Semi clean};\end{tikzpicture}}
-\def\WaferNonStandard{\begin{tikzpicture}\node [fill=yellow, rounded corners=5pt] {Non standard};\end{tikzpicture}}
 
 \usepackage[colorlinks=true,linkcolor=blue,urlcolor=black,bookmarksopen=true]{hyperref}
 \usepackage{bookmark}
@@ -54,12 +50,18 @@
 \def\LastCleaniness{foo}
 
 \newcommand{\getWaferCleaninessSymbol}[1]{
-	\ifthenelse{\equal{#1}{clean}} {\WaferClean} {
-		\ifthenelse{\equal{#1}{semi-clean}} {\WaferSemiClean} {
-			\ifthenelse{\equal{#1}{clean/semi-clean}} {\WaferClean/ \WaferSemiClean} {
-				\ifthenelse{\equal{#1}{non-standard}} {\WaferClean/ \WaferSemiClean} {
-					\WaferNonStandard
-				}
+	\ifthenelse{\equal{#1}{clean}}{\begin{tikzpicture}\node [fill=cyan, rounded corners=5pt] {Clean};\end{tikzpicture}} {
+		\ifthenelse{\equal{#1}{semi-clean}} {\begin{tikzpicture}\node [fill=green, rounded corners=5pt] {Semi clean};\end{tikzpicture}} {
+			\ifthenelse{\equal{#1}{clean/semi-clean}} {
+				\begin{tikzpicture}
+					\node [fill=cyan, rounded corners=5pt] at (0,0) {Clean};
+					\node [fill=green, rounded corners=5pt] at (0,-0.5) {Semi clean};
+				\end{tikzpicture}
+			} {
+				\ifthenelse{\equal{#1}{non-standard}} {
+					\begin{tikzpicture}
+						\node [fill=yellow, rounded corners=5pt] {Non standard};
+					\end{tikzpicture}} {undef}
 			}
 		}
 	}
@@ -69,12 +71,12 @@
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
 		\input{#1}
 	\end{tikzpicture}
-	\tiny\begin{tabular}{
-		|>{\centering}p{1cm}
+	\small\begin{tabular}{
+		|>{\centering}p{1.5cm}
 		|>{\centering}p{3cm}
-		|>{\centering}p{1cm}
+		|>{\centering}p{1.5cm}
 		|>{\centering}p{2cm}
-		|>{\centering}p{3cm}
+		|>{\centering}p{4cm}
 		|>{\centering}p{4cm}
 		|>{\centering\arraybackslash\hspace{0pt}}p{2cm}|}
 	\hline
@@ -105,6 +107,18 @@
 \hline
 }
 
+\newcommand{\exposurePositiveStep}[1]{
+	\addProcessStep{SVG Coater Track}{P200100}{HMDS, PR coating, soft bake}{AZ 504, 1.2µm, soft bake: 110C 1min}{clean/semi-clean}{clean}
+	\addProcessStep{ASML Stepper}{P200100}{Exposure of the "#1" layer}{??}{clean/semi-clean}{clean}
+	\addProcessStep{SVG Developer Track}{P200100}{Develop, Hard bake}{FHD-5, 1min; hard bake: 120C, 1min}{clean/semi-clean}{clean}
+}
+
+\newcommand{\exposureNegativeStep}[1]{
+	\addProcessStep{SVG Coater Track}{P200100}{HMDS, PR coating, soft bake}{AZ 504, 1.2µm, soft bake: 110C 1min}{clean/semi-clean}{clean}
+	\addProcessStep{ASML Stepper}{P200100}{Exposure of the "#1" layer}{??}{clean/semi-clean}{clean}
+	\addProcessStep{SVG Developer Track}{P200100}{Develop, Hard bake}{FHD-5, 1min; hard bake: 120C, 1min}{clean/semi-clean}{clean}
+}
+
 \author{David Lanzendörfer}
 \title{LibreSilicon process HKUST (NFF)}
 \begin{document}
@@ -127,21 +141,25 @@ Process Flow of Lanceville Technologies LibreSilicon 180nm
 	\item Date: \today
 \end{itemize}
 
+\begin{mdframed}[linewidth=2pt,linecolor=black]
+\begin{center}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=1.0, every node/.style={transform shape}]
+		\input{tikz_process_steps/silicification.a.tex}
+	\end{tikzpicture}
+\end{center}
+\end{mdframed}
+
 \section{Shallow trench isolation}
 \makeProcessTable{tikz_process_steps/sti.a.tex}{
 \addProcessStep{A3: Sulfuric Cleaning}{P201000}{Initial Cleaning}{H2SO4 + H2O2, 10mins @ 120\degreesC}{clean}{clean}
 \addProcessStep{A2: HF:H2O (1:50)}{P201000}{HF dip}{1 min}{clean}{clean}
 \addProcessStep{Spin Dryer-A}{P201000}{Dry the wafer automatically}{ }{clean}{clean}
 \addProcessStep{Diff. Furnace-D2 Dry/Wet Oxidation}{P201000}{Hard mask dioxide growth}{100nm, 5 minutes 30 seconds @ 1050\degreesC}{clean}{clean}
-\addProcessStep{B1: Sulfuric Cleaning}{P201000}{Standard Cleaning}{H2SO4 + H2O2, 10mins @ 120\degreesC}{clean}{clean}
-\addProcessStep{Spin Dryer-B}{P201000}{Dry the wafer automatically}{ }{clean}{clean}
-\addProcessStep{SVG Coater Track}{P200100}{HMDS, PR coating, soft bake}{AZ 504, 1.2µm, soft bake: 110C 1min}{clean/semi-clean}{clean}
-\addProcessStep{ASML Stepper}{P200100}{Exposure of the "active" layer}{??}{clean/semi-clean}{clean}
-\addProcessStep{SVG Developer Track}{P200100}{Develop, Hard bake}{FHD-5, 1min; hard bake: 120C, 1min}{clean/semi-clean}{clean}
+\exposurePositiveStep{active}
 \addProcessStep{C3: BOE}{P201000}{Oxide Etch}{3 minutes 10 seconds}{clean}{clean}
 \addProcessStep{E4: Resist Strip}{P201000}{Sulfuric resist strip}{H2SO4 + H2O2,120C, 10mins}{clean/semi-clean}{clean}
 \addProcessStep{Spin Dryer-E}{P201000}{Spin dry}{}{clean/semi-clean}{clean}
-\addProcessStep{DRIE Etcher \#1 (DRY-Si-1)(We can't use KOH because of contamination control rules)}{P201000}{Etching the trenches}{1 minute (2\um)}{clean/semi-clean}{clean}
+\addProcessStep{DRIE Etcher \#1 (DRY-Si-1)}{P201000}{Etching the trenches}{1 minute (2\um)}{clean/semi-clean}{clean}
 \addProcessStep{C3: BOE}{P201000}{Hard mask removal}{1 minute 10 seconds}{clean}{clean}
 \addProcessStep{Spin Dryer-E}{P201000}{Spin dry}{}{clean/semi-clean}{clean}
 }
@@ -151,14 +169,14 @@ Process Flow of Lanceville Technologies LibreSilicon 180nm
 \addProcessStep{A3: Sulfuric Cleaning}{P201000}{Default Cleaning}{H2SO4 + H2O2, 10mins @ 120\degreesC}{clean}{clean}
 \addProcessStep{Spin Dryer-A}{P201000}{Dry the wafer automatically}{ }{clean}{clean}
 \addProcessStep{Diff. Furnace-D2 Dry/Wet Oxidation}{P201000}{Hard mask dioxide growth}{500nm, 56 minutes @ 1050\degreesC}{clean}{clean}
-\addProcessStep{B1: Sulfuric Cleaning}{P201000}{Standard Cleaning}{H2SO4 + H2O2, 10mins @ 120\degreesC}{clean}{clean}
-\addProcessStep{Spin Dryer-B}{P201000}{Dry the wafer automatically}{ }{clean}{clean}
-\addProcessStep{SVG Coater Track}{P200100}{HMDS, PR coating, soft bake}{AZ 504, 1.2µm, soft bake: 110C 1min}{clean/semi-clean}{clean}
-\addProcessStep{ASML Stepper}{P200100}{Exposure of the "nwell" layer}{??}{clean/semi-clean}{clean}
-\addProcessStep{SVG Developer Track}{P200100}{Develop, Hard bake}{FHD-5, 1min; hard bake: 120C, 1min}{clean/semi-clean}{clean}
+\exposureNegativeStep{pwell}
 \addProcessStep{C3: BOE}{P201000}{Oxide Etch}{5 minutes (500nm)}{clean}{clean}
 \addProcessStep{E4: Resist Strip}{P201000}{Sulfuric resist strip}{H2SO4 + H2O2,120C, 10mins}{clean/semi-clean}{clean}
+\addProcessStep{Spin Dryer-E}{P201000}{Spin dry}{}{clean/semi-clean}{clean}
 \addProcessStep{IMP: CF--3000}{P201000}{Boron implant}{$2.5 \times 10^{12}cm^{-2}$@100keV}{clean/semi-clean}{clean}
+\addProcessStep{A3: Sulfuric Cleaning}{P201000}{Default Cleaning}{H2SO4 + H2O2, 10mins @ 120\degreesC}{clean}{clean}
+\addProcessStep{Spin Dryer-A}{P201000}{Dry the wafer automatically}{ }{clean}{clean}
+\addProcessStep{Diff. Furnace-A1 Anneal/Oxidation}{P201000}{Annealing}{Annealing 30 minutes @ 1050\degreesC with $N_2$}{clean}{clean}
 \addProcessStep{C3: BOE}{P201000}{Hard mask removal}{5 minutes (500nm)}{clean}{clean}
 }
 
@@ -167,18 +185,38 @@ Process Flow of Lanceville Technologies LibreSilicon 180nm
 \addProcessStep{A3: Sulfuric Cleaning}{P201000}{Default Cleaning}{H2SO4 + H2O2, 10mins @ 120\degreesC}{clean}{clean}
 \addProcessStep{Spin Dryer-A}{P201000}{Dry the wafer automatically}{ }{clean}{clean}
 \addProcessStep{Diff. Furnace-D2 Dry/Wet Oxidation}{P201000}{Hard mask dioxide growth}{300nm, 25 minutes @ 1050\degreesC}{clean}{clean}
-\addProcessStep{B1: Sulfuric Cleaning}{P201000}{Standard Cleaning}{H2SO4 + H2O2, 10mins @ 120\degreesC}{clean}{clean}
-\addProcessStep{Spin Dryer-B}{P201000}{Dry the wafer automatically}{ }{clean}{clean}
-\addProcessStep{SVG Coater Track}{P200100}{HMDS, PR coating, soft bake}{AZ 504, 1.2µm, soft bake: 110C 1min}{clean/semi-clean}{clean}
-\addProcessStep{ASML Stepper}{P200100}{Exposure of the "pwell" layer}{??}{clean/semi-clean}{clean}
-\addProcessStep{SVG Developer Track}{P200100}{Develop, Hard bake}{FHD-5, 1min; hard bake: 120C, 1min}{clean/semi-clean}{clean}
+\exposureNegativeStep{nwell}
 \addProcessStep{C3: BOE}{P201000}{Oxide Etch}{3 minutes (300nm)}{clean}{clean}
 \addProcessStep{E4: Resist Strip}{P201000}{Sulfuric resist strip}{H2SO4 + H2O2,120C, 10mins}{clean/semi-clean}{clean}
+\addProcessStep{Spin Dryer-E}{P201000}{Spin dry}{}{clean/semi-clean}{clean}
 \addProcessStep{IMP: CF--3000}{P201000}{Phosphorus implant}{$2.5 \times 10^{12}cm^{-2}$@100keV}{clean/semi-clean}{clean}
 \addProcessStep{A3: Sulfuric Cleaning}{P201000}{Default Cleaning}{H2SO4 + H2O2, 10mins @ 120\degreesC}{clean}{clean}
 \addProcessStep{Spin Dryer-A}{P201000}{Dry the wafer automatically}{ }{clean}{clean}
-\addProcessStep{Diff. Furnace-A1 Anneal/Oxidation}{P201000}{Anneal and seal off}{500nm, 56 minutes @ 1050\degreesC}{clean}{clean}
+\addProcessStep{Diff. Furnace-A1 Anneal/Oxidation}{P201000}{Annealing}{Annealing 30 minutes @ 1050\degreesC with $N_2$}{clean}{clean}
 \addProcessStep{C3: BOE}{P201000}{Hard mask removal}{3 minutes (300nm)}{clean}{clean}
+}
+
+\section{Field oxide}
+\makeProcessTable{tikz_process_steps/fox.a.tex}{
+\addProcessStep{A3: Sulfuric Cleaning}{P201000}{Default Cleaning}{H2SO4 + H2O2, 10mins @ 120\degreesC}{clean}{clean}
+\addProcessStep{Spin Dryer-A}{P201000}{Dry the wafer automatically}{ }{clean}{clean}
+\addProcessStep{Diff. Furnace-D2 Dry/Wet Oxidation}{P201000}{Thick oxide growth}{1\um, 3 hours @ 1050\degreesC in wet environment}{clean}{clean}
+\exposureNegativeStep{active}
+\addProcessStep{C3: BOE}{P201000}{Oxide Etch}{10 minutes}{clean}{clean}
+\addProcessStep{E4: Resist Strip}{P201000}{Sulfuric resist strip}{H2SO4 + H2O2,120C, 10mins}{clean/semi-clean}{clean}
+\addProcessStep{Spin Dryer-E}{P201000}{Spin dry}{}{clean/semi-clean}{clean}
+}
+
+\section{Gate}
+\makeProcessTable{tikz_process_steps/gate.a.tex}{
+\addProcessStep{A3: Sulfuric Cleaning}{P201000}{Default Cleaning}{H2SO4 + H2O2, 10mins @ 120\degreesC}{clean}{clean}
+\addProcessStep{Spin Dryer-A}{P201000}{Dry the wafer automatically}{ }{clean}{clean}
+\addProcessStep{Diff. Furnace-D1 Dry Oxidation}{P201000}{Gate oxide growth}{40nm, 33 minutes 14 seconds @ 1050\degreesC in dry environment}{clean}{clean}
+\addProcessStep{LPCVD-A3 Amor-Si/Poly}{P201000}{Gate electrode growth}{600nm of poly silicon}{clean}{clean}
+\exposurePositiveStep{gate}
+\addProcessStep{DRY-Poly}{P201000}{Poly etcher}{6 minute 10 seconds (600nm poly + 40nm oxide)}{clean/semi-clean}{clean}
+\addProcessStep{E4: Resist Strip}{P201000}{Sulfuric resist strip}{H2SO4 + H2O2,120C, 10mins}{clean/semi-clean}{clean}
+\addProcessStep{Spin Dryer-E}{P201000}{Spin dry}{}{clean/semi-clean}{clean}
 }
 
 %%%%%%%%%%%%% END OF DOCUMENT
