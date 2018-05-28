@@ -34,11 +34,11 @@ Also important to notice is that this example layout is just for demonstration p
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/pimplant.1.a.tex}
+		\input{tikz_process_steps/pimplant.oxide_growth.a.tex}
 	\end{tikzpicture}
 	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/pimplant.1.b.tex}
+		\input{tikz_process_steps/pimplant.oxide_growth.b.tex}
 	\end{tikzpicture}
 	\caption{Oxide layer}
 \end{figure}
@@ -47,17 +47,17 @@ Also important to notice is that this example layout is just for demonstration p
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/pimplant.2.a.tex}
+		\input{tikz_process_steps/pimplant.patterning.a.tex}
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/pimplant.2.at.tex}
+		\input{tikz_process_steps/pimplant.patterning.at.tex}
 	\end{tikzpicture}
 	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/pimplant.2.b.tex}
+		\input{tikz_process_steps/pimplant.patterning.b.tex}
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/pimplant.2.bt.tex}
+		\input{tikz_process_steps/pimplant.patterning.bt.tex}
 	\end{tikzpicture}
 	\caption{P+ region resist mask}
 \end{figure}

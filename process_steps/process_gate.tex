@@ -72,6 +72,8 @@ We set the temperatue to 650\degreesC, the gas will be Silane ($Si H_4$ ($Si + 2
 
 This will give us a growth rate of roughly 23.5 nm per minute, so for 600nm we let it grow half an hour.
 
+\newpage
+
 \subsection{Patterning}
 
 The resist is being deposited using spin coating and then baked depending on the baking time for the specific resist.
@@ -86,7 +88,7 @@ The requirement is a \textbf{positive} tone resist.
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/gate.patterning.at.tex}
 	\end{tikzpicture}
-	\drawStepArrow{}
+	\drawStepArrow{Mask: poly}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/gate.patterning.b.tex}
 	\end{tikzpicture}

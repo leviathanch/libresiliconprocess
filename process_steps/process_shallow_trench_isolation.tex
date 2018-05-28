@@ -66,6 +66,8 @@ Hydrofluoric acid (HF) is used to remove native silicon dioxide from wafers. Sin
 \subsubsection{Drying}
 After that the wafer needs to be dried and quickly processed further before new uncontrolled natural oxide can build up on the wafer through the contact with air.
 
+\newpage
+
 \subsection{Hard mask: Oxide growth}
 We need a thick layer of oxide as protective hard mask to etch the trenches into the silicon.
 
@@ -97,8 +99,6 @@ In \autoref{sti_trench_etch}.we want to etch 2\um deep into the silicon which, d
 	The layer of silicon dioxide of around 300nm thickness is grown in wet ambient for 25 minutes at 1050\degreesC\footnote{\url{http://cleanroom.byu.edu/OxideTimeCalc}} in the diffusion furnace.
 \end{itemize}
 
-\newpage
-
 \subsection{Hard mask: Patterning}
 
 The resist is being deposited using spin coating and then soft baked depending on the baking time for the specific resist.
@@ -109,7 +109,7 @@ The requirement is a \textbf{positive} tone resist.
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/sti.hard_mask_patterning.a.tex}
 	\end{tikzpicture}
-	\drawStepArrow{}
+	\drawStepArrow{Mask: active}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/sti.hard_mask_patterning.b.tex}
 	\end{tikzpicture}
@@ -117,6 +117,8 @@ The requirement is a \textbf{positive} tone resist.
 \end{figure}
 
 The layout for being exposed onto the resist is being extracted from the "active" layer within the GDS2 file onto a  onto a \textbf{bright field} mask because we need to use the same mask again in \autoref{fox_chapter}, so alignment needs to be possible.
+
+\newpage
 
 \subsection{Hard mask: Etching}\label{sti_mask_etch}
 
