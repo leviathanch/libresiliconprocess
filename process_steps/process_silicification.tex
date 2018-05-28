@@ -62,11 +62,11 @@ We make the oxide layer 50nm thick.
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/silicification.1.a.tex}
+		\input{tikz_process_steps/silicification.oxide_growth.a.tex}
 	\end{tikzpicture}
 	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/silicification.1.b.tex}
+		\input{tikz_process_steps/silicification.oxide_growth.b.tex}
 	\end{tikzpicture}
 	\caption{Oxide layer}
 \end{figure}
@@ -88,11 +88,11 @@ We now have to pattern the mask for the silicide block layer which will produce 
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/silicification.2.a.tex}
+		\input{tikz_process_steps/silicification.silicide_block.a.tex}
 	\end{tikzpicture}
 	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/silicification.2.b.tex}
+		\input{tikz_process_steps/silicification.silicide_block.b.tex}
 	\end{tikzpicture}
 	\caption{Patterning (silicide block)}
 \end{figure}
@@ -106,16 +106,17 @@ With an etching speed of ~35 nm/min for thermal oxide and an oxide thickness of 
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/silicification.3.a.tex}
+		\input{tikz_process_steps/silicification.sputter_etching.a.tex}
 	\end{tikzpicture}
 	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/silicification.3.b.tex}
+		\input{tikz_process_steps/silicification.sputter_etching.b.tex}
 	\end{tikzpicture}
 	\caption{Anisotropic etching}
 \end{figure}
 
 The above mentioned machine is the "Trion RIE Etcher" at the NFF HKUST lab.
+
 The etching process runs on the oxide for 2 minutes.
 
 \newpage
@@ -127,16 +128,17 @@ We deposit a layer of titanium with a thickness of around 20-60nm which will the
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/silicification.4.a.tex}
+		\input{tikz_process_steps/silicification.metal_deposition.a.tex}
 	\end{tikzpicture}
 	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/silicification.4.b.tex}
+		\input{tikz_process_steps/silicification.metal_deposition.b.tex}
 	\end{tikzpicture}
 	\caption{Titanium deposition}
 \end{figure}
 
 For this purpose we use the "Denton Sputter (SPT-Denton)" at HKUST NFF lab which has a sputter rate of around 8.8 nm/min for titanium.
+
 This means we run the deposition process for around 5 minutes.
 
 \subsection{First reaction step}
@@ -147,29 +149,29 @@ In this first anneal, the C49-$TiSi_2$ phase is formed.
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/silicification.5.a.tex}
+		\input{tikz_process_steps/silicification.rtp1.a.tex}
 	\end{tikzpicture}
 	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/silicification.5.b.tex}
+		\input{tikz_process_steps/silicification.rtp1.b.tex}
 	\end{tikzpicture}
 	\caption{Reaction 1}
 \end{figure}
 
 We use the "AG610 RTP (DIF-R2)" from the HKUST at 700\degreesC for 240 seconds.
 
-\subsection{Etch}
+\subsection{Metal removal}
 
 The unreacted titanium film on the dielectric layer such as $SiO_2$ or $SiN$ is selectively etched by APM (Ammonia and Hydrogen Peroxide Mixture) solution.
 
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/silicification.6.a.tex}
+		\input{tikz_process_steps/silicification.metal_removal.a.tex}
 	\end{tikzpicture}
 	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/silicification.6.b.tex}
+		\input{tikz_process_steps/silicification.metal_removal.b.tex}
 	\end{tikzpicture}
 	\caption{Titanium etch}
 \end{figure}
@@ -181,11 +183,11 @@ The final step is a second anneal at 800 \degreesC or above to transform the hig
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/silicification.7.a.tex}
+		\input{tikz_process_steps/silicification.rtp2.a.tex}
 	\end{tikzpicture}
 	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/silicification.7.b.tex}
+		\input{tikz_process_steps/silicification.rtp2.b.tex}
 	\end{tikzpicture}
 	\caption{Reaction 2}
 \end{figure}
