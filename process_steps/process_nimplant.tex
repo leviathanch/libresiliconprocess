@@ -13,6 +13,8 @@ In this step we're going to build these.
 	\caption{N+ implant geometry target}
 \end{figure}
 
+The tricky thing here is to have a reasonable implant depth but not too deep because the deeper the junction, the higher the junction capacity which in turn limits the switching performance of the CMOS circuitry.
+
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance =1cm, auto, thick,scale=\VLSILayout, every node/.style={transform shape}]
@@ -22,36 +24,47 @@ In this step we're going to build these.
 	\label{nimplant_layout}
 \end{figure}
 
+An example layout of p-implants can be seen in \autoref{nimplant_layout}, the mask is being extracted from the layer "n\_plus\_select".
+
+Also important to notice is that this example layout is just for demonstration purposes only, please have a look at the standard cell documentation for the actual layouts. 
+
 \newpage
 
 \subsection{Mask dioxide layer}
+
+In order to selectively inject charge carrying atoms into the crystalline structure a protective dioxide ($SiO_2$) layer needs to be grown on top of a p-type substrate.
+
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/nimplant.1.a.tex}
-	\end{tikzpicture}\\
-	\includegraphics[scale=0.01]{down_arrow.png}\\
+		\input{tikz_process_steps/nimplant.oxide_growth.a.tex}
+	\end{tikzpicture}
+	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/nimplant.1.b.tex}
+		\input{tikz_process_steps/nimplant.oxide_growth.b.tex}
 	\end{tikzpicture}
 	\caption{Oxide layer}
 \end{figure}
+
+With an energy of 100keV for the implantation performed in \autoref{pwell_implant_step}, the projected range of the dopants within the oxide will be 310nm (380nm tops) \footnote{\url{http://cleanroom.byu.edu/rangestraggle}}.
+This means being on the safe side and having 500nm as the thickness is a good approach.
+In order to grow the 500nm thick oxide layer, the wafer is being oxidized for around 56 minutes at 1050\degree C using wet oxidation which results in a dioxide layer of around 500nm in thickness\footnote{\url{http://cleanroom.byu.edu/OxideTimeCalc}}.
 
 \subsection{Pattering}
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/nimplant.2.a.tex}
+		\input{tikz_process_steps/nimplant.patterning.a.tex}
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/nimplant.2.at.tex}
-	\end{tikzpicture}\\
-	\includegraphics[scale=0.01]{down_arrow.png}\\
+		\input{tikz_process_steps/nimplant.patterning.at.tex}
+	\end{tikzpicture}
+	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/nimplant.2.b.tex}
+		\input{tikz_process_steps/nimplant.patterning.b.tex}
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/nimplant.2.bt.tex}
+		\input{tikz_process_steps/nimplant.patterning.bt.tex}
 	\end{tikzpicture}
 	\caption{N+ region resist mask}
 \end{figure}
@@ -64,8 +77,8 @@ In this step we're going to build these.
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/nimplant.3.at.tex}
-	\end{tikzpicture}\\
-	\includegraphics[scale=0.01]{down_arrow.png}\\
+	\end{tikzpicture}
+	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/nimplant.3.b.tex}
 	\end{tikzpicture}
@@ -80,34 +93,52 @@ In this step we're going to build these.
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/nimplant.4.a.tex}
-	\end{tikzpicture}\\
-	\includegraphics[scale=0.01]{down_arrow.png}\\
+	\end{tikzpicture}
+	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/nimplant.4.b.tex}
 	\end{tikzpicture}
 	\caption{Resist removal}
 \end{figure}
 
-\subsection{Injection}
+\subsection{Implantation/Doping}\label{nimplant_implant_step}
+
+We now need to bring in the carriers in order to build the n-junctions.
+
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/nimplant.5.a.tex}
-	\end{tikzpicture}\\
-	\includegraphics[scale=0.01]{down_arrow.png}\\
+	\end{tikzpicture}
+	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/nimplant.5.b.tex}
 	\end{tikzpicture}
 	\caption{N+ injection process}
 \end{figure}
 
+\textbf{Possible approaches}:
+\begin{itemize}
+	\item \textbf{"CF-3000 Implanter (IMP-3000)" from HKUST} \\
+	At HKUST we have an implanter which gives us better control over the initial surface concentration. \\
+	These steps are needed to arrive with the desired geometry:
+	\begin{enumerate}
+		\item Preparing by default cleaning
+		\item The N-well is implanted with a Phosphorus ($P^{31}$) dose of $2.5\times10^{12}cm^{-2}$ at an energy of 100 keV.
+		\item The N-well is annealed for 30 minutes at 1050\degreesC in $N_2$ environment (DIF-A1)\\
+		After that the P-well will be around 2\um deep and the N-Well around 1\um deep
+	\end{enumerate}
+	\item \textbf{Constant source diffusion} \\
+	We can add a layer of Phosphorus solution and diffusing in order to have an initial concentration in order to reach the desired concentration later by main diffusion.
+\end{itemize}
+
 \subsection{Oxide removal}
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/nimplant.6.a.tex}
-	\end{tikzpicture}\\
-	\includegraphics[scale=0.01]{down_arrow.png}\\
+	\end{tikzpicture}
+	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/nimplant.6.b.tex}
 	\end{tikzpicture}

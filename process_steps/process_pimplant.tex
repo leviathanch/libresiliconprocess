@@ -13,6 +13,8 @@ In this step we're going to build these.
 	\caption{P+ implant geometry target}
 \end{figure}
 
+The tricky thing here is to have a reasonable implant depth but not too deep because the deeper the junction, the higher the junction capacity which in turn limits the switching performance of the CMOS circuitry.
+
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance =1cm, auto, thick,scale=\VLSILayout, every node/.style={transform shape}]
@@ -22,6 +24,10 @@ In this step we're going to build these.
 	\label{pimplant_layout}
 \end{figure}
 
+An example layout of p-implants can be seen in \autoref{pimplant_layout}, the mask is being extracted from the layer "p\_plus\_select"
+
+Also important to notice is that this example layout is just for demonstration purposes only, please have a look at the standard cell documentation for the actual layouts. 
+
 \newpage
 
 \subsection{Mask dioxide layer}
@@ -29,8 +35,8 @@ In this step we're going to build these.
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/pimplant.1.a.tex}
-	\end{tikzpicture}\\
-	\includegraphics[scale=0.01]{down_arrow.png}\\
+	\end{tikzpicture}
+	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/pimplant.1.b.tex}
 	\end{tikzpicture}
@@ -45,8 +51,8 @@ In this step we're going to build these.
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/pimplant.2.at.tex}
-	\end{tikzpicture}\\
-	\includegraphics[scale=0.01]{down_arrow.png}\\
+	\end{tikzpicture}
+	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/pimplant.2.b.tex}
 	\end{tikzpicture}
@@ -64,8 +70,8 @@ In this step we're going to build these.
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/pimplant.3.at.tex}
-	\end{tikzpicture}\\
-	\includegraphics[scale=0.01]{down_arrow.png}\\
+	\end{tikzpicture}
+	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/pimplant.3.b.tex}
 	\end{tikzpicture}
@@ -80,21 +86,21 @@ In this step we're going to build these.
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/pimplant.4.a.tex}
-	\end{tikzpicture}\\
-	\includegraphics[scale=0.01]{down_arrow.png}\\
+	\end{tikzpicture}
+	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/pimplant.4.b.tex}
 	\end{tikzpicture}
 	\caption{Resist removal}
 \end{figure}
 
-\subsection{Injection}
+\subsection{Implantation/Doping}\label{pimplant_implant_step}
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/pimplant.5.a.tex}
-	\end{tikzpicture}\\
-	\includegraphics[scale=0.01]{down_arrow.png}\\
+	\end{tikzpicture}
+	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/pimplant.5.b.tex}
 	\end{tikzpicture}
@@ -106,8 +112,8 @@ In this step we're going to build these.
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/pimplant.6.a.tex}
-	\end{tikzpicture}\\
-	\includegraphics[scale=0.01]{down_arrow.png}\\
+	\end{tikzpicture}
+	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/pimplant.6.b.tex}
 	\end{tikzpicture}

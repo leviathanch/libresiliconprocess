@@ -38,8 +38,8 @@ In order to selectively inject charge carrying atoms into the crystalline struct
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/nwell.mask_dioxide_layer.a.tex}
-	\end{tikzpicture} \\
-	\includegraphics[scale=0.01]{down_arrow.png} \\
+	\end{tikzpicture}
+	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/nwell.mask_dioxide_layer.b.tex}
 	\end{tikzpicture}
@@ -65,8 +65,8 @@ The requirement is a \textbf{negative} tone resist.
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/nwell.patterning.at.tex}
-	\end{tikzpicture} \\
-	\includegraphics[scale=0.01]{down_arrow.png} \\
+	\end{tikzpicture}
+	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/nwell.patterning.b.tex}
 	\end{tikzpicture}
@@ -90,8 +90,8 @@ We now need to open a window in the dioxide layer, through which we will inject 
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/nwell.etching.at.tex}
-	\end{tikzpicture} \\
-	\includegraphics[scale=0.01]{down_arrow.png} \\
+	\end{tikzpicture}
+	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/nwell.etching.b.tex}
 	\end{tikzpicture}
@@ -118,8 +118,8 @@ In order to avoid contamination of the machines we need to make sure all the res
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/nwell.cleaning.a.tex}
-	\end{tikzpicture} \\
-	\includegraphics[scale=0.01]{down_arrow.png} \\
+	\end{tikzpicture}
+	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/nwell.cleaning.b.tex}
 	\end{tikzpicture}
@@ -129,19 +129,19 @@ Please just use the solvent for the specific resist.
 
 \newpage
 
-\subsection{Implantation/Predeposition}\label{nwell_implant_step}
+\subsection{Implantation/Doping}\label{nwell_implant_step}
 We now need to inject the carriers into the upper level of the n-channel area so that we can later on drive them into the crystal during the drive-in step.
 
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/nwell.implantation.a.tex}
-	\end{tikzpicture} \\
-	\includegraphics[scale=0.01]{down_arrow.png} \\
+	\end{tikzpicture}
+	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/nwell.implantation.b.tex}
-	\end{tikzpicture} \\
-	\includegraphics[scale=0.01]{down_arrow.png} \\
+	\end{tikzpicture}
+	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/nwell.implantation.c.tex}
 	\end{tikzpicture}
@@ -171,8 +171,8 @@ Now we need to cover the now doped and annealed area with an oxide layer in orde
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/nwell.drive_in_oxide.a.tex}
-	\end{tikzpicture} \\
-	\includegraphics[scale=0.01]{down_arrow.png} \\
+	\end{tikzpicture}
+	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/nwell.drive_in_oxide.b.tex}
 	\end{tikzpicture}
@@ -190,8 +190,8 @@ In order to drive the carrier atoms deeper into the crystalline structure the wa
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/nwell.drive_in.a.tex}
-	\end{tikzpicture} \\
-	\includegraphics[scale=0.01]{down_arrow.png} \\
+	\end{tikzpicture}
+	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/nwell.drive_in.b.tex}
 	\end{tikzpicture}
@@ -207,8 +207,8 @@ Now we want to remove the silicon mask from the wafer and clean it for another c
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/pwell.oxide_mask_removal.a.tex}
-	\end{tikzpicture} \\
-	\includegraphics[scale=0.01]{down_arrow.png} \\
+	\end{tikzpicture}
+	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/pwell.oxide_mask_removal.b.tex}
 	\end{tikzpicture}
