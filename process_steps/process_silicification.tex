@@ -64,7 +64,7 @@ We make the oxide layer 50nm thick.
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/silicification.oxide_growth.a.tex}
 	\end{tikzpicture}
-	\drawStepArrow{}
+	\drawStepArrow{Silicon oxide deposition}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/silicification.oxide_growth.b.tex}
 	\end{tikzpicture}
@@ -96,6 +96,8 @@ We now have to pattern the mask for the silicide block layer which will produce 
 	\end{tikzpicture}
 	\caption{Patterning (silicide block)}
 \end{figure}
+
+It is not yet clear whether we will be needing this feature in the future, which means we have not yet finally decided whether wanna keep this step and layer within our process and technology.
 
 \newpage
 

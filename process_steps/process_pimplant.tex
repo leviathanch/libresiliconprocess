@@ -31,6 +31,9 @@ Also important to notice is that this example layout is just for demonstration p
 \newpage
 
 \subsection{Mask dioxide layer}
+
+In order to selectively inject charge carrying atoms into the crystalline structure a protective dioxide ($SiO_2$) layer needs to be grown on top of a p-type substrate.
+
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
@@ -43,7 +46,16 @@ Also important to notice is that this example layout is just for demonstration p
 	\caption{Oxide layer}
 \end{figure}
 
+With an energy of 13keV for the implantation performed in \autoref{nimplant_implant_step}, the projected range of the dopants within the oxide will be 40nm (58nm tops) \footnote{\url{http://cleanroom.byu.edu/rangestraggle}}.
+This means being on the safe side and having 100nm as the thickness is a good approach.
+In order to grow the 100nm thick oxide layer, the wafer is being oxidized for around 5 minutes 30 seconds at 1050\degree C using wet oxidation which results in a dioxide layer of around 100nm in thickness\footnote{\url{http://cleanroom.byu.edu/OxideTimeCalc}}.
+
 \subsection{Pattering}
+
+The resist is being deposited using spin coating and then baked depending on the baking time for the specific resist.
+The layout for being exposed onto the resist is being extracted from the "p\_plus\_select" layer within the GDS2 file onto a \textbf{bright field} mask.
+The requirement is a \textbf{negative} tone resist.
+
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
@@ -62,7 +74,15 @@ Also important to notice is that this example layout is just for demonstration p
 	\caption{P+ region resist mask}
 \end{figure}
 
+The thickness of the resist layer and the baking duration will variate depending on the specific equipment for which this process will be implemented with.
+Also after the exposure and development, the hard baking shouldn't be forgotten!
+
+\newpage
+
 \subsection{Etching}
+
+We now need to open a window in the dioxide layer, through which we will inject carrier atoms into the silicon crystal structure.
+
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
@@ -81,6 +101,17 @@ Also important to notice is that this example layout is just for demonstration p
 	\caption{P+ region opened}
 \end{figure}
 
+Since the silicon dioxide layer is 100nm thick and we wanna reach the silicon below we can use wet etching as described in the chemistry chapter.\\
+
+\textbf{Possible approaches}:
+\begin{itemize}
+	\item \textbf{"AOE Etcher (DRY-AOE)" from HKUST} \\
+	We can use anisotropic plasma etching for sharper borders.
+	\item \textbf{Chemical solution} \\
+	We can use buffered hydrofluoric acid (BOE (1:6)) at room temperature for a little bit over 3 minutes in order to get through the 100nm of oxide.\\
+	Too long over 1 minutes might cause under-etch however!
+\end{itemize}
+
 \subsection{Cleaning}
 \begin{figure}[H]
 	\centering
@@ -94,7 +125,11 @@ Also important to notice is that this example layout is just for demonstration p
 	\caption{Resist removal}
 \end{figure}
 
+\newpage
+
 \subsection{Implantation/Doping}\label{pimplant_implant_step}
+
+We now need to bring in the carriers in order to build the p-junctions.
 
 \begin{figure}[H]
 	\centering
@@ -130,7 +165,28 @@ Also important to notice is that this example layout is just for demonstration p
 	\caption{P+ doping process}
 \end{figure}
 
+\textbf{Possible approaches}:
+\begin{itemize}
+	\item \textbf{"CF-3000 Implanter (IMP-3000)" from HKUST} \\
+	At HKUST we have an implanter which gives us better control over the initial surface concentration. \\
+	These steps are needed to arrive with the desired geometry:
+	\begin{enumerate}
+		\item The pselect is implanted with a Boron ($B^{11}$) dose of $2.5\times10^{12}cm^{-2}$ at an energy of 13 keV  (43nm$\pm$18nm deep)
+		\item The pselect is annealed for 10 minutes at 1050\degreesC in $N_2$ environment (DIF-A1)
+	\end{enumerate}
+	\item \textbf{Constant source diffusion} \\
+	We can add a layer of Phosphorus solution and diffusing in order to have an initial concentration in order to reach the desired concentration later by main diffusion.
+		\begin{enumerate}
+		\item A constant source is added (gas or liquid)
+		\item The source dopant is driven in for 5 minutes at 1050\degreesC
+		\item The dopant source is removed by stopping the gas flow or cleaning the surface
+	\end{enumerate}
+\end{itemize}
+
 \subsection{Oxide removal}
+
+Now we want to remove the silicon mask from the wafer and clean it for another clean oxide mask layer.
+
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
@@ -142,3 +198,5 @@ Also important to notice is that this example layout is just for demonstration p
 	\end{tikzpicture}
 	\caption{Oxide removal}
 \end{figure}
+
+We use buffered hydrofluoric acid (BOE (1:6)) at room temperature for 1 minute in order to remove the 100nm of oxide layer.

@@ -46,9 +46,9 @@ In order to selectively inject charge carrying atoms into the crystalline struct
 	\caption{Oxide layer}
 \end{figure}
 
-With an energy of 35keV for the implantation performed in \autoref{nimplant_implant_step}, the projected range of the dopants within the oxide will be 112nm (150nm tops) \footnote{\url{http://cleanroom.byu.edu/rangestraggle}}.
-This means being on the safe side and having 200nm as the thickness is a good approach.
-In order to grow the 200nm thick oxide layer, the wafer is being oxidized for around 14 minutes at 1050\degree C using wet oxidation which results in a dioxide layer of around 200nm in thickness\footnote{\url{http://cleanroom.byu.edu/OxideTimeCalc}}.
+With an energy of 35keV for the implantation performed in \autoref{nimplant_implant_step}, the projected range of the dopants within the oxide will be 34nm (47nm tops) \footnote{\url{http://cleanroom.byu.edu/rangestraggle}}.
+This means being on the safe side and having 100nm as the thickness is a good approach.
+In order to grow the 100nm thick oxide layer, the wafer is being oxidized for around 5 minutes 30 seconds at 1050\degree C using wet oxidation which results in a dioxide layer of around 100nm in thickness\footnote{\url{http://cleanroom.byu.edu/OxideTimeCalc}}.
 
 \subsection{Pattering}
 
@@ -77,7 +77,12 @@ The requirement is a \textbf{negative} tone resist.
 The thickness of the resist layer and the baking duration will variate depending on the specific equipment for which this process will be implemented with.
 Also after the exposure and development, the hard baking shouldn't be forgotten!
 
+\newpage
+
 \subsection{Etching}
+
+We now need to open a window in the dioxide layer, through which we will inject carrier atoms into the silicon crystal structure.
+
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
@@ -95,6 +100,17 @@ Also after the exposure and development, the hard baking shouldn't be forgotten!
 	\end{tikzpicture}
 	\caption{N+ region opened}
 \end{figure}
+
+Since the silicon dioxide layer is 100nm thick and we wanna reach the silicon below we can use wet etching as described in the chemistry chapter.\\
+
+\textbf{Possible approaches}:
+\begin{itemize}
+	\item \textbf{"AOE Etcher (DRY-AOE)" from HKUST} \\
+	We can use anisotropic plasma etching for sharper borders.
+	\item \textbf{Chemical solution} \\
+	We can use buffered hydrofluoric acid (BOE (1:6)) at room temperature for a little bit over 3 minutes in order to get through the 100nm of oxide.\\
+	Too long over 1 minutes might cause under-etch however!
+\end{itemize}
 
 \subsection{Cleaning}
 \begin{figure}[H]
@@ -155,8 +171,8 @@ We now need to bring in the carriers in order to build the n-junctions.
 	At HKUST we have an implanter which gives us better control over the initial surface concentration. \\
 	These steps are needed to arrive with the desired geometry:
 	\begin{enumerate}
-		\item The nselect is implanted with a Phosphorus ($P^{31}$) dose of $2.5\times10^{12}cm^{-2}$ at an energy of 35 keV.
-		\item The nselect is annealed for 20 minutes at 1050\degreesC in $N_2$ environment (DIF-A1)
+		\item The nselect is implanted with a Phosphorus ($P^{31}$) dose of $2.5\times10^{12}cm^{-2}$ at an energy of 35 keV (43nm$\pm$18nm deep)
+		\item The nselect is annealed for 10 minutes at 1050\degreesC in $N_2$ environment (DIF-A1)
 	\end{enumerate}
 	\item \textbf{Constant source diffusion} \\
 	We can add a layer of Phosphorus solution and diffusing in order to have an initial concentration in order to reach the desired concentration later by main diffusion.
@@ -168,6 +184,9 @@ We now need to bring in the carriers in order to build the n-junctions.
 \end{itemize}
 
 \subsection{Oxide removal}
+
+Now we want to remove the silicon mask from the wafer and clean it for another clean oxide mask layer.
+
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
@@ -179,3 +198,5 @@ We now need to bring in the carriers in order to build the n-junctions.
 	\end{tikzpicture}
 	\caption{Oxide removal}
 \end{figure}
+
+We use buffered hydrofluoric acid (BOE (1:6)) at room temperature for 1 minute in order to remove the 100nm of oxide layer.
