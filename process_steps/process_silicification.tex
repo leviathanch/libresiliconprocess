@@ -90,12 +90,14 @@ We now have to pattern the mask for the silicide block layer which will produce 
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/silicification.silicide_block.a.tex}
 	\end{tikzpicture}
-	\drawStepArrow{}
+	\drawStepArrow{Mask: silicide block}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/silicification.silicide_block.b.tex}
 	\end{tikzpicture}
 	\caption{Patterning (silicide block)}
 \end{figure}
+
+\newpage
 
 \subsection{Sputter etching(Spacers)}
 
@@ -108,7 +110,7 @@ With an etching speed of ~35 nm/min for thermal oxide and an oxide thickness of 
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/silicification.sputter_etching.a.tex}
 	\end{tikzpicture}
-	\drawStepArrow{}
+	\drawStepArrow{Sputter etching}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/silicification.sputter_etching.b.tex}
 	\end{tikzpicture}
@@ -118,8 +120,6 @@ With an etching speed of ~35 nm/min for thermal oxide and an oxide thickness of 
 The above mentioned machine is the "Trion RIE Etcher" at the NFF HKUST lab.
 
 The etching process runs on the oxide for 2 minutes.
-
-\newpage
 
 \subsection{Titanium deposition}
 

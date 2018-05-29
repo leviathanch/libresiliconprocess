@@ -41,7 +41,7 @@ As designed in the process design document, the layer will be 40nm thick.
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/gate.gate_oxid_depositon.a.tex}
 	\end{tikzpicture}
-	\drawStepArrow{}
+	\drawStepArrow{Dry oxidation}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/gate.gate_oxid_depositon.b.tex}
 	\end{tikzpicture}
@@ -101,6 +101,7 @@ The requirement is a \textbf{positive} tone resist.
 The thickness of the resist layer and the baking duration will variate depending on the specific equipment for which this process will be implemented with.
 Also after the exposure and development, the hard baking shouldn't be forgotten!
 
+\newpage
 
 \subsection{Etching}
 

@@ -42,7 +42,7 @@ In order to selectively inject charge carrying atoms into the crystalline struct
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/pwell.mask_dioxide_layer.a.tex}
 	\end{tikzpicture}
-	\drawStepArrow{}
+	\drawStepArrow{Wet oxidation}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/pwell.mask_dioxide_layer.b.tex}
 	\end{tikzpicture}
@@ -131,6 +131,7 @@ Please just use the solvent for the specific resist.
 
 \subsection{Implantation/Doping}\label{pwell_implant_step}
 We now need to inject the carriers into the upper level of the n-channel area so that we can later on drive them into the crystal during the drive-in step.
+
 \begin{figure}[H]
 	\centering
 	\begin{minipage}{0.5\textwidth}

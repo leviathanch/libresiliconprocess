@@ -41,7 +41,7 @@ In order to selectively inject charge carrying atoms into the crystalline struct
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/nwell.mask_dioxide_layer.a.tex}
 	\end{tikzpicture}
-	\drawStepArrow{}
+	\drawStepArrow{Wet oxidation}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/nwell.mask_dioxide_layer.b.tex}
 	\end{tikzpicture}
@@ -174,7 +174,6 @@ We now need to inject the carriers into the upper level of the n-channel area so
 	At HKUST we have an implanter which gives us better control over the initial surface concentration. \\
 	These steps are needed to arrive with the desired geometry:
 	\begin{enumerate}
-		\item Preparing by default cleaning
 		\item The N-well is implanted with a Phosphorus ($P^{31}$) dose of $2.5\times10^{12}cm^{-2}$ at an energy of 100 keV.
 		\item The N-well is annealed for 30 minutes at 1050\degreesC in $N_2$ environment (DIF-A1)\\
 		After that the P-well will be around 2\um deep and the N-Well around 1\um deep
