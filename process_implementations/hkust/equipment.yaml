@@ -1,0 +1,66 @@
+# Wet stations:
+# Wet station A
+WET-A2: {
+        location: P2-01000,
+        equipment: "A2:HF:H2O (1:50)",
+        level: clean,
+}
+WET-A3: {
+        location: P2-01000,
+        equipment: "A3:Sulfuric cleaning",
+        level: clean,
+}
+SRD-A: {
+        location: P2-01000,
+        equipment: "Spin Dryer-A",
+        level: clean,
+}
+# Wet station C 
+WET-C3: {
+        location: P2-01000,
+        equipment: "C3:BOE",
+        level: clean,
+}
+SRD-C: {
+        location: P2-01000,
+        equipment: "Spin Dryer-C",
+        level: clean,
+}
+# Wet station E 
+WET-E4: {
+        location: P2-01000,
+        equipment: "E4:Resist strip",
+        level: clean/semi-clean,
+}
+SRD-E: {
+        location: P2-01000,
+        equipment: "Spin Dryer-E",
+        level: clean/semi-clean,
+}
+
+# Thermal diffusion:
+DIF-A1: {
+        location: P2-01000,
+        equipment: "Diffusion Furnace-A1 Anneal/Oxidation",
+        level: clean,
+        pre: clean_A,
+}
+DIF-D2: {
+        location: P2-01000,
+        equipment: "Diffusion Furnace-D2 Dry/Wet Oxidation",
+        level: clean,
+        pre: clean_A,
+}
+IMP-3000: {
+        location: P2-01000,
+        equipment: "CF-3000 Implanter",
+        level: clean/semi-clean,
+}
+
+# Dry etching and sputtering modules:
+DRY-Si-1: {
+        location: P2-01000,
+        equipment: "DRIE Etcher \\#1",
+        level: clean,
+}
+

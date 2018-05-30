@@ -1,0 +1,12 @@
+start: clean
+levels:
+        clean:
+                - clean
+        clean/semi-clean:
+                - clean
+                - semi-clean
+        non-standard:
+                - clean
+                - semi-clean
+                - non-standard
+
