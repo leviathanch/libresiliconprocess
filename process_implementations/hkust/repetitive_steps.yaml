@@ -1,13 +1,50 @@
+exposure: {
+        negative: [
+                {
+                        equipment: PHT-T1,
+                        process: "HMDS, PR coating, soft bake",
+                        requirements: "HSO4+H2O2, AZ 504, 1.2µm, soft bake: 110\\degreesC 1min",
+                },
+                {
+                        equipment: PHT-S1,
+                        process: "Exposure of the layer",
+                        requirements: "TBD",
+                },
+                {
+                        equipment: PHT-T2,
+                        process: "Develop, Hard bake",
+                        requirements: "FHD-5, 1min; hard bake: \\degreesC, 1min",
+                },
+        ],
+        positive: [
+                {
+                        equipment: PHT-T1,
+                        process: "HMDS, PR coating, soft bake",
+                        requirements: "HSO4+H2O2, AZ 504, 1.2µm, soft bake: 110\\degreesC 1min",
+                },
+                {
+                        equipment: PHT-S1,
+                        process: "Exposure of the layer",
+                        requirements: "TBD",
+                },
+                {
+                        equipment: PHT-T2,
+                        process: "Develop, Hard bake",
+                        requirements: "FHD-5, 1min; hard bake: \\degreesC, 1min",
+                },
+        ]
+}
+
 clean_A: [
         {
                 equipment: WET-A3,
-                process: Default cleaning,
-                requirements: HSO4+H2O2, 10 minutes @ 120\degreesC,
+                process: "Default cleaning",
+                requirements: "HSO4+H2O2, 10 minutes @ 120\\degreesC",
         },
         {
                 equipment: SRD-A,
-                process: Dry the wafer automatically,
-                requirements:, 
+                process: "Dry the wafer automatically",
+                requirements: "", 
         },
 ]
 
@@ -15,16 +52,30 @@ clean_A: [
 initial_clean_A: [
         {
                 equipment: WET-A3,
-                process: Initial Cleaning,
-                requirement: H2SO4+H2O2, 10mins @ 120\degreesC,
+                process: "Initial Cleaning",
+                requirement: "H2SO4+H2O2, 10mins @ 120\\degreesC",
         },
         {
                 equipment: WET-A2,
-                process: HF dip,
-                requirement: 1 min, 
+                process: "HF dip",
+                requirement: "1 min",
         },
         {
                 equipment: SRD-A,
-                process: Dry the wafer automatically,
+                process: "Dry the wafer automatically",
+        },
+]
+
+dry_C: [
+        {
+                equipment: SRD-C,
+                process: "Dry the wafer automatically",
+        },
+]
+
+dry_E: [
+        {
+                equipment: SRD-E,
+                process: "Dry the wafer automatically",
         },
 ]

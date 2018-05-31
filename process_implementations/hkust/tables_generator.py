@@ -69,6 +69,8 @@ class auto_generator:
 
 		if self.beginning:
 			step_id="initial_"+step_id
+		elif self.tracking_beginning and self.is_tracking:
+			step_id="initial_"+step_id
 
 		return self.getRepetitiveJob(step_id)
 
@@ -84,55 +86,91 @@ class auto_generator:
 
 		return self.getRepetitiveJob(step_id)
 
-	def getRequiredPreStepsLaTeX(self,eqcode):
-		ret = ""
-		pre_steps = self.getRequiredPreSteps(eqcode)
-		print pre_steps
-		for step in pre_steps:
-			eqcode = self.getStepEquipment(step)
-			eqloc = self.getEquipmentLocation(eqcode)
-			eqdscr = self.getEquipmentDescription(eqcode)
-			eqlevel = self.getEquipmentCleanLevel(eqcode)
-			stpdscr = self.getStepDescription(step)
-			stpreq = self.getStepRequire(step)
-			ret+="\\addProcessStep{"+eqdscr+"}{"+eqloc+"}{"+eqlevel+"}{"+stpdscr+"}{"+stpreq+"}\n"
-			ret+="\\hline"
-			ret+="\n"
+	def parseSubStepLevelsToStepLaTeXTable(self,step):
+		eqcode = self.getStepEquipment(step)
+		eqlevel = self.getEquipmentCleanLevel(eqcode)
+		stpdscr = self.getStepDescription(step)
+		print stpdscr+" -> "+eqlevel
+
+		if self.recent_level not in eqlevel.split('/'):
+			self.recent_level = eqlevel
+
+		ret = self.subStepLevelsToLaTeX(self.getRequiredPreSteps(eqcode))
+		ret += "\\addLevelCell{"+self.recent_level+"} %"+stpdscr+"\n" # LaTeX cell generation macro
+		ret += self.subStepLevelsToLaTeX(self.getRequiredPostSteps(eqcode))
+
+		if self.tracking_beginning:
+			self.tracking_beginning = False
+
 		return ret
 
-	def getRequiredPostStepsLaTeX(self,eqcode):
-		ret = ""
-		for step in self.getRequiredPostSteps(eqcode):
-			eqcode = self.getStepEquipment(step)
-			eqloc = self.getEquipmentLocation(eqcode)
-			eqdscr = self.getEquipmentDescription(eqcode)
-			eqlevel = self.getEquipmentCleanLevel(eqcode)
-			stpdscr = self.getStepDescription(step)
-			stpreq = self.getStepRequire(step)
-			ret+="\\addProcessStep{"+eqdscr+"}{"+eqloc+"}{"+eqlevel+"}{"+stpdscr+"}{"+stpreq+"}\n"
-			ret+="\\hline"
-			ret+="\n"
-		return ret
 
 	def parseSubStepToStepLaTeXTable(self,step):
-		presteps = ""
 		eqcode = self.getStepEquipment(step)
 		eqloc = self.getEquipmentLocation(eqcode)
 		eqdscr = self.getEquipmentDescription(eqcode)
 		eqlevel = self.getEquipmentCleanLevel(eqcode)
 		stpdscr = self.getStepDescription(step)
 		stpreq = self.getStepRequire(step)
-		ret = "\\addProcessStep{"+eqdscr+"}{"+eqloc+"}{"+eqlevel+"}{"+stpdscr+"}{"+stpreq+"}\n"
 
-		presteps = self.getRequiredPreStepsLaTeX(eqcode)
-		poststeps = self.getRequiredPostStepsLaTeX(eqcode)
+		ret = self.parseSubStepsToLaTeX(self.getRequiredPreSteps(eqcode))
+		ret += "\\addProcessStep{"+eqdscr+" ("+eqcode+")}{"+eqloc+"}{"+eqlevel+"}{"+stpdscr+"}{"+stpreq+"}\n" # LaTeX cell generation macro
+		ret += self.parseSubStepsToLaTeX(self.getRequiredPostSteps(eqcode))
 
 		if self.beginning:
 			self.beginning = False
 
-		ret = presteps+ret+poststeps
-		ret += "\\hline"
-		ret += "\n"
+		return ret
+
+	def parseSubStepsToLaTeX(self,step_substeps):
+		ret=""
+		for substep in step_substeps:
+			# checking whether it's a short hand:
+			try:
+				step_type = substep["step"]
+			except:
+				step_type = "normal"
+
+			# checking for step type
+			if step_type=="normal":  # default step
+				ret+=self.parseSubStepToStepLaTeXTable(substep)
+			elif step_type=="exposure":  # exposure step
+				try:
+					resist_type = substep["resist"]
+				except:
+					resist_type = "positive"
+				try:
+					stps = self.repetitive_steps["exposure"][resist_type]
+				except:
+					print "No steps defined for "+resist_type+" exposure!"
+				# decided on sub steps
+				ret+=self.parseSubStepsToLaTeX(stps)
+		return ret
+
+	def subStepLevelsToLaTeX(self,step_substeps):
+		ret=""
+		for substep in step_substeps:
+			# checking whether it's a short hand:
+			try:
+				step_type = substep["step"]
+			except:
+				step_type = "normal"
+
+			# checking for step type
+			if step_type=="normal":  # default step
+				ret+=self.parseSubStepLevelsToStepLaTeXTable(substep)
+			elif step_type=="exposure":  # exposure step
+				try:
+					resist_type = substep["resist"]
+				except:
+					resist_type = "positive"
+				try:
+					stps = self.repetitive_steps["exposure"][resist_type]
+				except:
+					print "No steps defined for "+resist_type+" exposure!"
+
+				# decided on sub steps
+				ret+=self.subStepLevelsToLaTeX(stps)
 		return ret
 
 	def parseStepToLaTeX(self,step):
@@ -140,20 +178,34 @@ class auto_generator:
 			step_name = step["name"]
 			step_picture = step["cross_tikz"]
 			step_substeps = step["steps"]
+			step_mask = step["mask"]
 		except:
-			return
-		self.tables.write("\\newpage\n\\section{"+step_name+"}\n")
-		clean_table_content="\n"
-		step_table_content="\n"
-		for substep in step_substeps:
-			clean_table_content+="\\getWaferCleaninessSymbol{"+self.recent_level+"}  \\\\[0.5cm]\\hline\n"
-			step_table_content+=self.parseSubStepToStepLaTeXTable(substep)
-		self.tables.write("\\makeProcessTable{"+step_picture+"}{"+clean_table_content+"}{"+step_table_content+"}\n")
+			return "" # no valid step definition
+
+		ret="\\makeProcessTable{"
+		ret+=step_name
+		ret+="}{"
+		ret+=step_picture
+		ret+="}{"
+		ret+=step_mask
+		ret+="}{"
+		self.is_tracking = True
+		ret+=self.subStepLevelsToLaTeX(step_substeps)
+		self.is_tracking = False
+		ret+="}{" #clean_table_content
+		ret+=self.parseSubStepsToLaTeX(step_substeps)
+		ret+="}\n"
+		print("\n")
+		print("\n")
+		print("\n")
+
+		return ret
 
 	def parseProcessYamlToLaTeX(self,tables):
-		self.tables = tables
+		latex=""
 		for step in self.steps: 
-			self.parseStepToLaTeX(step)
+			latex+=self.parseStepToLaTeX(step)
+		tables.write(latex)
 
 	def __init__(
 		self,
@@ -163,6 +215,7 @@ class auto_generator:
 		equipment_file):
 
 		self.beginning = True
+		self.tracking_beginning = True
 		self.recent_level = "clean"
 
 		with open(cleanliness_levels_file, 'r') as stream:

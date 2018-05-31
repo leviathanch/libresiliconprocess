@@ -5,36 +5,32 @@
         steps: [
                 {
                         equipment: DIF-D2,
-                        process: Hard mask dioxide growth,
-                        requirement: 100nm, 5 minutes 30 seconds @ 1050\degreesC,
+                        process: "Hard mask dioxide growth",
+                        requirement: "100nm, 5 minutes 30 seconds @ 1050\\degreesC",
+                },
+                {
+                        step: exposure,
+                        resist: negative,
                 },
                 {
                         equipment: WET-C3,
-                        process: Oxide Etch,
-                        requirement: 3 minutes 10 seconds,
+                        process: "Oxide Etch",
+                        requirement: "3 minutes 10 seconds",
                 },
                 {
                         equipment: WET-E4,
-                        process: Sulfuric resist strip,
-                        requirement: H2SO4 + H2O2, 120\degreesC, 10mins,
-                },
-                {
-                        equipment: SRD-E,
-                        process: Dry the wafer automatically,
+                        process: "Sulfuric resist strip",
+                        requirement: "H2SO4 + H2O2, 120\\degreesC, 10mins",
                 },
                 {
                         equipment: DRY-Si-1,
-                        process: Etching the trenches,
-                        requirement: 1 minute (2\um),
+                        process: "Etching the trenches",
+                        requirement: "1 minute (2\\um)",
                 },
                 {
                         equipment: WET-C3,
-                        process: Hard mask removal,
-                        requirement: 1 minute 10 seconds,
-                },
-                {
-                        equipment: SRD-C,
-                        process: Dry the wafer automatically,
+                        process: "Hard mask removal",
+                        requirement: "1 minute 10 seconds",
                 },
         ],
 }
@@ -45,37 +41,37 @@
         steps: [
                 {
                         equipment: DIF-D2,
-                        process: Hard mask dioxide growth,
-                        requirement: 100nm, 5 minutes 30 seconds @ 1050\degreesC,
+                        process: "Hard mask dioxide growth",
+                        requirement: "100nm, 5 minutes 30 seconds @ 1050\\degreesC",
+                },
+                {
+                        step: exposure,
+                        resist: negative,
                 },
                 {
                         equipment: WET-C3,
-                        process: Oxide Etch,
-                        requirement: 3 minutes 10 seconds,
+                        process: "Oxide Etch",
+                        requirement: "3 minutes 10 seconds",
                 },
                 {
                         equipment: WET-E4,
-                        process: Sulfuric resist strip,
-                        requirement: H2SO4 + H2O2, 120\degreesC, 10mins,
-                },
-                {
-                        equipment: SRD-E,
-                        process: Dry the wafer automatically,
+                        process: "Sulfuric resist strip",
+                        requirement: "H2SO4+H2O2, 120\\degreesC, 10mins",
                 },
                 {
                         equipment: IMP-3000,
-                        process: Boron implant,
-                        requirement: "$2.5 \times 10^{12}cm^{-2}$@100keV",
+                        process: "Boron implant",
+                        requirement: "$2.5 \\times 10^{12}cm^{-2}$@100keV",
                 },
                 {
                         equipment: DIF-A1,
-                        process: Annealing,
-                        requirement: Annealing 30 minutes @ 1050\degreesC with $N_2$,
+                        process: "Annealing",
+                        requirement: "Annealing 30 minutes @ 1050\\degreesC with $N_2$",
                 },
                 {
                         equipment: WET-C3,
-                        process: Hard mask removal,
-                        requirement: 1 minute 10 seconds,
+                        process: "Hard mask removal",
+                        requirement: "1 minute 10 seconds",
                 },
         ],
 }
@@ -84,7 +80,40 @@
         cross_tikz: tikz_process_steps/nwell.a.tex,
         mask: nwell,
         steps: [
-                clean_A,
+                {
+                        equipment: DIF-D2,
+                        process: "Hard mask dioxide growth",
+                        requirement: "100nm, 5 minutes 30 seconds @ 1050\\degreesC",
+                },
+                {
+                        step: exposure,
+                        resist: negative,
+                },
+                {
+                        equipment: WET-C3,
+                        process: "Oxide Etch",
+                        requirement: "3 minutes 10 seconds",
+                },
+                {
+                        equipment: WET-E4,
+                        process: "Sulfuric resist strip",
+                        requirement: "H2SO4+H2O2, 120\\degreesC, 10mins",
+                },
+                {
+                        equipment: IMP-3000,
+                        process: "Phorphorus implant",
+                        requirement: "$2.5 \\times 10^{12}cm^{-2}$@100keV",
+                },
+                {
+                        equipment: DIF-A1,
+                        process: "Annealing",
+                        requirement: "Annealing 30 minutes @ 1050\\degreesC with $N_2$",
+                },
+                {
+                        equipment: WET-C3,
+                        process: "Hard mask removal",
+                        requirement: "1 minute 10 seconds",
+                },
         ],
 }
 - {

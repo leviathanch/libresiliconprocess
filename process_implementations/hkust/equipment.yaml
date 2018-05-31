@@ -14,12 +14,14 @@ SRD-A: {
         location: P2-01000,
         equipment: "Spin Dryer-A",
         level: clean,
+        post: dry_A,
 }
 # Wet station C 
 WET-C3: {
         location: P2-01000,
         equipment: "C3:BOE",
         level: clean,
+        post: dry_C,
 }
 SRD-C: {
         location: P2-01000,
@@ -31,6 +33,7 @@ WET-E4: {
         location: P2-01000,
         equipment: "E4:Resist strip",
         level: clean/semi-clean,
+        post: dry_E,
 }
 SRD-E: {
         location: P2-01000,
@@ -54,7 +57,7 @@ DIF-D2: {
 IMP-3000: {
         location: P2-01000,
         equipment: "CF-3000 Implanter",
-        level: clean/semi-clean,
+        level: "clean/semi-clean",
 }
 
 # Dry etching and sputtering modules:
@@ -64,3 +67,19 @@ DRY-Si-1: {
         level: clean,
 }
 
+# Photolithographic modules
+PHT-T1: {
+        location: P2-00100,
+        equipment: "SVG Coater Track",
+        level: clean/semi-clean,
+}
+PHT-T2: {
+        location: P2-00100,
+        equipment: "SVG Developer Track",
+        level: clean/semi-clean,
+}
+PHT-S1: {
+        location: P2-00100,
+        equipment: "ASML Stepper",
+        level: clean/semi-clean,
+}
