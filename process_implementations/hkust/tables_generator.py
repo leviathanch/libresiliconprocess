@@ -3,9 +3,6 @@ import sys
 import yaml
 
 class auto_generator:
-	beginning = True
-	recent_level = "clean"
-
 	def getStepEquipment(self,step):
 		try:
 			return step['equipment']
@@ -54,8 +51,68 @@ class auto_generator:
 		except:
 			return code 
 
+	def getRepetitiveJob(self,task_id):
+		try:
+			return self.repetitive_steps[task_id]
+		except:
+			return []
+
 	def getRequiredPreSteps(self,eqcode):
-		return ""
+		try:
+			eq = self.equipment[eqcode]
+		except:
+			return ""
+		try:
+			step_id = eq["pre"]
+		except:
+			return []
+
+		if self.beginning:
+			step_id="initial_"+step_id
+
+		return self.getRepetitiveJob(step_id)
+
+	def getRequiredPostSteps(self,eqcode):
+		try:
+			eq = self.equipment[eqcode]
+		except:
+			return ""
+		try:
+			step_id = eq["post"]
+		except:
+			return []
+
+		return self.getRepetitiveJob(step_id)
+
+	def getRequiredPreStepsLaTeX(self,eqcode):
+		ret = ""
+		pre_steps = self.getRequiredPreSteps(eqcode)
+		print pre_steps
+		for step in pre_steps:
+			eqcode = self.getStepEquipment(step)
+			eqloc = self.getEquipmentLocation(eqcode)
+			eqdscr = self.getEquipmentDescription(eqcode)
+			eqlevel = self.getEquipmentCleanLevel(eqcode)
+			stpdscr = self.getStepDescription(step)
+			stpreq = self.getStepRequire(step)
+			ret+="\\addProcessStep{"+eqdscr+"}{"+eqloc+"}{"+eqlevel+"}{"+stpdscr+"}{"+stpreq+"}\n"
+			ret+="\\hline"
+			ret+="\n"
+		return ret
+
+	def getRequiredPostStepsLaTeX(self,eqcode):
+		ret = ""
+		for step in self.getRequiredPostSteps(eqcode):
+			eqcode = self.getStepEquipment(step)
+			eqloc = self.getEquipmentLocation(eqcode)
+			eqdscr = self.getEquipmentDescription(eqcode)
+			eqlevel = self.getEquipmentCleanLevel(eqcode)
+			stpdscr = self.getStepDescription(step)
+			stpreq = self.getStepRequire(step)
+			ret+="\\addProcessStep{"+eqdscr+"}{"+eqloc+"}{"+eqlevel+"}{"+stpdscr+"}{"+stpreq+"}\n"
+			ret+="\\hline"
+			ret+="\n"
+		return ret
 
 	def parseSubStepToStepLaTeXTable(self,step):
 		presteps = ""
@@ -66,15 +123,16 @@ class auto_generator:
 		stpdscr = self.getStepDescription(step)
 		stpreq = self.getStepRequire(step)
 		ret = "\\addProcessStep{"+eqdscr+"}{"+eqloc+"}{"+eqlevel+"}{"+stpdscr+"}{"+stpreq+"}\n"
-		ret += "\\hline"
-		ret += "\n"
+
+		presteps = self.getRequiredPreStepsLaTeX(eqcode)
+		poststeps = self.getRequiredPostStepsLaTeX(eqcode)
 
 		if self.beginning:
 			self.beginning = False
-		else:
-			presteps = self.getRequiredPreSteps(eqcode)
 
-		ret = presteps+ret 
+		ret = presteps+ret+poststeps
+		ret += "\\hline"
+		ret += "\n"
 		return ret
 
 	def parseStepToLaTeX(self,step):
@@ -103,6 +161,9 @@ class auto_generator:
 		repetitive_steps_file,
 		cleanliness_levels_file,
 		equipment_file):
+
+		self.beginning = True
+		self.recent_level = "clean"
 
 		with open(cleanliness_levels_file, 'r') as stream:
 			self.cleanliness_levels = yaml.load(stream)

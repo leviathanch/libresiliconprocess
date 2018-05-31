@@ -4,20 +4,6 @@
         mask: active,
         steps: [
                 {
-                        equipment: WET-A3,
-                        process: Initial Cleaning,
-                        requirement: H2SO4 + H2O2, 10mins @ 120\degreesC,
-                },
-                {
-                        equipment: WET-A2,
-                        process: HF dip,
-                        requirement: 1 min, 
-                },
-                {
-                        equipment: SRD-A,
-                        process: Dry the wafer automatically,
-                },
-                {
                         equipment: DIF-D2,
                         process: Hard mask dioxide growth,
                         requirement: 100nm, 5 minutes 30 seconds @ 1050\degreesC,

@@ -1,4 +1,4 @@
-clean_A: [ 
+clean_A: [
         {
                 equipment: WET-A3,
                 process: Default cleaning,
@@ -8,5 +8,23 @@ clean_A: [
                 equipment: SRD-A,
                 process: Dry the wafer automatically,
                 requirements:, 
+        },
+]
+
+# has to have initial_ as prefix!
+initial_clean_A: [
+        {
+                equipment: WET-A3,
+                process: Initial Cleaning,
+                requirement: H2SO4+H2O2, 10mins @ 120\degreesC,
+        },
+        {
+                equipment: WET-A2,
+                process: HF dip,
+                requirement: 1 min, 
+        },
+        {
+                equipment: SRD-A,
+                process: Dry the wafer automatically,
         },
 ]
