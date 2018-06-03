@@ -1,0 +1,3 @@
+[submodule "circdia"]
+	path = circdia
+	url = https://github.com/leviathanch/circdia.git
