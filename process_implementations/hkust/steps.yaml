@@ -6,7 +6,7 @@
                 {
                         equipment: DIF-D2,
                         process: "Hard mask dioxide growth",
-                        requirement: "100nm, 5 minutes 30 seconds @ 1050\\degreesC",
+                        requirement: "100nm, 5 minutes 30 seconds @ 1050\\degreesC, wet ambient",
                 },
                 {
                         step: exposure,
@@ -14,8 +14,8 @@
                 },
                 {
                         equipment: WET-C3,
-                        process: "Oxide Etch",
-                        requirement: "3 minutes 10 seconds",
+                        process: "BOE: Oxide Etch",
+                        requirement: "1 minute",
                 },
                 {
                         equipment: WET-E4,
@@ -29,8 +29,8 @@
                 },
                 {
                         equipment: WET-C3,
-                        process: "Hard mask removal",
-                        requirement: "1 minute 10 seconds",
+                        process: "BOE: Hard mask removal",
+                        requirement: "1 minute",
                 },
         ],
 }
@@ -42,7 +42,7 @@
                 {
                         equipment: DIF-D2,
                         process: "Hard mask dioxide growth",
-                        requirement: "100nm, 5 minutes 30 seconds @ 1050\\degreesC",
+                        requirement: "500nm, 56 minutes @ 1050\\degreesC, wet ambient",
                 },
                 {
                         step: exposure,
@@ -50,8 +50,8 @@
                 },
                 {
                         equipment: WET-C3,
-                        process: "Oxide Etch",
-                        requirement: "3 minutes 10 seconds",
+                        process: "BOE: Oxide Etch",
+                        requirement: "5 minutes",
                 },
                 {
                         equipment: WET-E4,
@@ -70,8 +70,8 @@
                 },
                 {
                         equipment: WET-C3,
-                        process: "Hard mask removal",
-                        requirement: "1 minute 10 seconds",
+                        process: "BOE: Hard mask removal",
+                        requirement: "5 minutes",
                 },
         ],
 }
@@ -83,7 +83,7 @@
                 {
                         equipment: DIF-D2,
                         process: "Hard mask dioxide growth",
-                        requirement: "100nm, 5 minutes 30 seconds @ 1050\\degreesC",
+                        requirement: "200nm, 14 minutes @ 1050\\degreesC, wet ambient",
                 },
                 {
                         step: exposure,
@@ -92,7 +92,7 @@
                 {
                         equipment: WET-C3,
                         process: "Oxide Etch",
-                        requirement: "3 minutes 10 seconds",
+                        requirement: "2 minutes",
                 },
                 {
                         equipment: WET-E4,
@@ -112,7 +112,7 @@
                 {
                         equipment: WET-C3,
                         process: "Hard mask removal",
-                        requirement: "1 minute 10 seconds",
+                        requirement: "2 minutes",
                 },
         ],
 }
@@ -121,7 +121,25 @@
         cross_tikz: tikz_process_steps/fox.a.tex,
         mask: active,
         steps: [
-                clean_A,
+                {
+                        equipment: DIF-D2,
+                        process: "Thick oxide growth",
+                        requirement: "1\\um, 3 hours @ 1050\\degreesC in wet environment",
+                },
+                {
+                        step: exposure,
+                        resist: negative,
+                },
+                {
+                        equipment: WET-C3,
+                        process: "BOE: Hard mask removal",
+                        requirement: "10 minutes",
+                },
+                {
+                        equipment: WET-E4,
+                        process: "Sulfuric resist strip",
+                        requirement: "H2SO4+H2O2, 120\\degreesC, 10mins",
+                },
         ],
 }
 - {
@@ -129,6 +147,29 @@
         cross_tikz: tikz_process_steps/gate.a.tex,
         mask: poly,
         steps: [
-                clean_A,
+                {
+                        equipment: DIF-D1,
+                        process: "Gate oxide growth",
+                        requirement: "40nm, 33 minutes 14 seconds @ 1050\\degreesC in dry environment",
+                },
+                {
+                        equipment: CVD-A3,
+                        process: "Gate electrode growth",
+                        requirement: "600nm of poly silicon",
+                },
+                {
+                        step: exposure,
+                        resist: positive,
+                },
+                {
+                        equipment: DRY-Poly,
+                        process: "Poly silicon etch",
+                        requirement: "6 minute 10 seconds (600nm poly + 40nm oxide)",
+                },
+                {
+                        equipment: WET-E4,
+                        process: "Sulfuric resist strip",
+                        requirement: "H2SO4+H2O2, 120\\degreesC, 10mins",
+                },
         ],
 }

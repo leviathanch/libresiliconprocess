@@ -44,20 +44,32 @@ SRD-E: {
 # Thermal diffusion:
 DIF-A1: {
         location: P2-01000,
-        equipment: "Diffusion Furnace-A1 Anneal/Oxidation",
+        equipment: "Diffusion Furnace-A1, anneal/oxidation",
+        level: clean,
+        pre: clean_A,
+}
+DIF-D1: {
+        location: P2-01000,
+        equipment: "Diffusion Furnace-D2, dry oxidation",
         level: clean,
         pre: clean_A,
 }
 DIF-D2: {
         location: P2-01000,
-        equipment: "Diffusion Furnace-D2 Dry/Wet Oxidation",
+        equipment: "Diffusion Furnace-D2, dry/wet oxidation",
+        level: clean,
+        pre: clean_A,
+}
+CVD-A3: {
+        location: P2-01000,
+        equipment: "LPCVD-A3: Amor-Si/Poly",
         level: clean,
         pre: clean_A,
 }
 IMP-3000: {
         location: P2-01000,
         equipment: "CF-3000 Implanter",
-        level: "clean/semi-clean",
+        level: clean/semi-clean,
 }
 
 # Dry etching and sputtering modules:
@@ -65,6 +77,11 @@ DRY-Si-1: {
         location: P2-01000,
         equipment: "DRIE Etcher \\#1",
         level: clean,
+}
+DRY-Poly: {
+        location: P2-01000,
+        equipment: "Poly etcher",
+        level: clean/semi-clean,
 }
 
 # Photolithographic modules
