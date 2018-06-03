@@ -1,16 +1,179 @@
-In overall the lambda rules from MOSIS are sufficient for keeping it manufacturable but just for completion we accumulate all the edge parameters arising from using the HKUST equipment which we are using for this open process in this chapter.
+\section{Layer Definitions}\label{design_rules_layer_definitions}
 
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance =1cm, auto, thick,scale=0.4, every node/.style={transform shape}]
-		\input{tikz_process_steps/via2.layout.tex}
-	\end{tikzpicture}
-	\caption{Example inverter}
-	\label{design_rules_example_inverter}
-\end{figure}
+\begin{center}
+%    \captionof{table}{Mask Layers (for Production)}
+    \begin{tabular}{|l|c|c|p{7.5cm}|}
+    \hline
+        \textbf{Name} & \textbf{GDSII} & \textbf{CIF} & \textbf{Description} \\
+    \hline
+        PWELL   & 41 & CWP & p-well \\
+        NWELL   & 42 & CWN & n-well \\
+        ACTIVE  & 43 & CAA & active area \\
+        PPLUS   & 44 & CSP & $p^{+}$ implant \\
+        NPLUS   & 45 & CSN & $n^{+}$ implant \\
+        POLY    & 46 & CPG & poly silicium \\
+        CONTACT & 25 & CCC & contact (connects METAL1 to POLY) \\
+        METAL1  & 49 & CM1 & lowest metal layer \\
+        VIA1    & 50 & CV1 & via layer (connects METAL2 to METAL1) \\
+        METAL2  & 51 & CM2 & second metal layer \\
+        VIA2    & 61 & CV2 & via layer (connects METAL3 to METAL2) \\
+        METAL3  & 62 & CM3 & third metal layer \\
+        GLASS   & 52 & COG & passivation / isolation \\
+    \hline
+    \end{tabular}
+\end{center}
 
-The layout shown in \autoref{design_rules_example_inverter} is for demonstration purposes only and shows a circuit at the limit of our resolution with $\lambda = 0.5 \mu m$.
+\section{General Requirements}\label{design_rules_general_requirements}
 
-This process however will, as already stated so many times through out this document, only be tested with a $\lambda$ of $1.0 \mu m$ for now.
+\begin{flushleft}
+    \begin{tabular}{c p{9cm} c}
+        1.1  & All scaled dimensions are specified in Lambda & $\lambda$. \\
+        1.2  & All fixed dimensions are specified in Microns & $\mu m$. \\
+        1.3  & All geometries must be drawn on grid. The grid size is & $1 \lambda$. \\
+        1.4  & Polygones should be rectangles with 90 degree angles only. \\
+        1.5  & The die size should be an integer multiple of & $10 \mu m$. \\
+    \end{tabular}
+\end{flushleft}
 
-Please have a look at the LS1U technology standard logic cells in our repository.
+\section{Process Layer Overview}\label{design_rules_process_layer_overview}
+
+\begin{center}
+%    \captionof{table}{Mask Layer Minimum Values}
+    \begin{tabular}{|l|c|c|}
+    \hline
+        \textbf{Name} & \textbf{Minimum Width} & \textbf{Minimum Spacing} \\
+    \hline
+        PWELL   & 10 $\lambda$ & 10 $\lambda$ \\
+        NWELL   & 10 $\lambda$ & 10 $\lambda$ \\
+        ACTIVE  & 3  $\lambda$ & 3  $\lambda$ \\
+        POLY    & 2  $\lambda$ & 2  $\lambda$ \\
+        CONTACT & 2  $\lambda$ & 2  $\lambda$ \\
+        METAL1  & 4  $\lambda$ & 4  $\lambda$ \\
+        VIA1    & 2  $\lambda$ & 3  $\lambda$ \\
+        METAL2  & 4  $\lambda$ & 4  $\lambda$ \\
+        VIA2    & 2  $\lambda$ & 3  $\lambda$ \\
+        METAL3  & 6  $\lambda$ & 4  $\lambda$ \\
+    \hline
+    \end{tabular}
+\end{center}
+
+\section{Structure Rules}\label{design_rules_structure_rules}
+
+\subsection{PWELL Rules}\label{design_rules_pwell_rules}
+
+\begin{center}
+- reserved for future use -
+\end{center}
+
+\subsection{NWELL Rules}\label{design_rules_nwell_rules}
+
+\begin{flushleft}
+    \begin{tabular}{c l c}
+        2.2.1  & Minimum Width of NWELL is & $10 \lambda$. \\
+        2.2.2  & Spacing to NWELL at different potential is & $9 \lambda$. \\
+        2.2.3  & Spacing to NWELL at same potential is & $6 \lambda$. \\
+    \end{tabular}
+\end{flushleft}
+
+\subsection{ACTIVE Rules}\label{design_rules_active_rules}
+
+\begin{flushleft}
+    \begin{tabular}{c l c}
+        2.3.1   & Minimum Width of ACTIVE is & $3 \lambda$. \\
+        2.3.2   & Spacing to ACTIVE is & $3 \lambda$. \\
+        2.3.3   & Source/Drain surround by PWELL/NWELL is & $6 \lambda$. \\
+        2.3.4   & Substrate/NWELL contact sourround by PWELL/NWELL is & $3 \lambda$. \\
+        2.3.5   & Spacing to ACTIVE of opposite type is & $4 \lambda$. \\
+    \end{tabular}
+\end{flushleft}
+
+\subsection{POLY Rules}\label{design_rules_poly_rules}
+
+\begin{flushleft}
+    \begin{tabular}{c l c}
+        2.4.1   & Minimum Width of POLY is & $2 \lambda$. \\
+        2.4.2   & Spacing to POLY over ACTIVE is & $2 \lambda$. \\
+        2.4.3   & Gate extension beyond ACTIVE is & $2 \lambda$. \\
+        2.4.4   & ACTIVE extension beyond POLY is & $3 \lambda$. \\
+        2.4.5   & Spacing of POLY to ACTIVE is & $1 \lambda$. \\
+    \end{tabular}
+\end{flushleft}
+
+\subsection{CONTACT Rules}\label{design_rules_contact_rules}
+
+\begin{flushleft}
+    \begin{tabular}{c l c}
+        2.5.1   & Exact Width of CONTACT is & $2x2 \lambda$. \\
+        2.5.2   & Overlap by POLY or ACTIVE is & $1 \lambda$. \\
+        2.5.3   & Spacing to CONTACT is & $2 \lambda$. \\
+        2.5.4   & Spacing to Gate is & $2 \lambda$. \\
+        2.5.5   & Spacing of POLY CONTACT to other POLY is & $4 \lambda$. \\
+        2.5.6   & Spacing of ACTIVE CONTACT to POLY CONTACT is & $4 \lambda$. \\
+    \end{tabular}
+\end{flushleft}
+
+\subsection{METAL1 Rules}\label{design_rules_metal1_rules}
+
+\begin{flushleft}
+    \begin{tabular}{c l c}
+        2.6.1   & Minimum Width of METAL1 is & $4 \lambda$. \\
+        2.6.2   & Spacing of METAL1 is & $4 \lambda$. \\
+        2.6.3   & Overlap of CONTACT or VIA is & $1 \lambda$. \\
+        2.6.4   & Spacing to METAL1 for lines wider than $10 \lambda $ is & $6 \lambda$. \\
+    \end{tabular}
+\end{flushleft}
+
+\subsection{VIA1 Rules}\label{design_rules_via1_rules}
+
+\begin{flushleft}
+    \begin{tabular}{c l c}
+        2.7.1   & Exact Width of VIA1 is & $2x2 \lambda$. \\
+        2.7.2   & Spacing to VIA1 is & $3 \lambda$. \\
+        2.7.3   & Spacing to CONTACT is & $2 \lambda$. \\
+        2.7.4   & Spacing to POLY or ACTIVE is & $2 \lambda$. \\
+    \end{tabular}
+\end{flushleft}
+
+\subsection{METAL2 Rules}\label{design_rules_metal2_rules}
+
+\begin{flushleft}
+    \begin{tabular}{c l c}
+        2.8.1   & Minimum Width of METAL2 is & $4 \lambda$. \\
+        2.8.2   & Spacing to METAL2 is & $4 \lambda$. \\
+        2.8.3   & Overlap to VIA1 is & $1 \lambda$. \\
+        2.8.4   & Spacing to METAL2 for lines wider than $10 \lambda $ is & $6 \lambda$. \\
+    \end{tabular}
+\end{flushleft}
+
+\subsection{VIA2 Rules}\label{design_rules_via2_rules}
+
+\begin{flushleft}
+    \begin{tabular}{c l c}
+        2.9.1   & Exact Width of VIA2 is & $2x2 \lambda$. \\
+        2.9.2   & Spacing to VIA2 is & $3 \lambda$. \\
+    \end{tabular}
+\end{flushleft}
+
+\subsection{METAL3 Rules}\label{design_rules_metal3_rules}
+
+\begin{flushleft}
+    \begin{tabular}{c l c}
+        4.10.1  & Minimum Width of METAL3 is & $6 \lambda$. \\
+        2.10.2  & Spacing to METAL3 is & $4 \lambda$. \\
+        2.10.3  & Overlap to VIA2 is & $1 \lambda$. \\
+        2.10.4   & Spacing to METAL3 for lines wider than $10 \lambda $ is & $6 \lambda$. \\
+    \end{tabular}
+\end{flushleft}
+
+\subsection{GLASS Rules}\label{design_rules_glass_rules}
+
+\begin{flushleft}
+    \begin{tabular}{c l c}
+        2.11.1  & Minimum Width of GLASS opening is & $60 \mu m$. \\
+        2.11.2  & METAL3 Overlap of GLASS opening is & $6 \mu m$. \\
+        2.11.3  & Spacing of pad METAL3 to unrelated METAL is & $30 \mu m$. \\
+        2.11.4  & Spacing of pad METAL3 to ACTIVE or POLY is & $15 \mu m$. \\
+    \end{tabular}
+\end{flushleft}
+
+
