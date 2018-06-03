@@ -1,4 +1,20 @@
-\section{First vias}\label{via1}
+\section{First vias (Contacts)}\label{via1}
+
+This first set of vias connect the first metal layer to the active area.
+These vias are in the fringe between front-end and back-end process.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/via1.a.tex}
+	\end{tikzpicture}
+	\caption{Contact geometry target}
+	\label{via1_cross_sections}
+\end{figure}
+
+As can be seen in \autoref{via1_cross_sections} the goal of this step is purely to deposit a layer of isolation oxide, get the holes into it, down to the silicide and polyside in order to form wires later on.
+After this step the whole surface will still be covered by Aluminum, that's why the top view has been omitted.for this step.
+
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance =1cm, auto, thick,scale=\VLSILayout, every node/.style={transform shape}]
@@ -6,4 +22,99 @@
 	\end{tikzpicture}
 	\caption{First via layout}
 	\label{via1_layout}
+\end{figure}
+
+It should be noted again that the via placement and dimensions in \autoref{via1_layout} are solely for demonstration purposes for the process only and are in not way the actual standard cell design for the final standard cell lib. \\
+
+In a later iteration of this process we might be switching to Tungsten as the metal for this step.
+
+\newpage
+
+\subsection{Isolation dioxide layer}
+
+We now need to grow a layer of thick oxide in order to isolate the Aluminum interconnect layer from the active area.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/via1.oxide_growth.a.tex}
+	\end{tikzpicture}
+	\drawStepArrow{LTO deposition}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/via1.oxide_growth.b.tex}
+	\end{tikzpicture}
+	\caption{Oxide layer}
+\end{figure}
+
+\subsection{Pattering}
+
+The resist is being deposited using spin coating and then baked depending on the baking time for the specific resist.
+The layout for being exposed onto the resist is being extracted from the "n\_plus\_select" layer within the GDS2 file onto a \textbf{bright field} mask.
+The requirement is a \textbf{negative} tone resist.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/via1.patterning.a.tex}
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/via1.patterning.at.tex}
+	\end{tikzpicture}
+	\drawStepArrow{Mask: nselect}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/via1.patterning.b.tex}
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/via1.patterning.bt.tex}
+	\end{tikzpicture}
+	\caption{N+ region resist mask}
+\end{figure}
+
+The thickness of the resist layer and the baking duration will variate depending on the specific equipment for which this process will be implemented with.
+Also after the exposure and development, the hard baking shouldn't be forgotten!
+
+\subsection{Etching}
+
+We now need to open a window in the dioxide layer, through which we will inject carrier atoms into the silicon crystal structure.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/via1.etching.a.tex}
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/via1.etching.at.tex}
+	\end{tikzpicture}
+	\drawStepArrow{}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/via1.etching.b.tex}
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/via1.etching.bt.tex}
+	\end{tikzpicture}
+	\caption{N+ region opened}
+\end{figure}
+
+Since the silicon dioxide layer is 100nm thick and we wanna reach the silicon below we can use wet etching as described in the chemistry chapter.\\
+
+\textbf{Possible approaches}:
+\begin{itemize}
+	\item \textbf{"AOE Etcher (DRY-AOE)" from HKUST} \\
+	We can use anisotropic plasma etching for sharper borders.
+	\item \textbf{Chemical solution} \\
+	We can use buffered hydrofluoric acid (BOE (1:6)) at room temperature for a little bit over 3 minutes in order to get through the 100nm of oxide.\\
+	Too long over 1 minutes might cause under-etch however!
+\end{itemize}
+
+\subsection{Cleaning}
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/via1.cleaning.a.tex}
+	\end{tikzpicture}
+	\drawStepArrow{}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/via1.cleaning.b.tex}
+	\end{tikzpicture}
+	\caption{Resist removal}
 \end{figure}

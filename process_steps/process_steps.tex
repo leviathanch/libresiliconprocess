@@ -15,14 +15,19 @@
 \usepackage{gensymb}
 \usepackage{mdframed}
 \usepackage{graphicx}
+
 \usepackage{tikz}
 \usetikzlibrary{
+	arrows,
+	automata,
+	positioning,
+	patterns,
 	shadings,
 	shadows,
-	shapes,
+	shapes
 }
-\usetikzlibrary{arrows,automata,shapes}
 \usepackage[siunitx]{circuitikz}
+
 \usepackage{makecell}
 \usepackage{array}
 
@@ -31,9 +36,6 @@
 \usepackage{hyperref}
 \usepackage{sepfootnotes}
 \usepackage{lipsum,tocloft} 
-\usetikzlibrary{positioning}
-\usetikzlibrary{patterns}
-
 \usepackage{float}
 \floatstyle{boxed} 
 \restylefloat{figure}
@@ -95,7 +97,12 @@
 \input{process_pimplant.tex}
 \newpage
 \input{process_silicification.tex}
+
 \newpage
+
+\def\LowerMetal1{6.0}
+\def\UpperMetal1{7.0}
+
 \input{process_via1.tex}
 \newpage
 \input{process_metal1.tex}
