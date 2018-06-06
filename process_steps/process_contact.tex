@@ -1,0 +1,178 @@
+\section{Contacts to active area}\label{contact}
+
+Now we have to build the first set of vias connecting the first metal layer to the active area.
+These vias are in the fringe between front-end and back-end process.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/contact.a.tex}
+	\end{tikzpicture}
+	\caption{Contact geometry target}
+	\label{contact_cross_sections}
+\end{figure}
+
+As can be seen in \autoref{contact_cross_sections}, the goal of this step is purely to deposit a layer of isolation oxide, get the holes into it, down to the silicide and polyside in order to form wires later on.
+After this step the whole surface will still be covered by Aluminum, that's why the top view has been omitted.for this step.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance =1cm, auto, thick,scale=\VLSILayout, every node/.style={transform shape}]
+		\input{tikz_process_steps/contact.layout.tex}
+	\end{tikzpicture}
+	\caption{First via layout}
+	\label{contact_layout}
+\end{figure}
+
+It should be noted again that the via placement and dimensions in \autoref{contact_layout} are solely for demonstration purposes for the process and are in no way the actual standard cell design for the final standard cell lib. \\
+
+In a later iterations of this process we might be switching to Tungsten as the metal material for this step.
+
+\newpage
+
+\subsection{Isolation dioxide layer}
+
+We now need to grow a layer of thick oxide in order to isolate the Aluminum interconnect layer from the active area.
+We can't use oxide grown in from the silicon itself inside a furnace, because of the polysilicon and silicide covering the wafer.
+For that reason we resort to deposited LTO (low temperature oxide), which has a lower density which is even better, because of the spacing between the isolation between the metal layers is even better.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/contact.oxide_growth.a.tex}
+	\end{tikzpicture}
+	\drawStepArrow{LTO\\deposition}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/contact.oxide_growth.b.tex}
+	\end{tikzpicture}
+	\drawStepArrow{Optional:\\CMP}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/contact.oxide_growth.c.tex}
+	\end{tikzpicture}
+	\caption{Oxide layer}
+\end{figure}
+
+\textbf{Possible approaches}:
+\begin{itemize}
+	\item \textbf{"LPCVD-B3 LTO (CVD-B3)" from HKUST} \\
+	At HKUST we have a chemical vapor deposition unit which gives us better control over the layer thicknes. \\
+	These steps are needed to arrive with the desired geometry\footnote{\url{http://memslab.blogspot.com/2013/01/lto-lpcvd.html}}
+	\begin{enumerate}
+		\item Set the growth rate to 14 nm/min
+		\item Run for 140 minutes
+	\end{enumerate}
+	\item \textbf{In a furnace ("a hack around")} \\
+	In case of a lack of LPCVD equipment one might also resort to "hack together" a solution for LTO deposition using a furnace\footnote{\url{https://www.sciencedirect.com/science/article/pii/0167577X89900062}}
+		\begin{enumerate}
+			\item Deposit tetraethyl orthosilicate ($Si C_8 H_{20} O_4$)
+			\item React for 20 minutes at 1050\degreesC in $N_2$ environment in a furnace
+	\end{enumerate}
+\end{itemize}
+
+After depositing the oxide, one might wanna perform a CMP step in order to planarize the oxide surface for a more uniform deposition of metal in \autoref{metal1_deposition}
+
+\newpage
+
+\subsection{Pattering}
+
+The resist is being deposited using spin coating and then baked depending on the baking time for the specific resist.
+The layout for being exposed onto the resist is being extracted from the "contact" layer within the GDS2 file onto a \textbf{bright field} mask.
+The requirement is a \textbf{negative} tone resist.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/contact.patterning.a.tex}
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/contact.patterning.at.tex}
+	\end{tikzpicture}
+	\drawStepArrow{Mask: contact}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/contact.patterning.b.tex}
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/contact.patterning.bt.tex}
+	\end{tikzpicture}
+	\caption{Patterning contact vias}
+\end{figure}
+
+The thickness of the resist layer and the baking duration will variate depending on the specific equipment for which this process will be implemented with.
+Also after the exposure and development, the hard baking shouldn't be forgotten!
+
+\subsection{Etching}\label{contact_holes_etch}
+
+We now need to open a window in the dioxide layer, through which the later on deposited Aluminum will touch down onto the silicide/polycide contacts of the active area.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/contact.etching.a.tex}
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/contact.etching.at.tex}
+	\end{tikzpicture}
+	\drawStepArrow{}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/contact.etching.b.tex}
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/contact.etching.bt.tex}
+	\end{tikzpicture}
+	\caption{Etching contact holes}
+\end{figure}
+
+Since the silicon dioxide layer is 2\um thick and we wanna reach the silicon below we can use wet etching as described in the chemistry chapter.\\
+
+\textbf{Possible approaches}:
+\begin{itemize}
+	\item \textbf{"AOE Etcher (DRY-AOE)" from HKUST} \\
+	We can use anisotropic plasma etching for sharper borders.
+	\item \textbf{Chemical solution} \\
+	We can use buffered hydrofluoric acid (BOE (1:6)) at room temperature ($\approx$508 nm/min) for around 4 minutes in order to get through the 2\um of oxide.\\
+	Too long over 4 minutes might cause under-etch however!
+\end{itemize}
+
+\subsection{Resist strip}
+
+Now we need to remove the contaminants for further processing.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/contact.cleaning.a.tex}
+	\end{tikzpicture}
+	\drawStepArrow{}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/contact.cleaning.b.tex}
+	\end{tikzpicture}
+	\caption{Resist removal}
+\end{figure}
+
+We strip the resist, rinse and perform sulfuric cleaning.
+
+\subsection{Metal deposition}\label{metal1_deposition}
+
+Now we somehow have got to get the metal onto our silicon oxide in a fashion so that it fills the holes we've etched in \autoref{contact_holes_etch} and touches down onto the silicide/polycide, thus making a contact to the active area.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/contact.metal_deposition.a.tex}
+	\end{tikzpicture}
+	\drawStepArrow{}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/contact.metal_deposition.b.tex}
+	\end{tikzpicture}
+	\caption{Metal deposition}
+\end{figure}
+
+In order to reach the target of filling the holes in the oxide and having at least another depth worth of space in order to have an enough low resistance of the wire interconnect.
+We end up with a target thickness of 4\um.
+
+\textbf{Possible approaches}:
+\begin{itemize}
+	\item \textbf{"Varian 3180 Sputter (SPT-3180)" from HKUST} \\
+	The deposition speed is 16nm/s which gives us a required deposition time of 250 seconds for 4\um.
+	\item \textbf{Add your solution here!}
+\end{itemize}

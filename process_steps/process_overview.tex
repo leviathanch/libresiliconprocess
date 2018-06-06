@@ -20,10 +20,10 @@ These process steps will be discussed within the following sections.
 		\node [block] [block, above of=np] (gate) {Gate\\ \autoref{gate}};
 
 		%post proces
-		\node [block] (via1) at (8,8) {First vias\\ \autoref{via1}};
-		\node [block, above of=via1] (metal1) {First metal\\ \autoref{metal1}};
-		\node [block, above of=metal1] (via2) {Additional vias\\ \autoref{via2}};
-		\node [block, above of=via2] (metal2) {Additional metal\\ \autoref{metal2}};
+		\node [block] (contact) at (8,8) {Contact \\ \autoref{contact}};
+		\node [block, above of=contact] (metal) {First metal\\ \autoref{metal}};
+		\node [block, above of=metal] (via) {Additional vias\\ \autoref{via}};
+		\node [block, above of=via] (more_metal) {Additional metal\\ \autoref{more_metal}};
 		\node (repeat) at (10.5,14.5) {Repeat};
 
 		%% Draw edges
@@ -35,11 +35,11 @@ These process steps will be discussed within the following sections.
 		\path [line] (gate) -- (np);
 		\path [line] (np) -- (pp);
 		\path [line] (pp) -- (silicification);
-		\path [line] (silicification) -- (via1);
-		\path [line] (via1) -- (metal1);
-		\path [line] (metal1) -- (via2);
-		\path [line] (via2) -- (metal2);
-		\path [line] (metal2) -- +(3,0) -- +(3,-2) -- (via2);
+		\path [line] (silicification) -- (contact);
+		\path [line] (contact) -- (metal);
+		\path [line] (metal) -- (via);
+		\path [line] (via) -- (more_metal);
+		\path [line] (more_metal) -- +(3,0) -- +(3,-2) -- (via);
 
 		\draw[dotted] (-2,6) rectangle (6,16);
 		\node at (2,6.5) {CMOS process};
@@ -62,4 +62,8 @@ The starting material is a p-type, <100> oriented silicon with a doping concentr
 
 \begin{mdframed}[linewidth=2pt,linecolor=red]
 	If you don't have a plasma etcher you will need <111> substrate!
+\end{mdframed}
+
+\begin{mdframed}[linewidth=2pt,linecolor=red]
+	You will \textbf{need} a sputterer for this process
 \end{mdframed}

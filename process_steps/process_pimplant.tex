@@ -30,7 +30,7 @@ Also important to notice is that this example layout is just for demonstration p
 
 \newpage
 
-\subsection{Mask dioxide layer}
+\subsection{Hard mask: Dioxide growth}
 
 In order to selectively inject charge carrying atoms into the crystalline structure a protective dioxide ($SiO_2$) layer needs to be grown on top of a p-type substrate.
 
@@ -50,7 +50,7 @@ With an energy of 13keV for the implantation performed in \autoref{nimplant_impl
 This means being on the safe side and having 100nm as the thickness is a good approach.
 In order to grow the 100nm thick oxide layer, the wafer is being oxidized for around 5 minutes 30 seconds at 1050\degree C using wet oxidation which results in a dioxide layer of around 100nm in thickness\footnote{\url{http://cleanroom.byu.edu/OxideTimeCalc}}.
 
-\subsection{Pattering}
+\subsection{Hard mask: Patterning}
 
 The resist is being deposited using spin coating and then baked depending on the baking time for the specific resist.
 The layout for being exposed onto the resist is being extracted from the "p\_plus\_select" layer within the GDS2 file onto a \textbf{bright field} mask.
@@ -79,7 +79,7 @@ Also after the exposure and development, the hard baking shouldn't be forgotten!
 
 \newpage
 
-\subsection{Etching}
+\subsection{Hard mask: Etching}
 
 We now need to open a window in the dioxide layer, through which we will inject carrier atoms into the silicon crystal structure.
 
@@ -112,7 +112,10 @@ Since the silicon dioxide layer is 100nm thick and we wanna reach the silicon be
 	Too long over 1 minutes might cause under-etch however!
 \end{itemize}
 
-\subsection{Cleaning}
+\subsection{Hard mask: Resist strip}
+
+Now we need to remove the contaminants for further processing.
+
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
@@ -124,6 +127,8 @@ Since the silicon dioxide layer is 100nm thick and we wanna reach the silicon be
 	\end{tikzpicture}
 	\caption{Resist removal}
 \end{figure}
+
+We strip the resist, rinse and perform sulfuric cleaning.
 
 \newpage
 
@@ -183,7 +188,7 @@ We now need to bring in the carriers in order to build the p-junctions.
 	\end{enumerate}
 \end{itemize}
 
-\subsection{Oxide removal}
+\subsection{Hard mask: Removal}
 
 Now we want to remove the silicon mask from the wafer and clean it for another clean oxide mask layer.
 

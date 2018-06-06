@@ -1,0 +1,24 @@
+\section{First metal layer}\label{metal}
+
+Now we've got to build the first interconnect wires, connecting the contact vias to the "metal1" wires, which will provide a way to contact to them with the via1 contact layout.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
+		\input{tikz_process_steps/metal.a.tex}
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
+		\input{tikz_process_steps/metal.b.tex}
+	\end{tikzpicture}
+	\caption{metal geometry target}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance =1cm, auto, thick,scale=\VLSILayout, every node/.style={transform shape}]
+		\input{tikz_process_steps/metal.layout.tex}
+	\end{tikzpicture}
+	\caption{First metal layout}
+	\label{metal1_layout}
+\end{figure}
