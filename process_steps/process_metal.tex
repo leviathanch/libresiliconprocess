@@ -14,7 +14,7 @@ Now we've got to build the first interconnect wires, connecting the contact vias
 	\label{metal_target}
 \end{figure}
 
-As can be seen in \autoref{metal_target}, the goal of this step is purely to etch the wire structure for the first metal layer into the in \autoref{contact} deposited metal layer, and form wires by doing so.
+As can be seen in \autoref{metal_target}, the goal of this step is purely to etch the wire structure for the first metal layer into the in \autoref{metal} deposited metal layer, and form wires by doing so.
 
 \begin{figure}[H]
 	\centering
@@ -29,4 +29,32 @@ It should be noted again that the via placement and dimensions in \autoref{metal
 
 In later iterations of this process we might be switching to Tungsten as the metal material for this step so the etching method might change in further releases.
 
+\newpage
 
+\subsection{Pattering}
+The resist is being deposited using spin coating and then baked depending on the baking time for the specific resist.
+The layout for being exposed onto the resist is being extracted from the "metal1" layer within the GDS2 file onto a \textbf{bright field} mask.
+The requirement is a \textbf{negative} tone resist.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/metal.patterning.a.tex}
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/metal.patterning.at.tex}
+	\end{tikzpicture}
+	\drawStepArrow{Mask: metal1}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/metal.patterning.b.tex}
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/metal.patterning.bt.tex}
+	\end{tikzpicture}
+	\caption{Patterning contact vias}
+\end{figure}
+
+The thickness of the resist layer and the baking duration will variate depending on the specific equipment for which this process will be implemented with.
+Also after the exposure and development, the hard baking shouldn't be forgotten!
+
+\subsection{Etching}\label{metal1_wire_etch}
