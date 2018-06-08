@@ -67,11 +67,23 @@
 
 \subsection{NWELL Rules}\label{design_rules_nwell_rules}
 
+\begin{center}
+    \begin{tikzpicture}[scale=(.33)]
+        \filldraw[fill=nwell] (0, 0) rectangle ++(10, 10) node[near end] {NWELL};
+        \draw[<->] (0, 1) -- (10, 1) node[near start, above] {2.2.1};
+        \draw[<->] (1, 0) -- (1, 10) node[near start, left] {2.2.1};
+        \draw[<->] (10, 5) -- (19, 5) node[near start, above] {2.2.2};
+        \filldraw[fill=nwell] (19, 0) rectangle ++(10, 10) node[near end] {NWELL};
+        \draw[<->] (29, 5) -- (35, 5) node[near start, above] {2.2.3};
+        \filldraw[fill=nwell] (35, 0) rectangle ++(10, 10) node[near end] {NWELL};
+    \end{tikzpicture}
+\end{center}
+
 \begin{flushleft}
     \begin{tabular}{c l c}
         2.2.1  & Minimum Width of NWELL is & $10 \lambda$. \\
-        2.2.2  & Spacing to NWELL at different potential is & $9 \lambda$. \\
-        2.2.3  & Spacing to NWELL at same potential is & $6 \lambda$. \\
+        2.2.2  & Minimum Spacing to NWELL at different potential is & $9 \lambda$. \\
+        2.2.3  & Minimum Spacing to NWELL at same potential is & $0 (6?) \lambda$. \\
     \end{tabular}
 \end{flushleft}
 
@@ -80,22 +92,48 @@
 \begin{flushleft}
     \begin{tabular}{c l c}
         2.3.1   & Minimum Width of ACTIVE is & $3 \lambda$. \\
-        2.3.2   & Spacing to ACTIVE is & $3 \lambda$. \\
-        2.3.3   & Source/Drain surround by PWELL/NWELL is & $6 \lambda$. \\
-        2.3.4   & Substrate/NWELL contact sourround by PWELL/NWELL is & $3 \lambda$. \\
-        2.3.5   & Spacing to ACTIVE of opposite type is & $4 \lambda$. \\
+        2.3.2   & Minimum Spacing to ACTIVE is & $3 \lambda$. \\
+        2.3.3   & Minimum Source/Drain surround by PWELL/NWELL is & $6 \lambda$. \\
+        2.3.4   & Minimum Substrate/NWELL contact sourround by PWELL/NWELL is & $3 \lambda$. \\
+        2.3.5   & Minimum Spacing to ACTIVE of opposite type is & $4 \lambda$. \\
     \end{tabular}
 \end{flushleft}
 
 \subsection{POLY Rules}\label{design_rules_poly_rules}
 
+\begin{center}
+    \begin{tikzpicture}[scale=(.4)]
+        \filldraw[fill=poly] (0, 0) rectangle ++(2, 12) node[near end] {POLY};
+        \draw[<->] (0, 6) -- (2, 6) node[near start, above] {2.4.1};
+        \draw[<->] (2, 4) -- (4, 4) node[near start, above] {2.4.3};
+        \filldraw[fill=nitride] (7, 0) rectangle ++(5, 12) node[near end] {ACTIVE};
+        \draw[<->] (10, 5) -- (10, 7) node[near start, left] {2.4.2};
+        \draw[<->] (9, 0) -- (9, 3) node[near start, left] {2.4.5};
+        \filldraw[fill=poly] (4, 5) -- ++(10, 0) -- ++(0, -2) -- ++(-8, 0) -- ++(0, -3) -- ++(-2, 0) -- ++(0, 5) node[near end] {POLY};
+        \filldraw[fill=poly] (4, 7) -- ++(0, 5) -- ++(2, 0) -- ++(0, -3) -- ++(8, 0) -- ++(0, -2) -- ++(-10, 0) node[near end] {POLY};
+        \draw[<->] (12, 8) -- (14, 8) node[near start, above] {2.4.4};
+        \draw[<->] (6, 10) -- (7, 10) node[near start, above] {2.4.6};
+    \end{tikzpicture}
+\end{center}
+
 \begin{flushleft}
     \begin{tabular}{c l c}
         2.4.1   & Minimum Width of POLY is & $2 \lambda$. \\
-        2.4.2   & Spacing to POLY over ACTIVE is & $2 \lambda$. \\
-        2.4.3   & Gate extension beyond ACTIVE is & $2 \lambda$. \\
-        2.4.4   & ACTIVE extension beyond POLY is & $3 \lambda$. \\
-        2.4.5   & Spacing of POLY to ACTIVE is & $1 \lambda$. \\
+        2.4.2   & Minimum Spacing to POLY over ACTIVE is & $2 \lambda$. \\
+        2.4.3   & Minimum Spacing to POLY over others is & $2 \lambda$. \\
+        2.4.4   & Minimum Gate extension beyond ACTIVE is & $2 \lambda$. \\
+        2.4.5   & Minimum ACTIVE extension beyond POLY is & $3 \lambda$. \\
+        2.4.6   & Minimum Spacing of POLY to ACTIVE is & $1 \lambda$. \\
+    \end{tabular}
+\end{flushleft}
+
+\subsection{NPLUS/PPLUS Rules}\label{design_rules_plus_rules}
+
+\begin{flushleft}
+    \begin{tabular}{c l c}
+        2.5.1   & Minimum Spacing to POLY is & $3 \lambda$. \\
+        2.5.2   & Minimum Overlap to ACTIVE is & $2 \lambda$. \\
+        2.5.3   & Minimum Overlap to CONTACT is & $1 \lambda$. \\
     \end{tabular}
 \end{flushleft}
 
@@ -103,23 +141,37 @@
 
 \begin{flushleft}
     \begin{tabular}{c l c}
-        2.5.1   & Exact Width of CONTACT is & $2x2 \lambda$. \\
-        2.5.2   & Overlap by POLY or ACTIVE is & $1 \lambda$. \\
-        2.5.3   & Spacing to CONTACT is & $2 \lambda$. \\
-        2.5.4   & Spacing to Gate is & $2 \lambda$. \\
-        2.5.5   & Spacing of POLY CONTACT to other POLY is & $4 \lambda$. \\
-        2.5.6   & Spacing of ACTIVE CONTACT to POLY CONTACT is & $4 \lambda$. \\
+        2.6.1   & Exact Width of CONTACT is & $2x2 \lambda$. \\
+        2.6.2   & Minimum Overlap by POLY or ACTIVE is & $1 \lambda$. \\
+        2.6.3   & Minimum Spacing to CONTACT is & $2 \lambda$. \\
+        2.6.4   & Minimum Spacing to Gate is & $2 \lambda$. \\
+        2.6.5   & Minimum Spacing of POLY CONTACT to other POLY is & $4 \lambda$. \\
+        2.6.6   & Minimum Spacing of ACTIVE CONTACT to POLY CONTACT is & $4 \lambda$. \\
     \end{tabular}
 \end{flushleft}
 
 \subsection{METAL1 Rules}\label{design_rules_metal1_rules}
 
+\begin{center}
+    \begin{tikzpicture}[scale=(.33)]
+        \filldraw[fill=metal1] (0, 0) rectangle ++(4, 10) node[near end] {METAL1};
+        \draw[<->] (0, 1) -- (4, 1) node[near start, above] {2.7.1};
+        \draw[<->] (4, 5) -- (8, 5) node[near start, above] {2.7.2};
+        \filldraw[fill=metal1] (8, 0) rectangle ++(4, 10) node[near end] {METAL1};
+        \filldraw[fill=titanium] (9, 1) rectangle ++(2, 2); % !! color code
+        \draw[<->] (8, 2) -- (9, 2) node[near start, above] {2.7.3};
+        \draw[<->] (12, 5) -- (18, 5) node[near start, above] {2.7.4};
+        \filldraw[fill=metal1] (18, 0) rectangle ++(20, 10) node[near end] {(Big-)METAL1};
+        \draw[<->] (18, 1) -- (38, 1) node[near start, above] {$ \geq 10 \mu m$};
+    \end{tikzpicture}
+\end{center}
+
 \begin{flushleft}
     \begin{tabular}{c l c}
-        2.6.1   & Minimum Width of METAL1 is & $4 \lambda$. \\
-        2.6.2   & Spacing of METAL1 is & $4 \lambda$. \\
-        2.6.3   & Overlap of CONTACT or VIA is & $1 \lambda$. \\
-        2.6.4   & Spacing to METAL1 for lines wider than $10 \lambda $ is & $6 \lambda$. \\
+        2.7.1   & Minimum Width of METAL1 is & $4 \lambda$. \\
+        2.7.2   & Minimum Spacing of METAL1 is & $4 \lambda$. \\
+        2.7.3   & Minimum Overlap of CONTACT or VIA is & $1 \lambda$. \\
+        2.7.4   & Minimum Spacing to METAL1 for lines wider than $10 \mu m$ is & $6 \lambda$. \\
     \end{tabular}
 \end{flushleft}
 
@@ -127,21 +179,35 @@
 
 \begin{flushleft}
     \begin{tabular}{c l c}
-        2.7.1   & Exact Width of VIA1 is & $2x2 \lambda$. \\
-        2.7.2   & Spacing to VIA1 is & $3 \lambda$. \\
-        2.7.3   & Spacing to CONTACT is & $2 \lambda$. \\
-        2.7.4   & Spacing to POLY or ACTIVE is & $2 \lambda$. \\
+        2.8.1   & Exact Width of VIA1 is & $2x2 \lambda$. \\
+        2.8.2   & Minimum Spacing to VIA1 is & $3 \lambda$. \\
+        2.8.3   & Minimum Spacing to CONTACT is & $2 \lambda$. \\
+        2.8.4   & Minimum Spacing to POLY or ACTIVE is & $2 \lambda$. \\
     \end{tabular}
 \end{flushleft}
 
 \subsection{METAL2 Rules}\label{design_rules_metal2_rules}
 
+\begin{center}
+    \begin{tikzpicture}[scale=(.33)]
+        \filldraw[fill=metal2] (0, 0) rectangle ++(4, 10) node[near end] {METAL2};
+        \draw[<->] (0, 1) -- (4, 1) node[near start, above] {2.9.1};
+        \draw[<->] (4, 5) -- (8, 5) node[near start, above] {2.9.2};
+        \filldraw[fill=metal2] (8, 0) rectangle ++(4, 10) node[near end] {METAL2};
+        \filldraw[fill=via1] (9, 1) rectangle ++(2, 2); % !! color code
+        \draw[<->] (8, 2) -- (9, 2) node[near start, above] {2.9.3};
+        \draw[<->] (12, 5) -- (18, 5) node[near start, above] {2.9.4};
+        \filldraw[fill=metal2] (18, 0) rectangle ++(20, 10) node[near end] {(Big-)METAL2};
+        \draw[<->] (18, 1) -- (38, 1) node[near start, above] {$ \geq 10 \mu m$};
+    \end{tikzpicture}
+\end{center}
+
 \begin{flushleft}
     \begin{tabular}{c l c}
-        2.8.1   & Minimum Width of METAL2 is & $4 \lambda$. \\
-        2.8.2   & Spacing to METAL2 is & $4 \lambda$. \\
-        2.8.3   & Overlap to VIA1 is & $1 \lambda$. \\
-        2.8.4   & Spacing to METAL2 for lines wider than $10 \lambda $ is & $6 \lambda$. \\
+        2.9.1   & Minimum Width of METAL2 is & $4 \lambda$. \\
+        2.9.2   & Minimum Spacing to METAL2 is & $4 \lambda$. \\
+        2.9.3   & Minimum Overlap to VIA1 is & $1 \lambda$. \\
+        2.9.4   & Minimum Spacing to METAL2 for lines wider than $10 \mu m$ is & $6 \lambda$. \\
     \end{tabular}
 \end{flushleft}
 
@@ -149,19 +215,33 @@
 
 \begin{flushleft}
     \begin{tabular}{c l c}
-        2.9.1   & Exact Width of VIA2 is & $2x2 \lambda$. \\
-        2.9.2   & Spacing to VIA2 is & $3 \lambda$. \\
+        2.10.1   & Exact Width of VIA2 is & $2x2 \lambda$. \\
+        2.10.2   & Minimum Spacing to VIA2 is & $3 \lambda$. \\
     \end{tabular}
 \end{flushleft}
 
 \subsection{METAL3 Rules}\label{design_rules_metal3_rules}
 
+\begin{center}
+    \begin{tikzpicture}[scale=(.33)]
+        \filldraw[fill=metal2] (0, 0) rectangle ++(4, 10) node[near end] {METAL3}; % !! color code
+        \draw[<->] (0, 1) -- (4, 1) node[near start, above] {2.11.1};
+        \draw[<->] (4, 5) -- (8, 5) node[near start, above] {2.11.2};
+        \filldraw[fill=metal2] (8, 0) rectangle ++(4, 10) node[near end] {METAL3}; % !! color code
+        \filldraw[fill=via2] (9, 1) rectangle ++(2, 2); % !! color code
+        \draw[<->] (8, 2) -- (9, 2) node[near start, above] {2.11.3};
+        \draw[<->] (12, 5) -- (18, 5) node[near start, above] {2.11.4};
+        \filldraw[fill=metal2] (18, 0) rectangle ++(20, 10) node[near end] {(Big-)METAL3}; % !! color code
+        \draw[<->] (18, 1) -- (38, 1) node[near start, above] {$ \geq 10 \mu m$};
+    \end{tikzpicture}
+\end{center}
+
 \begin{flushleft}
     \begin{tabular}{c l c}
-        4.10.1  & Minimum Width of METAL3 is & $6 \lambda$. \\
-        2.10.2  & Spacing to METAL3 is & $4 \lambda$. \\
-        2.10.3  & Overlap to VIA2 is & $1 \lambda$. \\
-        2.10.4   & Spacing to METAL3 for lines wider than $10 \lambda $ is & $6 \lambda$. \\
+        4.11.1  & Minimum Width of METAL3 is & $6 \lambda$. \\
+        2.11.2  & Minimum Spacing to METAL3 is & $4 \lambda$. \\
+        2.11.3  & Minimum Overlap to VIA2 is & $1 \lambda$. \\
+        2.11.4  & Minimum Spacing to METAL3 for lines wider than $10 \mu m$ is & $6 \lambda$. \\
     \end{tabular}
 \end{flushleft}
 
@@ -169,10 +249,10 @@
 
 \begin{flushleft}
     \begin{tabular}{c l c}
-        2.11.1  & Minimum Width of GLASS opening is & $60 \mu m$. \\
-        2.11.2  & METAL3 Overlap of GLASS opening is & $6 \mu m$. \\
-        2.11.3  & Spacing of pad METAL3 to unrelated METAL is & $30 \mu m$. \\
-        2.11.4  & Spacing of pad METAL3 to ACTIVE or POLY is & $15 \mu m$. \\
+        2.12.1  & Minimum Width of GLASS opening is & $60 \mu m$. \\
+        2.12.2  & Minimum METAL3 Overlap of GLASS opening is & $6 \mu m$. \\
+        2.12.3  & Minimum Spacing of pad METAL3 to unrelated METAL is & $30 \mu m$. \\
+        2.12.4  & Minimum Spacing of pad METAL3 to ACTIVE or POLY is & $15 \mu m$. \\
     \end{tabular}
 \end{flushleft}
 
