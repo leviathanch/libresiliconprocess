@@ -1,11 +1,11 @@
-\fill[isolationoxide] (0,0) rectangle (20,\LowerMetal);
-\input{tikz_process_steps/silicification.a.tex}
-\fill[resist] (0,\LowerMetal) rectangle (1.5,\UpperContactResist);
-\fill[resist] (2.75,\LowerMetal) rectangle (3.25,\UpperContactResist);
-\fill[resist] (4.25,\LowerMetal) rectangle (5.25,\UpperContactResist);
-\fill[resist] (6.25,\LowerMetal) rectangle (7.25,\UpperContactResist);
-\fill[resist] (8.25,\LowerMetal) rectangle (12.0,\UpperContactResist);
-\fill[resist] (12.75,\LowerMetal) rectangle (13.75,\UpperContactResist);
-\fill[resist] (14.75,\LowerMetal) rectangle (15.75,\UpperContactResist);
-\fill[resist] (16.75,\LowerMetal) rectangle (17.25,\UpperContactResist);
-\fill[resist] (18.25,\LowerMetal) rectangle (20.0,\UpperContactResist);
+\fill[isolationoxide] (0,\LowerMetal) rectangle (20,\LowerMoreMetal);
+
+\input{tikz_process_steps/metal.a.tex}
+
+\fill[resist] (0,\LowerMoreMetal) rectangle (1,\UpperMoreMetalResist);
+\fill[resist] (3,\LowerMoreMetal) rectangle (5,\UpperMoreMetalResist);
+\fill[resist] (6.5,\LowerMoreMetal) rectangle (9,\UpperMoreMetalResist);
+\fill[resist] (11,\LowerMoreMetal) rectangle (13.5,\UpperMoreMetalResist);
+\fill[resist] (15.0,\LowerMoreMetal) rectangle (17.0,\UpperMoreMetalResist);
+\fill[resist] (19,\LowerMoreMetal) rectangle (20,\UpperMoreMetalResist);
+

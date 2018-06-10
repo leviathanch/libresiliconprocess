@@ -5,15 +5,18 @@ These vias are in the fringe between front-end and back-end process.
 
 \begin{figure}[H]
 	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
 		\input{tikz_process_steps/contact.a.tex}
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
+		\input{tikz_process_steps/contact.b.tex}
 	\end{tikzpicture}
 	\caption{Contact geometry target}
 	\label{contact_cross_sections}
 \end{figure}
 
 As can be seen in \autoref{contact_cross_sections}, the goal of this step is purely to deposit a layer of isolation oxide, get the holes into it, down to the silicide and polyside in order to form wires later on.
-After this step the whole surface will still be covered by Aluminum, that's why the top view has been omitted.for this step.
+We do not wanna etch down anywhere else than the silicide/polycide areas because these function as etch stoppers, while everywhere else we might etch further than desired with small variations in etching time which might result in a drastic variation in sheet resistance of the junctions and gate.
 
 \begin{figure}[H]
 	\centering
@@ -51,6 +54,8 @@ For that reason we resort to deposited LTO (low temperature oxide), which has a 
 	\end{tikzpicture}
 	\caption{Oxide layer}
 \end{figure}
+
+We target a isolation layer thickness to 2\um in order to be sure that we have covered the polysilicon gate everywhere.
 
 \textbf{Possible approaches}:
 \begin{itemize}
@@ -151,28 +156,4 @@ Now we need to remove the contaminants for further processing.
 
 We strip the resist, rinse and perform sulfuric cleaning.
 
-\subsection{Metal deposition}\label{metal1_deposition}
 
-Now we somehow have got to get the metal onto our silicon oxide in a fashion so that it fills the holes we've etched in \autoref{contact_holes_etch} and touches down onto the silicide/polycide, thus making a contact to the active area.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/contact.metal_deposition.a.tex}
-	\end{tikzpicture}
-	\drawStepArrow{}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/contact.metal_deposition.b.tex}
-	\end{tikzpicture}
-	\caption{Metal deposition}
-\end{figure}
-
-In order to reach the target of filling the holes in the oxide and having at least another depth worth of space in order to have an enough low resistance of the wire interconnect.
-We end up with a target thickness of 4\um.
-
-\textbf{Possible approaches}:
-\begin{itemize}
-	\item \textbf{"Varian 3180 Sputter (SPT-3180)" from HKUST} \\
-	The deposition speed is 16nm/s which gives us a required deposition time of 250 seconds for 4\um.
-	\item \textbf{Add your solution here!}
-\end{itemize}

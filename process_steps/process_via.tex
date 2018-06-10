@@ -1,7 +1,7 @@
 \section{Via}\label{via}
 
-Now we have to build the first set of vias connecting the first metal layer to the active area.
-These vias are in the fringe between front-end and back-end process.
+Now we have to build an additional set of vias connecting the first metal layer to the next metal layer.
+These vias are already part of the front-end process.
 
 \begin{figure}[H]
 	\centering
@@ -12,8 +12,7 @@ These vias are in the fringe between front-end and back-end process.
 	\label{via_cross_sections}
 \end{figure}
 
-As can be seen in \autoref{via_cross_sections}, the goal of this step is purely to deposit a layer of isolation oxide, get the holes into it, down to the silicide and polyside in order to form wires later on.
-After this step the whole surface will still be covered by Aluminum, that's why the top view has been omitted.for this step.
+As can be seen in \autoref{via_cross_sections}, the goal of this step is purely to deposit a layer of isolation oxide, get the holes into it, down to the metal layer below in order to form wires later on.
 
 \begin{figure}[H]
 	\centering
@@ -26,7 +25,7 @@ After this step the whole surface will still be covered by Aluminum, that's why 
 
 It should be noted again that the via placement and dimensions in \autoref{via_layout} are solely for demonstration purposes for the process and are in no way the actual standard cell design for the final standard cell lib. \\
 
-In a later iterations of this process we might be switching to Tungsten as the metal material for this step.
+In a later iterations of this process we might be switching to Copper as the metal material for this step which will result in a variation of this step because the usage of damascene method.
 
 \newpage
 
@@ -63,6 +62,8 @@ We now need to grow a layer of thick oxide in order to isolate the Aluminum inte
 	\end{enumerate}
 \end{itemize}
 
+\newpage
+
 \subsection{Pattering}
 
 The resist is being deposited using spin coating and then baked depending on the baking time for the specific resist.
@@ -72,15 +73,13 @@ The requirement is a \textbf{negative} tone resist.
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/via.oxide_growth.b.tex}
 		\input{tikz_process_steps/via.patterning.a.tex}
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
 		\input{tikz_process_steps/via.patterning.at.tex}
 	\end{tikzpicture}
-	\drawStepArrow{Mask: contact}
+	\drawStepArrow{Mask: via1}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/via.oxide_growth.b.tex}
 		\input{tikz_process_steps/via.patterning.b.tex}
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
@@ -91,6 +90,9 @@ The requirement is a \textbf{negative} tone resist.
 
 The thickness of the resist layer and the baking duration will variate depending on the specific equipment for which this process will be implemented with.
 Also after the exposure and development, the hard baking shouldn't be forgotten!
+
+
+\newpage
 
 \subsection{Etching}
 
@@ -124,6 +126,8 @@ Since the silicon dioxide layer is 100nm thick and we wanna reach the silicon be
 	We can use buffered hydrofluoric acid (BOE (1:6)) at room temperature for a little bit over 3 minutes in order to get through the 100nm of oxide.\\
 	Too long over 1 minutes might cause under-etch however!
 \end{itemize}
+
+\newpage
 
 \subsection{Cleaning}
 \begin{figure}[H]
