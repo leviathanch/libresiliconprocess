@@ -39,17 +39,13 @@
 \usepackage{float}
 \floatstyle{boxed} 
 \restylefloat{figure}
-
 \title{Libre Silicon process steps}
 \date{\today}
 \author{David Lanzendörfer}
 \makeindex
 
 \newcounter{ct}
-\def\CrossSectionOnly{0.3}
-\def\CrossAndTopSection{0.2}
-\def\CrossAndTopSectionBig{0.3}
-\def\VLSILayout{0.4}
+\input{tikz_process_steps/contsts.tex}
 
 \DeclareMathOperator\erfc{erfc}
 
@@ -97,17 +93,7 @@
 \input{process_pimplant.tex}
 \newpage
 \input{process_silicification.tex}
-
 \newpage
-
-\def\LowerMetal{6.0}
-\def\UpperMetal{7.0}
-\def\UpperContactResist{9.0}
-\def\UpperMetalResist{11.0}
-\def\LowerMoreMetal{13.0}
-\def\UpperMoreMetal{14.0}
-\def\UpperMoreMetalResist{16.0}
-
 \input{process_contact.tex}
 \newpage
 \input{process_metal.tex}
