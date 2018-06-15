@@ -10,7 +10,7 @@
                 },
                 {
                         step: exposure,
-                        resist: negative,
+                        resist: positive,
                 },
                 {
                         equipment: WET-C3,
@@ -173,3 +173,160 @@
                 },
         ],
 }
+- {
+        name: N+ implant,
+        cross_tikz: tikz_process_steps/nimplant.a.tex,
+        mask: nimplant,
+        steps: [
+                {
+                        equipment: DIF-D2,
+                        process: "Hard mask dioxide growth",
+                        requirement: "100nm, 5 minutes 30 seconds @ 1050\\degreesC, wet ambient",
+                },
+                {
+                        step: exposure,
+                        resist: negative,
+                },
+                {
+                        equipment: WET-C3,
+                        process: "Oxide Etch",
+                        requirement: "1 minutes",
+                },
+                {
+                        equipment: WET-E4,
+                        process: "Sulfuric resist strip",
+                        requirement: "H2SO4+H2O2, 120\\degreesC, 10mins",
+                },
+                {
+                        equipment: IMP-3000,
+                        process: "Phorphorus implant",
+                        requirement: "$2.5 \\times 10^{12}cm^{-2}$@100keV",
+                },
+                {
+                        equipment: DIF-A1,
+                        process: "Annealing",
+                        requirement: "Annealing 30 minutes @ 1050\\degreesC with $N_2$",
+                },
+                {
+                        equipment: WET-C3,
+                        process: "Hard mask removal",
+                        requirement: "1 minutes",
+                },
+        ],
+}
+- {
+        name: P+ implant,
+        cross_tikz: tikz_process_steps/pimplant.a.tex,
+        mask: pimplant,
+        steps: [
+                {
+                        equipment: DIF-D2,
+                        process: "Hard mask dioxide growth",
+                        requirement: "100nm, 5 minutes 30 seconds @ 1050\\degreesC, wet ambient",
+                },
+                {
+                        step: exposure,
+                        resist: negative,
+                },
+                {
+                        equipment: WET-C3,
+                        process: "Oxide Etch",
+                        requirement: "1 minutes",
+                },
+                {
+                        equipment: WET-E4,
+                        process: "Sulfuric resist strip",
+                        requirement: "H2SO4+H2O2, 120\\degreesC, 10mins",
+                },
+                {
+                        equipment: IMP-3000,
+                        process: "Boron implant",
+                        requirement: "$2.5 \\times 10^{12}cm^{-2}$@100keV",
+                },
+
+                {
+                        equipment: DIF-A1,
+                        process: "Annealing",
+                        requirement: "Annealing 30 minutes @ 1050\\degreesC with $N_2$",
+                },
+                {
+                        equipment: WET-C3,
+                        process: "Hard mask removal",
+                        requirement: "1 minutes",
+                },
+
+        ],
+}
+- {
+        name: Silicification,
+        cross_tikz: tikz_process_steps/silicification.a.tex,
+        mask: silicide,
+        steps: [
+                {
+                        step: exposure,
+                        resist: negative,
+                },
+                {
+                        equipment: WET-C3,
+                        process: "Oxide Etch",
+                        requirement: "2 minutes",
+                },
+                {
+                        equipment: WET-E4,
+                        process: "Sulfuric resist strip",
+                        requirement: "H2SO4+H2O2, 120\\degreesC, 10mins",
+                },
+                {
+                        equipment: IMP-3000,
+                        process: "Phorphorus implant",
+                        requirement: "$2.5 \\times 10^{12}cm^{-2}$@100keV",
+                },
+                {
+                        equipment: DIF-A1,
+                        process: "Annealing",
+                        requirement: "Annealing 30 minutes @ 1050\\degreesC with $N_2$",
+                },
+                {
+                        equipment: WET-C3,
+                        process: "Hard mask removal",
+                        requirement: "2 minutes",
+                },
+        ],
+}
+- {
+        name: Contact,
+        cross_tikz: tikz_process_steps/contact.a.tex,
+        mask: contact,
+        steps: [
+                {
+                        step: exposure,
+                        resist: negative,
+                },
+                {
+                        equipment: WET-C3,
+                        process: "Oxide Etch",
+                        requirement: "2 minutes",
+                },
+                {
+                        equipment: WET-E4,
+                        process: "Sulfuric resist strip",
+                        requirement: "H2SO4+H2O2, 120\\degreesC, 10mins",
+                },
+                {
+                        equipment: IMP-3000,
+                        process: "Phorphorus implant",
+                        requirement: "$2.5 \\times 10^{12}cm^{-2}$@100keV",
+                },
+                {
+                        equipment: DIF-A1,
+                        process: "Annealing",
+                        requirement: "Annealing 30 minutes @ 1050\\degreesC with $N_2$",
+                },
+                {
+                        equipment: WET-C3,
+                        process: "Hard mask removal",
+                        requirement: "2 minutes",
+                },
+        ],
+}
+
