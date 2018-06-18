@@ -259,3 +259,30 @@
 \addProcessStep{C3:BOE (WET-C3)}{P2-01000}{clean}{Hard mask removal}{2 minutes}
 \addProcessStep{Spin Dryer-C (SRD-C)}{P2-01000}{clean}{Dry the wafer automatically}{}
 }
+\makeProcessTable{Metal 1}{tikz_process_steps/metal.a.tex}{metal1}{\addLevelCell{clean} %HMDS, PR coating, soft bake
+\addLevelCell{clean} %Exposure of the layer
+\addLevelCell{clean} %Develop, Hard bake
+\addLevelCell{clean} %Oxide Etch
+\addLevelCell{clean} %Dry the wafer automatically
+\addLevelCell{clean} %Sulfuric resist strip
+\addLevelCell{clean} %Dry the wafer automatically
+\addLevelCell{clean} %Phorphorus implant
+\addLevelCell{clean} %Default cleaning
+\addLevelCell{clean} %Dry the wafer automatically
+\addLevelCell{clean} %Annealing
+\addLevelCell{clean} %Hard mask removal
+\addLevelCell{clean} %Dry the wafer automatically
+}{\addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{}
+\addProcessStep{ASML Stepper (PHT-S1)}{P2-00100}{clean/semi-clean}{Exposure of the layer}{}
+\addProcessStep{SVG Developer Track (PHT-T2)}{P2-00100}{clean/semi-clean}{Develop, Hard bake}{}
+\addProcessStep{C3:BOE (WET-C3)}{P2-01000}{clean}{Oxide Etch}{2 minutes}
+\addProcessStep{Spin Dryer-C (SRD-C)}{P2-01000}{clean}{Dry the wafer automatically}{}
+\addProcessStep{E4:Resist strip (WET-E4)}{P2-01000}{clean/semi-clean}{Sulfuric resist strip}{H2SO4+H2O2, 120\degreesC, 10mins}
+\addProcessStep{Spin Dryer-E (SRD-E)}{P2-01000}{clean/semi-clean}{Dry the wafer automatically}{}
+\addProcessStep{CF-3000 Implanter (IMP-3000)}{P2-01000}{clean/semi-clean}{Phorphorus implant}{$2.5 \times 10^{12}cm^{-2}$@100keV}
+\addProcessStep{A3:Sulfuric cleaning (WET-A3)}{P2-01000}{clean}{Default cleaning}{}
+\addProcessStep{Spin Dryer-A (SRD-A)}{P2-01000}{clean}{Dry the wafer automatically}{}
+\addProcessStep{Diffusion Furnace-A1, anneal/oxidation (DIF-A1)}{P2-01000}{clean}{Annealing}{Annealing 30 minutes @ 1050\degreesC with $N_2$}
+\addProcessStep{C3:BOE (WET-C3)}{P2-01000}{clean}{Hard mask removal}{2 minutes}
+\addProcessStep{Spin Dryer-C (SRD-C)}{P2-01000}{clean}{Dry the wafer automatically}{}
+}
