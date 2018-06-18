@@ -1,1 +1,16 @@
-\input{tikz_process_steps/fox.resist_removal.b.tex}
+% oxide
+\fill[isolationoxide] (0,2.0) rectangle (0.5,2.75);
+\fill[isolationoxide] (9.0,2.0) rectangle (11.0,2.75);
+\fill[isolationoxide] (19.5,2.0) rectangle (20,2.75);
+\fill[isolationoxide] (0,1.25) rectangle (20.0,2.0);
+
+\filldraw[line width=0, isolationoxide] (0.5,2.75) -- (0.5,2.0) -- (1.25,2.0);
+\filldraw[line width=0, isolationoxide] (8.25,2.0) -- (9.0,2.0) -- (9.0,2.75);
+
+\filldraw[line width=0, isolationoxide] (11.0,2.75) -- (11.0,2.0) -- (11.75,2.0);
+\filldraw[line width=0, isolationoxide] (18.75,2.0) -- (19.5,2.0) -- (19.5,2.75);
+
+\input{tikz_process_steps/sti.a.tex}
+
+\shade[upper left = nwell, upper right = nwell, lower right = substrate, lower left = substrate,] (1.25,1.0) rectangle (8.25,2.0);
+\shade[upper left = pwell, upper right = pwell, lower right = substrate, lower left = substrate,] (11.75,0.5) rectangle (18.75,2.0);

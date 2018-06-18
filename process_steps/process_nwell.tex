@@ -189,43 +189,6 @@ We now need to inject the carriers into the upper level of the n-channel area so
 	\end{enumerate}
 \end{itemize}
 
-\newpage
-
-\subsection{Oxide for drive-in}
-
-Now we need to cover the now doped and annealed area with an oxide layer in order to seal it off and prevent the dopants from diffusing out of the crystal during the drive-in phase.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/nwell.drive_in_oxide.a.tex}
-	\end{tikzpicture}
-	\drawStepArrow{}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/nwell.drive_in_oxide.b.tex}
-	\end{tikzpicture}
-	\caption{Oxide growth}
-\end{figure}
-
-The wafer is being oxidized for around 5 minutes at 1050\degree C in a wet environment in order to achieve a cover silicon layer of around 90nm thickness.
-
-\subsection{Drive-in}
-In order to drive the carrier atoms deeper into the crystalline structure the wafer needs to be driven in after predeposition.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/nwell.drive_in.a.tex}
-	\end{tikzpicture}
-	\drawStepArrow{}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/nwell.drive_in.b.tex}
-	\end{tikzpicture}
-	\caption{Drive-in process}
-\end{figure}
-
-In this step the wafer is  driven-in for 90 minutes at 1050\degree C in an inert ambient\footnote{\url{http://cleanroom.byu.edu/DopConCalc}}
-
 \subsection{Hard mask: Oxide removal}
 
 Now we want to remove the silicon mask from the wafer and clean it for another clean oxide mask layer.
