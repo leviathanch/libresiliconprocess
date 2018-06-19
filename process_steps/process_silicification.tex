@@ -124,10 +124,9 @@ It is not yet clear whether we will be needing this feature in the future, which
 
 \subsection{Sputter etching(Spacers)}
 
-Now we have to etch our oxide as anisotropic as possible. This means that the etching mostly only comes "from above with a few to nearly none horizontal etching.
-That means the etching process only "sees" the sidewall as a "thicker layer" and starts etching downward.
-With an etching speed of ~35 nm/min for thermal oxide and an oxide thickness of around 50nm and given that the polysilicon is much higher than 50nm we will have our desired spacer geometry forming as well as any potentially resist covered are (given silicide block is being used) with sharp etches.
-
+Now we have to etch our oxide as anisotropic as possible.
+This means that the etching mostly only comes "from above" with a few to nearly none horizontal etching.
+Thit means the etching process only "sees" the sidewall as a "thicker layer" and starts etching downward.
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
@@ -140,9 +139,12 @@ With an etching speed of ~35 nm/min for thermal oxide and an oxide thickness of 
 	\caption{Anisotropic etching}
 \end{figure}
 
-The above mentioned machine is the "Trion RIE Etcher" at the NFF HKUST lab.
-
-The etching process runs on the oxide for 2 minutes.
+\textbf{Possible approaches}:
+\begin{itemize}
+	\item\textbf{"AOE Etcher" at the NFF HKUST lab}\\
+	With an etching speed of ~250 nm/min for thermal oxide and an oxide thickness of around 50nm etching will take around 12 seconds.
+\end{itemize}
+After that we will have our desired spacer geometry forming as well as any potentially resist covered area (if silicide block is being used) with sharp etches.
 
 \subsection{Titanium deposition}
 
@@ -160,9 +162,14 @@ We deposit a layer of titanium with a thickness of around 20-60nm which will the
 	\caption{Titanium deposition}
 \end{figure}
 
-For this purpose we use the "Denton Sputter (SPT-Denton)" at HKUST NFF lab which has a sputter rate of around 8.8 nm/min for titanium.
+\textbf{Possible approaches}:
+\begin{itemize}
+	\item\textbf{"Varian 3180 Sputter (SPT-3180)" at HKUST NFF lab}:\\
+	Has has a sputter rate of around 4 nm/s for titanium. \\
+	This means we run the deposition process for around 15 seconds.
+\end{itemize}
 
-This means we run the deposition process for around 5 minutes.
+\newpage
 
 \subsection{First reaction step}
 
