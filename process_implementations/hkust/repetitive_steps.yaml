@@ -35,19 +35,7 @@ exposure: {
         ]
 }
 
-clean_A: [
-        {
-                equipment: WET-A3,
-                process: "Default cleaning",
-                requirements: "HSO4+H2O2, 10 minutes @ 120\\degreesC",
-        },
-        {
-                equipment: SRD-A,
-                process: "Dry the wafer automatically",
-                requirements: "", 
-        },
-]
-
+# initial cleaning steps:
 # has to have initial_ as prefix!
 initial_clean_A: [
         {
@@ -60,8 +48,36 @@ initial_clean_A: [
                 process: "HF dip",
                 requirement: "1 min",
         },
+]
+
+# General cleaning steps
+clean_A: [
+        {
+                equipment: WET-A3,
+                process: "Default cleaning",
+                requirements: "HSO4+H2O2, 10 minutes @ 120\\degreesC",
+        },
+]
+
+clean_B: [
+        {
+                equipment: WET-B1,
+                process: "Default cleaning",
+                requirement: "",
+        },
+]
+
+# Drying macro
+dry_A: [
         {
                 equipment: SRD-A,
+                process: "Dry the wafer automatically",
+        },
+]
+
+dry_B: [
+        {
+                equipment: SRD-B,
                 process: "Dry the wafer automatically",
         },
 ]
@@ -79,3 +95,4 @@ dry_E: [
                 process: "Dry the wafer automatically",
         },
 ]
+

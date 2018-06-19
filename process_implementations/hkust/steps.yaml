@@ -124,7 +124,7 @@
                 {
                         equipment: DIF-D2,
                         process: "Thick oxide growth",
-                        requirement: "1\\um, 3 hours @ 1050\\degreesC in wet environment",
+                        requirement: "1.23\\um, 4 hours 30 minutes @ 1050\\degreesC in wet environment",
                 },
                 {
                         step: exposure,
@@ -132,8 +132,8 @@
                 },
                 {
                         equipment: WET-C3,
-                        process: "BOE: Hard mask removal",
-                        requirement: "10 minutes",
+                        process: "BOE: Field oxide etching",
+                        requirement: "12 minutes 30 seconds",
                 },
                 {
                         equipment: WET-E4,
@@ -200,12 +200,12 @@
                 {
                         equipment: IMP-3000,
                         process: "Phorphorus implant",
-                        requirement: "$2.5 \\times 10^{12}cm^{-2}$@100keV",
+                        requirement: "$2.5 \\times 10^{12}cm^{-2}$ @ 35keV",
                 },
                 {
                         equipment: DIF-A1,
                         process: "Annealing",
-                        requirement: "Annealing 30 minutes @ 1050\\degreesC with $N_2$",
+                        requirement: "Annealing 10 minutes @ 1050\\degreesC with $N_2$",
                 },
                 {
                         equipment: WET-C3,
@@ -241,7 +241,7 @@
                 {
                         equipment: IMP-3000,
                         process: "Boron implant",
-                        requirement: "$2.5 \\times 10^{12}cm^{-2}$@100keV",
+                        requirement: "$2.5 \\times 10^{12}cm^{-2}$ @ 13keV",
                 },
 
                 {
@@ -260,16 +260,21 @@
 - {
         name: Silicification,
         cross_tikz: tikz_process_steps/silicification.a.tex,
-        mask: silicide,
+        mask: silicideblock,
         steps: [
+                {
+                        equipment: CVD-B3,
+                        process: "Spacer oxide",
+                        requirement: "50 nm",
+                },
                 {
                         step: exposure,
                         resist: negative,
                 },
                 {
-                        equipment: WET-C3,
-                        process: "Oxide Etch",
-                        requirement: "2 minutes",
+                        equipment: DRY-AOE,
+                        process: "Anisotropic oxide etch",
+                        requirement: "12 seconds",
                 },
                 {
                         equipment: WET-E4,
@@ -277,19 +282,24 @@
                         requirement: "H2SO4+H2O2, 120\\degreesC, 10mins",
                 },
                 {
-                        equipment: IMP-3000,
-                        process: "Phorphorus implant",
-                        requirement: "$2.5 \\times 10^{12}cm^{-2}$@100keV",
+                        equipment: SPT-3180,
+                        process: "Deposit Titanium",
+                        requirement: "15 seconds (roughly 60nm)",
                 },
                 {
-                        equipment: DIF-A1,
-                        process: "Annealing",
-                        requirement: "Annealing 30 minutes @ 1050\\degreesC with $N_2$",
+                        equipment: DIF-R2,
+                        process: "First reaction phase",
+                        requirement: "240 seconds @ 700\\degreesC",
                 },
                 {
-                        equipment: WET-C3,
-                        process: "Hard mask removal",
-                        requirement: "2 minutes",
+                        equipment: WET-E2,
+                        process: "Remove unreacted Titanium",
+                        requirement: "APM solution (Ammonia and Hydrogen Peroxide mixture), 1 minute",
+                },
+                {
+                        equipment: DIF-R2,
+                        process: "First reaction phase",
+                        requirement: "240 seconds @ 800\\degreesC",
                 },
         ],
 }
@@ -299,11 +309,16 @@
         mask: contact,
         steps: [
                 {
+                        equipment: CVD-F4,
+                        process: "Oxide deposition",
+                        requirement: "4\\um",
+                },
+                {
                         step: exposure,
                         resist: negative,
                 },
                 {
-                        equipment: WET-C3,
+                        equipment: DRY-Trion,
                         process: "Oxide Etch",
                         requirement: "2 minutes",
                 },
@@ -311,21 +326,6 @@
                         equipment: WET-E4,
                         process: "Sulfuric resist strip",
                         requirement: "H2SO4+H2O2, 120\\degreesC, 10mins",
-                },
-                {
-                        equipment: IMP-3000,
-                        process: "Phorphorus implant",
-                        requirement: "$2.5 \\times 10^{12}cm^{-2}$@100keV",
-                },
-                {
-                        equipment: DIF-A1,
-                        process: "Annealing",
-                        requirement: "Annealing 30 minutes @ 1050\\degreesC with $N_2$",
-                },
-                {
-                        equipment: WET-C3,
-                        process: "Hard mask removal",
-                        requirement: "2 minutes",
                 },
         ],
 }
@@ -335,33 +335,23 @@
         mask: metal1,
         steps: [
                 {
+                        equipment: SPT-3180,
+                        process: "Deposit Aluminum",
+                        requirement: "15 seconds (roughly 60nm)",
+                },
+                {
                         step: exposure,
                         resist: negative,
                 },
                 {
-                        equipment: WET-C3,
-                        process: "Oxide Etch",
-                        requirement: "2 minutes",
+                        equipment: DRY-Metal-2,
+                        process: "Wire formation",
+                        requirement: "4\\um",
                 },
                 {
                         equipment: WET-E4,
                         process: "Sulfuric resist strip",
                         requirement: "H2SO4+H2O2, 120\\degreesC, 10mins",
-                },
-                {
-                        equipment: IMP-3000,
-                        process: "Phorphorus implant",
-                        requirement: "$2.5 \\times 10^{12}cm^{-2}$@100keV",
-                },
-                {
-                        equipment: DIF-A1,
-                        process: "Annealing",
-                        requirement: "Annealing 30 minutes @ 1050\\degreesC with $N_2$",
-                },
-                {
-                        equipment: WET-C3,
-                        process: "Hard mask removal",
-                        requirement: "2 minutes",
                 },
         ],
 }

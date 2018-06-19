@@ -1,21 +1,38 @@
-# Wet stations:
+## Wet stations:
 # Wet station A
 WET-A2: {
         location: P2-01000,
         equipment: "A2:HF:H2O (1:50)",
         level: clean,
+        post: dry_A,
 }
 WET-A3: {
         location: P2-01000,
         equipment: "A3:Sulfuric cleaning",
         level: clean,
+        post: dry_A,
 }
+#(spin drier)
 SRD-A: {
         location: P2-01000,
         equipment: "Spin Dryer-A",
         level: clean,
-        post: dry_A,
 }
+
+# Wet station B
+WET-B1: {
+        location: P2-01000,
+        equipment: "B1: Sulfuric cleaning",
+        level: clean/semi-clean,
+        post: dry_B,
+}
+#(spin drier)
+SRD-B: {
+        location: P2-01000,
+        equipment: "Spin Dryer-B",
+        level: clean/semi-clean,
+}
+
 # Wet station C 
 WET-C3: {
         location: P2-01000,
@@ -23,25 +40,35 @@ WET-C3: {
         level: clean,
         post: dry_C,
 }
+#(spin drier)
 SRD-C: {
         location: P2-01000,
         equipment: "Spin Dryer-C",
         level: clean,
 }
+
 # Wet station E 
+WET-E2: {
+        location: P2-01000,
+        equipment: "E2: General purpose",
+        level: semi-clean,
+        post: dry_E,
+}
 WET-E4: {
         location: P2-01000,
         equipment: "E4:Resist strip",
         level: clean/semi-clean,
         post: dry_E,
 }
+#(spin drier)
 SRD-E: {
         location: P2-01000,
         equipment: "Spin Dryer-E",
         level: clean/semi-clean,
 }
+#--------------------
 
-# Thermal diffusion:
+## Thermal diffusion:
 DIF-A1: {
         location: P2-01000,
         equipment: "Diffusion Furnace-A1, anneal/oxidation",
@@ -60,19 +87,40 @@ DIF-D2: {
         level: clean,
         pre: clean_A,
 }
+DIF-R2: {
+        location: P2-01000,
+        equipment: "AG610 RTP",
+        level: semi-clean,
+}
+
+## Vapour deposition:
 CVD-A3: {
         location: P2-01000,
         equipment: "LPCVD-A3: Amor-Si/Poly",
         level: clean,
         pre: clean_A,
 }
+CVD-B3: {
+        location: P2-01000,
+        equipment: "LPCVD-B3 LTO",
+        level: clean,
+        pre: clean_A,
+}
+CVD-F4: {
+        location: P2-01000,
+        equipment: "LPCVD-F4 LTO/PSG",
+        level: semi-clean,
+        pre: clean_B,
+}
+
+## Implanter:
 IMP-3000: {
         location: P2-01000,
         equipment: "CF-3000 Implanter",
         level: clean/semi-clean,
 }
 
-# Dry etching and sputtering modules:
+## Dry etching modules
 DRY-Si-1: {
         location: P2-01000,
         equipment: "DRIE Etcher \\#1",
@@ -83,8 +131,30 @@ DRY-Poly: {
         equipment: "Poly etcher",
         level: clean/semi-clean,
 }
+DRY-AOE: {
+        location: P2-01000,
+        equipment: "AOE Etcher",
+        level: clean,
+}
+DRY-Trion: {
+        location: P2-01000,
+        equipment: "Trion RIE Etcher",
+        level: semi-clean,
+}
+DRY-Metal-2: {
+        location: P2-01000,
+        equipment: "Oxford Aluminum Etcher",
+        level: semi-clean,
+}
 
-# Photolithographic modules
+## Sputtering modules:
+SPT-3180: {
+        location: P2-01000,
+        equipment: "Varian 3180 Sputter",
+        level: semi-clean,
+}
+
+## Photolithographic modules
 PHT-T1: {
         location: P2-00100,
         equipment: "SVG Coater Track",
