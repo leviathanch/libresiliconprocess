@@ -23,14 +23,14 @@ SRD-A: {
 WET-B1: {
         location: P2-01000,
         equipment: "B1: Sulfuric cleaning",
-        level: clean/semi-clean,
+        level: clean,
         post: dry_B,
 }
 #(spin drier)
 SRD-B: {
         location: P2-01000,
         equipment: "Spin Dryer-B",
-        level: clean/semi-clean,
+        level: clean,
 }
 
 # Wet station C 
@@ -45,6 +45,20 @@ SRD-C: {
         location: P2-01000,
         equipment: "Spin Dryer-C",
         level: clean,
+}
+
+# Wet station D 
+WET-D-DR: {
+        location: P2-01000,
+        equipment: "D1: Dump rinse",
+        level: semi-clean,
+        post: dry_D,
+}
+#(spin drier)
+SRD-D: {
+        location: P2-01000,
+        equipment: "Spin Dryer-D",
+        level: semi-clean,
 }
 
 # Wet station E 
@@ -110,7 +124,7 @@ CVD-F4: {
         location: P2-01000,
         equipment: "LPCVD-F4 LTO/PSG",
         level: semi-clean,
-        pre: clean_B,
+        pre: dump_rinse_D,
 }
 
 ## Implanter:

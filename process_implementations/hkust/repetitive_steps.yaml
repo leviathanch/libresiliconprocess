@@ -89,6 +89,20 @@ dry_C: [
         },
 ]
 
+dry_D: [
+        {
+                equipment: SRD-D,
+                process: "Dry the wafer automatically",
+        },
+]
+
+dump_rinse_D : [
+        {
+                equipment: WET-D-DR,
+                process: "Wafer cleaning",
+        },
+]
+
 dry_E: [
         {
                 equipment: SRD-E,

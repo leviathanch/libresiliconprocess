@@ -298,7 +298,7 @@
                 },
                 {
                         equipment: DIF-R2,
-                        process: "First reaction phase",
+                        process: "Second reaction phase",
                         requirement: "240 seconds @ 800\\degreesC",
                 },
         ],
@@ -320,7 +320,7 @@
                 {
                         equipment: DRY-Trion,
                         process: "Oxide Etch",
-                        requirement: "2 minutes",
+                        requirement: "80 minutes (4\\um)",
                 },
                 {
                         equipment: WET-E4,

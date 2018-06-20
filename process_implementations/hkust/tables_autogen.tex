@@ -220,7 +220,7 @@
 \addLevelCell{semi-clean} %First reaction phase
 \addLevelCell{semi-clean} %Remove unreacted Titanium
 \addLevelCell{semi-clean} %Dry the wafer automatically
-\addLevelCell{semi-clean} %First reaction phase
+\addLevelCell{semi-clean} %Second reaction phase
 }{\addProcessStep{A3:Sulfuric cleaning (WET-A3)}{P2-01000}{clean}{Default cleaning}{}
 \addProcessStep{Spin Dryer-A (SRD-A)}{P2-01000}{clean}{Dry the wafer automatically}{}
 \addProcessStep{LPCVD-B3 LTO (CVD-B3)}{P2-01000}{clean}{Spacer oxide}{50 nm}
@@ -234,9 +234,9 @@
 \addProcessStep{AG610 RTP (DIF-R2)}{P2-01000}{semi-clean}{First reaction phase}{240 seconds @ 700\degreesC}
 \addProcessStep{E2: General purpose (WET-E2)}{P2-01000}{semi-clean}{Remove unreacted Titanium}{APM solution (Ammonia and Hydrogen Peroxide mixture), 1 minute}
 \addProcessStep{Spin Dryer-E (SRD-E)}{P2-01000}{clean/semi-clean}{Dry the wafer automatically}{}
-\addProcessStep{AG610 RTP (DIF-R2)}{P2-01000}{semi-clean}{First reaction phase}{240 seconds @ 800\degreesC}
+\addProcessStep{AG610 RTP (DIF-R2)}{P2-01000}{semi-clean}{Second reaction phase}{240 seconds @ 800\degreesC}
 }
-\makeProcessTable{Contact}{tikz_process_steps/contact.a.tex}{contact}{\addLevelCell{semi-clean} %Default cleaning
+\makeProcessTable{Contact}{tikz_process_steps/contact.a.tex}{contact}{\addLevelCell{semi-clean} %Wafer cleaning
 \addLevelCell{semi-clean} %Dry the wafer automatically
 \addLevelCell{semi-clean} %Oxide deposition
 \addLevelCell{semi-clean} %HMDS, PR coating, soft bake
@@ -245,13 +245,13 @@
 \addLevelCell{semi-clean} %Oxide Etch
 \addLevelCell{semi-clean} %Sulfuric resist strip
 \addLevelCell{semi-clean} %Dry the wafer automatically
-}{\addProcessStep{B1: Sulfuric cleaning (WET-B1)}{P2-01000}{clean/semi-clean}{Default cleaning}{}
-\addProcessStep{Spin Dryer-B (SRD-B)}{P2-01000}{clean/semi-clean}{Dry the wafer automatically}{}
+}{\addProcessStep{D1: Dump rinse (WET-D-DR)}{P2-01000}{semi-clean}{Wafer cleaning}{}
+\addProcessStep{Spin Dryer-D (SRD-D)}{P2-01000}{semi-clean}{Dry the wafer automatically}{}
 \addProcessStep{LPCVD-F4 LTO/PSG (CVD-F4)}{P2-01000}{semi-clean}{Oxide deposition}{4\um}
 \addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{}
 \addProcessStep{ASML Stepper (PHT-S1)}{P2-00100}{clean/semi-clean}{Exposure of the layer}{}
 \addProcessStep{SVG Developer Track (PHT-T2)}{P2-00100}{clean/semi-clean}{Develop, Hard bake}{}
-\addProcessStep{Trion RIE Etcher (DRY-Trion)}{P2-01000}{semi-clean}{Oxide Etch}{2 minutes}
+\addProcessStep{Trion RIE Etcher (DRY-Trion)}{P2-01000}{semi-clean}{Oxide Etch}{80 minutes (4\um)}
 \addProcessStep{E4:Resist strip (WET-E4)}{P2-01000}{clean/semi-clean}{Sulfuric resist strip}{H2SO4+H2O2, 120\degreesC, 10mins}
 \addProcessStep{Spin Dryer-E (SRD-E)}{P2-01000}{clean/semi-clean}{Dry the wafer automatically}{}
 }
