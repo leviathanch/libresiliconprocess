@@ -123,13 +123,16 @@ Since the silicon dioxide layer is 100nm thick and we wanna reach the silicon be
 	\item \textbf{"AOE Etcher (DRY-AOE)" from HKUST} \\
 	We can use anisotropic plasma etching for sharper borders.
 	\item \textbf{Chemical solution} \\
-	We can use buffered hydrofluoric acid (BOE (1:6)) at room temperature for a little bit over 3 minutes in order to get through the 100nm of oxide.\\
-	Too long over 1 minutes might cause under-etch however!
+	We can use buffered hydrofluoric acid (BOE (1:6)) at room temperature ($\approx$508 nm/min) for around 4 minutes in order to get through the 2\um of oxide.\\
+	Too long over 4 minutes might cause under-etch however!
 \end{itemize}
 
 \newpage
 
-\subsection{Cleaning}
+\subsection{Resist strip}
+
+Now we need to remove the photo resist for further processing because it would contaminate the equipment.
+
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
@@ -141,3 +144,14 @@ Since the silicon dioxide layer is 100nm thick and we wanna reach the silicon be
 	\end{tikzpicture}
 	\caption{Resist removal}
 \end{figure}
+
+Because we now have a metal layer we can't use sulfuric acids because this would dissolve/attack the Aluminum as well as the photo resist.
+Instead we have got to use an organic solvent which does not react with Aluminum.
+
+\textbf{Possible approaches}:
+\begin{itemize}
+	\item \textbf{"MS2001 resist stripper" from HKUST} \\
+	It can be found at the wet stations: Wetstation W, X, Y and Z (WET-W1 to WET-W2, WET-X1 to WET-X2, WET-Y1to WET-Y2, WET-Z1 to WET-Z2)
+	\item \textbf{Another chemical solution} \\
+	Please specify here!
+\end{itemize}
