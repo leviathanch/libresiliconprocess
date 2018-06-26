@@ -1,8 +1,7 @@
 PDF:
-	xelatex process_steps.tex
+	cd process_lowtech && make && cd ..
+	cd process_hightech && make && cd ..
 
 clean:
-	rm -f *.log
-	rm -f *.gz
-	rm -f *.aux
-	rm -f *.toc
+	cd process_lowtech && make clean && cd ..
+	cd process_hightech && make clean && cd ..

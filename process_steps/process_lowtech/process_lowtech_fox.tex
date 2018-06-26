@@ -1,0 +1,108 @@
+\section{Field oxide (+Drive-in)}\label{fox_chapter}
+
+The geometry of a substrate with the field oxide filling the shallow trenched from \autoref{sti_chapter} now needs to be made.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
+		\input{tikz_process_steps/fox.a.tex}
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
+		\input{tikz_process_steps/fox.b.tex}
+	\end{tikzpicture}
+	\caption{Shallow trench isolation target geometry}
+	\label{fox_target}
+\end{figure}
+
+As can be seen in \autoref{fox_target}, the STI trenches need to be filled with silicon oxide and windows need to be etched into them so that the gate can be constructed later on.
+The windows are needed so that the poly silicon is far enough away from the non-active areas so that the threshold voltage of the parasitic FETs is so high that they will never switch.
+Only within the active areas we want to allow the poly layer to touch down closer to the silicon. \\
+During the oxidation the dopants will be further driven in which will lead to the final formation of the N-well with an approximate depth of 4\um and the P-well with an approximate depth of 5\um.
+
+\newpage
+
+\subsection{Oxide growth/Drive-in}
+Now we need to fill the trenches with silicon dioxide which will provide a spacer between the non active area and the polysilicon gate layer. within the non-active areas.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/fox.oxide_growth.a.tex}
+	\end{tikzpicture}
+	\drawStepArrow{}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/fox.oxide_growth.b.tex}
+	\end{tikzpicture}
+	\caption{Hard mask growth}
+\end{figure}
+
+We grow a roughly 1.23\um thick layer of silicon dioxide by putting the wafer into the furnace at 1050\degreesC for 4 hours and 30 minutes in a wet environment.
+
+During the oxidation the dopants will be further driven in which will lead to the final formation of the N-well with an approximate depth of 4\um and the P-well with an approximate depth of 5\um.
+
+\subsection{Patterning}
+
+We reuse the mask from \autoref{sti_chapter}, because it's exactly the same layout, only inverted.
+The requirement is a \textbf{negative} tone resist.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/fox.patterning.a.tex}
+	\end{tikzpicture}
+	\drawStepArrow{Mask: active}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/fox.patterning.b.tex}
+	\end{tikzpicture}
+	\caption{Patterning with positive resist}
+\end{figure}
+
+The thickness of the resist layer and the baking duration will variate depending on the specific equipment for which this process will be implemented with.
+Also after the exposure and development, the hard baking shouldn't be forgotten!
+
+\newpage
+
+\subsection{Etching}\label{fox_etch}
+
+We open the access to the silicon inside of the active areas in order to touch down with the polysilicon further on.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/fox.etching.a.tex}
+	\end{tikzpicture}
+	\drawStepArrow{}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/fox.etching.b.tex}
+	\end{tikzpicture}
+	\caption{Nitride mask etching}
+\end{figure}
+
+There are dry etching and wet etching methods available for etching the thick field oxide.
+The downside of wet etching is that it also etches horizontally, however the chemical BHF is readily available and allows for easy implementation of the process.\\
+
+\textbf{Possible approaches}:
+\begin{itemize}
+	\item \textbf{"AOE Etcher (DRY-AOE)" from HKUST} \\
+	We can use anisotropic plasma etching for sharper borders.
+	\item \textbf{Chemical solution} \\
+	We can use buffered hydrofluoric acid (BOE (1:6)) at room temperature for a little bit over 3 minutes in order to get through the 300nm of oxide.\\
+	Too long over 3 minutes might cause under-etch however!
+\end{itemize}
+
+\subsection{Resist strip}
+Now we need to remove the contaminants for further processing.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/fox.resist_removal.a.tex}
+	\end{tikzpicture}
+	\drawStepArrow{}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/fox.resist_removal.b.tex}
+	\end{tikzpicture}
+	\caption{Resist removal}
+\end{figure}
+
+We strip the resist, rinse and perform sulfuric cleaning.

@@ -1,0 +1,31 @@
+\fill[active,opacity=\OpacityLayout] (1.25,1) rectangle (8.25,7.25);
+\fill[active,opacity=\OpacityLayout] (11.75,1) rectangle (18.75,7.25);
+
+\newcommand{\addLayoutLayer}[2]{
+	\node[fill=#1, opacity=\OpacityLayout, minimum size=5mm,below of=#2] (#1) {};
+	\node[right of=#1] {\parbox{1.5cm}{#1}};
+	%\node[right of=#1] {#1};
+}
+
+\node (header) at (23,13) {\textbf{Layers}};
+\addLayoutLayer{nimplant}{header}
+\addLayoutLayer{pimplant}{nimplant}
+\addLayoutLayer{poly}{pimplant}
+\addLayoutLayer{contact}{poly}
+\addLayoutLayer{metal1}{contact}
+\addLayoutLayer{via1}{metal1}
+\addLayoutLayer{metal2}{via1}
+\addLayoutLayer{via2}{metal2}
+\addLayoutLayer{active}{via2}
+\addLayoutLayer{nwell}{active}
+\addLayoutLayer{pwell}{nwell}
+\addLayoutLayer{silicide-block}{pwell}
+
+\draw[dotted] (21.5,0) rectangle (26,14);
+
+\draw[|<->|] (8.25,4) -- (11.75,4);
+\node at (10,4.25) {$1 \lambda$};
+\draw[|<->|] (1,1) -- (1,7.25);
+\node[rotate=90] at (0.75,4) {$4 \lambda$};
+\draw[|<->|] (1.25,0.75) -- (8.25,0.75);
+\node at (4,0.5) {$4 \lambda$};

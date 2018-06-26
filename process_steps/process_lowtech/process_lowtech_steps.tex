@@ -1,0 +1,105 @@
+\def\micro{\mu m}
+\def\um{$\micro$ }
+\def\degreesC{$\degree C$ }
+\def\percent{$\%$ }
+\documentclass[10pt,a4paper,oneside]{article}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
+\input{global_color_scheme.tex}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{forloop}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{mdframed}
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary{
+	arrows,
+	automata,
+	positioning,
+	patterns,
+	shadings,
+	shadows,
+	shapes
+}
+\usepackage[siunitx]{circuitikz}
+
+\usepackage{makecell}
+\usepackage{array}
+
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=black,bookmarksopen=true]{hyperref}
+\usepackage{bookmark}
+\usepackage{hyperref}
+\usepackage{sepfootnotes}
+\usepackage{lipsum,tocloft} 
+\usepackage{float}
+\floatstyle{boxed} 
+\restylefloat{figure}
+\title{Libre Silicon process steps}
+\date{\today}
+\author{David Lanzendörfer}
+\makeindex
+
+\newcounter{ct}
+\input{tikz_process_steps/contsts.tex}
+
+\DeclareMathOperator\erfc{erfc}
+
+\setlength{\parindent}{0pt} % get rid of annoying indents
+
+\newcommand{\drawStepArrow}[1]{\\
+\begin{tikzpicture}
+	\node[draw,
+		single arrow,
+		shape border rotate=270,
+		minimum height=1.5cm,
+		minimum width=2.0cm,
+		text width=1.0cm,
+		align=center,
+		shade,
+		shading=axis,
+		left color=white,
+		right color=blue!50,
+		] {\tiny{#1}};
+\end{tikzpicture} \\
+}
+
+\begin{document}
+\begin{abstract}
+	\input{process_abstract.tex}
+\end{abstract}
+\newpage
+\tableofcontents
+\newpage
+\maketitle
+\input{process_lowtech_overview.tex}\label{process_lowtech_overview}
+\newpage
+\input{process_lowtech_shallow_trench_isolation.tex}
+\newpage
+\input{process_lowtech_pwell.tex}
+\newpage
+\input{process_lowtech_nwell.tex}
+\newpage
+\input{process_lowtech_fox.tex}
+\newpage
+\input{process_lowtech_gate.tex}
+\newpage
+\input{process_lowtech_nimplant.tex}
+\newpage
+\input{process_lowtech_pimplant.tex}
+\newpage
+\input{process_lowtech_silicification.tex}
+\newpage
+\input{process_lowtech_contact.tex}
+\newpage
+\input{process_lowtech_metal.tex}
+\newpage
+\input{process_lowtech_via.tex}
+\newpage
+\input{process_lowtech_more_metal.tex}
+
+\end{document}

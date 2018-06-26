@@ -1,0 +1,157 @@
+\section{Via}\label{via}
+
+Now we have to build an additional set of vias connecting the first metal layer to the next metal layer.
+These vias are already part of the front-end process.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/via.a.tex}
+	\end{tikzpicture}
+	\caption{Contact geometry target}
+	\label{via_cross_sections}
+\end{figure}
+
+As can be seen in \autoref{via_cross_sections}, the goal of this step is purely to deposit a layer of isolation oxide, get the holes into it, down to the metal layer below in order to form wires later on.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance =1cm, auto, thick,scale=\VLSILayout, every node/.style={transform shape}]
+		\input{tikz_process_steps/via.layout.tex}
+	\end{tikzpicture}
+	\caption{First via layout}
+	\label{via_layout}
+\end{figure}
+
+It should be noted again that the via placement and dimensions in \autoref{via_layout} are solely for demonstration purposes for the process and are in no way the actual standard cell design for the final standard cell lib. \\
+
+In a later iterations of this process we might be switching to Copper as the metal material for this step which will result in a variation of this step because the usage of damascene method.
+
+\newpage
+
+\subsection{Isolation dioxide layer}
+
+We now need to grow a layer of thick oxide in order to isolate the Aluminum interconnect layer from the active area.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/via.oxide_growth.a.tex}
+	\end{tikzpicture}
+	\drawStepArrow{LTO\\deposition}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/via.oxide_growth.b.tex}
+	\end{tikzpicture}
+	\caption{Oxide layer}
+\end{figure}
+
+\textbf{Possible approaches}:
+\begin{itemize}
+	\item \textbf{"LPCVD-B3 LTO (CVD-B3)" from HKUST} \\
+	At HKUST we have a chemical vapor deposition unit which gives us better control over the layer thicknes. \\
+	These steps are needed to arrive with the desired geometry\footnote{\url{http://memslab.blogspot.com/2013/01/lto-lpcvd.html}}
+	\begin{enumerate}
+		\item Set the growth rate to 14 nm/min
+		\item Run for 140 minutes
+	\end{enumerate}
+	\item \textbf{In a furnace ("a hack around")} \\
+	In case of a lack of LPCVD equipment one might also resort to "hack together" a solution for LTO deposition using a furnace\footnote{\url{https://www.sciencedirect.com/science/article/pii/0167577X89900062}}
+		\begin{enumerate}
+			\item Deposit tetraethyl orthosilicate ($Si C_8 H_{20} O_4$)
+			\item React for 20 minutes at 1050\degreesC in $N_2$ environment in a furnace
+	\end{enumerate}
+\end{itemize}
+
+\newpage
+
+\subsection{Pattering}
+
+The resist is being deposited using spin coating and then baked depending on the baking time for the specific resist.
+The layout for being exposed onto the resist is being extracted from the "contact" layer within the GDS2 file onto a \textbf{bright field} mask.
+The requirement is a \textbf{negative} tone resist.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/via.patterning.a.tex}
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/via.patterning.at.tex}
+	\end{tikzpicture}
+	\drawStepArrow{Mask: via1}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/via.patterning.b.tex}
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/via.patterning.bt.tex}
+	\end{tikzpicture}
+	\caption{N+ region resist mask}
+\end{figure}
+
+The thickness of the resist layer and the baking duration will variate depending on the specific equipment for which this process will be implemented with.
+Also after the exposure and development, the hard baking shouldn't be forgotten!
+
+
+\newpage
+
+\subsection{Etching}\label{via_etching}
+
+We now need to open a window in the dioxide layer, through which we will inject carrier atoms into the silicon crystal structure.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/via.etching.a.tex}
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/via.etching.at.tex}
+	\end{tikzpicture}
+	\drawStepArrow{}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/via.etching.b.tex}
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
+		\input{tikz_process_steps/via.etching.bt.tex}
+	\end{tikzpicture}
+	\caption{N+ region opened}
+\end{figure}
+
+Since the silicon dioxide layer is 100nm thick and we wanna reach the silicon below we can use wet etching as described in the chemistry chapter.\\
+
+\textbf{Possible approaches}:
+\begin{itemize}
+	\item \textbf{"AOE Etcher (DRY-AOE)" from HKUST} \\
+	We can use anisotropic plasma etching for sharper borders.
+	\item \textbf{Chemical solution} \\
+	We can use buffered hydrofluoric acid (BOE (1:6)) at room temperature ($\approx$508 nm/min) for around 4 minutes in order to get through the 2\um of oxide.\\
+	Too long over 4 minutes might cause under-etch however!
+\end{itemize}
+
+\newpage
+
+\subsection{Resist strip}
+
+Now we need to remove the photo resist for further processing because it would contaminate the equipment.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/via.cleaning.a.tex}
+	\end{tikzpicture}
+	\drawStepArrow{}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/via.cleaning.b.tex}
+	\end{tikzpicture}
+	\caption{Resist removal}
+\end{figure}
+
+Because we now have a metal layer we can't use sulfuric acids because this would dissolve/attack the Aluminum as well as the photo resist.
+Instead we have got to use an organic solvent which does not react with Aluminum.
+
+\textbf{Possible approaches}:
+\begin{itemize}
+	\item \textbf{"MS2001 resist stripper" from HKUST} \\
+	It can be found at the wet stations: Wetstation W, X, Y and Z (WET-W1 to WET-W2, WET-X1 to WET-X2, WET-Y1to WET-Y2, WET-Z1 to WET-Z2)
+	\item \textbf{Another chemical solution} \\
+	Please specify here!
+\end{itemize}

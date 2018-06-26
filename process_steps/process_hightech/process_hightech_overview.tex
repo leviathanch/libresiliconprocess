@@ -1,0 +1,70 @@
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=3cm, text centered, rounded corners, minimum height=1.5cm]
+\tikzstyle{line} = [draw, very thick, color=black!50, -latex']
+
+The general flow chart of the overall process flow can be seen in \autoref{full_flow}.
+These process steps will be discussed within the following sections.
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance=2cm, thick,scale=0.8, every node/.style={transform shape}]
+		%% Place nodes
+		%active CMOS	
+		% first row
+		\node [block] (isolation) at (0,8) {Isolation (STI)\\ \autoref{sti_chapter}};
+		\node [block, above of=isolation] (pwell) {P-Well\\ \autoref{pwell_chapter}};
+		\node [block, above of=pwell] (nwell) {N-Well\\ \autoref{nwell_chapter}};
+		\node [block, above of=nwell] (fox) {Field oxide\\ \autoref{fox_chapter}};
+		%second row
+		\node [block] (silicification) at (4,8) {Silicification\\ \autoref{step_silicification}};
+		\node [block, above of=silicification] (pp) {p+ Implant\\ \autoref{pimplant}};
+		\node [block, above of=pp] (np) {n+ Implant\\ \autoref{nimplant}};
+		\node [block] [block, above of=np] (gate) {Gate\\ \autoref{gate}};
+
+		%post proces
+		\node [block] (contact) at (8,8) {Contact \\ \autoref{contact}};
+		\node [block, above of=contact] (metal) {First metal\\ \autoref{metal}};
+		\node [block, above of=metal] (via) {Additional vias\\ \autoref{via}};
+		\node [block, above of=via] (more_metal) {Additional metal\\ \autoref{more_metal}};
+		\node (repeat) at (10.5,14.5) {Repeat};
+
+		%% Draw edges
+		\path [line] (-4,8) -- (isolation);
+		\path [line] (isolation) -- (pwell);
+		\path [line] (pwell) -- (nwell);
+		\path [line] (nwell) -- (fox);
+		\path [line] (fox) -- (gate);
+		\path [line] (gate) -- (np);
+		\path [line] (np) -- (pp);
+		\path [line] (pp) -- (silicification);
+		\path [line] (silicification) -- (contact);
+		\path [line] (contact) -- (metal);
+		\path [line] (metal) -- (via);
+		\path [line] (via) -- (more_metal);
+		\path [line] (more_metal) -- +(3,0) -- +(3,-2) -- (via);
+
+		\draw[dotted] (-2,6) rectangle (6,16);
+		\node at (2,6.5) {CMOS process};
+		\draw[dotted] (6,6) rectangle (12,16);
+		\node at (8,6.5) {Interconnect};
+
+		%\draw[dotted] (1.5,9) rectangle (10.5,21.5);
+		%\node at (4,9.5) {Front-end processing};
+
+		%\draw[dotted] (11,9) rectangle (15,21.5);
+		%\node at (13,9.5) {Back-end processing};
+	\end{tikzpicture}
+	\caption{Frontend and backend process flow}
+	\label{full_flow}
+\end{figure}
+The six overall process steps are part of an active part of the technology, while the final metal (respectively contact) layers will be used for making a contact between the logic gates and macro cells and making them available to the exterior world.
+
+For this process p-substrate is the required basic substrate, but forks and modifications will be very well possible based on a Graphene substrate or alike, still under the LSPL.
+The starting material is a p-type, <100> oriented silicon with a doping concentration of $\approx 9\times10^{14}cm^{-3}$.\\
+
+\textbf{Machines required}:
+\begin{itemize}
+	\item Ion implanter
+	\item Plasma etcher
+	\item Sputter engine (Metal deposition) 
+	\item Diffusion furnace
+	\item Exposure unit
+\end{itemize}
