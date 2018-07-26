@@ -1,99 +1,50 @@
-\makeProcessTable{Shallow trench isolation}{tikz_process_steps/sti.a.tex}{active}{\addLevelCell{clean} %Initial Cleaning
-\addLevelCell{clean} %Dry the wafer automatically
+\makeProcessTable{Initial alignment mask}{tikz_process_steps/sti.a.tex}{basic}{\addLevelCell{clean} %Initial Cleaning
 \addLevelCell{clean} %HF dip
-\addLevelCell{clean} %Dry the wafer automatically
-\addLevelCell{clean} %Hard mask dioxide growth
 \addLevelCell{clean} %HMDS, PR coating, soft bake
 \addLevelCell{clean} %Exposure of the layer
 \addLevelCell{clean} %Develop, Hard bake
-\addLevelCell{clean} %BOE: Oxide Etch
-\addLevelCell{clean} %Dry the wafer automatically
-\addLevelCell{clean} %Sulfuric resist strip
-\addLevelCell{clean} %Dry the wafer automatically
-\addLevelCell{clean} %Etching the trenches
-\addLevelCell{clean} %BOE: Hard mask removal
-\addLevelCell{clean} %Dry the wafer automatically
+\addLevelCell{clean} %Etching the alignment crosses from HKUST
+\addLevelCell{clean} %Resist strip
 }{\addProcessStep{A3:Sulfuric cleaning (WET-A3)}{P2-01000}{clean}{Initial Cleaning}{H2SO4+H2O2, 10mins @ 120\degreesC}
-\addProcessStep{Spin Dryer-A (SRD-A)}{P2-01000}{clean}{Dry the wafer automatically}{}
 \addProcessStep{A2:HF:H2O (1:50) (WET-A2)}{P2-01000}{clean}{HF dip}{1 min}
-\addProcessStep{Spin Dryer-A (SRD-A)}{P2-01000}{clean}{Dry the wafer automatically}{}
-\addProcessStep{Diffusion Furnace-D2, dry/wet oxidation (DIF-D2)}{P2-01000}{clean}{Hard mask dioxide growth}{100nm, 5 minutes 30 seconds @ 1050\degreesC, wet ambient}
 \addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{}
 \addProcessStep{ASML Stepper (PHT-S1)}{P2-00100}{clean/semi-clean}{Exposure of the layer}{}
 \addProcessStep{SVG Developer Track (PHT-T2)}{P2-00100}{clean/semi-clean}{Develop, Hard bake}{}
-\addProcessStep{C3:BOE (WET-C3)}{P2-01000}{clean}{BOE: Oxide Etch}{1 minute}
-\addProcessStep{Spin Dryer-C (SRD-C)}{P2-01000}{clean}{Dry the wafer automatically}{}
-\addProcessStep{E4:Resist strip (WET-E4)}{P2-01000}{clean/semi-clean}{Sulfuric resist strip}{H2SO4 + H2O2, 120\degreesC, 10mins}
-\addProcessStep{Spin Dryer-E (SRD-E)}{P2-01000}{clean/semi-clean}{Dry the wafer automatically}{}
+\addProcessStep{Lam 490 etcher (DRY-490)}{P2-01000}{clean}{Etching the alignment crosses from HKUST}{1 minute (2\um)}
+\addProcessStep{PS210 Asher (DRY-PR-1)}{P2-01000}{clean}{Resist strip}{}
+}
+\makeProcessTable{Shallow trench isolation}{tikz_process_steps/sti.a.tex}{active}{\addLevelCell{clean} %HMDS, PR coating, soft bake
+\addLevelCell{clean} %Exposure of the layer
+\addLevelCell{clean} %Develop, Hard bake
+\addLevelCell{clean} %Etching the trenches
+\addLevelCell{clean} %Resist strip
+}{\addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{}
+\addProcessStep{ASML Stepper (PHT-S1)}{P2-00100}{clean/semi-clean}{Exposure of the layer}{}
+\addProcessStep{SVG Developer Track (PHT-T2)}{P2-00100}{clean/semi-clean}{Develop, Hard bake}{}
 \addProcessStep{DRIE Etcher \#1 (DRY-Si-1)}{P2-01000}{clean}{Etching the trenches}{1 minute (2\um)}
-\addProcessStep{C3:BOE (WET-C3)}{P2-01000}{clean}{BOE: Hard mask removal}{1 minute}
-\addProcessStep{Spin Dryer-C (SRD-C)}{P2-01000}{clean}{Dry the wafer automatically}{}
+\addProcessStep{PS210 Asher (DRY-PR-1)}{P2-01000}{clean}{Resist strip}{}
 }
-\makeProcessTable{P-well}{tikz_process_steps/pwell.a.tex}{pwell}{\addLevelCell{clean} %Default cleaning
-\addLevelCell{clean} %Dry the wafer automatically
-\addLevelCell{clean} %Hard mask dioxide growth
-\addLevelCell{clean} %HMDS, PR coating, soft bake
+\makeProcessTable{P-well}{tikz_process_steps/pwell.a.tex}{pwell}{\addLevelCell{clean} %HMDS, PR coating, soft bake
 \addLevelCell{clean} %Exposure of the layer
 \addLevelCell{clean} %Develop, Hard bake
-\addLevelCell{clean} %BOE: Oxide Etch
-\addLevelCell{clean} %Dry the wafer automatically
-\addLevelCell{clean} %Sulfuric resist strip
-\addLevelCell{clean} %Dry the wafer automatically
 \addLevelCell{clean} %Boron implant
-\addLevelCell{clean} %Default cleaning
-\addLevelCell{clean} %Dry the wafer automatically
-\addLevelCell{clean} %Annealing
-\addLevelCell{clean} %BOE: Hard mask removal
-\addLevelCell{clean} %Dry the wafer automatically
-}{\addProcessStep{A3:Sulfuric cleaning (WET-A3)}{P2-01000}{clean}{Default cleaning}{}
-\addProcessStep{Spin Dryer-A (SRD-A)}{P2-01000}{clean}{Dry the wafer automatically}{}
-\addProcessStep{Diffusion Furnace-D2, dry/wet oxidation (DIF-D2)}{P2-01000}{clean}{Hard mask dioxide growth}{500nm, 56 minutes @ 1050\degreesC, wet ambient}
-\addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{}
+\addLevelCell{clean} %Resist strip
+}{\addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{}
 \addProcessStep{ASML Stepper (PHT-S1)}{P2-00100}{clean/semi-clean}{Exposure of the layer}{}
 \addProcessStep{SVG Developer Track (PHT-T2)}{P2-00100}{clean/semi-clean}{Develop, Hard bake}{}
-\addProcessStep{C3:BOE (WET-C3)}{P2-01000}{clean}{BOE: Oxide Etch}{5 minutes}
-\addProcessStep{Spin Dryer-C (SRD-C)}{P2-01000}{clean}{Dry the wafer automatically}{}
-\addProcessStep{E4:Resist strip (WET-E4)}{P2-01000}{clean/semi-clean}{Sulfuric resist strip}{H2SO4+H2O2, 120\degreesC, 10mins}
-\addProcessStep{Spin Dryer-E (SRD-E)}{P2-01000}{clean/semi-clean}{Dry the wafer automatically}{}
 \addProcessStep{CF-3000 Implanter (IMP-3000)}{P2-01000}{clean/semi-clean}{Boron implant}{$2.5 \times 10^{12}cm^{-2}$@100keV}
-\addProcessStep{A3:Sulfuric cleaning (WET-A3)}{P2-01000}{clean}{Default cleaning}{}
-\addProcessStep{Spin Dryer-A (SRD-A)}{P2-01000}{clean}{Dry the wafer automatically}{}
-\addProcessStep{Diffusion Furnace-A1, anneal/oxidation (DIF-A1)}{P2-01000}{clean}{Annealing}{Annealing 30 minutes @ 1050\degreesC with $N_2$}
-\addProcessStep{C3:BOE (WET-C3)}{P2-01000}{clean}{BOE: Hard mask removal}{5 minutes}
-\addProcessStep{Spin Dryer-C (SRD-C)}{P2-01000}{clean}{Dry the wafer automatically}{}
+\addProcessStep{PS210 Asher (DRY-PR-1)}{P2-01000}{clean}{Resist strip}{}
 }
-\makeProcessTable{N-well}{tikz_process_steps/nwell.a.tex}{nwell}{\addLevelCell{clean} %Default cleaning
-\addLevelCell{clean} %Dry the wafer automatically
-\addLevelCell{clean} %Hard mask dioxide growth
-\addLevelCell{clean} %HMDS, PR coating, soft bake
+\makeProcessTable{N-well}{tikz_process_steps/nwell.a.tex}{nwell}{\addLevelCell{clean} %HMDS, PR coating, soft bake
 \addLevelCell{clean} %Exposure of the layer
 \addLevelCell{clean} %Develop, Hard bake
-\addLevelCell{clean} %Oxide Etch
-\addLevelCell{clean} %Dry the wafer automatically
-\addLevelCell{clean} %Sulfuric resist strip
-\addLevelCell{clean} %Dry the wafer automatically
 \addLevelCell{clean} %Phorphorus implant
-\addLevelCell{clean} %Default cleaning
-\addLevelCell{clean} %Dry the wafer automatically
-\addLevelCell{clean} %Annealing
-\addLevelCell{clean} %Hard mask removal
-\addLevelCell{clean} %Dry the wafer automatically
-}{\addProcessStep{A3:Sulfuric cleaning (WET-A3)}{P2-01000}{clean}{Default cleaning}{}
-\addProcessStep{Spin Dryer-A (SRD-A)}{P2-01000}{clean}{Dry the wafer automatically}{}
-\addProcessStep{Diffusion Furnace-D2, dry/wet oxidation (DIF-D2)}{P2-01000}{clean}{Hard mask dioxide growth}{200nm, 14 minutes @ 1050\degreesC, wet ambient}
-\addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{}
+\addLevelCell{clean} %Resist strip
+}{\addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{}
 \addProcessStep{ASML Stepper (PHT-S1)}{P2-00100}{clean/semi-clean}{Exposure of the layer}{}
 \addProcessStep{SVG Developer Track (PHT-T2)}{P2-00100}{clean/semi-clean}{Develop, Hard bake}{}
-\addProcessStep{C3:BOE (WET-C3)}{P2-01000}{clean}{Oxide Etch}{2 minutes}
-\addProcessStep{Spin Dryer-C (SRD-C)}{P2-01000}{clean}{Dry the wafer automatically}{}
-\addProcessStep{E4:Resist strip (WET-E4)}{P2-01000}{clean/semi-clean}{Sulfuric resist strip}{H2SO4+H2O2, 120\degreesC, 10mins}
-\addProcessStep{Spin Dryer-E (SRD-E)}{P2-01000}{clean/semi-clean}{Dry the wafer automatically}{}
 \addProcessStep{CF-3000 Implanter (IMP-3000)}{P2-01000}{clean/semi-clean}{Phorphorus implant}{$2.5 \times 10^{12}cm^{-2}$@100keV}
-\addProcessStep{A3:Sulfuric cleaning (WET-A3)}{P2-01000}{clean}{Default cleaning}{}
-\addProcessStep{Spin Dryer-A (SRD-A)}{P2-01000}{clean}{Dry the wafer automatically}{}
-\addProcessStep{Diffusion Furnace-A1, anneal/oxidation (DIF-A1)}{P2-01000}{clean}{Annealing}{Annealing 30 minutes @ 1050\degreesC with $N_2$}
-\addProcessStep{C3:BOE (WET-C3)}{P2-01000}{clean}{Hard mask removal}{2 minutes}
-\addProcessStep{Spin Dryer-C (SRD-C)}{P2-01000}{clean}{Dry the wafer automatically}{}
+\addProcessStep{PS210 Asher (DRY-PR-1)}{P2-01000}{clean}{Resist strip}{}
 }
 \makeProcessTable{Field oxide}{tikz_process_steps/fox.a.tex}{active}{\addLevelCell{clean} %Default cleaning
 \addLevelCell{clean} %Dry the wafer automatically
@@ -102,7 +53,6 @@
 \addLevelCell{clean} %Exposure of the layer
 \addLevelCell{clean} %Develop, Hard bake
 \addLevelCell{clean} %BOE: Field oxide etching
-\addLevelCell{clean} %Dry the wafer automatically
 \addLevelCell{clean} %Sulfuric resist strip
 \addLevelCell{clean} %Dry the wafer automatically
 }{\addProcessStep{A3:Sulfuric cleaning (WET-A3)}{P2-01000}{clean}{Default cleaning}{}
@@ -112,7 +62,6 @@
 \addProcessStep{ASML Stepper (PHT-S1)}{P2-00100}{clean/semi-clean}{Exposure of the layer}{}
 \addProcessStep{SVG Developer Track (PHT-T2)}{P2-00100}{clean/semi-clean}{Develop, Hard bake}{}
 \addProcessStep{C3:BOE (WET-C3)}{P2-01000}{clean}{BOE: Field oxide etching}{12 minutes 30 seconds}
-\addProcessStep{Spin Dryer-C (SRD-C)}{P2-01000}{clean}{Dry the wafer automatically}{}
 \addProcessStep{E4:Resist strip (WET-E4)}{P2-01000}{clean/semi-clean}{Sulfuric resist strip}{H2SO4+H2O2, 120\degreesC, 10mins}
 \addProcessStep{Spin Dryer-E (SRD-E)}{P2-01000}{clean/semi-clean}{Dry the wafer automatically}{}
 }
@@ -141,71 +90,27 @@
 \addProcessStep{E4:Resist strip (WET-E4)}{P2-01000}{clean/semi-clean}{Sulfuric resist strip}{H2SO4+H2O2, 120\degreesC, 10mins}
 \addProcessStep{Spin Dryer-E (SRD-E)}{P2-01000}{clean/semi-clean}{Dry the wafer automatically}{}
 }
-\makeProcessTable{N+ implant}{tikz_process_steps/nimplant.a.tex}{nimplant}{\addLevelCell{clean} %Default cleaning
-\addLevelCell{clean} %Dry the wafer automatically
-\addLevelCell{clean} %Hard mask dioxide growth
-\addLevelCell{clean} %HMDS, PR coating, soft bake
+\makeProcessTable{N+ implant}{tikz_process_steps/nimplant.a.tex}{nimplant}{\addLevelCell{clean} %HMDS, PR coating, soft bake
 \addLevelCell{clean} %Exposure of the layer
 \addLevelCell{clean} %Develop, Hard bake
-\addLevelCell{clean} %Oxide Etch
-\addLevelCell{clean} %Dry the wafer automatically
-\addLevelCell{clean} %Sulfuric resist strip
-\addLevelCell{clean} %Dry the wafer automatically
 \addLevelCell{clean} %Phorphorus implant
-\addLevelCell{clean} %Default cleaning
-\addLevelCell{clean} %Dry the wafer automatically
-\addLevelCell{clean} %Annealing
-\addLevelCell{clean} %Hard mask removal
-\addLevelCell{clean} %Dry the wafer automatically
-}{\addProcessStep{A3:Sulfuric cleaning (WET-A3)}{P2-01000}{clean}{Default cleaning}{}
-\addProcessStep{Spin Dryer-A (SRD-A)}{P2-01000}{clean}{Dry the wafer automatically}{}
-\addProcessStep{Diffusion Furnace-D2, dry/wet oxidation (DIF-D2)}{P2-01000}{clean}{Hard mask dioxide growth}{100nm, 5 minutes 30 seconds @ 1050\degreesC, wet ambient}
-\addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{}
+\addLevelCell{clean} %Resist strip
+}{\addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{}
 \addProcessStep{ASML Stepper (PHT-S1)}{P2-00100}{clean/semi-clean}{Exposure of the layer}{}
 \addProcessStep{SVG Developer Track (PHT-T2)}{P2-00100}{clean/semi-clean}{Develop, Hard bake}{}
-\addProcessStep{C3:BOE (WET-C3)}{P2-01000}{clean}{Oxide Etch}{1 minutes}
-\addProcessStep{Spin Dryer-C (SRD-C)}{P2-01000}{clean}{Dry the wafer automatically}{}
-\addProcessStep{E4:Resist strip (WET-E4)}{P2-01000}{clean/semi-clean}{Sulfuric resist strip}{H2SO4+H2O2, 120\degreesC, 10mins}
-\addProcessStep{Spin Dryer-E (SRD-E)}{P2-01000}{clean/semi-clean}{Dry the wafer automatically}{}
-\addProcessStep{CF-3000 Implanter (IMP-3000)}{P2-01000}{clean/semi-clean}{Phorphorus implant}{$2.5 \times 10^{12}cm^{-2}$ @ 35keV}
-\addProcessStep{A3:Sulfuric cleaning (WET-A3)}{P2-01000}{clean}{Default cleaning}{}
-\addProcessStep{Spin Dryer-A (SRD-A)}{P2-01000}{clean}{Dry the wafer automatically}{}
-\addProcessStep{Diffusion Furnace-A1, anneal/oxidation (DIF-A1)}{P2-01000}{clean}{Annealing}{Annealing 10 minutes @ 1050\degreesC with $N_2$}
-\addProcessStep{C3:BOE (WET-C3)}{P2-01000}{clean}{Hard mask removal}{1 minutes}
-\addProcessStep{Spin Dryer-C (SRD-C)}{P2-01000}{clean}{Dry the wafer automatically}{}
+\addProcessStep{CF-3000 Implanter (IMP-3000)}{P2-01000}{clean/semi-clean}{Phorphorus implant}{$2.5 \times 10^{12}cm^{-2}$ @ 90keV}
+\addProcessStep{PS210 Asher (DRY-PR-1)}{P2-01000}{clean}{Resist strip}{}
 }
-\makeProcessTable{P+ implant}{tikz_process_steps/pimplant.a.tex}{pimplant}{\addLevelCell{clean} %Default cleaning
-\addLevelCell{clean} %Dry the wafer automatically
-\addLevelCell{clean} %Hard mask dioxide growth
-\addLevelCell{clean} %HMDS, PR coating, soft bake
+\makeProcessTable{P+ implant}{tikz_process_steps/pimplant.a.tex}{pimplant}{\addLevelCell{clean} %HMDS, PR coating, soft bake
 \addLevelCell{clean} %Exposure of the layer
 \addLevelCell{clean} %Develop, Hard bake
-\addLevelCell{clean} %Oxide Etch
-\addLevelCell{clean} %Dry the wafer automatically
-\addLevelCell{clean} %Sulfuric resist strip
-\addLevelCell{clean} %Dry the wafer automatically
 \addLevelCell{clean} %Boron implant
-\addLevelCell{clean} %Default cleaning
-\addLevelCell{clean} %Dry the wafer automatically
-\addLevelCell{clean} %Annealing
-\addLevelCell{clean} %Hard mask removal
-\addLevelCell{clean} %Dry the wafer automatically
-}{\addProcessStep{A3:Sulfuric cleaning (WET-A3)}{P2-01000}{clean}{Default cleaning}{}
-\addProcessStep{Spin Dryer-A (SRD-A)}{P2-01000}{clean}{Dry the wafer automatically}{}
-\addProcessStep{Diffusion Furnace-D2, dry/wet oxidation (DIF-D2)}{P2-01000}{clean}{Hard mask dioxide growth}{100nm, 5 minutes 30 seconds @ 1050\degreesC, wet ambient}
-\addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{}
+\addLevelCell{clean} %Resist strip
+}{\addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{}
 \addProcessStep{ASML Stepper (PHT-S1)}{P2-00100}{clean/semi-clean}{Exposure of the layer}{}
 \addProcessStep{SVG Developer Track (PHT-T2)}{P2-00100}{clean/semi-clean}{Develop, Hard bake}{}
-\addProcessStep{C3:BOE (WET-C3)}{P2-01000}{clean}{Oxide Etch}{1 minutes}
-\addProcessStep{Spin Dryer-C (SRD-C)}{P2-01000}{clean}{Dry the wafer automatically}{}
-\addProcessStep{E4:Resist strip (WET-E4)}{P2-01000}{clean/semi-clean}{Sulfuric resist strip}{H2SO4+H2O2, 120\degreesC, 10mins}
-\addProcessStep{Spin Dryer-E (SRD-E)}{P2-01000}{clean/semi-clean}{Dry the wafer automatically}{}
-\addProcessStep{CF-3000 Implanter (IMP-3000)}{P2-01000}{clean/semi-clean}{Boron implant}{$2.5 \times 10^{12}cm^{-2}$ @ 13keV}
-\addProcessStep{A3:Sulfuric cleaning (WET-A3)}{P2-01000}{clean}{Default cleaning}{}
-\addProcessStep{Spin Dryer-A (SRD-A)}{P2-01000}{clean}{Dry the wafer automatically}{}
-\addProcessStep{Diffusion Furnace-A1, anneal/oxidation (DIF-A1)}{P2-01000}{clean}{Annealing}{Annealing 30 minutes @ 1050\degreesC with $N_2$}
-\addProcessStep{C3:BOE (WET-C3)}{P2-01000}{clean}{Hard mask removal}{1 minutes}
-\addProcessStep{Spin Dryer-C (SRD-C)}{P2-01000}{clean}{Dry the wafer automatically}{}
+\addProcessStep{CF-3000 Implanter (IMP-3000)}{P2-01000}{clean/semi-clean}{Boron implant}{$2.5 \times 10^{12}cm^{-2}$ @ 35keV}
+\addProcessStep{PS210 Asher (DRY-PR-1)}{P2-01000}{clean}{Resist strip}{}
 }
 \makeProcessTable{Silicification}{tikz_process_steps/silicification.a.tex}{silicideblock}{\addLevelCell{clean} %Default cleaning
 \addLevelCell{clean} %Dry the wafer automatically
@@ -243,8 +148,8 @@
 \addLevelCell{semi-clean} %Exposure of the layer
 \addLevelCell{semi-clean} %Develop, Hard bake
 \addLevelCell{semi-clean} %Oxide Etch
-\addLevelCell{semi-clean} %Sulfuric resist strip
-\addLevelCell{semi-clean} %Dry the wafer automatically
+\addLevelCell{semi-clean} %Resist Stripping
+\addLevelCell{semi-clean} %Spin dry
 }{\addProcessStep{D1: Dump rinse (WET-D-DR)}{P2-01000}{semi-clean}{Wafer cleaning}{}
 \addProcessStep{Spin Dryer-D (SRD-D)}{P2-01000}{semi-clean}{Dry the wafer automatically}{}
 \addProcessStep{LPCVD-F4 LTO/PSG (CVD-F4)}{P2-01000}{semi-clean}{Oxide deposition}{4\um}
@@ -252,21 +157,89 @@
 \addProcessStep{ASML Stepper (PHT-S1)}{P2-00100}{clean/semi-clean}{Exposure of the layer}{}
 \addProcessStep{SVG Developer Track (PHT-T2)}{P2-00100}{clean/semi-clean}{Develop, Hard bake}{}
 \addProcessStep{Trion RIE Etcher (DRY-Trion)}{P2-01000}{semi-clean}{Oxide Etch}{80 minutes (4\um)}
-\addProcessStep{E4:Resist strip (WET-E4)}{P2-01000}{clean/semi-clean}{Sulfuric resist strip}{H2SO4+H2O2, 120\degreesC, 10mins}
-\addProcessStep{Spin Dryer-E (SRD-E)}{P2-01000}{clean/semi-clean}{Dry the wafer automatically}{}
+\addProcessStep{Y1:MS2001 Resist strip (WET-Y1)}{P2-00100}{semi-clean}{Resist Stripping}{5mins, 70\degreesC}
+\addProcessStep{Spin Dryer-Y (SRD-Y)}{P2-00100}{semi-clean}{Spin dry}{}
 }
 \makeProcessTable{Metal 1}{tikz_process_steps/metal.a.tex}{metal1}{\addLevelCell{semi-clean} %Deposit Aluminum
 \addLevelCell{semi-clean} %HMDS, PR coating, soft bake
 \addLevelCell{semi-clean} %Exposure of the layer
 \addLevelCell{semi-clean} %Develop, Hard bake
 \addLevelCell{semi-clean} %Wire formation
-\addLevelCell{semi-clean} %Sulfuric resist strip
-\addLevelCell{semi-clean} %Dry the wafer automatically
+\addLevelCell{semi-clean} %Resist Stripping
+\addLevelCell{semi-clean} %Spin dry
 }{\addProcessStep{Varian 3180 Sputter (SPT-3180)}{P2-01000}{semi-clean}{Deposit Aluminum}{15 seconds (roughly 60nm)}
 \addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{}
 \addProcessStep{ASML Stepper (PHT-S1)}{P2-00100}{clean/semi-clean}{Exposure of the layer}{}
 \addProcessStep{SVG Developer Track (PHT-T2)}{P2-00100}{clean/semi-clean}{Develop, Hard bake}{}
 \addProcessStep{Oxford Aluminum Etcher (DRY-Metal-2)}{P2-01000}{semi-clean}{Wire formation}{4\um}
-\addProcessStep{E4:Resist strip (WET-E4)}{P2-01000}{clean/semi-clean}{Sulfuric resist strip}{H2SO4+H2O2, 120\degreesC, 10mins}
-\addProcessStep{Spin Dryer-E (SRD-E)}{P2-01000}{clean/semi-clean}{Dry the wafer automatically}{}
+\addProcessStep{Y1:MS2001 Resist strip (WET-Y1)}{P2-00100}{semi-clean}{Resist Stripping}{5mins, 70\degreesC}
+\addProcessStep{Spin Dryer-Y (SRD-Y)}{P2-00100}{semi-clean}{Spin dry}{}
+}
+\makeProcessTable{Via 1}{tikz_process_steps/via.a.tex}{via1}{\addLevelCell{semi-clean} %Wafer cleaning
+\addLevelCell{semi-clean} %Dry the wafer automatically
+\addLevelCell{semi-clean} %Oxide deposition
+\addLevelCell{semi-clean} %HMDS, PR coating, soft bake
+\addLevelCell{semi-clean} %Exposure of the layer
+\addLevelCell{semi-clean} %Develop, Hard bake
+\addLevelCell{semi-clean} %Oxide Etch
+\addLevelCell{semi-clean} %Resist Stripping
+\addLevelCell{semi-clean} %Spin dry
+}{\addProcessStep{D1: Dump rinse (WET-D-DR)}{P2-01000}{semi-clean}{Wafer cleaning}{}
+\addProcessStep{Spin Dryer-D (SRD-D)}{P2-01000}{semi-clean}{Dry the wafer automatically}{}
+\addProcessStep{LPCVD-F4 LTO/PSG (CVD-F4)}{P2-01000}{semi-clean}{Oxide deposition}{4\um}
+\addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{}
+\addProcessStep{ASML Stepper (PHT-S1)}{P2-00100}{clean/semi-clean}{Exposure of the layer}{}
+\addProcessStep{SVG Developer Track (PHT-T2)}{P2-00100}{clean/semi-clean}{Develop, Hard bake}{}
+\addProcessStep{Trion RIE Etcher (DRY-Trion)}{P2-01000}{semi-clean}{Oxide Etch}{80 minutes (4\um)}
+\addProcessStep{Y1:MS2001 Resist strip (WET-Y1)}{P2-00100}{semi-clean}{Resist Stripping}{5mins, 70\degreesC}
+\addProcessStep{Spin Dryer-Y (SRD-Y)}{P2-00100}{semi-clean}{Spin dry}{}
+}
+\makeProcessTable{Metal 2}{tikz_process_steps/more_metal.a.tex}{metal2}{\addLevelCell{semi-clean} %Deposit Aluminum
+\addLevelCell{semi-clean} %HMDS, PR coating, soft bake
+\addLevelCell{semi-clean} %Exposure of the layer
+\addLevelCell{semi-clean} %Develop, Hard bake
+\addLevelCell{semi-clean} %Wire formation
+\addLevelCell{semi-clean} %Resist Stripping
+\addLevelCell{semi-clean} %Spin dry
+}{\addProcessStep{Varian 3180 Sputter (SPT-3180)}{P2-01000}{semi-clean}{Deposit Aluminum}{15 seconds (roughly 60nm)}
+\addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{}
+\addProcessStep{ASML Stepper (PHT-S1)}{P2-00100}{clean/semi-clean}{Exposure of the layer}{}
+\addProcessStep{SVG Developer Track (PHT-T2)}{P2-00100}{clean/semi-clean}{Develop, Hard bake}{}
+\addProcessStep{Oxford Aluminum Etcher (DRY-Metal-2)}{P2-01000}{semi-clean}{Wire formation}{4\um}
+\addProcessStep{Y1:MS2001 Resist strip (WET-Y1)}{P2-00100}{semi-clean}{Resist Stripping}{5mins, 70\degreesC}
+\addProcessStep{Spin Dryer-Y (SRD-Y)}{P2-00100}{semi-clean}{Spin dry}{}
+}
+\makeProcessTable{Via 2}{tikz_process_steps/via2.a.tex}{via2}{\addLevelCell{semi-clean} %Wafer cleaning
+\addLevelCell{semi-clean} %Dry the wafer automatically
+\addLevelCell{semi-clean} %Oxide deposition
+\addLevelCell{semi-clean} %HMDS, PR coating, soft bake
+\addLevelCell{semi-clean} %Exposure of the layer
+\addLevelCell{semi-clean} %Develop, Hard bake
+\addLevelCell{semi-clean} %Oxide Etch
+\addLevelCell{semi-clean} %Resist Stripping
+\addLevelCell{semi-clean} %Spin dry
+}{\addProcessStep{D1: Dump rinse (WET-D-DR)}{P2-01000}{semi-clean}{Wafer cleaning}{}
+\addProcessStep{Spin Dryer-D (SRD-D)}{P2-01000}{semi-clean}{Dry the wafer automatically}{}
+\addProcessStep{LPCVD-F4 LTO/PSG (CVD-F4)}{P2-01000}{semi-clean}{Oxide deposition}{4\um}
+\addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{}
+\addProcessStep{ASML Stepper (PHT-S1)}{P2-00100}{clean/semi-clean}{Exposure of the layer}{}
+\addProcessStep{SVG Developer Track (PHT-T2)}{P2-00100}{clean/semi-clean}{Develop, Hard bake}{}
+\addProcessStep{Trion RIE Etcher (DRY-Trion)}{P2-01000}{semi-clean}{Oxide Etch}{80 minutes (4\um)}
+\addProcessStep{Y1:MS2001 Resist strip (WET-Y1)}{P2-00100}{semi-clean}{Resist Stripping}{5mins, 70\degreesC}
+\addProcessStep{Spin Dryer-Y (SRD-Y)}{P2-00100}{semi-clean}{Spin dry}{}
+}
+\makeProcessTable{Metal 3}{tikz_process_steps/more_metal_two.a.tex}{metal3}{\addLevelCell{semi-clean} %Deposit Aluminum
+\addLevelCell{semi-clean} %HMDS, PR coating, soft bake
+\addLevelCell{semi-clean} %Exposure of the layer
+\addLevelCell{semi-clean} %Develop, Hard bake
+\addLevelCell{semi-clean} %Wire formation
+\addLevelCell{semi-clean} %Resist Stripping
+\addLevelCell{semi-clean} %Spin dry
+}{\addProcessStep{Varian 3180 Sputter (SPT-3180)}{P2-01000}{semi-clean}{Deposit Aluminum}{15 seconds (roughly 60nm)}
+\addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{}
+\addProcessStep{ASML Stepper (PHT-S1)}{P2-00100}{clean/semi-clean}{Exposure of the layer}{}
+\addProcessStep{SVG Developer Track (PHT-T2)}{P2-00100}{clean/semi-clean}{Develop, Hard bake}{}
+\addProcessStep{Oxford Aluminum Etcher (DRY-Metal-2)}{P2-01000}{semi-clean}{Wire formation}{4\um}
+\addProcessStep{Y1:MS2001 Resist strip (WET-Y1)}{P2-00100}{semi-clean}{Resist Stripping}{5mins, 70\degreesC}
+\addProcessStep{Spin Dryer-Y (SRD-Y)}{P2-00100}{semi-clean}{Spin dry}{}
 }

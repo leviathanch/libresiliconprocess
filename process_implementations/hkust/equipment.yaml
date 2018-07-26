@@ -3,14 +3,12 @@
 WET-A2: {
         location: P2-01000,
         equipment: "A2:HF:H2O (1:50)",
-        level: clean,
-        post: dry_A,
+        level: clean
 }
 WET-A3: {
         location: P2-01000,
         equipment: "A3:Sulfuric cleaning",
-        level: clean,
-        post: dry_A,
+        level: clean
 }
 #(spin drier)
 SRD-A: {
@@ -38,7 +36,6 @@ WET-C3: {
         location: P2-01000,
         equipment: "C3:BOE",
         level: clean,
-        post: dry_C,
 }
 #(spin drier)
 SRD-C: {
@@ -74,11 +71,22 @@ WET-E4: {
         level: clean/semi-clean,
         post: dry_E,
 }
+WET-Y1: {
+        location: P2-00100,
+        equipment: "Y1:MS2001 Resist strip",
+        level: semi-clean,
+        post: dry_Y,
+}
 #(spin drier)
 SRD-E: {
         location: P2-01000,
         equipment: "Spin Dryer-E",
         level: clean/semi-clean,
+}
+SRD-Y: {
+        location: P2-00100,
+        equipment: "Spin Dryer-Y",
+        level: semi-clean,
 }
 #--------------------
 
@@ -145,6 +153,11 @@ DRY-Poly: {
         equipment: "Poly etcher",
         level: clean/semi-clean,
 }
+DRY-490: {
+        location: P2-01000,
+        equipment: "Lam 490 etcher",
+        level: clean,
+}
 DRY-AOE: {
         location: P2-01000,
         equipment: "AOE Etcher",
@@ -159,6 +172,13 @@ DRY-Metal-2: {
         location: P2-01000,
         equipment: "Oxford Aluminum Etcher",
         level: semi-clean,
+}
+
+# Ashers (resist removal):
+DRY-PR-1: {
+        location: P2-01000,
+        equipment: "PS210 Asher",
+        level: clean,
 }
 
 ## Sputtering modules:

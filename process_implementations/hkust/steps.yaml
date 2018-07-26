@@ -1,26 +1,41 @@
 - { 
-        name: Shallow trench isolation,
+        name: Initial alignment mask,
         cross_tikz: tikz_process_steps/sti.a.tex,
-        mask: active,
+        mask: basic,
         steps: [
                 {
-                        equipment: DIF-D2,
-                        process: "Hard mask dioxide growth",
-                        requirement: "100nm, 5 minutes 30 seconds @ 1050\\degreesC, wet ambient",
+                        equipment: WET-A3,
+                        process: "Initial Cleaning",
+                        requirement: "H2SO4+H2O2, 10mins @ 120\\degreesC",
+                },
+                {
+                        equipment: WET-A2,
+                        process: "HF dip",
+                        requirement: "1 min",
                 },
                 {
                         step: exposure,
                         resist: positive,
                 },
                 {
-                        equipment: WET-C3,
-                        process: "BOE: Oxide Etch",
-                        requirement: "1 minute",
+                        equipment: DRY-490,
+                        process: "Etching the alignment crosses from HKUST",
+                        requirement: "1 minute (2\\um)",
                 },
                 {
-                        equipment: WET-E4,
-                        process: "Sulfuric resist strip",
-                        requirement: "H2SO4 + H2O2, 120\\degreesC, 10mins",
+                        equipment: DRY-PR-1,
+                        process: "Resist strip",
+                },
+        ],
+}
+- { 
+        name: Shallow trench isolation,
+        cross_tikz: tikz_process_steps/sti.a.tex,
+        mask: active,
+        steps: [
+                {
+                        step: exposure,
+                        resist: positive,
                 },
                 {
                         equipment: DRY-Si-1,
@@ -28,9 +43,8 @@
                         requirement: "1 minute (2\\um)",
                 },
                 {
-                        equipment: WET-C3,
-                        process: "BOE: Hard mask removal",
-                        requirement: "1 minute",
+                        equipment: DRY-PR-1,
+                        process: "Resist strip",
                 },
         ],
 }
@@ -40,23 +54,8 @@
         mask: pwell,
         steps: [
                 {
-                        equipment: DIF-D2,
-                        process: "Hard mask dioxide growth",
-                        requirement: "500nm, 56 minutes @ 1050\\degreesC, wet ambient",
-                },
-                {
                         step: exposure,
                         resist: negative,
-                },
-                {
-                        equipment: WET-C3,
-                        process: "BOE: Oxide Etch",
-                        requirement: "5 minutes",
-                },
-                {
-                        equipment: WET-E4,
-                        process: "Sulfuric resist strip",
-                        requirement: "H2SO4+H2O2, 120\\degreesC, 10mins",
                 },
                 {
                         equipment: IMP-3000,
@@ -64,14 +63,8 @@
                         requirement: "$2.5 \\times 10^{12}cm^{-2}$@100keV",
                 },
                 {
-                        equipment: DIF-A1,
-                        process: "Annealing",
-                        requirement: "Annealing 30 minutes @ 1050\\degreesC with $N_2$",
-                },
-                {
-                        equipment: WET-C3,
-                        process: "BOE: Hard mask removal",
-                        requirement: "5 minutes",
+                        equipment: DRY-PR-1,
+                        process: "Resist strip",
                 },
         ],
 }
@@ -80,24 +73,10 @@
         cross_tikz: tikz_process_steps/nwell.a.tex,
         mask: nwell,
         steps: [
-                {
-                        equipment: DIF-D2,
-                        process: "Hard mask dioxide growth",
-                        requirement: "200nm, 14 minutes @ 1050\\degreesC, wet ambient",
-                },
+
                 {
                         step: exposure,
                         resist: negative,
-                },
-                {
-                        equipment: WET-C3,
-                        process: "Oxide Etch",
-                        requirement: "2 minutes",
-                },
-                {
-                        equipment: WET-E4,
-                        process: "Sulfuric resist strip",
-                        requirement: "H2SO4+H2O2, 120\\degreesC, 10mins",
                 },
                 {
                         equipment: IMP-3000,
@@ -105,14 +84,8 @@
                         requirement: "$2.5 \\times 10^{12}cm^{-2}$@100keV",
                 },
                 {
-                        equipment: DIF-A1,
-                        process: "Annealing",
-                        requirement: "Annealing 30 minutes @ 1050\\degreesC with $N_2$",
-                },
-                {
-                        equipment: WET-C3,
-                        process: "Hard mask removal",
-                        requirement: "2 minutes",
+                        equipment: DRY-PR-1,
+                        process: "Resist strip",
                 },
         ],
 }
@@ -179,38 +152,17 @@
         mask: nimplant,
         steps: [
                 {
-                        equipment: DIF-D2,
-                        process: "Hard mask dioxide growth",
-                        requirement: "100nm, 5 minutes 30 seconds @ 1050\\degreesC, wet ambient",
-                },
-                {
                         step: exposure,
                         resist: negative,
                 },
                 {
-                        equipment: WET-C3,
-                        process: "Oxide Etch",
-                        requirement: "1 minutes",
-                },
-                {
-                        equipment: WET-E4,
-                        process: "Sulfuric resist strip",
-                        requirement: "H2SO4+H2O2, 120\\degreesC, 10mins",
-                },
-                {
                         equipment: IMP-3000,
                         process: "Phorphorus implant",
-                        requirement: "$2.5 \\times 10^{12}cm^{-2}$ @ 35keV",
+                        requirement: "$2.5 \\times 10^{12}cm^{-2}$ @ 90keV",
                 },
                 {
-                        equipment: DIF-A1,
-                        process: "Annealing",
-                        requirement: "Annealing 10 minutes @ 1050\\degreesC with $N_2$",
-                },
-                {
-                        equipment: WET-C3,
-                        process: "Hard mask removal",
-                        requirement: "1 minutes",
+                        equipment: DRY-PR-1,
+                        process: "Resist strip",
                 },
         ],
 }
@@ -220,41 +172,18 @@
         mask: pimplant,
         steps: [
                 {
-                        equipment: DIF-D2,
-                        process: "Hard mask dioxide growth",
-                        requirement: "100nm, 5 minutes 30 seconds @ 1050\\degreesC, wet ambient",
-                },
-                {
                         step: exposure,
                         resist: negative,
                 },
                 {
-                        equipment: WET-C3,
-                        process: "Oxide Etch",
-                        requirement: "1 minutes",
-                },
-                {
-                        equipment: WET-E4,
-                        process: "Sulfuric resist strip",
-                        requirement: "H2SO4+H2O2, 120\\degreesC, 10mins",
-                },
-                {
                         equipment: IMP-3000,
                         process: "Boron implant",
-                        requirement: "$2.5 \\times 10^{12}cm^{-2}$ @ 13keV",
-                },
-
-                {
-                        equipment: DIF-A1,
-                        process: "Annealing",
-                        requirement: "Annealing 30 minutes @ 1050\\degreesC with $N_2$",
+                        requirement: "$2.5 \\times 10^{12}cm^{-2}$ @ 35keV",
                 },
                 {
-                        equipment: WET-C3,
-                        process: "Hard mask removal",
-                        requirement: "1 minutes",
+                        equipment: DRY-PR-1,
+                        process: "Resist strip",
                 },
-
         ],
 }
 - {
@@ -323,9 +252,9 @@
                         requirement: "80 minutes (4\\um)",
                 },
                 {
-                        equipment: WET-E4,
-                        process: "Sulfuric resist strip",
-                        requirement: "H2SO4+H2O2, 120\\degreesC, 10mins",
+                        equipment: WET-Y1,
+                        process: "Resist Stripping",
+                        requirement: "5mins, 70\\degreesC",
                 },
         ],
 }
@@ -349,10 +278,113 @@
                         requirement: "4\\um",
                 },
                 {
-                        equipment: WET-E4,
-                        process: "Sulfuric resist strip",
-                        requirement: "H2SO4+H2O2, 120\\degreesC, 10mins",
+                        equipment: WET-Y1,
+                        process: "Resist Stripping",
+                        requirement: "5mins, 70\\degreesC",
                 },
         ],
 }
-
+- {
+        name: Via 1,
+        cross_tikz: tikz_process_steps/via.a.tex,
+        mask: via1,
+        steps: [
+                {
+                        equipment: CVD-F4,
+                        process: "Oxide deposition",
+                        requirement: "4\\um",
+                },
+                {
+                        step: exposure,
+                        resist: negative,
+                },
+                {
+                        equipment: DRY-Trion,
+                        process: "Oxide Etch",
+                        requirement: "80 minutes (4\\um)",
+                },
+                {
+                        equipment: WET-Y1,
+                        process: "Resist Stripping",
+                        requirement: "5mins, 70\\degreesC",
+                },
+        ],
+}
+- {
+        name: Metal 2,
+        cross_tikz: tikz_process_steps/more_metal.a.tex,
+        mask: metal2,
+        steps: [
+                {
+                        equipment: SPT-3180,
+                        process: "Deposit Aluminum",
+                        requirement: "15 seconds (roughly 60nm)",
+                },
+                {
+                        step: exposure,
+                        resist: negative,
+                },
+                {
+                        equipment: DRY-Metal-2,
+                        process: "Wire formation",
+                        requirement: "4\\um",
+                },
+                {
+                        equipment: WET-Y1,
+                        process: "Resist Stripping",
+                        requirement: "5mins, 70\\degreesC",
+                },
+        ],
+}
+- {
+        name: Via 2,
+        cross_tikz: tikz_process_steps/via2.a.tex,
+        mask: via2,
+        steps: [
+                {
+                        equipment: CVD-F4,
+                        process: "Oxide deposition",
+                        requirement: "4\\um",
+                },
+                {
+                        step: exposure,
+                        resist: negative,
+                },
+                {
+                        equipment: DRY-Trion,
+                        process: "Oxide Etch",
+                        requirement: "80 minutes (4\\um)",
+                },
+                {
+                        equipment: WET-Y1,
+                        process: "Resist Stripping",
+                        requirement: "5mins, 70\\degreesC",
+                },
+        ],
+}
+- {
+        name: Metal 3,
+        cross_tikz: tikz_process_steps/more_metal_two.a.tex,
+        mask: metal3,
+        steps: [
+                {
+                        equipment: SPT-3180,
+                        process: "Deposit Aluminum",
+                        requirement: "15 seconds (roughly 60nm)",
+                },
+                {
+                        step: exposure,
+                        resist: negative,
+                },
+                {
+                        equipment: DRY-Metal-2,
+                        process: "Wire formation",
+                        requirement: "4\\um",
+                },
+                {
+                        equipment: WET-Y1,
+                        process: "Resist Stripping",
+                        requirement: "5mins, 70\\degreesC",
+                },
+        ],
+}
