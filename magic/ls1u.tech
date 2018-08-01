@@ -1,0 +1,64 @@
+tech
+	format 33
+	ls1u
+end
+
+version
+	version 8.2.8
+	description "LibreSilicon CMOS Technology for 1um"
+end
+
+planes
+	well,w
+	via,v
+	oxide,o
+end
+
+types
+	well nwell
+	well pwell
+end
+
+contact
+end
+
+styles
+	styletype mos
+end
+
+compose
+end
+
+connect
+end
+
+cifoutput
+	style generic
+	scalefactor 1
+end
+
+cifinput
+	style generic
+	scalefactor 1
+end
+
+drc
+end
+
+extract
+	style standard
+	cscale 1
+	lambda 9
+	step   100
+	sidehalo 8
+	planeorder well 0
+	planeorder via 1
+	planeorder oxide 2
+end
+
+plot
+end
+
+aliases
+end
+
