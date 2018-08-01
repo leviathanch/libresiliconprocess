@@ -23,10 +23,26 @@ Licensed under the LibreSilicon license version 1
 		<nick>leviathan</nick>
 	</owner>
 
+	<planes>
+		<plane>
+			<name>well</name>
+			<shortname>w</shortname>
+		</plane>
+		<plane>
+			<name>via</name>
+			<shortname>v</shortname>
+		</plane>
+		<plane>
+			<name>oxide</name>
+			<shortname>o</shortname>
+		</plane>
+	</planes>
+
 	<!-- use common layer definitions, compatible with GDS II and CIF -->
 	<layers>
 		<layer>
-			<name>n_well</name>
+			<name>nwell</name>
+			<plane>well</plane>
 			<gds2>42</gds2>
 			<cif>CWN</cif>
 			<color>
@@ -35,7 +51,9 @@ Licensed under the LibreSilicon license version 1
 			</color>
 		</layer>
 		<layer>
-			<name>p_well</name>
+			<name>pwell</name>
+			<plane>well</plane>
+			<gds2>42</gds2>
 			<gds2>41</gds2>
 			<cif>CWP</cif>
 			<color>
@@ -53,7 +71,8 @@ Licensed under the LibreSilicon license version 1
 			</color>
 		</layer>
 		<layer>
-			<name>n_plus_select</name>
+			<name>nimplant</name>
+			<gds2>43</gds2>
 			<gds2>45</gds2>
 			<cif>CSN</cif>
 			<color>
@@ -62,7 +81,7 @@ Licensed under the LibreSilicon license version 1
 			</color>
 		</layer>
 		<layer>
-			<name>p_plus_select</name>
+			<name>pimplant</name>
 			<gds2>44</gds2>
 			<cif>CSP</cif>
 			<color>
@@ -117,6 +136,7 @@ Licensed under the LibreSilicon license version 1
 		</layer>
 		<layer>
 			<name>via2</name>
+			<gds2>50</gds2>
 			<gds2>61</gds2>
 			<cif>CV2</cif>
 			<color>
