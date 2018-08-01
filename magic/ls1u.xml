@@ -25,8 +25,16 @@ Licensed under the LibreSilicon license version 1
 
 	<planes>
 		<plane>
+			<name>active</name>
+			<shortname>a</shortname>
+		</plane>
+		<plane>
 			<name>well</name>
 			<shortname>w</shortname>
+		</plane>
+		<plane>
+			<name>implant</name>
+			<shortname>i</shortname>
 		</plane>
 		<plane>
 			<name>via</name>
@@ -49,20 +57,22 @@ Licensed under the LibreSilicon license version 1
 				<type>RGB</type>
 				<code>#FFBD88</code> <!-- light sky blue -->
 			</color>
+			<dstyle>12</dstyle>
 		</layer>
 		<layer>
 			<name>pwell</name>
 			<plane>well</plane>
-			<gds2>42</gds2>
 			<gds2>41</gds2>
 			<cif>CWP</cif>
 			<color>
 				<type>RGB</type>
 				<code>#87CEEB</code> <!-- macaroni and cheese -->
 			</color>
+			<dstyle>13</dstyle>
 		</layer>
 		<layer>
 			<name>active</name>
+			<plane>active</plane>
 			<gds2>43</gds2>
 			<cif>CAA</cif>
 			<color>
@@ -72,40 +82,51 @@ Licensed under the LibreSilicon license version 1
 		</layer>
 		<layer>
 			<name>nimplant</name>
-			<gds2>43</gds2>
+			<plane>implant</plane>
 			<gds2>45</gds2>
 			<cif>CSN</cif>
 			<color>
 				<type>RGB</type>
 				<code>#93CCEA</code> <!-- light cornflower blue --> 
 			</color>
+			<dstyle>2</dstyle>
+			<alias>ndiffusion</alias>
 		</layer>
 		<layer>
 			<name>pimplant</name>
+			<plane>implant</plane>
 			<gds2>44</gds2>
 			<cif>CSP</cif>
 			<color>
 				<type>RGB</type>
 				<code>#FF8243</code> <!-- mango tango -->
 			</color>
+			<dstyle>4</dstyle>
+			<alias>pdiffusion</alias>
 		</layer>
 		<layer>
 			<name>poly</name>
+			<plane>active</plane>
 			<gds2>46</gds2>
 			<cif>CPG</cif>
 			<color>
 				<type>RGB</type>
 				<code>#90EE90</code> <!-- light green -->
 			</color>
+			<dstyle>1</dstyle>
+			<alias>polysilicon</alias>
 		</layer>
 		<layer>
 			<name>contact</name>
+			<plane>via</plane>
 			<gds2>25</gds2>
 			<cif>CCC</cif>
 			<color>
 				<type>RGB</type>
 				<code>#D3D3D3</code> <!-- light gray -->
 			</color>
+			<dstyle>26</dstyle>
+			<alias>polycontact</alias>
 		</layer>
 		<layer>
 			<name>metal1</name>
@@ -118,6 +139,7 @@ Licensed under the LibreSilicon license version 1
 		</layer>
 		<layer>
 			<name>via1</name>
+			<plane>via</plane>
 			<gds2>50</gds2>
 			<cif>CV1</cif>
 			<color>
@@ -136,7 +158,7 @@ Licensed under the LibreSilicon license version 1
 		</layer>
 		<layer>
 			<name>via2</name>
-			<gds2>50</gds2>
+			<plane>via</plane>
 			<gds2>61</gds2>
 			<cif>CV2</cif>
 			<color>
@@ -155,6 +177,7 @@ Licensed under the LibreSilicon license version 1
 		</layer>
 		<layer>
 			<name>via3</name>
+			<plane>via</plane>
 			<gds2>30</gds2>
 			<cif>CV3</cif>
 			<color>
@@ -173,6 +196,7 @@ Licensed under the LibreSilicon license version 1
 		</layer>
 		<layer>
 			<name>via4</name>
+			<plane>via</plane>
 			<gds2>32</gds2>
 			<cif>CV4</cif>
 			<color>
@@ -191,6 +215,7 @@ Licensed under the LibreSilicon license version 1
 		</layer>
 		<layer>
 			<name>via5</name>
+			<plane>via</plane>
 			<gds2>36</gds2>
 			<cif>CV5</cif>
 			<color>

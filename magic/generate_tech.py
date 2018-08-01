@@ -43,8 +43,7 @@ class TechGen():
 				self.write_extract()
 				self.outfile.write("plot\n")
 				self.outfile.write("end\n\n")
-				self.outfile.write("aliases\n")
-				self.outfile.write("end\n\n")
+				self.write_aliases()
 
 	def write_tech_header(self):
 		self.outfile.write("tech\n")
@@ -121,7 +120,22 @@ class TechGen():
 				print("no name defined")
 		self.outfile.write("end\n\n")
 
-
+	def write_aliases(self):
+		layers=self.dom.getElementsByTagName('layer')
+		self.outfile.write("aliases\n")
+		for n in layers:
+			try:
+				layer_name=n.getElementsByTagName('name')[0].firstChild.data
+				list_of_aliases=[]
+				for alias in n.getElementsByTagName('alias'):
+					list_of_aliases.append(alias.firstChild.data)
+				if(len(list_of_aliases)>0):
+					#self.outfile.write("\t"+layer_name+" "+(",".join(list_of_aliases))+"\n")
+					for a in list_of_aliases:
+						self.outfile.write("\t"+a+" "+layer_name+"\n")
+			except:
+				print("no name defined")
+		self.outfile.write("end\n\n")
 
 app = TechGen()
 app.run()

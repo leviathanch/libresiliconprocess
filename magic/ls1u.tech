@@ -9,7 +9,9 @@ version
 end
 
 planes
+	active,a
 	well,w
+	implant,i
 	via,v
 	oxide,o
 end
@@ -17,6 +19,16 @@ end
 types
 	well nwell
 	well pwell
+	active active
+	implant nimplant
+	implant pimplant
+	active poly
+	via contact
+	via via1
+	via via2
+	via via3
+	via via4
+	via via5
 end
 
 contact
@@ -24,6 +36,12 @@ end
 
 styles
 	styletype mos
+	nwell 12
+	pwell 13
+	nimplant 2
+	pimplant 4
+	poly 1
+	contact 26
 end
 
 compose
@@ -51,14 +69,20 @@ extract
 	lambda 9
 	step   100
 	sidehalo 8
-	planeorder well 0
-	planeorder via 1
-	planeorder oxide 2
+	planeorder active 0
+	planeorder well 1
+	planeorder implant 2
+	planeorder via 3
+	planeorder oxide 4
 end
 
 plot
 end
 
 aliases
+	ndiffusion nimplant
+	pdiffusion pimplant
+	polysilicon poly
+	polycontact contact
 end
 
