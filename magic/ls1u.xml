@@ -41,6 +41,10 @@ Licensed under the LibreSilicon license version 1
 			<shortname>v</shortname>
 		</plane>
 		<plane>
+			<name>metal</name>
+			<shortname>m</shortname>
+		</plane>
+		<plane>
 			<name>oxide</name>
 			<shortname>o</shortname>
 		</plane>
@@ -130,12 +134,14 @@ Licensed under the LibreSilicon license version 1
 		</layer>
 		<layer>
 			<name>metal1</name>
+			<plane>metal</plane>
 			<gds2>49</gds2>
 			<cif>CM1</cif>
 			<color>
 				<type>RGB</type>
 				<code>#6050DC</code> <!-- majorelle blue -->
 			</color>
+			<dstyle>20</dstyle>
 		</layer>
 		<layer>
 			<name>via1</name>
@@ -146,15 +152,18 @@ Licensed under the LibreSilicon license version 1
 				<type>RGB</type>
 				<code>#D3D3D3</code> <!-- ligth gray -->
 			</color>
+			<dstyle>81</dstyle>
 		</layer>
 		<layer>
 			<name>metal2</name>
+			<plane>metal</plane>
 			<gds2>51</gds2>
 			<cif>CM2</cif>
 			<color>
 				<type>RGB</type>
 				<code>#0BDA51</code> <!-- malachite -->
 			</color>
+			<dstyle>21</dstyle>
 		</layer>
 		<layer>
 			<name>via2</name>
@@ -165,15 +174,18 @@ Licensed under the LibreSilicon license version 1
 				<type>RGB</type>
 				<code>#D3D3D3</code> <!-- ligth gray -->
 			</color>
+			<dstyle>37</dstyle>
 		</layer>
 		<layer>
 			<name>metal3</name>
+			<plane>metal</plane>
 			<gds2>62</gds2>
 			<cif>CM3</cif>
 			<color>
 				<type>RGB</type>
 				<code>#FBEC5D</code> <!-- maize -->
 			</color>
+			<dstyle>22</dstyle>
 		</layer>
 		<layer>
 			<name>via3</name>
@@ -184,15 +196,18 @@ Licensed under the LibreSilicon license version 1
 				<type>RGB</type>
 				<code>#D3D3D3</code> <!-- ligth gray -->
 			</color>
+			<dstyle>38</dstyle>
 		</layer>
 		<layer>
 			<name>metal4</name>
+			<plane>metal</plane>
 			<gds2>31</gds2>
 			<cif>CM4</cif>
 			<color>
 				<type>RGB</type>
 				<code>#C04000</code> <!-- mahogany -->
 			</color>
+			<dstyle>23</dstyle>
 		</layer>
 		<layer>
 			<name>via4</name>
@@ -203,15 +218,18 @@ Licensed under the LibreSilicon license version 1
 				<type>RGB</type>
 				<code>#D3D3D3</code> <!-- ligth gray -->
 			</color>
+			<dstyle>39</dstyle>
 		</layer>
 		<layer>
 			<name>metal5</name>
+			<plane>metal</plane>
 			<gds2>33</gds2>
 			<cif>CM5</cif>
 			<color>
 				<type>RGB</type>
 				<code>#CA1F7B</code> <!-- magenta (dye) -->
 			</color>
+			<dstyle>24</dstyle>
 		</layer>
 		<layer>
 			<name>via5</name>
@@ -225,12 +243,14 @@ Licensed under the LibreSilicon license version 1
 		</layer>
 		<layer>
 			<name>metal6</name>
+			<plane>metal</plane>
 			<gds2>37</gds2>
 			<cif>CM6</cif>
 			<color>
 				<type>RGB</type>
 				<code>#195905</code> <!-- lincoln green -->
 			</color>
+			<dstyle>64</dstyle>
 		</layer>
 		<layer>
 			<name>glass</name>

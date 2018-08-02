@@ -13,6 +13,7 @@ planes
 	well,w
 	implant,i
 	via,v
+	metal,m
 	oxide,o
 end
 
@@ -24,11 +25,17 @@ types
 	implant pimplant
 	active poly
 	via contact
+	metal metal1
 	via via1
+	metal metal2
 	via via2
+	metal metal3
 	via via3
+	metal metal4
 	via via4
+	metal metal5
 	via via5
+	metal metal6
 end
 
 contact
@@ -42,6 +49,16 @@ styles
 	pimplant 4
 	poly 1
 	contact 26
+	metal1 20
+	via1 81
+	metal2 21
+	via2 37
+	metal3 22
+	via3 38
+	metal4 23
+	via4 39
+	metal5 24
+	metal6 64
 end
 
 compose
@@ -73,16 +90,13 @@ extract
 	planeorder well 1
 	planeorder implant 2
 	planeorder via 3
-	planeorder oxide 4
+	planeorder metal 4
+	planeorder oxide 5
 end
 
 plot
 end
 
 aliases
-	ndiffusion nimplant
-	pdiffusion pimplant
-	polysilicon poly
-	polycontact contact
 end
 

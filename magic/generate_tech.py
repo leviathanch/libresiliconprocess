@@ -43,7 +43,9 @@ class TechGen():
 				self.write_extract()
 				self.outfile.write("plot\n")
 				self.outfile.write("end\n\n")
-				self.write_aliases()
+				#self.write_aliases()
+				self.outfile.write("aliases\n")
+				self.outfile.write("end\n\n")
 
 	def write_tech_header(self):
 		self.outfile.write("tech\n")
