@@ -90,7 +90,6 @@ class auto_generator:
 		eqcode = self.getStepEquipment(step)
 		eqlevel = self.getEquipmentCleanLevel(eqcode)
 		stpdscr = self.getStepDescription(step)
-		print stpdscr+" -> "+eqlevel
 
 		if self.recent_level not in eqlevel.split('/'):
 			self.recent_level = eqlevel
@@ -122,55 +121,35 @@ class auto_generator:
 
 		return ret
 
+	def extractSubSteps(self,substep):
+		ret=[]
+		if isinstance(substep, dict):
+			ret.append(substep)
+		else:
+			if substep in self.repetitive_steps:
+				steps=self.repetitive_steps[substep]
+				if isinstance(steps, dict):
+					ret.append(steps)
+				elif isinstance(steps, list):
+					for step in steps:
+						ret+=self.extractSubSteps(step)
+				else:
+					print(steps)
+		return ret
+
 	def parseSubStepsToLaTeX(self,step_substeps):
 		ret=""
 		for substep in step_substeps:
-			# checking whether it's a short hand:
-			try:
-				step_type = substep["step"]
-			except:
-				step_type = "normal"
+			for stps in self.extractSubSteps(substep):
+				ret+=self.parseSubStepToStepLaTeXTable(stps)
 
-			# checking for step type
-			if step_type=="normal":  # default step
-				ret+=self.parseSubStepToStepLaTeXTable(substep)
-			elif step_type=="exposure":  # exposure step
-				try:
-					resist_type = substep["resist"]
-				except:
-					resist_type = "positive"
-				try:
-					stps = self.repetitive_steps["exposure"][resist_type]
-				except:
-					print "No steps defined for "+resist_type+" exposure!"
-				# decided on sub steps
-				ret+=self.parseSubStepsToLaTeX(stps)
 		return ret
 
 	def subStepLevelsToLaTeX(self,step_substeps):
 		ret=""
 		for substep in step_substeps:
-			# checking whether it's a short hand:
-			try:
-				step_type = substep["step"]
-			except:
-				step_type = "normal"
-
-			# checking for step type
-			if step_type=="normal":  # default step
-				ret+=self.parseSubStepLevelsToStepLaTeXTable(substep)
-			elif step_type=="exposure":  # exposure step
-				try:
-					resist_type = substep["resist"]
-				except:
-					resist_type = "positive"
-				try:
-					stps = self.repetitive_steps["exposure"][resist_type]
-				except:
-					print "No steps defined for "+resist_type+" exposure!"
-
-				# decided on sub steps
-				ret+=self.subStepLevelsToLaTeX(stps)
+			for stps in self.extractSubSteps(substep):
+				ret+=self.parseSubStepLevelsToStepLaTeXTable(stps)
 		return ret
 
 	def parseStepToLaTeX(self,step):
@@ -195,9 +174,6 @@ class auto_generator:
 		ret+="}{" #clean_table_content
 		ret+=self.parseSubStepsToLaTeX(step_substeps)
 		ret+="}\n"
-		print("\n")
-		print("\n")
-		print("\n")
 
 		return ret
 
