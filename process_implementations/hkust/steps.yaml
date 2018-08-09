@@ -218,13 +218,13 @@
                 {
                         equipment: SPT-3180,
                         process: "Deposit Aluminum",
-                        requirement: "15 seconds (roughly 60nm)",
+                        requirement: "37.5 seconds (roughly 600nm)",
                 },
                 normal_exposure,
                 {
                         equipment: WET-D1,
                         process: "Wire formation",
-                        requirement: "4\\um",
+                        requirement: "2 minutes (600 nm, 282.3 nm/min)",
                 },
                 {
                         equipment: WET-Y1,
@@ -264,13 +264,13 @@
                 {
                         equipment: SPT-3180,
                         process: "Deposit Aluminum",
-                        requirement: "15 seconds (roughly 60nm)",
+                        requirement: "37.5 seconds (roughly 600nm)",
                 },
                 normal_exposure,
                 {
                         equipment: WET-D1,
                         process: "Wire formation",
-                        requirement: "4\\um",
+                        requirement: "2 minutes (600 nm, 282.3 nm/min)",
                 },
                 {
                         equipment: WET-Y1,
@@ -310,13 +310,13 @@
                 {
                         equipment: SPT-3180,
                         process: "Deposit Aluminum",
-                        requirement: "15 seconds (roughly 60nm)",
+                        requirement: "37.5 seconds (roughly 600nm)",
                 },
                 normal_exposure,
                 {
                         equipment: WET-D1,
                         process: "Wire formation",
-                        requirement: "4\\um",
+                        requirement: "2 minutes (600 nm, 282.3 nm/min)",
                 },
                 {
                         equipment: WET-Y1,
