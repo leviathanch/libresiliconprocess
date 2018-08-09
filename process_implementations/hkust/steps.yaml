@@ -1,51 +1,16 @@
 - { 
         name: Initial alignment mask,
-        cross_tikz: tikz_process_steps/sti.a.tex,
+        cross_tikz: tikz_process_steps/basic.a.tex,
         mask: basic,
         steps: [
-                {
-                        equipment: WET-A3,
-                        process: "Initial Cleaning",
-                        requirement: "H2SO4+H2O2, 10mins @ 120\\degreesC",
-                },
-                {
-                        equipment: WET-A2,
-                        process: "HF dip",
-                        requirement: "1 min",
-                },
-                {
-                        step: exposure,
-                        resist: positive,
-                },
+                clean_B,
+                normal_exposure,
                 {
                         equipment: DRY-490,
                         process: "Etching the alignment crosses from HKUST",
-                        requirement: "1 minute (2\\um)",
+                        requirement: "2 minutes (120nm)",
                 },
-                {
-                        equipment: DRY-PR-1,
-                        process: "Resist strip",
-                },
-        ],
-}
-- { 
-        name: Shallow trench isolation,
-        cross_tikz: tikz_process_steps/sti.a.tex,
-        mask: active,
-        steps: [
-                {
-                        step: exposure,
-                        resist: positive,
-                },
-                {
-                        equipment: DRY-Si-1,
-                        process: "Etching the trenches",
-                        requirement: "1 minute (2\\um)",
-                },
-                {
-                        equipment: DRY-PR-1,
-                        process: "Resist strip",
-                },
+                asher_resist_strip,
         ],
 }
 - {
@@ -53,19 +18,14 @@
         cross_tikz: tikz_process_steps/pwell.a.tex,
         mask: pwell,
         steps: [
-                {
-                        step: exposure,
-                        resist: negative,
-                },
+                clean_B,
+                implant_exposure,
                 {
                         equipment: IMP-3000,
                         process: "Boron implant",
-                        requirement: "$2.5 \\times 10^{12}cm^{-2}$@100keV",
+                        requirement: "$2.5 \\times 10^{12}cm^{-2}$@60keV",
                 },
-                {
-                        equipment: DRY-PR-1,
-                        process: "Resist strip",
-                },
+                asher_resist_strip,
         ],
 }
 - {
@@ -73,40 +33,51 @@
         cross_tikz: tikz_process_steps/nwell.a.tex,
         mask: nwell,
         steps: [
-
-                {
-                        step: exposure,
-                        resist: negative,
-                },
+                clean_B,
+                implant_exposure,
                 {
                         equipment: IMP-3000,
                         process: "Phorphorus implant",
-                        requirement: "$2.5 \\times 10^{12}cm^{-2}$@100keV",
+                        requirement: "$2.5 \\times 10^{12}cm^{-2}$@130keV",
                 },
+                asher_resist_strip,
+        ],
+}
+- { 
+        name: Shallow trench isolation,
+        cross_tikz: tikz_process_steps/sti.a.tex,
+        mask: pwell+nwell,
+        steps: [
+                clean_B,
+                normal_exposure,
                 {
-                        equipment: DRY-PR-1,
-                        process: "Resist strip",
+                        equipment: DRY-Si-1,
+                        process: "Etching the trenches",
+                        requirement: "1 minute (2\\um)",
                 },
+                asher_resist_strip,
         ],
 }
 - {
         name: Field oxide,
         cross_tikz: tikz_process_steps/fox.a.tex,
-        mask: active,
+        mask: pwell+nwell,
         steps: [
                 {
                         equipment: DIF-D2,
-                        process: "Thick oxide growth",
-                        requirement: "1.23\\um, 4 hours 30 minutes @ 1050\\degreesC in wet environment",
+                        process: "Drive in",
+                        requirement: "4 hours 30 minutes @ 1050\\degreesC in dry environment",
                 },
                 {
-                        step: exposure,
-                        resist: negative,
+                        equipment: CVD-B3,
+                        process: "Oxide deposition",
+                        requirement: "3\\um (filling the trenches)",
                 },
+                normal_exposure,
                 {
                         equipment: WET-C3,
                         process: "BOE: Field oxide etching",
-                        requirement: "12 minutes 30 seconds",
+                        requirement: "6 minutes (3000 nm, 500nm/min)",
                 },
                 {
                         equipment: WET-E4,
@@ -130,10 +101,7 @@
                         process: "Gate electrode growth",
                         requirement: "600nm of poly silicon",
                 },
-                {
-                        step: exposure,
-                        resist: positive,
-                },
+                normal_exposure,
                 {
                         equipment: DRY-Poly,
                         process: "Poly silicon etch",
@@ -151,19 +119,14 @@
         cross_tikz: tikz_process_steps/nimplant.a.tex,
         mask: nimplant,
         steps: [
-                {
-                        step: exposure,
-                        resist: negative,
-                },
+                clean_B,
+                implant_exposure,
                 {
                         equipment: IMP-3000,
                         process: "Phorphorus implant",
                         requirement: "$2.5 \\times 10^{12}cm^{-2}$ @ 90keV",
                 },
-                {
-                        equipment: DRY-PR-1,
-                        process: "Resist strip",
-                },
+                asher_resist_strip,
         ],
 }
 - {
@@ -171,19 +134,14 @@
         cross_tikz: tikz_process_steps/pimplant.a.tex,
         mask: pimplant,
         steps: [
-                {
-                        step: exposure,
-                        resist: negative,
-                },
+                clean_B,
+                implant_exposure,
                 {
                         equipment: IMP-3000,
                         process: "Boron implant",
                         requirement: "$2.5 \\times 10^{12}cm^{-2}$ @ 35keV",
                 },
-                {
-                        equipment: DRY-PR-1,
-                        process: "Resist strip",
-                },
+                asher_resist_strip,
         ],
 }
 - {
@@ -196,10 +154,7 @@
                         process: "Spacer oxide",
                         requirement: "50 nm",
                 },
-                {
-                        step: exposure,
-                        resist: negative,
-                },
+                normal_exposure,
                 {
                         equipment: DRY-AOE,
                         process: "Anisotropic oxide etch",
@@ -240,16 +195,13 @@
                 {
                         equipment: CVD-F4,
                         process: "Oxide deposition",
-                        requirement: "4\\um",
+                        requirement: "500 nm",
                 },
+                normal_exposure,
                 {
-                        step: exposure,
-                        resist: negative,
-                },
-                {
-                        equipment: DRY-Trion,
-                        process: "Oxide Etch",
-                        requirement: "80 minutes (4\\um)",
+                        equipment: WET-E2,
+                        process: "BOE (1:6), LTO Etch",
+                        requirement: "1 minute (500 nm, 500nm/min)",
                 },
                 {
                         equipment: WET-Y1,
@@ -268,12 +220,9 @@
                         process: "Deposit Aluminum",
                         requirement: "15 seconds (roughly 60nm)",
                 },
+                normal_exposure,
                 {
-                        step: exposure,
-                        resist: negative,
-                },
-                {
-                        equipment: DRY-Metal-2,
+                        equipment: WET-D1,
                         process: "Wire formation",
                         requirement: "4\\um",
                 },
@@ -292,16 +241,13 @@
                 {
                         equipment: CVD-F4,
                         process: "Oxide deposition",
-                        requirement: "4\\um",
+                        requirement: "500 nm",
                 },
+                normal_exposure,
                 {
-                        step: exposure,
-                        resist: negative,
-                },
-                {
-                        equipment: DRY-Trion,
-                        process: "Oxide Etch",
-                        requirement: "80 minutes (4\\um)",
+                        equipment: WET-E2,
+                        process: "BOE (1:6), LTO Etch",
+                        requirement: "1 minute (500 nm, 500nm/min)",
                 },
                 {
                         equipment: WET-Y1,
@@ -320,12 +266,9 @@
                         process: "Deposit Aluminum",
                         requirement: "15 seconds (roughly 60nm)",
                 },
+                normal_exposure,
                 {
-                        step: exposure,
-                        resist: negative,
-                },
-                {
-                        equipment: DRY-Metal-2,
+                        equipment: WET-D1,
                         process: "Wire formation",
                         requirement: "4\\um",
                 },
@@ -344,16 +287,13 @@
                 {
                         equipment: CVD-F4,
                         process: "Oxide deposition",
-                        requirement: "4\\um",
+                        requirement: "500 nm",
                 },
+                normal_exposure,
                 {
-                        step: exposure,
-                        resist: negative,
-                },
-                {
-                        equipment: DRY-Trion,
-                        process: "Oxide Etch",
-                        requirement: "80 minutes (4\\um)",
+                        equipment: WET-E2,
+                        process: "BOE (1:6), LTO Etch",
+                        requirement: "1 minute (500 nm, 500nm/min)",
                 },
                 {
                         equipment: WET-Y1,
@@ -372,12 +312,9 @@
                         process: "Deposit Aluminum",
                         requirement: "15 seconds (roughly 60nm)",
                 },
+                normal_exposure,
                 {
-                        step: exposure,
-                        resist: negative,
-                },
-                {
-                        equipment: DRY-Metal-2,
+                        equipment: WET-D1,
                         process: "Wire formation",
                         requirement: "4\\um",
                 },

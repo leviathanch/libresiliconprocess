@@ -22,7 +22,6 @@ WET-B1: {
         location: P2-01000,
         equipment: "B1: Sulfuric cleaning",
         level: clean,
-        post: dry_B,
 }
 #(spin drier)
 SRD-B: {
@@ -51,6 +50,17 @@ WET-D-DR: {
         level: semi-clean,
         post: dry_D,
 }
+WET-D1: {
+        location: P2-01000,
+        equipment: "D1: Aluminum etch",
+        level: semi-clean,
+}
+WET-D3: {
+        location: P2-01000,
+        equipment: "D3: General purpose",
+        level: semi-clean,
+}
+
 #(spin drier)
 SRD-D: {
         location: P2-01000,
