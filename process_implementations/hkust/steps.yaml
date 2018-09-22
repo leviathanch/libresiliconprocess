@@ -308,15 +308,38 @@
         mask: metal3,
         steps: [
                 {
-                        equipment: SPT-3180,
-                        process: "Deposit Aluminum",
-                        requirement: "37.5 seconds (roughly 600nm)",
+                        equipment: SPT-NSC3000,
+                        process: "Deposit Titanium-Tungsten alloy (TiW -> 5nm/min)",
+                        requirement: "120 minutes = 2 hours (roughly 600nm)",
                 },
                 normal_exposure,
                 {
-                        equipment: WET-D1,
+                        equipment: WET-E2,
                         process: "Wire formation",
-                        requirement: "2 minutes (600 nm, 282.3 nm/min)",
+                        requirement: "APM solution (Ammonia and Hydrogen Peroxide mixture), 10 minutes",
+                },
+                {
+                        equipment: WET-Y1,
+                        process: "Resist Stripping",
+                        requirement: "5mins, 70\\degreesC",
+                },
+        ],
+}
+- {
+        name: Glass,
+        cross_tikz: tikz_process_steps/glass.a.tex,
+        mask: glass,
+        steps: [
+                {
+                        equipment: CVD-F4,
+                        process: "Oxide deposition",
+                        requirement: "500 nm",
+                },
+                normal_exposure,
+                {
+                        equipment: WET-E2,
+                        process: "BOE (1:6), LTO Etch",
+                        requirement: "1 minute (500 nm, 500nm/min)",
                 },
                 {
                         equipment: WET-Y1,

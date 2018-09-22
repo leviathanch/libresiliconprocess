@@ -197,6 +197,11 @@ SPT-3180: {
         equipment: "Varian 3180 Sputter",
         level: semi-clean,
 }
+SPT-NSC3000: {
+        location: P2-01000,
+        equipment: "NSC3000 Sputter",
+        level: semi-clean,
+}
 
 ## Photolithographic modules
 PHT-T1: {
