@@ -1,31 +1,23 @@
-* Qucs 0.0.20 /home/leviathan/.qucs/test1.sch
+* Qucs 0.0.20 /home/leviathan/libresiliconprocess/simulation/1xinv.sch
 .INCLUDE "/usr/share/qucs-s/xspice_cmlib/include/ngspice_mathfunc.inc"
-* Qucs 0.0.20  /home/leviathan/.qucs/test1.sch
-.INCLUDE "/home/leviathan/libresiliconprocess/simulation/fets.lib"
-
-.MODEL M1 LV1UNMOS
-EPr1 Pr1 0 input _net0 1.0
-VPr2 _net1 _net2 DC 0
-VPr3 _net1 _net3 DC 0
-R3 _net0 _net2  50
-R4 input _net4  50
-V2 _net4 0 DC 0 PULSE( 0  2 0N 100N 100N 1e-06 3.2e-06)  AC 0
-V3 _net1 0 DC 3.3
-R1 output _net3  10K
-R2 0 output  1K
-M1 output  input  0  0 LV1UNMOS
-
-M2 output  input  _net0  _net0 LV1UPMOS
+* Qucs 0.0.20  /home/leviathan/libresiliconprocess/simulation/1xinv.sch
+.INCLUDE "/home/leviathan/libresiliconprocess/simulation/pmos1u.lib"
+.INCLUDE "/home/leviathan/libresiliconprocess/simulation/nmos1u.lib"
+V3 _net0 0 DC 5
+V2 _net1 0 DC 0 PULSE( 0  5 0N 100N 100N 1e-06 2.2e-06)  AC 0
+EPr1 Pr1 0 output 0 1.0
+XPMOS  output input _net0 _net0 LV1UPMOS 
+R4 input _net1  50
+R5 0 output  100K
+XNMOS  output input 0 0 LV1UNMOS 
 .control
 echo "" > spice4qucs.cir.noise
 echo "" > spice4qucs.cir.pz
-tran 1n 10u 1u
-linearize v(out)
-fft V(output)
-let S = db(v(output))
-write test1_custom.txt input(1) output(2)
+tran 5e-08 1e-05 0 
+write 1xinv_tran.txt v(Pr1) v(input) v(output) 
 destroy all
 reset
+
 exit
 .endc
 .END
