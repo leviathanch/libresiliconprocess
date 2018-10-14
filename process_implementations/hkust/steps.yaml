@@ -14,21 +14,6 @@
         ],
 }
 - {
-        name: P-well,
-        cross_tikz: tikz_process_steps/pwell.a.tex,
-        mask: pwell,
-        steps: [
-                clean_B,
-                implant_exposure,
-                {
-                        equipment: IMP-3000,
-                        process: "Boron implant",
-                        requirement: "$2.5 \\times 10^{12}cm^{-2}$@60keV",
-                },
-                asher_resist_strip,
-        ],
-}
-- {
         name: N-well,
         cross_tikz: tikz_process_steps/nwell.a.tex,
         mask: nwell,
@@ -38,7 +23,52 @@
                 {
                         equipment: IMP-3000,
                         process: "Phorphorus implant",
-                        requirement: "$2.5 \\times 10^{12}cm^{-2}$@130keV",
+                        requirement: "$2.33 \\times 10^{12}cm^{-2}$@110keV",
+                },
+                asher_resist_strip,
+        ],
+}
+- {
+        name: P-well,
+        cross_tikz: tikz_process_steps/pwell.a.tex,
+        mask: pwell,
+        steps: [
+                clean_B,
+                implant_exposure,
+                {
+                        equipment: IMP-3000,
+                        process: "Boron implant",
+                        requirement: "$1.93 \\times 10^{12}cm^{-2}$@40keV",
+                },
+                asher_resist_strip,
+        ],
+}
+- {
+        name: P-Base,
+        cross_tikz: tikz_process_steps/pbase.a.tex,
+        mask: pbase,
+        steps: [
+                clean_B,
+                implant_exposure,
+                {
+                        equipment: IMP-3000,
+                        process: "Boron implant",
+                        requirement: "$1.93 \\times 10^{12}cm^{-2}$@40keV",
+                },
+                asher_resist_strip,
+        ],
+}
+- {
+        name: N-Base,
+        cross_tikz: tikz_process_steps/nbase.a.tex,
+        mask: nbase,
+        steps: [
+                clean_B,
+                implant_exposure,
+                {
+                        equipment: IMP-3000,
+                        process: "Phorphorus implant",
+                        requirement: "$2.33 \\times 10^{12}cm^{-2}$@110keV",
                 },
                 asher_resist_strip,
         ],
@@ -78,6 +108,39 @@
                         equipment: WET-C3,
                         process: "BOE: Field oxide etching",
                         requirement: "6 minutes (3000 nm, 500nm/min)",
+                },
+                {
+                        equipment: WET-E4,
+                        process: "Sulfuric resist strip",
+                        requirement: "H2SO4+H2O2, 120\\degreesC, 10mins",
+                },
+        ],
+}
+- {
+        name: SONOS,
+        cross_tikz: tikz_process_steps/gate.a.tex,
+        mask: sonos,
+        steps: [
+                {
+                        equipment: CVD-B2,
+                        process: "Lower gate oxide growth",
+                        requirement: "40nm",
+                },
+                {
+                        equipment: CVD-B2,
+                        process: "Charge carrying nitride growth",
+                        requirement: "10nm",
+                },
+                normal_exposure,
+                {
+                        equipment: DRY-490,
+                        process: "Nitride etch",
+                        requirement: "6 seconds (10nm, 100nm/min)",
+                },
+                {
+                        equipment: WET-C3,
+                        process: "BOE: Field oxide etching",
+                        requirement: "(4.8 seconds) $\\approx$ 5 seconds (40 nm, 500nm/min)",
                 },
                 {
                         equipment: WET-E4,

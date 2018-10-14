@@ -17,25 +17,6 @@
 \addProcessStep{E4:Resist strip (WET-E4)}{P2-01000}{clean/semi-clean}{Resist strip}{}
 \addProcessStep{Spin Dryer-E (SRD-E)}{P2-01000}{clean/semi-clean}{Dry the wafer automatically}{}
 }
-\makeProcessTable{P-well}{tikz_process_steps/pwell.a.tex}{pwell}{\addLevelCell{clean} %Default cleaning
-\addLevelCell{clean} %Dry the wafer automatically
-\addLevelCell{clean} %HMDS, PR coating, soft bake
-\addLevelCell{clean} %Exposure of the layer
-\addLevelCell{clean} %Develop, Hard bake
-\addLevelCell{clean} %Boron implant
-\addLevelCell{clean} %Resist strip
-\addLevelCell{clean} %Resist strip
-\addLevelCell{clean} %Dry the wafer automatically
-}{\addProcessStep{B1: Sulfuric cleaning (WET-B1)}{P2-01000}{clean}{Default cleaning}{}
-\addProcessStep{Spin Dryer-B (SRD-B)}{P2-01000}{clean}{Dry the wafer automatically}{}
-\addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{FH 6400L: 3krpm ( $\approx$1.5\um ), soft bake: 110\degreesC 1min}
-\addProcessStep{ASML Stepper (PHT-S1)}{P2-00100}{clean/semi-clean}{Exposure of the layer}{}
-\addProcessStep{SVG Developer Track (PHT-T2)}{P2-00100}{clean/semi-clean}{Develop, Hard bake}{FHD-5, 1min; hard bake: 120\degreesC, 1min}
-\addProcessStep{CF-3000 Implanter (IMP-3000)}{P2-01000}{clean/semi-clean}{Boron implant}{$2.5 \times 10^{12}cm^{-2}$@60keV}
-\addProcessStep{PS210 Asher (DRY-PR-1)}{P2-01000}{clean}{Resist strip}{}
-\addProcessStep{E4:Resist strip (WET-E4)}{P2-01000}{clean/semi-clean}{Resist strip}{}
-\addProcessStep{Spin Dryer-E (SRD-E)}{P2-01000}{clean/semi-clean}{Dry the wafer automatically}{}
-}
 \makeProcessTable{N-well}{tikz_process_steps/nwell.a.tex}{nwell}{\addLevelCell{clean} %Default cleaning
 \addLevelCell{clean} %Dry the wafer automatically
 \addLevelCell{clean} %HMDS, PR coating, soft bake
@@ -50,7 +31,64 @@
 \addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{FH 6400L: 3krpm ( $\approx$1.5\um ), soft bake: 110\degreesC 1min}
 \addProcessStep{ASML Stepper (PHT-S1)}{P2-00100}{clean/semi-clean}{Exposure of the layer}{}
 \addProcessStep{SVG Developer Track (PHT-T2)}{P2-00100}{clean/semi-clean}{Develop, Hard bake}{FHD-5, 1min; hard bake: 120\degreesC, 1min}
-\addProcessStep{CF-3000 Implanter (IMP-3000)}{P2-01000}{clean/semi-clean}{Phorphorus implant}{$2.5 \times 10^{12}cm^{-2}$@130keV}
+\addProcessStep{CF-3000 Implanter (IMP-3000)}{P2-01000}{clean/semi-clean}{Phorphorus implant}{$2.33 \times 10^{12}cm^{-2}$@110keV}
+\addProcessStep{PS210 Asher (DRY-PR-1)}{P2-01000}{clean}{Resist strip}{}
+\addProcessStep{E4:Resist strip (WET-E4)}{P2-01000}{clean/semi-clean}{Resist strip}{}
+\addProcessStep{Spin Dryer-E (SRD-E)}{P2-01000}{clean/semi-clean}{Dry the wafer automatically}{}
+}
+\makeProcessTable{P-well}{tikz_process_steps/pwell.a.tex}{pwell}{\addLevelCell{clean} %Default cleaning
+\addLevelCell{clean} %Dry the wafer automatically
+\addLevelCell{clean} %HMDS, PR coating, soft bake
+\addLevelCell{clean} %Exposure of the layer
+\addLevelCell{clean} %Develop, Hard bake
+\addLevelCell{clean} %Boron implant
+\addLevelCell{clean} %Resist strip
+\addLevelCell{clean} %Resist strip
+\addLevelCell{clean} %Dry the wafer automatically
+}{\addProcessStep{B1: Sulfuric cleaning (WET-B1)}{P2-01000}{clean}{Default cleaning}{}
+\addProcessStep{Spin Dryer-B (SRD-B)}{P2-01000}{clean}{Dry the wafer automatically}{}
+\addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{FH 6400L: 3krpm ( $\approx$1.5\um ), soft bake: 110\degreesC 1min}
+\addProcessStep{ASML Stepper (PHT-S1)}{P2-00100}{clean/semi-clean}{Exposure of the layer}{}
+\addProcessStep{SVG Developer Track (PHT-T2)}{P2-00100}{clean/semi-clean}{Develop, Hard bake}{FHD-5, 1min; hard bake: 120\degreesC, 1min}
+\addProcessStep{CF-3000 Implanter (IMP-3000)}{P2-01000}{clean/semi-clean}{Boron implant}{$1.93 \times 10^{12}cm^{-2}$@40keV}
+\addProcessStep{PS210 Asher (DRY-PR-1)}{P2-01000}{clean}{Resist strip}{}
+\addProcessStep{E4:Resist strip (WET-E4)}{P2-01000}{clean/semi-clean}{Resist strip}{}
+\addProcessStep{Spin Dryer-E (SRD-E)}{P2-01000}{clean/semi-clean}{Dry the wafer automatically}{}
+}
+\makeProcessTable{P-Base}{tikz_process_steps/pbase.a.tex}{pbase}{\addLevelCell{clean} %Default cleaning
+\addLevelCell{clean} %Dry the wafer automatically
+\addLevelCell{clean} %HMDS, PR coating, soft bake
+\addLevelCell{clean} %Exposure of the layer
+\addLevelCell{clean} %Develop, Hard bake
+\addLevelCell{clean} %Boron implant
+\addLevelCell{clean} %Resist strip
+\addLevelCell{clean} %Resist strip
+\addLevelCell{clean} %Dry the wafer automatically
+}{\addProcessStep{B1: Sulfuric cleaning (WET-B1)}{P2-01000}{clean}{Default cleaning}{}
+\addProcessStep{Spin Dryer-B (SRD-B)}{P2-01000}{clean}{Dry the wafer automatically}{}
+\addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{FH 6400L: 3krpm ( $\approx$1.5\um ), soft bake: 110\degreesC 1min}
+\addProcessStep{ASML Stepper (PHT-S1)}{P2-00100}{clean/semi-clean}{Exposure of the layer}{}
+\addProcessStep{SVG Developer Track (PHT-T2)}{P2-00100}{clean/semi-clean}{Develop, Hard bake}{FHD-5, 1min; hard bake: 120\degreesC, 1min}
+\addProcessStep{CF-3000 Implanter (IMP-3000)}{P2-01000}{clean/semi-clean}{Boron implant}{$1.93 \times 10^{12}cm^{-2}$@40keV}
+\addProcessStep{PS210 Asher (DRY-PR-1)}{P2-01000}{clean}{Resist strip}{}
+\addProcessStep{E4:Resist strip (WET-E4)}{P2-01000}{clean/semi-clean}{Resist strip}{}
+\addProcessStep{Spin Dryer-E (SRD-E)}{P2-01000}{clean/semi-clean}{Dry the wafer automatically}{}
+}
+\makeProcessTable{N-Base}{tikz_process_steps/nbase.a.tex}{nbase}{\addLevelCell{clean} %Default cleaning
+\addLevelCell{clean} %Dry the wafer automatically
+\addLevelCell{clean} %HMDS, PR coating, soft bake
+\addLevelCell{clean} %Exposure of the layer
+\addLevelCell{clean} %Develop, Hard bake
+\addLevelCell{clean} %Phorphorus implant
+\addLevelCell{clean} %Resist strip
+\addLevelCell{clean} %Resist strip
+\addLevelCell{clean} %Dry the wafer automatically
+}{\addProcessStep{B1: Sulfuric cleaning (WET-B1)}{P2-01000}{clean}{Default cleaning}{}
+\addProcessStep{Spin Dryer-B (SRD-B)}{P2-01000}{clean}{Dry the wafer automatically}{}
+\addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{FH 6400L: 3krpm ( $\approx$1.5\um ), soft bake: 110\degreesC 1min}
+\addProcessStep{ASML Stepper (PHT-S1)}{P2-00100}{clean/semi-clean}{Exposure of the layer}{}
+\addProcessStep{SVG Developer Track (PHT-T2)}{P2-00100}{clean/semi-clean}{Develop, Hard bake}{FHD-5, 1min; hard bake: 120\degreesC, 1min}
+\addProcessStep{CF-3000 Implanter (IMP-3000)}{P2-01000}{clean/semi-clean}{Phorphorus implant}{$2.33 \times 10^{12}cm^{-2}$@110keV}
 \addProcessStep{PS210 Asher (DRY-PR-1)}{P2-01000}{clean}{Resist strip}{}
 \addProcessStep{E4:Resist strip (WET-E4)}{P2-01000}{clean/semi-clean}{Resist strip}{}
 \addProcessStep{Spin Dryer-E (SRD-E)}{P2-01000}{clean/semi-clean}{Dry the wafer automatically}{}
@@ -96,6 +134,33 @@
 \addProcessStep{ASML Stepper (PHT-S1)}{P2-00100}{clean/semi-clean}{Exposure of the layer}{}
 \addProcessStep{SVG Developer Track (PHT-T2)}{P2-00100}{clean/semi-clean}{Develop, Hard bake}{FHD-5, 1min; hard bake: 120\degreesC, 1min}
 \addProcessStep{C3:BOE (WET-C3)}{P2-01000}{clean}{BOE: Field oxide etching}{6 minutes (3000 nm, 500nm/min)}
+\addProcessStep{E4:Resist strip (WET-E4)}{P2-01000}{clean/semi-clean}{Sulfuric resist strip}{H2SO4+H2O2, 120\degreesC, 10mins}
+\addProcessStep{Spin Dryer-E (SRD-E)}{P2-01000}{clean/semi-clean}{Dry the wafer automatically}{}
+}
+\makeProcessTable{SONOS}{tikz_process_steps/gate.a.tex}{sonos}{\addLevelCell{clean} %Default cleaning
+\addLevelCell{clean} %Dry the wafer automatically
+\addLevelCell{clean} %Lower gate oxide growth
+\addLevelCell{clean} %Default cleaning
+\addLevelCell{clean} %Dry the wafer automatically
+\addLevelCell{clean} %Charge carrying nitride growth
+\addLevelCell{clean} %HMDS, PR coating, soft bake
+\addLevelCell{clean} %Exposure of the layer
+\addLevelCell{clean} %Develop, Hard bake
+\addLevelCell{clean} %Nitride etch
+\addLevelCell{clean} %BOE: Field oxide etching
+\addLevelCell{clean} %Sulfuric resist strip
+\addLevelCell{clean} %Dry the wafer automatically
+}{\addProcessStep{A3:Sulfuric cleaning (WET-A3)}{P2-01000}{clean}{Default cleaning}{}
+\addProcessStep{Spin Dryer-A (SRD-A)}{P2-01000}{clean}{Dry the wafer automatically}{}
+\addProcessStep{LPCVD-B2 Nitride/Low-Stress Nitride (CVD-B2)}{P2-01000}{clean}{Lower gate oxide growth}{40nm}
+\addProcessStep{A3:Sulfuric cleaning (WET-A3)}{P2-01000}{clean}{Default cleaning}{}
+\addProcessStep{Spin Dryer-A (SRD-A)}{P2-01000}{clean}{Dry the wafer automatically}{}
+\addProcessStep{LPCVD-B2 Nitride/Low-Stress Nitride (CVD-B2)}{P2-01000}{clean}{Charge carrying nitride growth}{10nm}
+\addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{HPR 504: 3krpm ( $\approx$1.5\um ), soft bake: 110\degreesC 1min}
+\addProcessStep{ASML Stepper (PHT-S1)}{P2-00100}{clean/semi-clean}{Exposure of the layer}{}
+\addProcessStep{SVG Developer Track (PHT-T2)}{P2-00100}{clean/semi-clean}{Develop, Hard bake}{FHD-5, 1min; hard bake: 120\degreesC, 1min}
+\addProcessStep{Lam 490 etcher (DRY-490)}{P2-01000}{clean}{Nitride etch}{6 seconds (10nm, 100nm/min)}
+\addProcessStep{C3:BOE (WET-C3)}{P2-01000}{clean}{BOE: Field oxide etching}{(4.8 seconds) $\approx$ 5 seconds (40 nm, 500nm/min)}
 \addProcessStep{E4:Resist strip (WET-E4)}{P2-01000}{clean/semi-clean}{Sulfuric resist strip}{H2SO4+H2O2, 120\degreesC, 10mins}
 \addProcessStep{Spin Dryer-E (SRD-E)}{P2-01000}{clean/semi-clean}{Dry the wafer automatically}{}
 }

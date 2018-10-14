@@ -132,6 +132,12 @@ CVD-A3: {
         level: clean,
         pre: clean_A,
 }
+CVD-B2: {
+        location: P2-01000,
+        equipment: "LPCVD-B2 Nitride/Low-Stress Nitride",
+        level: clean,
+        pre: clean_A,
+}
 CVD-B3: {
         location: P2-01000,
         equipment: "LPCVD-B3 LTO",
@@ -144,6 +150,12 @@ CVD-F4: {
         level: semi-clean,
         pre: dump_rinse_D,
 }
+CVD-P1: {
+        location: P2-01000,
+        equipment: "310PC PECVD",
+        level: semi-clean,
+}
+
 
 ## Implanter:
 IMP-3000: {
