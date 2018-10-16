@@ -11,7 +11,7 @@ M1 D G S B PMOS W={W} L={L} PD={PD} PS={PS}
 + LEVEL   = 8
 + VERSION = 3.3.1
 + TNOM    = 27
-+ U0      = 1160.761537104032
++ U0      = 439.9319659030368
 + TOX     = 40E-9
 + XT      = 2E-6
 + XJ      = 100E-9
