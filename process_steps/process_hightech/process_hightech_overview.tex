@@ -9,10 +9,10 @@ These process steps will be discussed within the following sections.
 		%% Place nodes
 		%active CMOS	
 		% first row
-		\node [block] (isolation) at (0,8) {Isolation (STI)\\ \autoref{sti_chapter}};
-		\node [block, above of=isolation] (pwell) {P-Well\\ \autoref{pwell_chapter}};
+		\node [block] (pwell) at (0,8) {P-Well\\ \autoref{pwell_chapter}};
 		\node [block, above of=pwell] (nwell) {N-Well\\ \autoref{nwell_chapter}};
-		\node [block, above of=nwell] (fox) {Field oxide\\ \autoref{fox_chapter}};
+		\node [block, above of=nwell] (sti) {Isolation (STI)\\ \autoref{sti_chapter}};
+		\node [block, above of=sti] (fox) {Field oxide\\ \autoref{fox_chapter}};
 		%second row
 		\node [block] (silicification) at (4,8) {Silicification\\ \autoref{step_silicification}};
 		\node [block, above of=silicification] (pp) {p+ Implant\\ \autoref{pimplant}};
@@ -27,10 +27,10 @@ These process steps will be discussed within the following sections.
 		\node (repeat) at (10.5,14.5) {Repeat};
 
 		%% Draw edges
-		\path [line] (-4,8) -- (isolation);
-		\path [line] (isolation) -- (pwell);
+		\path [line] (-4,8) -- (pwell);
 		\path [line] (pwell) -- (nwell);
-		\path [line] (nwell) -- (fox);
+		\path [line] (nwell) -- (sti);
+		\path [line] (sti) -- (fox);
 		\path [line] (fox) -- (gate);
 		\path [line] (gate) -- (np);
 		\path [line] (np) -- (pp);

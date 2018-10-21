@@ -38,64 +38,7 @@ Our minimum width and height as well as the space between the active areas comes
 
 \newpage
 
-\subsection{Initial cleaning}
-In order to remove the initial naturally grown silicon dioxide from the wafer, acid is being applied to the wafer which leads to a pure silicon substrate wafer as in the process illustration shown in \autoref{initial_cleaning}.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.initial_clean.a.tex}
-	\end{tikzpicture}
-	\drawStepArrow{}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.initial_clean.b.tex}
-	\end{tikzpicture}
-	\caption{Initial cleaning}
-	\label{initial_cleaning}
-\end{figure}
-
-This needs to be done because the naturally grown initially existing silicon oxide is not pure and may contain contamination which may render the final product unusable.
-
-\subsubsection{Sulfuric Cleaning}
-The sulfuric acid mixture, $H_2 S O_4 + H_2 O_2$ is being applied to the wafer for 10 minutes at a temperature of 120 \degree C.
-
-\subsubsection{HF dip}
-After the sulfuric cleaning a HF (HF:$H_2O$,1:50) dip is being performed for one minute. \\
-Hydrofluoric acid (HF) is used to remove native silicon dioxide from wafers. Since it acts quickly, one needs to only expose the wafer for a short time ("dip").
-
-\subsubsection{Drying}
-After that the wafer needs to be dried and quickly processed further before new uncontrolled natural oxide can build up on the wafer through the contact with air.
-
-\newpage
-
-\subsection{Hard mask: Oxide growth}
-We need a thick layer of oxide as protective hard mask to etch the trenches into the silicon.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.hard_mask_oxide_growth.a.tex}
-	\end{tikzpicture}
-	\drawStepArrow{Wet oxidation}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.hard_mask_oxide_growth.b.tex}
-	\end{tikzpicture}
-	\caption{Hard mask growth}
-\end{figure}
-
-In \autoref{sti_trench_etch}.we want to etch 2\um deep into the silicon which, depending on the approach, will take a different amount of oxide for an effective hard mask. \\
-
-\textbf{Possible approaches}:
-\begin{itemize}
-	\item \textbf{"DRIE Etcher \#1" from HKUST} \\
-	We can use anisotropic plasma etching for sharper borders. \\
-	With this method it takes pretty much a minute to etch 2\um deep. \\
-	In one minute the oxide will have been etched away by at most 25nm. \\
-	This means we can grow a 100nm thick layer and are well off. \\
-	Growing 100nm of dioxide takes around 5 minutes 30 seconds at 1050\degreesC in wet ambient\footnote{\url{http://cleanroom.byu.edu/OxideTimeCalc}}.
-\end{itemize}
-
-\subsection{Hard mask: Patterning}
+\subsection{Patterning}
 
 The resist is being deposited using spin coating and then soft baked depending on the baking time for the specific resist.
 The requirement is a \textbf{positive} tone resist.
@@ -103,62 +46,16 @@ The requirement is a \textbf{positive} tone resist.
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.hard_mask_patterning.a.tex}
+		\input{tikz_process_steps/sti.patterning.a.tex}
 	\end{tikzpicture}
-	\drawStepArrow{Mask: active}
+	\drawStepArrow{Mask: sti}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.hard_mask_patterning.b.tex}
+		\input{tikz_process_steps/sti.patterning.b.tex}
 	\end{tikzpicture}
 	\caption{Patterning with positive resist}
 \end{figure}
 
 The layout for being exposed onto the resist is being extracted from the "active" layer within the GDS2 file onto a  onto a \textbf{bright field} mask because we need to use the same mask again in \autoref{fox_chapter}, so alignment needs to be possible.
-
-\newpage
-
-\subsection{Hard mask: Etching}\label{sti_mask_etch}
-
-We open the access to the silicon, outside of the active areas, in order to etch the trenches.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.hard_mask_etching.a.tex}
-	\end{tikzpicture}
-	\drawStepArrow{}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.hard_mask_etching.b.tex}
-	\end{tikzpicture}
-	\caption{Nitride mask etching}
-\end{figure}
-
-There are dry etching and wet etching methods available for etching the oxide hard mask. The downside of wet etching is that it also etches horizontally, however the chemical BHF is readily available and allows for easy implementation of the process.\\
-
-\textbf{Possible approaches}:
-\begin{itemize}
-	\item \textbf{"DRIE Etcher \#1" from HKUST} \\
-	We can use anisotropic plasma etching for sharper borders.
-\end{itemize}
-
-\subsection{Hard mask: Resist removal}
-
-Now we need to remove the contaminants for further processing.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.hard_mask_resist_removal.a.tex}
-	\end{tikzpicture}
-	\drawStepArrow{}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.hard_mask_resist_removal.b.tex}
-	\end{tikzpicture}
-	\caption{Resist removal}
-\end{figure}
-
-We strip the resist, rinse and perform sulfuric cleaning.
-
-\newpage
 
 \subsection{Silicon etching}\label{sti_trench_etch}
 
@@ -184,21 +81,23 @@ This means we etch for 1 minute in order to reach the desired depth. \\
 The selectivity to oxide is >80:1 which means the etch speed for the hard mask will be at most $\frac{1}{80}2\frac{\mu m}{min}=\frac{1}{80}2000\frac{nm}{min}=25\frac{nm}{min}$.
 \end{itemize}
 
-\subsection{Hard mask: Removal}
+\subsection{Resist removal}
 
-Now we have to remove the oxide hard mask for further processing in order to proceed with well formation without contamination during oxide growing.
+Now we need to remove the contaminants for further processing.
 
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.hard_mask_removal.a.tex}
+		\input{tikz_process_steps/sti.resist_removal.a.tex}
 	\end{tikzpicture}
 	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.hard_mask_removal.b.tex}
+		\input{tikz_process_steps/sti.resist_removal.b.tex}
 	\end{tikzpicture}
-	\caption{Trench etching}
+	\caption{Resist removal}
 \end{figure}
 
-We use buffered hydrofluoric acid (BOE (1:6)) at room temperature for a little bit over 3 minutes in order to remove all of the 300nm thick oxide layer and roughly 1 minute for 100nm.
+We strip the resist, rinse and perform sulfuric cleaning.
+
+\newpage
 

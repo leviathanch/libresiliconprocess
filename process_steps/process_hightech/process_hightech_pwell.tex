@@ -29,32 +29,13 @@ In \autoref{pwell_layout} the layout of the P-well region on top of the active a
 
 The p-well is being fit into the active area.
 
-It should even be a little bit bigger than the active area, because of possible alignment offsets
+It should even be a little bit bigger than the active area, because of possible alignment offsets.
+
+The layout is being automatically generated for GDS2 based on cifoutput rules, so you just have to draw you well.
 
 \newpage
 
-\subsection{Hard mask: Dioxide growth}
-
-In order to selectively inject charge carrying atoms into the crystalline structure a protective dioxide ($SiO_2$) layer needs to be grown on top of a p-type substrate.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/pwell.mask_dioxide_layer.a.tex}
-	\end{tikzpicture}
-	\drawStepArrow{Wet oxidation}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/pwell.mask_dioxide_layer.b.tex}
-	\end{tikzpicture}
-	\caption{Dioxide layer growth}
-\end{figure}
-
-With an energy of 100keV for the implantation performed in \autoref{pwell_implant_step}, the projected range of the dopants within the oxide will be 310nm (380nm tops) \footnote{\url{http://cleanroom.byu.edu/rangestraggle}}.
-This means being on the safe side and having 500nm as the thickness is a good approach.
-
-In order to grow the 500nm thick oxide layer, the wafer is being oxidized for around 56 minutes at 1050\degree C using wet oxidation which results in a dioxide layer of around 500nm in thickness\footnote{\url{http://cleanroom.byu.edu/OxideTimeCalc}}.
-
-\subsection{Hard mask: Patterning}
+\subsection{Patterning}
 
 The resist is being deposited spray or spin coating (spray coating is better because of the uneven surface!) and then soft baked depending on the baking time for the specific resist.
 The layout for being exposed onto the resist is being extracted from the "pwell" layer within the GDS2 file onto a \textbf{bright field} mask.
@@ -80,40 +61,32 @@ The requirement is a \textbf{negative} tone resist.
 The thickness of the resist layer and the baking duration will variate depending on the specific equipment for which this process will be implemented with.
 Also after the exposure and development, the hard baking shouldn't be forgotten!
 
-\newpage
+\subsection{Implantation}\label{pwell_implant_step}
+We now need to inject the carriers into the upper level of the n-channel area so that we can later on drive them into the crystal during the drive-in step.
 
-\subsection{Hard mask: Etching}
-We now need to open a window in the dioxide layer, through which we will inject carrier atoms into the silicon crystal structure.
 \begin{figure}[H]
 	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/pwell.etching.a.tex}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/pwell.implantation.a.tex}
 	\end{tikzpicture}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/pwell.etching.at.tex}
-	\end{tikzpicture}
-	\drawStepArrow{}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/pwell.etching.b.tex}
-	\end{tikzpicture}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/pwell.etching.bt.tex}
-	\end{tikzpicture}
-	\caption{Cross/top view of P-well oxide window}
+	\drawStepArrow{Boron implant}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/pwell.implantation.b.tex}
+	\end{tikzpicture} \\
+	\caption{Doping process}
 \end{figure}
-
-There are multiple possible approaches to etch through these 500nm of oxide.\\
 
 \textbf{Possible approaches}:
 \begin{itemize}
-	\item \textbf{"AOE Etcher (DRY-AOE)" from HKUST} \\
-	We can use anisotropic plasma etching for sharper borders.
-	\item \textbf{Chemical solution} \\
-	We can use buffered hydrofluoric acid (BOE (1:6)) at room temperature for 5 minutes in order to get through the 500nm of oxide.\\
-	Too long over 4 minutes might cause under-etch however!
+	\item \textbf{"CF-3000 Implanter (IMP-3000)" from HKUST} \\
+	At HKUST we have an implanter which gives us better control over the initial surface concentration. \\
+	These steps are needed to arrive with the desired geometry:
+	The P-well is implanted with a Boron ($B^{11}$) dose of $2.5\times10^{12}cm^{-2}$ at an energy of 100 keV
 \end{itemize}
 
-\subsection{Hard mask: Resist strip}
+\newpage
+
+\subsection{Resist strip}
 
 In order to avoid contamination of the machines we need to make sure all the resist has been stripped off from the wafer.
 
@@ -132,76 +105,3 @@ Please just use the solvent for the specific resist.
 
 \newpage
 
-\subsection{Implantation/Doping}\label{pwell_implant_step}
-We now need to inject the carriers into the upper level of the n-channel area so that we can later on drive them into the crystal during the drive-in step.
-
-\begin{figure}[H]
-	\centering
-	\begin{minipage}{0.5\textwidth}
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/pwell.implantation.a.tex}
-	\end{tikzpicture}
-	\drawStepArrow{Boron implant}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/pwell.implantation.b.tex}
-	\end{tikzpicture}
-	\drawStepArrow{Annealing}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/pwell.implantation.c.tex}
-	\end{tikzpicture} \\
-	\textbf{Implantation approach}
-	\end{minipage}\begin{minipage}{0.5\textwidth}
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/pwell.doping.a.tex}
-	\end{tikzpicture}
-	\drawStepArrow{Constant source diffusion}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/pwell.doping.b.tex}
-	\end{tikzpicture}
-	\drawStepArrow{Source removal}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/pwell.doping.c.tex}
-	\end{tikzpicture} \\
-	\textbf{Diffusion approach}
-	\end{minipage}
-	\caption{Doping process}
-\end{figure}
-
-\textbf{Possible approaches}:
-\begin{itemize}
-	\item \textbf{"CF-3000 Implanter (IMP-3000)" from HKUST} \\
-	At HKUST we have an implanter which gives us better control over the initial surface concentration. \\
-	These steps are needed to arrive with the desired geometry:
-	\begin{enumerate}
-		\item The P-well is implanted with a Boron ($B^{11}$) dose of $2.5\times10^{12}cm^{-2}$ at an energy of 100 keV
-		\item The P-well is annealed for 30 minutes at 1050\degreesC in $N_2$ environment (DIF-A1)\\
-		After that the P-well will be around 1\um deep and will become deeper during \autoref{nwell_implant_step}
-	\end{enumerate}
-	\item \textbf{Constant source diffusion} \\
-	We can add a layer of Boron solution and diffusing in order to have an initial concentration in order to reach the desired concentration later by main diffusion.
-	\begin{enumerate}
-		\item A constant source is added (gas or liquid)
-		\item The source dopant is driven in for 10 minutes at 1050\degreesC
-		\item The dopant source is removed by stopping the gas flow or cleaning the surface
-	\end{enumerate}
-\end{itemize}
-
-\subsection{Hard mask: Removal}
-
-Now we want to remove the silicon mask from the wafer and clean it for another clean oxide mask layer in order to perform the implantation of the N-well in the next step.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/pwell.oxide_mask_removal.a.tex}
-	\end{tikzpicture}
-	\drawStepArrow{}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/pwell.oxide_mask_removal.b.tex}
-	\end{tikzpicture}
-	\caption{Oxide removal}
-\end{figure}
-
-We use buffered hydrofluoric acid (BOE (1:6)) at room temperature for 5 minutes in order to remove the 500nm of oxide layer.

@@ -8,38 +8,50 @@ Titanium has been one of the familiar materials in ULSI productions, which is al
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
 		\input{tikz_process_steps/silicification.a.tex}
 
-		\node at (3,4) {Silicide};
-		\draw[->] (3,3.8) -- (3,2.2);
-		\node at (5.5,5) {Polycide};
-		\draw[->] (5.5,4.8) -- (5.5,3.2);
-		\node at (8,4) {Silicide};
-		\draw[->] (8,3.8) -- (8,2.2);
-		\node at (12,4) {Silicide};
-		\draw[->] (10,5.2) -- (10,3.7);
+		\node at (2,4) {Silicide};
+		\draw[->] (2,3.8) -- (2,2.2);
+
+		\node at (5,4) {Silicide};
+		\draw[->] (5,3.8) -- (5,2.2);
+
+		\node at (6.25,5) {Polycide};
+		\draw[->] (6.25,4.8) -- (6.25,3.2);
+
+		\node at (7.5,4) {Silicide};
+		\draw[->] (7.5,3.8) -- (7.5,2.2);
+
 		\node at (10,5.5) {Polycide};
-		\draw[->] (12,3.8) -- (12,2.2);
-		\node at (14,5) {Polycide};
-		\draw[->] (14,4.8) -- (14,3.2);
-		\node at (17,4) {Silicide};
-		\draw[->] (17,3.8) -- (17,2.2);
+		\draw[->] (10,5.2) -- (10,3.7);
 
-		\fill[gateoxide,opacity=0.5] (5.0,2.0) rectangle (8.25,2.3);
-		\filldraw[line width=0, gateoxide,opacity=0.5] (9.00,2.75)--(8.25,2.0)--(8.25,2.3)--(9.00,3.0);
-		\fill[gateoxide,opacity=0.5] (9.00,2.75) rectangle (11.0,3.0);
-		\filldraw[line width=0, gateoxide,opacity=0.5] (11.0,2.75)--(11.75,2.0)--(11.75,2.3)--(11.0,3.0);
-		\fill[gateoxide,opacity=0.5] (11.75,2.0) rectangle (15.00,2.3);
+		\node at (12.5,4) {Silicide};
+		\draw[->] (12.5,3.8) -- (12.5,2.2);
 
-		\fill[poly,opacity=0.5] (5.0,2.3) rectangle (8.25,2.8);
-		\filldraw[line width=0, poly,opacity=0.5] (9.00,3.0)--(8.25,2.3)--(8.25,2.8)--(9.00,3.55);
-		\fill[poly,opacity=0.5] (9.00,3.0) rectangle (11.0,3.55);
-		\filldraw[line width=0, poly,opacity=0.5] (11.0,3.0)--(11.75,2.3)--(11.75,2.8)--(11.0,3.55);
-		\fill[poly,opacity=0.5] (11.75,2.3) rectangle (15.0,2.8);
+		\node at (13.75,5) {Polycide};
+		\draw[->] (13.75,4.8) -- (13.75,3.2);
 
-		\fill[silicide,opacity=0.5] (5.0,2.8) rectangle (8.25,3.0);
-		\filldraw[line width=0, silicide,opacity=0.5] (8.25,3.0)--(8.25,2.8)--(9.00,3.55)--(9.00,3.75);
-		\fill[silicide,opacity=0.5] (9.00,3.55) rectangle (11.0,3.75);
-		\filldraw[line width=0, silicide,opacity=0.5] (11.0,3.55)--(11.0,3.75)--(11.75,3.0)--(11.75,2.8);
-		\fill[silicide,opacity=0.5] (11.75,2.8) rectangle (15.0,3.0);
+		\node at (15,4) {Silicide};
+		\draw[->] (15,3.8) -- (15,2.2);
+
+		\node at (18,4) {Silicide};
+		\draw[->] (18,3.8) -- (18,2.2);
+
+		\fill[gateoxide,opacity=0.5] (5.75,2.0) rectangle (8.0,2.3);
+		\filldraw[line width=0, gateoxide,opacity=0.5] (8.75,2.75)--(8.0,2.0)--(8.0,2.3)--(8.75,3.0);
+		\fill[gateoxide,opacity=0.5] (8.00,2.75) rectangle (11.25,3.0);
+		\filldraw[line width=0, gateoxide,opacity=0.5] (11.25,2.75)--(12.0,2.0)--(12.0,2.3)--(11.25,3.0);
+		\fill[gateoxide,opacity=0.5] (12.0,2.0) rectangle (14.25,2.3);
+
+		\fill[poly,opacity=0.5] (5.75,2.3) rectangle (8.0,3.0);
+		\filldraw[line width=0, poly,opacity=0.5] (8.75,3.0)--(8.0,2.3)--(8.0,3.0)--(8.75,3.75);
+		\fill[poly,opacity=0.5] (8.75,3.0) rectangle (11.25,3.75);
+		\filldraw[line width=0, poly,opacity=0.5] (11.25,3.0)--(12.0,2.3)--(12.0,3.0)--(11.25,3.75);
+		\fill[poly,opacity=0.5] (12.0,2.3) rectangle (14.25,3.0);
+
+		\fill[silicide,opacity=0.5] (5.75,2.8) rectangle (8.0,3.0);
+		\filldraw[line width=0, silicide,opacity=0.5] (8.0,3.0)--(8.0,2.8)--(8.75,3.55)--(8.75,3.75);
+		\fill[silicide,opacity=0.5] (8.75,3.55) rectangle (11.25,3.75);
+		\filldraw[line width=0, silicide,opacity=0.5] (11.25,3.55)--(11.25,3.75)--(12.00,3.0)--(12.0,2.8);
+		\fill[silicide,opacity=0.5] (12.0,2.8) rectangle (14.25,3.0);
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
 		\input{tikz_process_steps/silicification.b.tex}
@@ -104,7 +116,7 @@ We use the machine LPCVD machine from HKUST and deposit around 50nm of silicon d
 
 This will give a rate of 7nm ($\pm 1nm$) per minute, so we deposit for roughly seven minutes (7 min).
 
-\subsection{Silicide block patterning (optional)}
+\subsection{Silicide block patterning}
 
 We now have to pattern the mask for the silicide block layer which will produce oxide wherever no silicide is not desired within active areas.
 
@@ -124,7 +136,7 @@ It is not yet clear whether we will be needing this feature in the future, which
 
 \newpage
 
-\subsection{Sputter etching(Spacers)}
+\subsection{Spacer etching}
 
 Now we have to etch our oxide as anisotropic as possible.
 This means that the etching mostly only comes "from above" with a few to nearly none horizontal etching.

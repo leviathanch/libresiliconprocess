@@ -5,22 +5,23 @@ Now we have to build the initial gate structure which contains of the 40nm thick
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
 		\input{tikz_process_steps/gate.a.tex}
-		\node at (3,3) {Gate oxide};
-		\draw[->] (3,2.8) -- (5,2.2);
-		\node at (3,4) {Polysilicon};
-		\draw[->] (3,3.8) -- (5,3.2);
 
-		\fill[gateoxide,opacity=0.5] (5.0,2.0) rectangle (8.25,2.3);
-		\filldraw[line width=0, gateoxide,opacity=0.5] (9.00,2.75)--(8.25,2.0)--(8.25,2.3)--(9.00,3.05);
-		\fill[gateoxide,opacity=0.5] (9.00,2.75) rectangle (11.0,3.05);
-		\filldraw[line width=0, gateoxide,opacity=0.5] (11.0,2.75)--(11.75,2.0)--(11.75,2.3)--(11.0,3.05);
-		\fill[gateoxide,opacity=0.5] (11.75,2.0) rectangle (15.00,2.3);
+		\node at (4,3) {Gate oxide};
+		\draw[->] (4,2.8) -- (6,2.2);
+		\node at (4,4) {Polysilicon};
+		\draw[->] (4,3.8) -- (6,3.2);
 
-		\fill[poly,opacity=0.5] (5.0,2.3) rectangle (8.25,3.0);
-		\filldraw[line width=0, poly,opacity=0.5] (9.00,3.05)--(8.25,2.3)--(8.25,3.0)--(9.00,3.75);
-		\fill[poly,opacity=0.5] (9.00,3.05) rectangle (11.0,3.75);
-		\filldraw[line width=0, poly,opacity=0.5] (11.0,3.05)--(11.75,2.3)--(11.75,3.0)--(11.0,3.75);
-		\fill[poly,opacity=0.5] (11.75,2.3) rectangle (15.0,3.0);
+		\fill[gateoxide,opacity=0.5] (6.0,2.0) rectangle (8.0,2.3);
+		\filldraw[line width=0, gateoxide,opacity=0.5] (8.75,2.75)--(8.0,2.0)--(8.0,2.3)--(8.75,3.0);
+		\fill[gateoxide,opacity=0.5] (8.00,2.75) rectangle (11.25,3.0);
+		\filldraw[line width=0, gateoxide,opacity=0.5] (11.25,2.75)--(12.0,2.0)--(12.0,2.3)--(11.25,3.0);
+		\fill[gateoxide,opacity=0.5] (12.0,2.0) rectangle (14.00,2.3);
+
+		\fill[poly,opacity=0.5] (6.0,2.3) rectangle (8.0,3.0);
+		\filldraw[line width=0, poly,opacity=0.5] (8.75,3.0)--(8.0,2.3)--(8.0,3.0)--(8.75,3.75);
+		\fill[poly,opacity=0.5] (8.75,3.0) rectangle (11.25,3.75);
+		\filldraw[line width=0, poly,opacity=0.5] (11.25,3.0)--(12.0,2.3)--(12.0,3.0)--(11.25,3.75);
+		\fill[poly,opacity=0.5] (12.0,2.3) rectangle (14.0,3.0);
 	\end{tikzpicture}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
 		\input{tikz_process_steps/gate.b.tex}
