@@ -1,0 +1,81 @@
+load("unit");
+
+setunits([C,eV,V,F]);
+
+/* [wxMaxima: title   start ]
+Variables to play around with
+   [wxMaxima: title   end   ] */
+
+
+/* Gate oxide thickness */
+
+t_ox:40e-9*m;
+
+V_SB:-0.3*V;
+
+/* [wxMaxima: title   start ]
+Constants:
+   [wxMaxima: title   end   ] */
+
+
+/* Concentation of undoped silicon atoms 1/m^3 */
+
+n_i:1.45*1e10*1e6*m^-3;
+
+/* General constants */
+
+q:1.6e-19*C;
+
+ε_0:8.85e-12*F/m;
+
+T:300*K;
+
+k:1.380648521*1e-23*(J/K);
+
+ε_ox:ε_0*3.9;
+
+ε_Si:ε_0*11.9;
+
+/* Se surface charge is a number from Hoppe, we will need to find out whether the number actually agrees with the actual measurement  results from our process. */
+
+Q_SS:q*1e10*1e4;
+
+/* [wxMaxima: title   start ]
+Quasi constants
+   [wxMaxima: title   end   ] */
+
+
+E_g:k*(1.166*K-((4.73e-4)*(T^2)/(T+636*K)));
+
+V_th:(k*T/q);
+
+Φ_F(N):=V_th*log(N/n_i);
+
+/* [wxMaxima: title   start ]
+Calculations
+   [wxMaxima: title   end   ] */
+
+
+Q_b(N):=sqrt(2*ε_Si*q*2*(V_SB+Φ_F(N))*N);
+
+Φ_MS(N):=-(E_g/(2*q)+Φ_F(N));
+
+V_FB(N):=Φ_MS(N)-Q_SS/C_ox;
+
+C_ox:ε_ox/t_ox;
+
+V_T(N):=V_FB(N)+2*Φ_F(N)+Q_b(N)/C_ox;
+
+plot_start:n_i*1e2;
+
+plot_end:plot_start*1e6;
+
+V_T(plot_start);
+
+expand(V_T(N));
+
+plot2d(V_T(x),[x,plot_start,plot_end]);
+
+v:V_T(2.46e22);
+
+

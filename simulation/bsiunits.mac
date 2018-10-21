@@ -1,0 +1,511 @@
+ 
+/* bsiunits is an SI metric units conversion program.
+   copyright January 2013 by Edward A Romana, 
+   I release this program under the terms of the GNU General Public License.  */
+
+/* To add a new known conversion_factor_name: SI_units_expression
+   1- add the new assignment to the conversion_factors[] list. 
+   2- add the new unit_conversion_factor_name to the disp_units[] list.
+   
+   To add a new known physical_constant_name: SI_units_expression
+   1- add the new assignment to the phycons[] list.
+   2- add the new physical_constant_name to the disp_phycons[] list.  */
+
+units_help_lst:'[ "The bsiunits program converts units into the SI base unit system. ",
+
+"The SI base units are: [meter, kilogram, second, ampere, kelvin, mole, candela].",
+"",
+"The function T(value,unit) converts degree Celsius, Fahrenheit, or Rankine to Kelvin.",
+"where: unit = C, F, or R. ",
+"",
+"The function change_base_units(u) changes the base units. ",
+"where u = mks, cgs, meter, centimeter, kilogram, gram, ampere, or coulomb. ",
+"",
+"Type disp_units() to display the known units and conversion factors.",
+"Type disp_phycon() to display the known physical constants.",
+"Type disp_metric_prefixes() to display the metric prefixes.",
+"Type disp_base_units() to display the current base units." ,
+"Type units_examples() to display units examples. ",
+""] $
+
+/* Display each element of a list on a new line function */
+lst_line_disp(lis):= for j:1 thru length(lis) do disp(lis[j])$
+
+units_help():=lst_line_disp(units_help_lst)$
+ 
+/* assert positive, inhibit base units absolute value display */ 
+assume(kg>0, gram>0, meter>0, centimeter>0, sec>0, amp>0, 
+coulomb>0, kelvin>0, mol>0, candela>0)$ 
+
+/* assert positive, inhibit adopted units absolute value display */
+assume(radian>0, ster>0, turn>0)$ 
+
+disp_baseunits:'[meter, kilogram, second, ampere, kelvin, mol, candela]$
+disp_base_units():=disp(disp_baseunits)$ 
+
+convesion_factors:'[
+/* length */
+meter: meter,                      /* SI base unit */
+centimeter: cm: 0.01 * meter ,    /* cgs base unit */
+inch: 0.0254 * meter , /* NBS 1959, FRdoc59-5442-1 */
+foot: 12 * inch ,
+yard: 3 * foot ,
+mile: 1760 * yard ,
+nautical_mile: 1852 * meter ,  /* BIPM si_brochure_8_en.pdf */
+angstrom: 1.0*10^-10 * meter ,
+lightyear: %%c * year ,      /* http://www.iau.org/public/measuring/ */
+astronomical_unit: 149597870700 * meter ,  /* IAU 2012 Resolution B2 */
+parsec: astronomical_unit * (radian/arcsec) ,
+solar_radius: 696000 * kilo*meter ,    /* IAU 2009 */
+earth_radius: 6378.1366 * kilo*meter,  /* IAU 2009 */
+
+/* mass */
+kilogram: kg ,                     /* SI base unit */
+gram: 0.001 * kilogram ,           /* cgs base unit*/ 
+pound_mass: lbm: 0.45359237 * kilogram ,  /* NBS 1959, FRdoc59-5442-1 */
+dalton: amu: %%u ,
+solar_mass: 1.9884*10^30 * kilogram,   /* IAU 2009 */
+earth_mass: 5.9722*10^24 * kilogram,   /* IAU 2009 */
+
+/* time */ 
+second: sec ,         /* base unit */
+minute: 60 * second ,
+hour: 60 * minute ,
+day: 24 * hour ,
+year: 365.25 * day ,  /* Julian */
+
+/* electromagnetic, and derived e&m units */
+ampere: amp ,                /* SI base unit, cgs acceptable */
+coulomb: ampere * second ,   /* cgs base unit, mks acceptable  */
+volt: watt / amp ,           /* electric potential, electromotive force, emf */ 
+ohm: volt / amp ,
+farad: coulomb / volt ,
+henry: weber / amp ,
+
+/* magnetic flux, Greek letter phi */
+weber:  volt * second ,                     /* SI */
+maxwell: magneticline: 1.0*10^-8 * weber ,  /* cgs */
+
+/* magnetic field, magnetic flux density, magnetic induction, B */ 
+tesla: weber / meter^2 ,    /* SI */
+gauss: 1.0*10^-4 * tesla ,  /* cgs */
+
+/* magnetomotive force, mmf */
+ampereturn: ampere*turn ,                        /* SI */   
+gilbert: ev(10 / (4*%pi), numer) * ampereturn ,  /* cgs */
+
+/* magnetic field, magnetic field strength, magnetic field intensity, H */ 
+oersted: ev(1000/(4*%pi),numer) * ampereturn/meter ,  /* cgs */
+
+/* amount of substance */
+mole: mol, /* base unit mol */ 
+
+/* luminous intensity, radiant intensity, 540*10^12 Hz, sphere */ 
+candela: 1/683 * watt/ster ,  /* base unit */
+
+/* luminous flux */
+lumen: candela * ster , 
+solar_luminosity: 3.85*10^26 * watt, /* Mechikunnel et al., 1988 */
+
+ /* luminous flux density, luminance from 1 candela at a distance */ 
+footcandle: lumen/foot^2 , 
+lux: lumen/meter^2 , 
+
+/* derived units, force */
+newton: kilogram * meter / second^2 ,
+pound_force: lbf: %g_n * lbm , 
+dyne: 1.e-5 * newton ,
+
+/* derived units, pressure */
+pascal: Pa: newton/meter^2 ,
+bar: 1.0*10^5 * pascal ,
+atmosphere: atm: 101325 * pascal ,  /* CGPM 1954 */
+torr: atmosphere/760.0 ,            /* CGPM 1954 */ 
+
+/* derived units, energy */
+joule: newton * meter  ,
+erg: 1.0*10^-7 * joule ,
+electron_volt: eV: volt * %%e ,
+calorie: cal: 4.1868 * joule , /* "Fifth International Conference on the Properties */
+british_thermal_unit: btu: 1055.05585262 * joule , /* of Steam", London, July 1956 */
+
+/* derived units, area */
+hectare: 10^4 * meter^2 ,
+acre: 43560 * foot^2 ,
+
+/* derived units, volume */
+liter: 1.e-3*meter^3 ,
+gallon: 231 * inch^3  ,  /* NIST Handbook 44 - 2012, US gallon */
+
+/* derived units, energy transfer rate */
+watt: joule /second ,
+horsepower: (%g_n * 550 * foot * lbm) / second, /* NIST SP811 2008 */
+
+/* derived units, viscosity  */
+stoke: cm^2 / second ,          /* IUPAC Gold book, kinematic */
+poise: 0.1* pascal * second  ,  /* IUPAC Gold book,  dynamic */ 
+
+/* adopted units... */ 
+arcsec: arcmin/60 ,
+arcmin: arcdeg/60  ,
+arcdeg: ev( (%pi*radian)/180, numer) ,
+radian: radian , /* to carry radian implicitly let radian: 1 */
+steradian: ster , 
+turn: 1 ,  /* to carry turn unit explicitly let turn: turn */     
+hertz: Hz: 1/second ] $
+
+/* temperature */
+kelvin: kelvin $ /* base unit is kelvin */
+T(u,v):=block(
+if v=C then ((u+273.15)*kelvin) 
+elseif v=F then ((5/9*(u-32)+273.15)*kelvin) 
+elseif v=R then 5/9*u*kelvin
+elseif v=K then u*kelvin
+else "false, the units for temperature conversion must be C, F, or R ") $
+
+disp_units:'[ "Units and conversion factors for: ",
+"  Length ",
+"meter, centimeter, cm, inch, foot, yard , mile (US), nautical_mile, angstrom, ",
+"lightyear, astronomical_unit, parsec, earth_radius, solar_radius ",
+"",
+"  Mass",
+"kilogram, kg, gram, pound_mass, lbm, dalton, amu, earth_mass, solar_mass ",
+"",
+"  Time ",
+"second, sec, minute, hour, day, year (Julian)",
+"",
+"  Electromagnetic units",
+"ampere, amp, coulomb, volt, ohm, farad, henry ",
+"",
+"  Magnetic flux. Symbol Greek letter phi ",
+"weber, maxwell, magneticline ",
+"",
+"  Magnetic field, magnetic flux density, magnetic induction. Symbol B ",
+"tesla, gauss ",
+"",
+"  Magnetomotive force, mmf ",
+"ampereturn, gilbert ",
+"",
+"  Magnetic field strength, magnetic field, magnetic field intensity. Symbol H ",
+"oersted ",
+"",
+"  Amount of substance ",
+"mole,  mol",
+"",
+"  Luminous intensity ",
+"candela",
+"",
+"  Luminous flux ",
+"lumen, solar_luminosity" ,   
+"",
+"  Luminous flux density",
+"footcandle, lux ",
+"",
+"",
+" Derived Units and Conversion Factors for: ",
+" Force ",
+"newton, pound_force, lbf, dyne ",
+"", 
+" Pressure ",
+"pascal, Pa, bar, atmosphere, atm, torr",
+"", 
+" Energy ",
+"joule, erg, electron_volt, eV, calorie, british_thermal_unit, btu ",
+"", 
+" Area ",
+"hectare, acre ",
+"",
+" Volume ",
+"liter, gallon (US)",
+"",
+" Power, energy transfer rate ",
+"watt, horsepower ",
+"",
+" Viscosity ",
+"stoke, poise",
+"",
+" Adopted Units ",
+"arcsec, arcmin, arcdeg, radian, steradian, ster, hertz, Hz ",
+"" ]$
+
+disp_units():=lst_line_disp(disp_units)$
+ 
+phycons : '[ /* selected physical constants, CODATA 2010, CGPM 2014 */
+ 
+/* Avogadro constant */
+%N_A: 6.02214129*10^23 / mol, 
+
+/* Bohr radius */
+%a_0: 0.52917721092*10^-10*meter,
+
+/* Boltzmann constant */
+%%k: 1.3806488*10^-23*joule/kelvin,
+
+/* electric constant, vacuum electric permittivity, exact */
+%epsilon_0: ev(1/(%mu_0*%%c^2),numer), 
+
+/* electron Mass */
+%m_e: 9.10938291*10^-31*kg,
+ 
+/* elementary charge */
+%%e: 1.602176565*10^-19 * coulomb,
+
+/* fine structure constant */
+%%alpha: 7.2973525698*10^-3,
+
+/* first radiation constant */
+%c1: 3.74177153*10^-16*watt*meter^2,
+
+/* Hartree Energy */
+%E_h: 4.35974434*10^-18*joule,
+
+/* magnetic constant, vacuum magnetic permeability, exact */
+%mu_0: ev(4.00*%pi*1.00*10^-7*henry/meter,numer),
+
+/* magnetic Flux quantum */
+%Phi_0: 2.067833758*10^-15*weber,
+
+/* molar gas constant, universal gas constant */
+%R: 8.3144621*joule/(mol*kelvin),
+
+/* neutron Mass */
+%m_n: 1.674927351*10^-27*kg,
+
+/* Newtonian constant of gravitation */ 
+%G: 6.67384*10^-11*meter^3/(kg*sec^2),
+
+/* Planck's constant */
+%%h: 6.62606957*10^-34*joule*sec,
+
+/* Planck's constant over 2pi */
+%hbar: ev(%%h/(2.00*%pi),numer),
+
+/* Planck mass */
+%m_P: 2.17651*10^-8*kg,
+
+/* Planck length */
+%l_P: 1.616199*10^-35*meter,
+
+/* Plank temperature */
+%T_P: 1.416833*10^32*kelvin, 
+
+/* Planck time */
+%t_P: 5.39106*10^-44*sec,
+
+/* Proton Mass */
+%m_p: 1.672621777*10^-27*kg,
+
+/* Rydberg constant */
+%R_inf: 10973731.568539/meter,
+
+/* second radiation constant  */
+%c2: 1.4387770*10^-2*meter*kelvin,
+
+/* speed of light in vacuum, exact, CGPM 2011 */
+%%c: 299792458*meter/sec,
+
+/* standard acceleration of gravity, terrestrial surface gravity */
+%g_n : 9.80665*meter/second^2,
+
+/* Stefan-Boltzmann constant */
+%%sigma: 5.670373*10^-8*watt/(meter^2*kelvin^4),
+
+/* unified atomic mass unit, dalton, amu */
+%%u: 1.660538921*10^-27*kilogram ];
+
+/* display the physical constants abbreviations */
+disp_phycons: '[" %N_A       Avogadro's number",
+" %a_0       Bohr radius",
+" %%k        Boltzmann constant",
+" %epsilon_0 electric constant, vacuum electric permittivity",
+" %m_e       electron mass",
+" %%e        elementary charge",
+" %%alpha    fine-structure constant",
+" %c1        first radiation constant",
+" %E_h       Hartree energy",
+" %mu_0      magnetic constant, vacuum magnetic permeability",
+" %Phi_0     magnetic flux quantum",
+" %R         molar gas constant, universal gas constant ",
+" %m_n       neutron Mass",
+" %G         Newtonian constant of gravitation",
+" %%h        Planck's constant",
+" %hbar      Planck's constant over 2 pi",
+" %m_P       Planck mass",
+" %l_P       Planck length",
+" %T_P       Plank temperature",
+" %t_P       Planck time",
+" %m_p       proton mass",
+" %R_inf     Rydberg constant",
+" %c2        second radiation constant",
+" %%c        speed of light in vacuum",
+" %g_n       standard acceleration of gravity, Earth surface gravity",
+" %%sigma    Stefan-Boltzmann constant",
+" %%u        unified atomic mass unit, dalton, amu"] $
+
+disp_phycon():=lst_line_disp(disp_phycons) $
+
+/* the metric prefixes */ 
+metric_prefixes:'[
+yotta: 10^24,
+zetta: 10^21,
+exa:   10^18,
+peta:  10^15,
+tera:  10^12,
+giga:  10^9,
+mega:  10^6,
+kilo:  10^3,
+hecto: 10^2,
+deca:  10^1,
+deci:  10^-1,
+centi: 10^-2,
+milli: 10^-3,
+micro: 10^-6, 
+nano:  10^-9,
+pico:  10^-12,
+femto: 10^-15,
+atto:  10^-18,
+zepto: 10^-21,
+yocto: 10^-24] $
+
+
+metric_prefixes_lst:'[
+"yotta 10^24",
+"zetta 10^21",
+"exa   10^18",
+"peta  10^15",
+"tera  10^12",
+"giga  10^9",
+"mega  10^6",
+"kilo  10^3",
+"hecto 10^2",
+"deca  10^1",
+"deci  10^-1",
+"centi 10^-2",
+"milli 10^-3",
+"micro 10^-6",
+"nano  10^-9",
+"pico  10^-12",
+"femto 10^-15",
+"atto  10^-18",
+"zepto 10^-21",
+"yocto 10^-24"] $ 
+
+disp_metric_prefixes():= lst_line_disp(metric_prefixes_lst) $
+
+/* a function to evaluate the assignment lists */
+listev(lis):=block(for dummy:1 unless (is (ev(lis)=ev(lis))) do([]))$
+listev([convesion_factors, phycons, metric_prefixes]) $
+
+change_base_units('nunit):=block([],
+
+if not(is(nunit='mks) or is(nunit='cgs) or is(nunit='kilogram) or is(nunit='gram) or 
+is(nunit='meter) or is(nunit='centimeter) or is(nunit='ampere) or is(nunit='coulomb)) 
+then disp("false, argument must be mks, cgs, meter, centimeter, kilogram, gram, ampere, or coulomb." ), 
+
+listindex(lis,element):=block(for j:1 thru length(lis) 
+do (if is(element=part(lis[j],1)) then return(j))),
+
+change_base_unit_to('nunit):=block([n1,n2],
+if is(nunit='gram) then (
+n1:listindex(convesion_factors,'gram),
+n2:listindex(convesion_factors,'kilogram),
+kill(gram,kilogram,kg),
+convesion_factors[n1]:'(gram: gram), 
+convesion_factors[n2]:'(kilogram: kg: 1000.0*gram),
+disp_baseunits[2]:"gram", listev([convesion_factors, phycons, metric_prefixes]) ) ,
+ 
+if is(nunit='kilogram) then (
+n1:listindex(convesion_factors,'kilogram),
+n2:listindex(convesion_factors,'gram),
+kill(gram,kilogram,kg),
+convesion_factors[n1]:'(kilogram: kg ), 
+convesion_factors[n2]:'(gram: 0.001*kilogram),
+disp_baseunits[2]:"kilogram", listev([convesion_factors, phycons, metric_prefixes]) ) ,
+
+if is(nunit='coulomb) then (
+n1:listindex(convesion_factors,'coulomb),
+n2:listindex(convesion_factors,'ampere),
+kill(coulomb,ampere,amp),
+convesion_factors[n1]:'(coulomb:coulomb), 
+convesion_factors[n2]:'(ampere: amp: coulomb / second),
+disp_baseunits[4]:"coulomb", listev([convesion_factors, phycons, metric_prefixes]) ) ,
+
+if is(nunit='ampere) then (
+n1:listindex(convesion_factors,'ampere),
+n2:listindex(convesion_factors,'coulomb),
+kill(coulomb, ampere, amp ),
+convesion_factors[n1]:'(ampere: amp ), 
+convesion_factors[n2]:'(coulomb: ampere * second ),
+disp_baseunits[4]:"ampere", listev([convesion_factors, phycons, metric_prefixes]) ) ,
+
+if is(nunit='centimeter) then (
+n1:listindex(convesion_factors,'centimeter),
+n2:listindex(convesion_factors,'meter),
+kill(meter,centimeter,cm),
+convesion_factors[n1]:'(centimeter: cm ), 
+convesion_factors[n2]:'(meter: 100 * centimeter),
+disp_baseunits[1]:"centimeter", listev([convesion_factors, phycons, metric_prefixes]) ) ,
+
+if is(nunit='meter) then (
+n1:listindex(convesion_factors,'meter),
+n2:listindex(convesion_factors,'centimeter),
+kill(meter,centimeter,cm),
+convesion_factors[n1]:'(meter: meter), 
+convesion_factors[n2]:'(centimeter: cm: 0.01 * meter),
+disp_baseunits[1]:"meter", listev([convesion_factors, phycons, metric_prefixes]) )  , 
+disp(disp_baseunits) ) ,
+
+if is(nunit='mks) then block(change_base_unit_to(meter), change_base_unit_to(kilogram),
+change_base_unit_to(ampere) ) 
+
+else if is(nunit='cgs) then block(change_base_unit_to(centimeter), change_base_unit_to(gram),
+change_base_unit_to(coulomb) ) ,
+
+if is(nunit='meter) then block(change_base_unit_to(meter)),
+if is(nunit='centimeter) then block(change_base_unit_to(centimeter)),
+if is(nunit='kilogram) then block(change_base_unit_to(kilogram)),
+if is(nunit='gram) then block(change_base_unit_to(gram)),
+if is(nunit='ampere) then block(change_base_unit_to(ampere)),
+if is(nunit='coulomb) then block(change_base_unit_to(coulomb)) else disp()
+  ) $
+
+units_examples_lst: '[
+"Display the current base units. ",
+" ",
+"(%i1) disp_base_units();",
+"(%o1) [meter,kilogram,second,ampere,kelvin,mol,candela]",
+"",
+"Display the base units of the SI unit of force, the Newton. ",
+"",
+"(%i2) newton;",
+"(%o2) (kg*meter)/sec^2",
+"",
+"Using the single quote operator ' to prevents evaluation ",
+"express a units expression in terms of other base units or derived units.",
+"Express the standard atmospheric pressure in units of PSI. ",
+"",
+"(%i3) atmosphere * '(lbf/inch^2)/(lbf/inch^2);",
+"(%o3) 14.69594877551345*lbf/inch^2",
+"",
+"Verify that henry/meter, newton/ampere^2, and the magnetic permeability",
+"physical constant have mutually consistent units.",
+"",
+"(%i4) [henry/meter, newton/amp^2, %mu_0];",
+"(%o4) [(kg*meter)/(amp^2*sec^2),(kg*meter)/(amp^2*sec^2),(1.2566370614359173*10^-6*kg*meter)/(amp^2*sec^2)]",
+"",
+"At room temperature and sea level conditions, calculate the density of air.",
+"Using 28.97 gram/mol for the molecular weight of air, and PV=nRT for the state equation. ", 
+"density = (mass/volume) = (number_of_moles * molecular_mass)/V ",
+"density = (P/RT) * molecular_mass ",
+"",
+"(%i5) (atmosphere/(%R*T(21,C)))*28.9*gram/mol;",
+"(%o5) 1.197323328837076*kg/meter^3",
+"" ]$
+
+units_examples():= lst_line_disp(units_examples_lst) $
+
+disp_base_units(); 
+
+print("Type units_help() to display units help");
+
+
