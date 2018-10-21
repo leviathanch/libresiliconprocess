@@ -118,7 +118,7 @@
 }
 - {
         name: SONOS,
-        cross_tikz: tikz_process_steps/gate.a.tex,
+        cross_tikz: tikz_process_steps/sonos.a.tex,
         mask: sonos,
         steps: [
                 {
@@ -177,6 +177,30 @@
                 },
         ],
 }
+- {
+        name: Implant stop,
+        cross_tikz: tikz_process_steps/implantstop.a.tex,
+        mask: implantstop,
+        steps: [
+                {
+                        equipment: CVD-B2,
+                        process: "Implant stop Nitride hard mask",
+                        requirement: "40nm",
+                },
+                normal_exposure,
+                {
+                        equipment: DRY-490,
+                        process: "Nitride etch",
+                        requirement: "6 seconds (10nm, 100nm/min)",
+                },
+                {
+                        equipment: WET-E4,
+                        process: "Sulfuric resist strip",
+                        requirement: "H2SO4+H2O2, 120\\degreesC, 10mins",
+                },
+        ],
+}
+
 - {
         name: N+ implant,
         cross_tikz: tikz_process_steps/nimplant.a.tex,

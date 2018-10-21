@@ -3,13 +3,16 @@
 \def\um{$\micro$ }
 \def\degreesC{$\degree$C }
 \def\percent{$\%$ }
+\def\rowHeight{35pt}
 
 \usepackage{geometry}
-	\geometry{a4paper,
-	total={170mm,257mm},
+\geometry{
+%	a4paper,
+%	total={170mm,257mm},
+	a3paper,
 	left=5mm,
-	top=10mm,
-	right=10mm,
+	top=5mm,
+	right=5mm,
 	bottom=15mm,
 }
 
@@ -45,9 +48,17 @@
 \usetikzlibrary{positioning}
 \usetikzlibrary{patterns}
 
+\newlength{\struthd}
+\newcommand*\Strut[2][-0.3]{%
+	\setlength{\struthd}{#2}%
+	\rule[#1\struthd]{0pt}{\struthd}%
+}
+
 \usepackage{float}
 \floatstyle{boxed} 
 \restylefloat{figure}
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}} % zentriert mit Breitenangabe
 
 \input{tikz_process_steps/contsts.tex}
 
@@ -64,7 +75,7 @@
 			\ifthenelse{\equal{#1}{clean/semi-clean}} {
 				\begin{tikzpicture}
 					\node [fill=cyan, rounded corners=5pt] at (0,0.0) {Clean};
-					\node [fill=green, rounded corners=5pt] at (1.0,0.0) {Semi clean};
+					\node [fill=green, rounded corners=5pt] at (1.5,0.0) {Semi clean};
 				\end{tikzpicture}
 			} {
 				\ifthenelse{\equal{#1}{non-standard}} {
@@ -79,17 +90,18 @@
 \newcommand{\makeProcessTable}[5]{
 	\setcounter{SubProcessStep}{0}
 	\addtocounter{TopProcessStep}{1}
-	%\newpage
+	\newpage
 	\section{#1}
-	\fbox{\begin{minipage}{6cm}
+	\begin{center}
+	\fbox{\begin{minipage}{\textwidth}
 		\centering
-		\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.3, every node/.style={transform shape}]
+		\begin{tikzpicture}[node distance = 3cm, auto, thick, scale=0.7, every node/.style={transform shape}]
 			\input{#2}
 		\end{tikzpicture}\\
-		\small\textbf{Mask: #3}
+		\textbf{Mask: #3}
 	\end{minipage}}
-	\hspace{0.25cm}
-	\tiny\begin{tabular}{|p{2.0cm}|}
+
+	\begin{tabular}{|>{\Strut[-0.5]{\rowHeight}}r|}
 		\hline
 		\textbf{Wafer Cleanliness} \\
 		#4
@@ -97,12 +109,12 @@
         \end{tabular}
 	\hspace{0.25cm}
         \begin{tabular}{
-			|p{1.4cm}
-			|p{3cm}
-			|p{1.5cm}
-			|p{2cm}
-			|p{4cm}
-			|p{4cm}
+			|>{\Strut[-0.5]{\rowHeight}}r
+			|C{8.0cm}
+			|C{2.0cm}
+			|C{3.0cm}
+			|C{5.0cm}
+			|C{9.0cm}
 			|}
 		\hline
 		\textbf{Step Number} &
@@ -114,6 +126,7 @@
 		#5
 		\hline
 	\end{tabular}
+	\end{center}
 }
 
 \newcommand{\addProcessStep}[5]{
@@ -124,12 +137,16 @@
 	#2 &
 	\getWaferCleaninessSymbol{#3} &
 	#4 &
-	#5 \\[0.25cm]
+	#5
+	%\\[0.5cm]
+	\\
 }
 
 \newcommand{\addLevelCell}[1]{
 	\hline
-	\getWaferCleaninessSymbol{#1} \\[0.25cm]
+	\getWaferCleaninessSymbol{#1}
+	%\\[0.5cm]
+	\\
 }
 
 \author{David Lanzendörfer}
