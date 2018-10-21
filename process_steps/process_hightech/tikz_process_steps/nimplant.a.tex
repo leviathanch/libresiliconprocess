@@ -1,7 +1,24 @@
-\input{tikz_process_steps/gate.a.tex}
-\shade[upper left = nimplant, upper right = nimplant, lower right = nwell, lower left = nwell,] (1.5,1.5) rectangle (2.5,2);
+\input{tikz_process_steps/implantstop.a.tex}
+\shade[upper left = nimplant, upper right = nimplant, lower right = nwell, lower left = nwell,] (1.5,1.8) rectangle (2.5,2);
 \node at (2,1.65) {n+};
-\shade[upper left = nimplant, upper right = nimplant, lower right = pwell, lower left = pwell,] (12.0,1.5) rectangle (13.25,2);
-\node at (12.5,1.65) {n+};
-\shade[upper left = nimplant, upper right = nimplant, lower right = pwell, lower left = pwell,] (14.25,1.5) rectangle (15.5,2);
-\node at (15,1.65) {n+};
+\shade[upper left = nimplant, upper right = nimplant, lower right = pwell, lower left = pwell,] (10.0,1.8) rectangle (11.25,2);
+\node at (10.5,1.65) {n+};
+
+\shade[upper left = nimplant, upper right = nimplant, lower right = poly, lower left = poly,] (11.25,2.9) rectangle (12.25,3.0);
+
+\shade[upper left = nimplant, upper right = nimplant, lower right = pwell, lower left = pwell,] (12.25,1.8) rectangle (13.5,2);
+\node at (12.75,1.65) {n+};
+
+\shade[upper left = nimplant, upper right = nimplant, lower right = nwell, lower left = nwell,] (19.0,1.8) rectangle (20.0,2);
+
+\shade[upper left = nimplant, upper right = nimplant, lower right = poly, lower left = poly,] (11.25,2.7) rectangle (12.25,3.0);
+\shade[upper left = nimplant, upper right = nimplant, lower right = poly, lower left = poly,] (46.0,3.3) rectangle (47.5,3.5);
+
+% nimplant for ndc within nbase within npn bjt
+\shade[upper left = nimplant, upper right = nimplant, lower right = nwell, lower left = nwell,] (27.0,1.8) rectangle (27.75,2);
+\shade[upper left = nimplant, upper right = nimplant, lower right = nwell, lower left = nwell,] (29.75,1.8) rectangle (30.5,2);
+\shade[upper left = nimplant, upper right = nimplant, lower right = nwell, lower left = nwell,] (32.5,1.8) rectangle (33.5,2);
+
+% nimplant for ndc within nbase within pnp bjt
+\shade[upper left = nimplant, upper right = nimplant, lower right = nwell, lower left = nwell,] (37.25,1.8) rectangle (37.75,2);
+\shade[upper left = nimplant, upper right = nimplant, lower right = nwell, lower left = nwell,] (39.75,1.8) rectangle (40.25,2);

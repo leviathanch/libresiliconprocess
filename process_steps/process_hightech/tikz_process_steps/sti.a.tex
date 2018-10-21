@@ -1,10 +1,32 @@
+\def\welldepthAsti{1.25}
+\def\welldepthBsti{1.5}
+\def\welldepthCsti{1.75}
+
 % substrate
-\fill[substrate] (0,0) rectangle (20,1.25);
+\fill[substrate] (0,0) rectangle (55,1.25);
 \node at (2,0.5) {Silicon substrate};
 
-% islands
-\fill[substrate] (1.25,1.25) rectangle (8.25,2);
-\fill[substrate] (11.75,1.25) rectangle (18.75,2);
+% normal wells
+\shade[upper left = nwell, upper right = nwell, lower right = substrate, lower left = substrate,] (1.25,\welldepthAsti) rectangle (8.25,2.0);
+\shade[upper left = pwell, upper right = pwell, lower right = substrate, lower left = substrate,] (9.75,\welldepthAsti) rectangle (16.75,2.0);
+\shade[upper left = nwell, upper right = nwell, lower right = substrate, lower left = substrate,] (18.25,\welldepthAsti) rectangle (25.25,2.0);
+\shade[upper left = nwell, upper right = nwell, lower right = substrate, lower left = substrate,] (26.75,\welldepthAsti) rectangle (33.75,2.0);
+\shade[upper left = nwell, upper right = nwell, lower right = substrate, lower left = substrate,] (35.25,\welldepthAsti) rectangle (42.25,2.0);
 
-\shade[upper left = nwell, upper right = nwell, lower right = substrate, lower left = substrate,] (1.25,1.5) rectangle (8.25,2.0);
-\shade[upper left = pwell, upper right = pwell, lower right = substrate, lower left = substrate,] (11.75,1.5) rectangle (18.75,2.0);
+% isolation nwell pwell in nwell for SONOS flash
+\shade[upper left = pbase, upper right = pbase, lower right = nwell, lower left = nwell,] (18.5,\welldepthBsti) rectangle (25.0,2.0);
+
+% npn - pbase
+\shade[upper left = pbase, upper right = pbase, lower right = nwell, lower left = nwell,] (28.25,\welldepthBsti) rectangle (32.0,2.0);
+
+% pnp emitter and collector ring
+\shade[upper left = pbase, upper right = pbase, lower right = nwell, lower left = nwell,] (35.5,\welldepthBsti) rectangle (37.0,2.0);
+\shade[upper left = pbase, upper right = pbase, lower right = nwell, lower left = nwell,] (38.0,\welldepthBsti) rectangle (39.5,2.0);
+\shade[upper left = pbase, upper right = pbase, lower right = nwell, lower left = nwell,] (40.5,\welldepthBsti) rectangle (42.0,2.0);
+
+% n base for SONOS
+\shade[upper left = nbase, upper right = nbase, lower right = pbase, lower left = pbase,] (18.75,\welldepthCsti) rectangle (24.75,2.0);
+
+% n base for NPN emitter
+\shade[upper left = nbase, upper right = nbase, lower right = pbase, lower left = pbase,] (29.5,\welldepthCsti) rectangle (30.75,2.0);
+
