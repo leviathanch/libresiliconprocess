@@ -304,8 +304,8 @@
         steps: [
                 {
                         equipment: SPT-3180,
-                        process: "Deposit Aluminum",
-                        requirement: "37.5 seconds (roughly 600nm)",
+                        process: "Deposit Aluminum + Titanium finish",
+                        requirement: "Aluminum: ~38 seconds (roughly 600nm) + Titanium: ~5 seconds (roughly 20nm)",
                 },
                 normal_exposure,
                 {
@@ -350,8 +350,8 @@
         steps: [
                 {
                         equipment: SPT-3180,
-                        process: "Deposit Aluminum",
-                        requirement: "37.5 seconds (roughly 600nm)",
+                        process: "Deposit Aluminum + Titanium finish",
+                        requirement: "Aluminum: ~38 seconds (roughly 600nm) + Titanium: ~5 seconds (roughly 20nm)",
                 },
                 normal_exposure,
                 {
@@ -395,9 +395,9 @@
         mask: metal3,
         steps: [
                 {
-                        equipment: SPT-NSC3000,
-                        process: "Deposit Titanium-Tungsten alloy (TiW -> 5nm/min)",
-                        requirement: "120 minutes = 2 hours (roughly 600nm)",
+                        equipment: SPT-3180,
+                        process: "Deposit Aluminum + Titanium finish",
+                        requirement: "Aluminum: ~38 seconds (roughly 600nm) + Titanium: ~5 seconds (roughly 20nm)",
                 },
                 normal_exposure,
                 {

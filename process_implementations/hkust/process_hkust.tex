@@ -10,9 +10,9 @@
 %	a4paper,
 %	total={170mm,257mm},
 	a3paper,
-	left=5mm,
-	top=5mm,
-	right=5mm,
+	left=15mm,
+	right=15mm,
+	top=15mm,
 	bottom=15mm,
 }
 
@@ -113,7 +113,7 @@
 			|C{8.0cm}
 			|C{2.0cm}
 			|C{3.0cm}
-			|C{5.0cm}
+			|C{6.0cm}
 			|C{9.0cm}
 			|}
 		\hline
@@ -172,8 +172,15 @@ Process Flow of Lanceville Technologies LibreSilicon 1\um
 
 \begin{mdframed}[linewidth=2pt,linecolor=black]
 \begin{center}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.5, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=0.65, every node/.style={transform shape}]
 		\input{tikz_process_steps/glass.a.tex}
+		\node at (5,-0.5) {\textbf{\huge{PMOS}}};
+		\node at (13,-0.5) {\textbf{\huge{NMOS}}};
+		\node at (22,-0.5) {\textbf{\huge{SONOS flash cell (PMOS)}}};
+		\node at (30,-0.5) {\textbf{\huge{NPN BJT}}};
+		\node at (38,-0.5) {\textbf{\huge{PNP BJT}}};
+		\node at (46,-0.5) {\textbf{\huge{Polysilicon diode}}};
+		\node at (52,-0.5) {\textbf{\huge{Polyresistor}}};
 	\end{tikzpicture}
 \end{center}
 \end{mdframed}

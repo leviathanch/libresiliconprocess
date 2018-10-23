@@ -296,14 +296,14 @@
 \addProcessStep{Y1:MS2001 Resist strip (WET-Y1)}{P2-00100}{semi-clean}{Resist Stripping}{5mins, 70\degreesC}
 \addProcessStep{Spin Dryer-Y (SRD-Y)}{P2-00100}{semi-clean}{Spin dry}{}
 }
-\makeProcessTable{Metal 1}{tikz_process_steps/metal.a.tex}{metal1}{\addLevelCell{semi-clean} %Deposit Aluminum
+\makeProcessTable{Metal 1}{tikz_process_steps/metal.a.tex}{metal1}{\addLevelCell{semi-clean} %Deposit Aluminum + Titanium finish
 \addLevelCell{semi-clean} %HMDS, PR coating, soft bake
 \addLevelCell{semi-clean} %Exposure of the layer
 \addLevelCell{semi-clean} %Develop, Hard bake
 \addLevelCell{semi-clean} %Wire formation
 \addLevelCell{semi-clean} %Resist Stripping
 \addLevelCell{semi-clean} %Spin dry
-}{\addProcessStep{Varian 3180 Sputter (SPT-3180)}{P2-01000}{semi-clean}{Deposit Aluminum}{37.5 seconds (roughly 600nm)}
+}{\addProcessStep{Varian 3180 Sputter (SPT-3180)}{P2-01000}{semi-clean}{Deposit Aluminum + Titanium finish}{Aluminum: ~38 seconds (roughly 600nm) + Titanium: ~5 seconds (roughly 20nm)}
 \addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{HPR 504: 3krpm ( $\approx$1.5\um ), soft bake: 110\degreesC 1min}
 \addProcessStep{ASML Stepper (PHT-S1)}{P2-00100}{clean/semi-clean}{Exposure of the layer}{}
 \addProcessStep{SVG Developer Track (PHT-T2)}{P2-00100}{clean/semi-clean}{Develop, Hard bake}{FHD-5, 1min; hard bake: 120\degreesC, 1min}
@@ -332,14 +332,14 @@
 \addProcessStep{Y1:MS2001 Resist strip (WET-Y1)}{P2-00100}{semi-clean}{Resist Stripping}{5mins, 70\degreesC}
 \addProcessStep{Spin Dryer-Y (SRD-Y)}{P2-00100}{semi-clean}{Spin dry}{}
 }
-\makeProcessTable{Metal 2}{tikz_process_steps/more_metal.a.tex}{metal2}{\addLevelCell{semi-clean} %Deposit Aluminum
+\makeProcessTable{Metal 2}{tikz_process_steps/more_metal.a.tex}{metal2}{\addLevelCell{semi-clean} %Deposit Aluminum + Titanium finish
 \addLevelCell{semi-clean} %HMDS, PR coating, soft bake
 \addLevelCell{semi-clean} %Exposure of the layer
 \addLevelCell{semi-clean} %Develop, Hard bake
 \addLevelCell{semi-clean} %Wire formation
 \addLevelCell{semi-clean} %Resist Stripping
 \addLevelCell{semi-clean} %Spin dry
-}{\addProcessStep{Varian 3180 Sputter (SPT-3180)}{P2-01000}{semi-clean}{Deposit Aluminum}{37.5 seconds (roughly 600nm)}
+}{\addProcessStep{Varian 3180 Sputter (SPT-3180)}{P2-01000}{semi-clean}{Deposit Aluminum + Titanium finish}{Aluminum: ~38 seconds (roughly 600nm) + Titanium: ~5 seconds (roughly 20nm)}
 \addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{HPR 504: 3krpm ( $\approx$1.5\um ), soft bake: 110\degreesC 1min}
 \addProcessStep{ASML Stepper (PHT-S1)}{P2-00100}{clean/semi-clean}{Exposure of the layer}{}
 \addProcessStep{SVG Developer Track (PHT-T2)}{P2-00100}{clean/semi-clean}{Develop, Hard bake}{FHD-5, 1min; hard bake: 120\degreesC, 1min}
@@ -368,7 +368,7 @@
 \addProcessStep{Y1:MS2001 Resist strip (WET-Y1)}{P2-00100}{semi-clean}{Resist Stripping}{5mins, 70\degreesC}
 \addProcessStep{Spin Dryer-Y (SRD-Y)}{P2-00100}{semi-clean}{Spin dry}{}
 }
-\makeProcessTable{Metal 3}{tikz_process_steps/more_metal_two.a.tex}{metal3}{\addLevelCell{semi-clean} %Deposit Titanium-Tungsten alloy (TiW -> 5nm/min)
+\makeProcessTable{Metal 3}{tikz_process_steps/more_metal_two.a.tex}{metal3}{\addLevelCell{semi-clean} %Deposit Aluminum + Titanium finish
 \addLevelCell{semi-clean} %HMDS, PR coating, soft bake
 \addLevelCell{semi-clean} %Exposure of the layer
 \addLevelCell{semi-clean} %Develop, Hard bake
@@ -376,7 +376,7 @@
 \addLevelCell{semi-clean} %Dry the wafer automatically
 \addLevelCell{semi-clean} %Resist Stripping
 \addLevelCell{semi-clean} %Spin dry
-}{\addProcessStep{NSC3000 Sputter (SPT-NSC3000)}{P2-01000}{semi-clean}{Deposit Titanium-Tungsten alloy (TiW -> 5nm/min)}{120 minutes = 2 hours (roughly 600nm)}
+}{\addProcessStep{Varian 3180 Sputter (SPT-3180)}{P2-01000}{semi-clean}{Deposit Aluminum + Titanium finish}{Aluminum: ~38 seconds (roughly 600nm) + Titanium: ~5 seconds (roughly 20nm)}
 \addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{HPR 504: 3krpm ( $\approx$1.5\um ), soft bake: 110\degreesC 1min}
 \addProcessStep{ASML Stepper (PHT-S1)}{P2-00100}{clean/semi-clean}{Exposure of the layer}{}
 \addProcessStep{SVG Developer Track (PHT-T2)}{P2-00100}{clean/semi-clean}{Develop, Hard bake}{FHD-5, 1min; hard bake: 120\degreesC, 1min}
