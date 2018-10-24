@@ -1,0 +1,134 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{geometry}
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	top=0.5cm,
+	margin=2.0cm,
+	headheight=1.5cm,
+	includeheadfoot
+ }
+ 
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{enumitem}
+\usepackage{gensymb}
+
+%\usepackage[latin1]{inputenc}
+\usepackage[USenglish,british,american,australian,english]{babel}
+
+\usepackage{fancyhdr}
+\usepackage{fancybox}
+\usepackage{graphicx}
+\usepackage[usenames, dvipsnames]{xcolor}
+
+\usepackage{ulem}
+\usepackage{lipsum}% just to generate text for the example
+\usepackage{ifthen}
+
+\setlength{\parindent}{0pt} % get rid of annoying indents
+
+\author{David Lanzendörfer}
+\title{Process datasheet: LibreSilicon 1um (hightech)}
+
+\fancyhead[L]{
+	\ifthenelse{\value{page}=1}{
+		\large{\textbf{Libre Silicon 1.0$\mu m$ process:}} \\
+		\textcolor{Blue}{\huge{\textbf{LS1UH}}} \\
+		\small{\textbf{Hightech variant}}	 \\	
+	}{
+		\textcolor{Blue}{\huge{\textbf{LS1UH}}} \\
+	}
+}
+
+\rhead{
+	\includegraphics[width=2.0cm]{img/LSA-lightblue.png} \\
+}
+
+\addtolength{\headheight}{2\baselineskip}
+\addtolength{\headheight}{0.61pt}
+
+\pagestyle{fancy}
+
+\renewcommand{\section}[1]{
+	\vspace{20pt}
+	\fcolorbox{RoyalBlue}{RoyalBlue}{
+		\begin{minipage}{\textwidth}
+			\textcolor{white}{\textbf{\uppercase{#1}}}
+		\end{minipage}
+	}
+}
+
+%\renewcommand{\headrulewidth}{0pt}
+
+\usepackage[scaled]{helvet}
+\renewcommand\familydefault{\sfdefault}
+\usepackage[T1]{fontenc}
+
+\begin{document}
+\section{description}
+
+\begin{minipage}[t]{0.45\textwidth}
+	The LS1UH series is LibreSilicons 1.0 micron modular mixed signal CMOS technology with non-volatile memory.
+	Based upon the industrial standard single poly with up to 3 metal layers 1.0 micron drawn gate length and a twin-well process,
+	integrated with non-volatile memory and ultra-low noise modules,
+	\end{minipage}\hspace{20pt}\begin{minipage}[t]{0.45\textwidth}
+	the platform is ideal for SoC applications in the automotive market,
+	as well as emdedded high-voltage applications in the communications, consumer and industrial market.
+	Comprehensive design rules, precise SPICE models, analog and digital libraries, IPs and development kits support the process
+	for free and open source tools.
+\end{minipage}
+
+
+
+
+\section{key features overview}
+
+\begin{minipage}[t]{0.45\textwidth}
+	\begin{itemize}[itemsep=0pt]
+		\item 1.0-micron single poly, up to three-metal
+		\item Twin-well CMOS process
+		\item Typical supply voltage from 3.0 V to 18 V (maximum tollerance 40V)
+		\item Extended temperature range from $-55 \degree C$ up to $+125 \degree C$
+		\item Integrated digital, analog and NVM in a single process
+		\item Isolation well for all MOS devices
+	\end{itemize}
+\end{minipage}\hspace{20pt}\begin{minipage}[t]{0.45\textwidth}
+	\begin{itemize}[itemsep=0pt]
+		\item Lateral PNP/NPN BJT devices
+		\item Insensitive towards cosmic radiation
+		\item ESD protected
+		\item Low-noise NMOS/PMOS
+		\item High-reliability NVM using SONOS technology
+		\item Typical and worst-case and best-case models - BSIM3v3 (MOS, BJT, RES, CAP)
+		\item QFlow PDK
+	\end{itemize}
+\end{minipage}
+
+\section{applications}
+\begin{itemize}[itemsep=0pt]
+	\item Automotive
+	\item Robotics
+	\item Safety
+\end{itemize}
+
+\section{primitive devices}
+
+\begin{minipage}[t]{0.45\textwidth}
+	\begin{itemize}[itemsep=0pt]
+		\item MOS transistors
+		\item SONOS flash cells
+		\item Lateral PNP/NPN BJTs
+	\end{itemize}
+\end{minipage}\hspace{20pt}\begin{minipage}[t]{0.45\textwidth}
+	\begin{itemize}[itemsep=0pt]
+		\item SRAM cells
+		\item Poly, Metal, Diffusion Resistors
+		\item Protection, Polysilicon diodes
+	\end{itemize}
+\end{minipage}
+
+\end{document}
