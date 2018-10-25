@@ -77,7 +77,7 @@
 }
 
 \renewcommand{\subsection}[1]{
-	\vspace{5pt}
+	\vspace{20pt}
 	\textcolor{RoyalBlue}{\textbf{\large{#1}}}
 }
 
@@ -87,6 +87,8 @@
 \usepackage[scaled]{helvet}
 \renewcommand\familydefault{\sfdefault}
 \usepackage[T1]{fontenc}
+
+\input{tikz/consts.tex}
 
 \begin{document}
 \section{description}
@@ -182,5 +184,17 @@ other with shallow trench isolation (STI) which is being filled with a low permi
 low temperature, low density oxide (LTO is 5 times less dense than thermal oxide).
 The gate dielectricum is a 40nm thermal silicon dioxide layer which results in a break through voltage of around 40V and above.
 The threshold voltage of the transistors have been dimensioned to be around +0.7V and -0.7V respectively.
+
+\subsection{SONOS flash}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick, scale=0.7, every node/.style={transform shape}]
+		\input{tikz/sonos.tex}
+	\end{tikzpicture}\\
+	\caption{SONOS flash cells}
+\end{figure}
+
+
 
 \end{document}

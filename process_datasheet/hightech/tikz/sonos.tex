@@ -1,0 +1,107 @@
+% substrate
+\fill[isolationoxide] (0.0,0) rectangle (20.0,\UpperGlass);
+\fill[substrate] (0,0) rectangle (20,1.25);
+\node at (2,0.5) {Silicon substrate};
+
+\fill[metal1] ( 1.50,2.0) rectangle (2.00,\LowerMetal);
+\fill[metal1] ( 4.00,2.0) rectangle (4.50,\LowerMetal);
+\fill[metal1] ( 5.25,2.0) rectangle (5.75,\LowerMetal);
+\fill[metal1] ( 6.50,2.0) rectangle (7.00,\LowerMetal);
+
+\fill[metal1] (12.75,2.0) rectangle (13.25,\LowerMetal);
+\fill[metal1] (14.00,2.0) rectangle (14.50,\LowerMetal);
+\fill[metal1] (15.25,2.0) rectangle (15.75,\LowerMetal);
+\fill[metal1] (17.25,2.0) rectangle (17.75,\LowerMetal);
+
+\fill[metal1] ( 1.50,\LowerMetal) rectangle (4.50,\UpperMetal);
+\fill[metal1] ( 5.00,\LowerMetal) rectangle (6.00,\UpperMetal);
+\fill[metal1] ( 6.50,\LowerMetal) rectangle (9.00,\UpperMetal);
+
+\fill[metal1] (11.00,\LowerMetal) rectangle (13.25,\UpperMetal);
+\fill[metal1] (13.75,\LowerMetal) rectangle (14.75,\UpperMetal);
+\fill[metal1] (15.25,\LowerMetal) rectangle (17.75,\UpperMetal);
+
+\fill[metal2] ( 2.50,\UpperMetal) rectangle ( 3.50,\LowerMoreMetal);
+\fill[metal2] ( 5.00,\UpperMetal) rectangle ( 6.00,\LowerMoreMetal);
+\fill[metal2] ( 7.50,\UpperMetal) rectangle ( 8.50,\LowerMoreMetal);
+
+\fill[metal2] (11.25,\UpperMetal) rectangle (12.25,\LowerMoreMetal);
+\fill[metal2] (13.75,\UpperMetal) rectangle (14.75,\LowerMoreMetal);
+\fill[metal2] (16.25,\UpperMetal) rectangle (17.25,\LowerMoreMetal);
+
+\fill[metal2] ( 2.25,\LowerMoreMetal) rectangle ( 3.75,\UpperMoreMetal);
+\fill[metal2] ( 4.75,\LowerMoreMetal) rectangle ( 6.25,\UpperMoreMetal);
+\fill[metal2] ( 7.25,\LowerMoreMetal) rectangle ( 8.75,\UpperMoreMetal);
+
+\fill[metal2] (11.00,\LowerMoreMetal) rectangle (12.50,\UpperMoreMetal);
+\fill[metal2] (13.50,\LowerMoreMetal) rectangle (15.00,\UpperMoreMetal);
+\fill[metal2] (16.00,\LowerMoreMetal) rectangle (17.50,\UpperMoreMetal);
+
+\fill[metal3] ( 2.25,\UpperMoreMetal) rectangle ( 3.75,\LowerMoreMetalTwo);
+\fill[metal3] ( 4.75,\UpperMoreMetal) rectangle ( 6.25,\LowerMoreMetalTwo);
+\fill[metal3] ( 7.25,\UpperMoreMetal) rectangle ( 8.75,\LowerMoreMetalTwo);
+
+\fill[metal3] (11.00,\UpperMoreMetal) rectangle ( 12.50,\LowerMoreMetalTwo);
+\fill[metal3] (13.50,\UpperMoreMetal) rectangle ( 15.00,\LowerMoreMetalTwo);
+\fill[metal3] (16.00,\UpperMoreMetal) rectangle ( 17.50,\LowerMoreMetalTwo);
+
+\fill[metal3] ( 2.00,\LowerMoreMetalTwo) rectangle ( 4.00,\UpperMoreMetalTwo);
+\fill[metal3] ( 4.50,\LowerMoreMetalTwo) rectangle ( 6.50,\UpperMoreMetalTwo);
+\fill[metal3] ( 7.00,\LowerMoreMetalTwo) rectangle ( 9.00,\UpperMoreMetalTwo);
+
+\fill[metal3] ( 10.75,\LowerMoreMetalTwo) rectangle ( 12.75,\UpperMoreMetalTwo);
+\fill[metal3] ( 13.25,\LowerMoreMetalTwo) rectangle ( 15.25,\UpperMoreMetalTwo);
+\fill[metal3] ( 15.75,\LowerMoreMetalTwo) rectangle ( 17.75,\UpperMoreMetalTwo);
+
+
+\fill[white] ( 2.25,\UpperMoreMetalTwo) rectangle ( 3.75,\UpperGlass);
+\fill[white] ( 4.75,\UpperMoreMetalTwo) rectangle ( 6.25,\UpperGlass);
+\fill[white] ( 7.25,\UpperMoreMetalTwo) rectangle ( 8.75,\UpperGlass);
+\fill[white] (11.00,\UpperMoreMetalTwo) rectangle (12.50,\UpperGlass);
+\fill[white] (13.50,\UpperMoreMetalTwo) rectangle (15.00,\UpperGlass);
+\fill[white] (16.00,\UpperMoreMetalTwo) rectangle (17.50,\UpperGlass);
+
+% now comes the active stuff:
+
+% normal wells
+\shade[upper left = nwell, upper right = nwell, lower right = substrate, lower left = substrate,] ( 0.25,\welldepthAsti) rectangle ( 8.25,2.0);
+\shade[upper left = nwell, upper right = nwell, lower right = substrate, lower left = substrate,] ( 11.75,\welldepthAsti) rectangle (18.75,2.0);
+
+\shade[upper left = pbase, upper right = pbase, lower right = nwell, lower left = nwell,] ( 0.50,\welldepthBsti) rectangle ( 8.00,2.0);
+\shade[upper left = pbase, upper right = pbase, lower right = nwell, lower left = nwell,] (12.00,\welldepthBsti) rectangle (18.50,2.0);
+
+\shade[upper left = nbase, upper right = nbase, lower right = pbase, lower left = pbase,] ( 0.75,\welldepthCsti) rectangle ( 7.75,2.0);
+
+\fill[gateoxide] ( 5.00,2.0) rectangle (6.00,2.2);
+\fill[nitride]   ( 5.00,2.2) rectangle (6.00,2.4);
+\fill[gateoxide] ( 5.10,2.4) rectangle (5.90,2.6);
+\fill[poly]      ( 5.10,2.6) rectangle (5.90,3.4);
+
+\fill[gateoxide] ( 13.75,2.0) rectangle (14.75,2.2);
+\fill[nitride]   ( 13.75,2.2) rectangle (14.75,2.4);
+\fill[gateoxide] ( 13.85,2.4) rectangle (14.65,2.6);
+\fill[poly]      ( 13.85,2.6) rectangle (14.65,3.4);
+
+\shade[upper left = nimplant, upper right = nimplant, lower right = nbase, lower left = nbase,] ( 1.00,1.8) rectangle ( 2.50,2);
+\shade[upper left = pimplant, upper right = pimplant, lower right = nbase, lower left = nbase,] ( 3.50,1.8) rectangle ( 5.00,2);
+\shade[upper left = pimplant, upper right = pimplant, lower right = poly,  lower left = poly, ] ( 5.10,2.7) rectangle ( 5.90,3.4);
+\shade[upper left = pimplant, upper right = pimplant, lower right = nbase, lower left = nbase,] ( 6.00,1.8) rectangle ( 7.50,2);
+
+\shade[upper left = nimplant, upper right = nimplant, lower right = pbase, lower left = pbase,] (12.25,1.8) rectangle (13.75,2);
+\shade[upper left = nimplant, upper right = nimplant, lower right = poly,  lower left = poly, ] (13.85,2.7) rectangle (14.65,3.4);
+\shade[upper left = nimplant, upper right = nimplant, lower right = pbase, lower left = pbase,] (14.75,1.8) rectangle (16.25,2);
+\shade[upper left = pimplant, upper right = pimplant, lower right = pbase, lower left = pbase,] (16.75,1.8) rectangle (18.25,2);
+
+\fill[silicide] (1.25,1.9) rectangle (2.25,2);
+\fill[silicide] (3.75,1.9) rectangle (4.75,2);
+\fill[silicide] (5.10,3.3) rectangle (5.90,3.4);
+\fill[silicide] (6.25,1.9) rectangle (7.25,2);
+
+\fill[silicide] (12.50,1.9) rectangle (13.50,2);
+\fill[silicide] (13.85,3.3) rectangle (14.65,3.4);
+\fill[silicide] (15.00,1.9) rectangle (16.00,2);
+\fill[silicide] (17.00,1.9) rectangle (18.00,2);
+
+\node at (5,-0.5) {\textbf{\large{PMOS SONOS flash cell}}};
+\node at (13,-0.5) {\textbf{\large{NMOS SONOS flash cell}}};
+
