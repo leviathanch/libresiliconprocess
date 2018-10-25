@@ -29,6 +29,20 @@
 \usepackage{lipsum}% just to generate text for the example
 \usepackage{ifthen}
 
+\usepackage{tikz}
+\usetikzlibrary{
+	arrows,
+	automata,
+        shadings,
+        shadows,
+        shapes,
+}
+\usepackage[siunitx]{circuitikz}
+
+\input{global_color_scheme.tex}
+\usepackage{float}
+\restylefloat{figure}
+
 \setlength{\parindent}{0pt} % get rid of annoying indents
 
 \author{David Lanzendörfer}
@@ -61,6 +75,12 @@
 		\end{minipage}
 	}
 }
+
+\renewcommand{\subsection}[1]{
+	\vspace{5pt}
+	\textcolor{RoyalBlue}{\textbf{\large{#1}}}
+}
+
 
 %\renewcommand{\headrulewidth}{0pt}
 
@@ -140,5 +160,27 @@
 		\item Protection, Polysilicon diodes
 	\end{itemize}
 \end{minipage}
+
+\newpage
+
+\section{ls1uh devices cross section}
+
+\subsection{CMOS}
+
+Below you can see the cross section of the low power MOSFETs for the CMOS logic.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick, scale=0.7, every node/.style={transform shape}]
+		\input{tikz/mosfets.tex}
+	\end{tikzpicture}\\
+	\caption{CMOS MOSFETs}
+\end{figure}
+
+The CMOS n-channel enhancement MOSFET and p-channel enhancement MOSFET transistors are being isolated from each
+other with shallow trench isolation (STI) which is being filled with a low permittivity,
+low temperature, low density oxide (LTO is 5 times less dense than thermal oxide).
+The gate dielectricum is a 40nm thermal silicon dioxide layer which results in a break through voltage of around 40V and above.
+The threshold voltage of the transistors have been dimensioned to be around +0.7V and -0.7V respectively.
 
 \end{document}
