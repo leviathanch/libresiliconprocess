@@ -76,7 +76,7 @@
 - { 
         name: Shallow trench isolation,
         cross_tikz: tikz_process_steps/sti.a.tex,
-        mask: pwell+nwell,
+        mask: sti,
         steps: [
                 clean_B,
                 normal_exposure,
@@ -91,7 +91,7 @@
 - {
         name: Field oxide,
         cross_tikz: tikz_process_steps/fox.a.tex,
-        mask: pwell+nwell,
+        mask: fox,
         steps: [
                 {
                         equipment: DIF-D2,
