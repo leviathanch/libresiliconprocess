@@ -45,6 +45,9 @@
 \addLevelCell{clean} %Resist strip
 \addLevelCell{clean} %Resist strip
 \addLevelCell{clean} %Dry the wafer automatically
+\addLevelCell{clean} %Default cleaning
+\addLevelCell{clean} %Dry the wafer automatically
+\addLevelCell{clean} %Drive in
 }{\addProcessStep{B1: Sulfuric cleaning (WET-B1)}{P2-01000}{clean}{Default cleaning}{}
 \addProcessStep{Spin Dryer-B (SRD-B)}{P2-01000}{clean}{Dry the wafer automatically}{}
 \addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{FH 6400L: 3krpm ( $\approx$1.5\um ), soft bake: 110\degreesC 1min}
@@ -54,6 +57,9 @@
 \addProcessStep{PS210 Asher (DRY-PR-1)}{P2-01000}{clean}{Resist strip}{}
 \addProcessStep{E4:Resist strip (WET-E4)}{P2-01000}{clean/semi-clean}{Resist strip}{}
 \addProcessStep{Spin Dryer-E (SRD-E)}{P2-01000}{clean/semi-clean}{Dry the wafer automatically}{}
+\addProcessStep{A3:Sulfuric cleaning (WET-A3)}{P2-01000}{clean}{Default cleaning}{}
+\addProcessStep{Spin Dryer-A (SRD-A)}{P2-01000}{clean}{Dry the wafer automatically}{}
+\addProcessStep{Diffusion Furnace-A1, anneal/oxidation (DIF-A1)}{P2-01000}{clean}{Drive in}{2 hours @ 1050\degreesC in dry environment}
 }
 \makeProcessTable{P-Base}{tikz_process_steps/pbase.a.tex}{pbase}{\addLevelCell{clean} %Default cleaning
 \addLevelCell{clean} %Dry the wafer automatically
@@ -64,6 +70,9 @@
 \addLevelCell{clean} %Resist strip
 \addLevelCell{clean} %Resist strip
 \addLevelCell{clean} %Dry the wafer automatically
+\addLevelCell{clean} %Default cleaning
+\addLevelCell{clean} %Dry the wafer automatically
+\addLevelCell{clean} %Drive in
 }{\addProcessStep{B1: Sulfuric cleaning (WET-B1)}{P2-01000}{clean}{Default cleaning}{}
 \addProcessStep{Spin Dryer-B (SRD-B)}{P2-01000}{clean}{Dry the wafer automatically}{}
 \addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{FH 6400L: 3krpm ( $\approx$1.5\um ), soft bake: 110\degreesC 1min}
@@ -73,6 +82,9 @@
 \addProcessStep{PS210 Asher (DRY-PR-1)}{P2-01000}{clean}{Resist strip}{}
 \addProcessStep{E4:Resist strip (WET-E4)}{P2-01000}{clean/semi-clean}{Resist strip}{}
 \addProcessStep{Spin Dryer-E (SRD-E)}{P2-01000}{clean/semi-clean}{Dry the wafer automatically}{}
+\addProcessStep{A3:Sulfuric cleaning (WET-A3)}{P2-01000}{clean}{Default cleaning}{}
+\addProcessStep{Spin Dryer-A (SRD-A)}{P2-01000}{clean}{Dry the wafer automatically}{}
+\addProcessStep{Diffusion Furnace-A1, anneal/oxidation (DIF-A1)}{P2-01000}{clean}{Drive in}{1 hour @ 1050\degreesC in dry environment}
 }
 \makeProcessTable{N-Base}{tikz_process_steps/nbase.a.tex}{nbase}{\addLevelCell{clean} %Default cleaning
 \addLevelCell{clean} %Dry the wafer automatically
@@ -83,6 +95,9 @@
 \addLevelCell{clean} %Resist strip
 \addLevelCell{clean} %Resist strip
 \addLevelCell{clean} %Dry the wafer automatically
+\addLevelCell{clean} %Default cleaning
+\addLevelCell{clean} %Dry the wafer automatically
+\addLevelCell{clean} %Drive in
 }{\addProcessStep{B1: Sulfuric cleaning (WET-B1)}{P2-01000}{clean}{Default cleaning}{}
 \addProcessStep{Spin Dryer-B (SRD-B)}{P2-01000}{clean}{Dry the wafer automatically}{}
 \addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{FH 6400L: 3krpm ( $\approx$1.5\um ), soft bake: 110\degreesC 1min}
@@ -92,6 +107,9 @@
 \addProcessStep{PS210 Asher (DRY-PR-1)}{P2-01000}{clean}{Resist strip}{}
 \addProcessStep{E4:Resist strip (WET-E4)}{P2-01000}{clean/semi-clean}{Resist strip}{}
 \addProcessStep{Spin Dryer-E (SRD-E)}{P2-01000}{clean/semi-clean}{Dry the wafer automatically}{}
+\addProcessStep{A3:Sulfuric cleaning (WET-A3)}{P2-01000}{clean}{Default cleaning}{}
+\addProcessStep{Spin Dryer-A (SRD-A)}{P2-01000}{clean}{Dry the wafer automatically}{}
+\addProcessStep{Diffusion Furnace-A1, anneal/oxidation (DIF-A1)}{P2-01000}{clean}{Drive in}{1 hour @ 1050\degreesC in dry environment}
 }
 \makeProcessTable{Shallow trench isolation}{tikz_process_steps/sti.a.tex}{sti}{\addLevelCell{clean} %Default cleaning
 \addLevelCell{clean} %Dry the wafer automatically
@@ -126,7 +144,7 @@
 \addLevelCell{clean} %Dry the wafer automatically
 }{\addProcessStep{A3:Sulfuric cleaning (WET-A3)}{P2-01000}{clean}{Default cleaning}{}
 \addProcessStep{Spin Dryer-A (SRD-A)}{P2-01000}{clean}{Dry the wafer automatically}{}
-\addProcessStep{Diffusion Furnace-D2, dry/wet oxidation (DIF-D2)}{P2-01000}{clean}{Drive in}{4 hours 30 minutes @ 1050\degreesC in dry environment}
+\addProcessStep{Diffusion Furnace-D2, dry/wet oxidation (DIF-D2)}{P2-01000}{clean}{Drive in}{30 minutes @ 1050\degreesC in dry environment}
 \addProcessStep{A3:Sulfuric cleaning (WET-A3)}{P2-01000}{clean}{Default cleaning}{}
 \addProcessStep{Spin Dryer-A (SRD-A)}{P2-01000}{clean}{Dry the wafer automatically}{}
 \addProcessStep{LPCVD-B3 LTO (CVD-B3)}{P2-01000}{clean}{Oxide deposition}{3\um (filling the trenches)}
@@ -236,6 +254,9 @@
 \addLevelCell{clean} %Resist strip
 \addLevelCell{clean} %Resist strip
 \addLevelCell{clean} %Dry the wafer automatically
+\addLevelCell{clean} %Default cleaning
+\addLevelCell{clean} %Dry the wafer automatically
+\addLevelCell{clean} %Drive in
 }{\addProcessStep{B1: Sulfuric cleaning (WET-B1)}{P2-01000}{clean}{Default cleaning}{}
 \addProcessStep{Spin Dryer-B (SRD-B)}{P2-01000}{clean}{Dry the wafer automatically}{}
 \addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{FH 6400L: 3krpm ( $\approx$1.5\um ), soft bake: 110\degreesC 1min}
@@ -245,6 +266,9 @@
 \addProcessStep{PS210 Asher (DRY-PR-1)}{P2-01000}{clean}{Resist strip}{}
 \addProcessStep{E4:Resist strip (WET-E4)}{P2-01000}{clean/semi-clean}{Resist strip}{}
 \addProcessStep{Spin Dryer-E (SRD-E)}{P2-01000}{clean/semi-clean}{Dry the wafer automatically}{}
+\addProcessStep{A3:Sulfuric cleaning (WET-A3)}{P2-01000}{clean}{Default cleaning}{}
+\addProcessStep{Spin Dryer-A (SRD-A)}{P2-01000}{clean}{Dry the wafer automatically}{}
+\addProcessStep{Diffusion Furnace-A1, anneal/oxidation (DIF-A1)}{P2-01000}{clean}{Drive in}{10 minutes @ 1050\degreesC in dry environment}
 }
 \makeProcessTable{Silicification}{tikz_process_steps/silicification.a.tex}{silicideblock}{\addLevelCell{clean} %Default cleaning
 \addLevelCell{clean} %Dry the wafer automatically
