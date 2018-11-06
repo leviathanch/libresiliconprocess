@@ -122,7 +122,7 @@
         mask: sonos,
         steps: [
                 {
-                        equipment: CVD-B2,
+                        equipment: DIF-D1,
                         process: "Lower gate oxide growth",
                         requirement: "40nm",
                 },
@@ -191,7 +191,7 @@
                 {
                         equipment: DRY-490,
                         process: "Nitride etch",
-                        requirement: "6 seconds (10nm, 100nm/min)",
+                        requirement: "roughly 30 seconds (40nm, 100nm/min)",
                 },
                 {
                         equipment: WET-E4,
@@ -265,7 +265,7 @@
                 {
                         equipment: WET-E2,
                         process: "Remove unreacted Titanium",
-                        requirement: "APM solution (Ammonia and Hydrogen Peroxide mixture), 1 minute",
+                        requirement: "APM solution (Ammonia and Hydrogen Peroxide mixture, 23.1nm/min) -> roughly 2 minutes 30 seconds",
                 },
                 {
                         equipment: DIF-R2,
@@ -308,6 +308,11 @@
                         requirement: "Aluminum: ~38 seconds (roughly 600nm) + Titanium: ~5 seconds (roughly 20nm)",
                 },
                 normal_exposure,
+                {
+                        equipment: WET-E2,
+                        process: "Wire formation",
+                        requirement: "APM solution (Ammonia and Hydrogen Peroxide mixture, 23.1nm/min) -> roughly 1 minute",
+                },
                 {
                         equipment: WET-D1,
                         process: "Wire formation",
@@ -354,6 +359,11 @@
                         requirement: "Aluminum: ~38 seconds (roughly 600nm) + Titanium: ~5 seconds (roughly 20nm)",
                 },
                 normal_exposure,
+                {
+                        equipment: WET-E2,
+                        process: "Wire formation",
+                        requirement: "APM solution (Ammonia and Hydrogen Peroxide mixture, 23.1nm/min) -> roughly 1 minute",
+                },
                 {
                         equipment: WET-D1,
                         process: "Wire formation",
@@ -403,7 +413,12 @@
                 {
                         equipment: WET-E2,
                         process: "Wire formation",
-                        requirement: "APM solution (Ammonia and Hydrogen Peroxide mixture), 10 minutes",
+                        requirement: "APM solution (Ammonia and Hydrogen Peroxide mixture, 23.1nm/min) -> roughly 1 minute",
+                },
+                {
+                        equipment: WET-D1,
+                        process: "Wire formation",
+                        requirement: "2 minutes (600 nm, 282.3 nm/min)",
                 },
                 {
                         equipment: WET-Y1,
