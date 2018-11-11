@@ -247,7 +247,7 @@
                 {
                         equipment: DIF-A1,
                         process: "Drive in",
-                        requirement: "10 minutes @ 1050\\degreesC in dry environment",
+                        requirement: "10 minutes @ 1050\\degreesC in inert ($N_2$) environment",
                 },
         ],
 }
