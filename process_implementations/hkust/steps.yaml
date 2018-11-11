@@ -44,7 +44,7 @@
                 {
                         equipment: DIF-A1,
                         process: "Drive in",
-                        requirement: "2 hours @ 1050\\degreesC in dry environment",
+                        requirement: "2 hours @ 1050\\degreesC in inert ($N_2$) environment",
                 },
         ],
 }
@@ -64,7 +64,7 @@
                 {
                         equipment: DIF-A1,
                         process: "Drive in",
-                        requirement: "1 hour @ 1050\\degreesC in dry environment",
+                        requirement: "1 hour @ 1050\\degreesC in inert ($N_2$) environment",
                 },
         ],
 }
@@ -84,7 +84,7 @@
                 {
                         equipment: DIF-A1,
                         process: "Drive in",
-                        requirement: "1 hour @ 1050\\degreesC in dry environment",
+                        requirement: "1 hour @ 1050\\degreesC in inert ($N_2$) environment",
                 },
         ],
 }
@@ -111,7 +111,7 @@
                 {
                         equipment: DIF-D2,
                         process: "Drive in",
-                        requirement: "30 minutes @ 1050\\degreesC in dry environment",
+                        requirement: "30 minutes @ 1050\\degreesC in dry environment ($O_2$)",
                 },
                 {
                         equipment: CVD-B3,
