@@ -139,7 +139,7 @@
                 {
                         equipment: DIF-D1,
                         process: "Lower gate oxide growth",
-                        requirement: "40nm",
+                        requirement: "5nm",
                 },
                 {
                         equipment: CVD-B2,
@@ -155,7 +155,7 @@
                 {
                         equipment: WET-C3,
                         process: "BOE: Field oxide etching",
-                        requirement: "(4.8 seconds) $\\approx$ 5 seconds (40 nm, 500nm/min)",
+                        requirement: "(1.2 seconds) $\\approx$ 1.2 seconds (5 nm, 500nm/min)",
                 },
                 {
                         equipment: WET-E4,
@@ -200,13 +200,13 @@
                 {
                         equipment: CVD-B2,
                         process: "Implant stop Nitride hard mask",
-                        requirement: "40nm",
+                        requirement: "100nm",
                 },
                 normal_exposure,
                 {
                         equipment: DRY-490,
                         process: "Nitride etch",
-                        requirement: "roughly 30 seconds (40nm, 100nm/min)",
+                        requirement: "roughly 1 minute (100nm, 100nm/min)",
                 },
                 {
                         equipment: WET-E4,

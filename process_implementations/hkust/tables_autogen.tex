@@ -170,7 +170,7 @@
 \addLevelCell{clean} %Dry the wafer automatically
 }{\addProcessStep{A3:Sulfuric cleaning (WET-A3)}{P2-01000}{clean}{Default cleaning}{}
 \addProcessStep{Spin Dryer-A (SRD-A)}{P2-01000}{clean}{Dry the wafer automatically}{}
-\addProcessStep{Diffusion Furnace-D2, dry oxidation (DIF-D1)}{P2-01000}{clean}{Lower gate oxide growth}{40nm}
+\addProcessStep{Diffusion Furnace-D2, dry oxidation (DIF-D1)}{P2-01000}{clean}{Lower gate oxide growth}{5nm}
 \addProcessStep{A3:Sulfuric cleaning (WET-A3)}{P2-01000}{clean}{Default cleaning}{}
 \addProcessStep{Spin Dryer-A (SRD-A)}{P2-01000}{clean}{Dry the wafer automatically}{}
 \addProcessStep{LPCVD-B2 Nitride/Low-Stress Nitride (CVD-B2)}{P2-01000}{clean}{Charge carrying nitride growth}{10nm}
@@ -178,7 +178,7 @@
 \addProcessStep{ASML Stepper (PHT-S1)}{P2-00100}{clean/semi-clean}{Exposure of the layer}{}
 \addProcessStep{SVG Developer Track (PHT-T2)}{P2-00100}{clean/semi-clean}{Develop, Hard bake}{FHD-5, 1min; hard bake: 120\degreesC, 1min}
 \addProcessStep{Lam 490 etcher (DRY-490)}{P2-01000}{clean}{Nitride etch}{6 seconds (10nm, 100nm/min)}
-\addProcessStep{C3:BOE (WET-C3)}{P2-01000}{clean}{BOE: Field oxide etching}{(4.8 seconds) $\approx$ 5 seconds (40 nm, 500nm/min)}
+\addProcessStep{C3:BOE (WET-C3)}{P2-01000}{clean}{BOE: Field oxide etching}{(1.2 seconds) $\approx$ 1.2 seconds (5 nm, 500nm/min)}
 \addProcessStep{E4:Resist strip (WET-E4)}{P2-01000}{clean/semi-clean}{Sulfuric resist strip}{H2SO4+H2O2, 120\degreesC, 10mins}
 \addProcessStep{Spin Dryer-E (SRD-E)}{P2-01000}{clean/semi-clean}{Dry the wafer automatically}{}
 }
@@ -218,11 +218,11 @@
 \addLevelCell{clean} %Dry the wafer automatically
 }{\addProcessStep{A3:Sulfuric cleaning (WET-A3)}{P2-01000}{clean}{Default cleaning}{}
 \addProcessStep{Spin Dryer-A (SRD-A)}{P2-01000}{clean}{Dry the wafer automatically}{}
-\addProcessStep{LPCVD-B2 Nitride/Low-Stress Nitride (CVD-B2)}{P2-01000}{clean}{Implant stop Nitride hard mask}{40nm}
+\addProcessStep{LPCVD-B2 Nitride/Low-Stress Nitride (CVD-B2)}{P2-01000}{clean}{Implant stop Nitride hard mask}{100nm}
 \addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{HPR 504: 3krpm ( $\approx$1.5\um ), soft bake: 110\degreesC 1min}
 \addProcessStep{ASML Stepper (PHT-S1)}{P2-00100}{clean/semi-clean}{Exposure of the layer}{}
 \addProcessStep{SVG Developer Track (PHT-T2)}{P2-00100}{clean/semi-clean}{Develop, Hard bake}{FHD-5, 1min; hard bake: 120\degreesC, 1min}
-\addProcessStep{Lam 490 etcher (DRY-490)}{P2-01000}{clean}{Nitride etch}{roughly 30 seconds (40nm, 100nm/min)}
+\addProcessStep{Lam 490 etcher (DRY-490)}{P2-01000}{clean}{Nitride etch}{roughly 1 minute (100nm, 100nm/min)}
 \addProcessStep{E4:Resist strip (WET-E4)}{P2-01000}{clean/semi-clean}{Sulfuric resist strip}{H2SO4+H2O2, 120\degreesC, 10mins}
 \addProcessStep{Spin Dryer-E (SRD-E)}{P2-01000}{clean/semi-clean}{Dry the wafer automatically}{}
 }
