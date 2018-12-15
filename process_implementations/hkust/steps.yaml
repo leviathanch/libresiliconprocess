@@ -23,7 +23,7 @@
                 {
                         equipment: IMP-3000,
                         process: "Phorphorus implant",
-                        requirement: "$2.33 \\times 10^{12}cm^{-2}$@110keV",
+                        requirement: "$2.33 \\times 10^{12}cm^{-2}$@70keV",
                 },
                 asher_resist_strip,
         ],
@@ -78,7 +78,7 @@
                 {
                         equipment: IMP-3000,
                         process: "Phorphorus implant",
-                        requirement: "$2.33 \\times 10^{12}cm^{-2}$@110keV",
+                        requirement: "$2.33 \\times 10^{12}cm^{-2}$@70keV",
                 },
                 asher_resist_strip,
                 {
