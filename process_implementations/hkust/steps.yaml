@@ -116,13 +116,13 @@
                 {
                         equipment: CVD-B3,
                         process: "Oxide deposition",
-                        requirement: "3\\um (filling the trenches)",
+                        requirement: "500 nm (Isolation between gate and substrate)",
                 },
                 normal_exposure,
                 {
                         equipment: WET-C3,
                         process: "BOE: Field oxide etching",
-                        requirement: "6 minutes (3000 nm, 500nm/min)",
+                        requirement: "1 minutes (500 nm, 500nm/min)",
                 },
                 {
                         equipment: WET-E4,
