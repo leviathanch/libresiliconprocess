@@ -325,18 +325,18 @@
                 {
                         equipment: SPT-3180,
                         process: "Deposit Aluminum + Titanium finish",
-                        requirement: "Aluminum: ~38 seconds (roughly 600nm) + Titanium: ~5 seconds (roughly 20nm)",
+                        requirement: "Aluminum (roughly 100nm) + Titanium (roughly 30nm)",
                 },
                 normal_exposure,
                 {
                         equipment: WET-E2,
                         process: "Wire formation",
-                        requirement: "APM solution (Ammonia and Hydrogen Peroxide mixture, 23.1nm/min) -> roughly 1 minute",
+                        requirement: "HF:DI (1:10) solution, a few seconds",
                 },
                 {
                         equipment: WET-D1,
                         process: "Wire formation",
-                        requirement: "2 minutes (600 nm, 282.3 nm/min)",
+                        requirement: "Around 30 seconds (100 nm, 282.3 nm/min)",
                 },
                 {
                         equipment: WET-Y1,
@@ -376,18 +376,18 @@
                 {
                         equipment: SPT-3180,
                         process: "Deposit Aluminum + Titanium finish",
-                        requirement: "Aluminum: ~38 seconds (roughly 600nm) + Titanium: ~5 seconds (roughly 20nm)",
+                        requirement: "Aluminum (roughly 100nm) + Titanium (roughly 30nm)",
                 },
                 normal_exposure,
                 {
                         equipment: WET-E2,
                         process: "Wire formation",
-                        requirement: "APM solution (Ammonia and Hydrogen Peroxide mixture, 23.1nm/min) -> roughly 1 minute",
+                        requirement: "HF:DI (1:10) solution, a few seconds",
                 },
                 {
                         equipment: WET-D1,
                         process: "Wire formation",
-                        requirement: "2 minutes (600 nm, 282.3 nm/min)",
+                        requirement: "Around 30 seconds (100 nm, 282.3 nm/min)",
                 },
                 {
                         equipment: WET-Y1,
@@ -433,12 +433,12 @@
                 {
                         equipment: WET-E2,
                         process: "Wire formation",
-                        requirement: "APM solution (Ammonia and Hydrogen Peroxide mixture, 23.1nm/min) -> roughly 1 minute",
+                        requirement: "HF:DI (1:10) solution, a few seconds",
                 },
                 {
                         equipment: WET-D1,
                         process: "Wire formation",
-                        requirement: "2 minutes (600 nm, 282.3 nm/min)",
+                        requirement: "Around 30 seconds (100 nm, 282.3 nm/min)",
                 },
                 {
                         equipment: WET-Y1,
