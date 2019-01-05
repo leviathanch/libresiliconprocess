@@ -177,13 +177,13 @@
                 {
                         equipment: CVD-A3,
                         process: "Gate electrode growth",
-                        requirement: "600nm of poly silicon",
+                        requirement: "100nm of poly silicon",
                 },
                 normal_exposure,
                 {
                         equipment: DRY-Poly,
                         process: "Poly silicon etch",
-                        requirement: "6 minute 10 seconds (600nm poly + 40nm oxide)",
+                        requirement: "TODO: Find recipe and determine parameters for 100nm polysilicon",
                 },
                 {
                         equipment: WET-E4,
