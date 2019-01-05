@@ -98,7 +98,7 @@
                 {
                         equipment: DRY-Si-1,
                         process: "Etching the trenches",
-                        requirement: "1 minute (2\\um)",
+                        requirement: "Thin line recipe, 1\\um : 7 cycles -> 14 cycles",
                 },
                 asher_resist_strip,
         ],
@@ -427,7 +427,7 @@
                 {
                         equipment: SPT-3180,
                         process: "Deposit Aluminum + Titanium finish",
-                        requirement: "Aluminum: ~38 seconds (roughly 600nm) + Titanium: ~5 seconds (roughly 20nm)",
+                        requirement: "Aluminum (roughly 100nm) + Titanium (roughly 30nm)",
                 },
                 normal_exposure,
                 {

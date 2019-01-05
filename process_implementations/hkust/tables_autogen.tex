@@ -125,7 +125,7 @@
 \addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{HPR 504: 3krpm ( $\approx$1.5\um ), soft bake: 110\degreesC 1min}
 \addProcessStep{ASML Stepper (PHT-S1)}{P2-00100}{clean/semi-clean}{Exposure of the layer}{}
 \addProcessStep{SVG Developer Track (PHT-T2)}{P2-00100}{clean/semi-clean}{Develop, Hard bake}{FHD-5, 1min; hard bake: 120\degreesC, 1min}
-\addProcessStep{DRIE Etcher \#1 (DRY-Si-1)}{P2-01000}{clean}{Etching the trenches}{1 minute (2\um)}
+\addProcessStep{DRIE Etcher \#1 (DRY-Si-1)}{P2-01000}{clean}{Etching the trenches}{Thin line recipe, 1\um : 7 cycles -> 14 cycles}
 \addProcessStep{PS210 Asher (DRY-PR-1)}{P2-01000}{clean}{Resist strip}{}
 \addProcessStep{E4:Resist strip (WET-E4)}{P2-01000}{clean/semi-clean}{Resist strip}{}
 \addProcessStep{Spin Dryer-E (SRD-E)}{P2-01000}{clean/semi-clean}{Dry the wafer automatically}{}
@@ -409,7 +409,7 @@
 \addLevelCell{semi-clean} %Wire formation
 \addLevelCell{semi-clean} %Resist Stripping
 \addLevelCell{semi-clean} %Spin dry
-}{\addProcessStep{Varian 3180 Sputter (SPT-3180)}{P2-01000}{semi-clean}{Deposit Aluminum + Titanium finish}{Aluminum: ~38 seconds (roughly 600nm) + Titanium: ~5 seconds (roughly 20nm)}
+}{\addProcessStep{Varian 3180 Sputter (SPT-3180)}{P2-01000}{semi-clean}{Deposit Aluminum + Titanium finish}{Aluminum (roughly 100nm) + Titanium (roughly 30nm)}
 \addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{HPR 504: 3krpm ( $\approx$1.5\um ), soft bake: 110\degreesC 1min}
 \addProcessStep{ASML Stepper (PHT-S1)}{P2-00100}{clean/semi-clean}{Exposure of the layer}{}
 \addProcessStep{SVG Developer Track (PHT-T2)}{P2-00100}{clean/semi-clean}{Develop, Hard bake}{FHD-5, 1min; hard bake: 120\degreesC, 1min}
