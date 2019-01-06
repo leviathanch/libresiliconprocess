@@ -109,7 +109,7 @@ DIF-A1: {
 }
 DIF-D1: {
         location: P2-01000,
-        equipment: "Diffusion Furnace-D2, dry oxidation",
+        equipment: "Diff. Furnace-D1 Dry Oxidation (Only for gate oxide)",
         level: clean,
         pre: clean_A,
 }
