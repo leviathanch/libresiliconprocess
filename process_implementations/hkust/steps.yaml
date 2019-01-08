@@ -183,13 +183,9 @@
                 {
                         equipment: DRY-Poly,
                         process: "Poly silicon etch",
-                        requirement: "TODO: Find recipe and determine parameters for 100nm polysilicon",
+                        requirement: "HBr only, 2 minutes",
                 },
-                {
-                        equipment: WET-E4,
-                        process: "Sulfuric resist strip",
-                        requirement: "H2SO4+H2O2, 120\\degreesC, 10mins",
-                },
+                asher_resist_strip,
         ],
 }
 - {

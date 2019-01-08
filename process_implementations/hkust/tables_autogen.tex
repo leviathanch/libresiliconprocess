@@ -192,7 +192,8 @@
 \addLevelCell{clean} %Exposure of the layer
 \addLevelCell{clean} %Develop, Hard bake
 \addLevelCell{clean} %Poly silicon etch
-\addLevelCell{clean} %Sulfuric resist strip
+\addLevelCell{clean} %Resist strip
+\addLevelCell{clean} %Resist strip
 \addLevelCell{clean} %Dry the wafer automatically
 }{\addProcessStep{A3:Sulfuric cleaning (WET-A3)}{P2-01000}{clean}{Default cleaning}{}
 \addProcessStep{Spin Dryer-A (SRD-A)}{P2-01000}{clean}{Dry the wafer automatically}{}
@@ -203,8 +204,9 @@
 \addProcessStep{SVG Coater Track (PHT-T1)}{P2-00100}{clean/semi-clean}{HMDS, PR coating, soft bake}{HPR 504: 3krpm ( $\approx$1.5\um ), soft bake: 110\degreesC 1min}
 \addProcessStep{ASML Stepper (PHT-S1)}{P2-00100}{clean/semi-clean}{Exposure of the layer}{}
 \addProcessStep{SVG Developer Track (PHT-T2)}{P2-00100}{clean/semi-clean}{Develop, Hard bake}{FHD-5, 1min; hard bake: 120\degreesC, 1min}
-\addProcessStep{Poly etcher (DRY-Poly)}{P2-01000}{clean/semi-clean}{Poly silicon etch}{TODO: Find recipe and determine parameters for 100nm polysilicon}
-\addProcessStep{E4:Resist strip (WET-E4)}{P2-01000}{clean/semi-clean}{Sulfuric resist strip}{H2SO4+H2O2, 120\degreesC, 10mins}
+\addProcessStep{Poly etcher (DRY-Poly)}{P2-01000}{clean/semi-clean}{Poly silicon etch}{HBr only, 2 minutes}
+\addProcessStep{PS210 Asher (DRY-PR-1)}{P2-01000}{clean}{Resist strip}{}
+\addProcessStep{E4:Resist strip (WET-E4)}{P2-01000}{clean/semi-clean}{Resist strip}{}
 \addProcessStep{Spin Dryer-E (SRD-E)}{P2-01000}{clean/semi-clean}{Dry the wafer automatically}{}
 }
 \makeProcessTable{Implant stop}{tikz_process_steps/implantstop.a.tex}{implantstop}{\addLevelCell{clean} %Default cleaning
