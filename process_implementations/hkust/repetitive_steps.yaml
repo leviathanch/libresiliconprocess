@@ -7,7 +7,7 @@ implant_exposure: [
         {
                 equipment: PHT-S1,
                 process: "Exposure of the layer",
-                requirement: "",
+                requirement: "340$mJcm^2$",
         },
         {
                 equipment: PHT-T2,
@@ -25,7 +25,7 @@ normal_exposure: [
         {
                 equipment: PHT-S1,
                 process: "Exposure of the layer",
-                requirement: "",
+                requirement: "280$mJcm^2$",
         },
         {
                 equipment: PHT-T2,
