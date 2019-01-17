@@ -1,0 +1,468 @@
+- { 
+        name: Initial alignment mask,
+        cross_tikz: tikz_process_steps/basic.a.tex,
+        mask: basic,
+        steps: [
+                clean_B,
+                normal_exposure,
+                {
+                        equipment: DRY-490,
+                        process: "Etching the alignment crosses from HKUST",
+                        requirement: "2 minutes (120nm)",
+                },
+                asher_resist_strip,
+        ],
+}
+- {
+        name: N-well,
+        cross_tikz: tikz_process_steps/nwell.a.tex,
+        mask: nwell,
+        steps: [
+                clean_B,
+                implant_exposure,
+                {
+                        equipment: IMP-3000,
+                        process: "Phorphorus implant",
+                        requirement: "$2.33 \\times 10^{12}cm^{-2}$@70keV",
+                },
+                asher_resist_strip,
+        ],
+}
+- {
+        name: P-well,
+        cross_tikz: tikz_process_steps/pwell.a.tex,
+        mask: pwell,
+        steps: [
+                clean_B,
+                implant_exposure,
+                {
+                        equipment: IMP-3000,
+                        process: "Boron implant",
+                        requirement: "$1.93 \\times 10^{12}cm^{-2}$@40keV",
+                },
+                asher_resist_strip,
+                {
+                        equipment: DIF-A1,
+                        process: "Drive in",
+                        requirement: "2 hours @ 1050\\degreesC in inert ($N_2$) environment",
+                },
+        ],
+}
+- {
+        name: P-Base,
+        cross_tikz: tikz_process_steps/pbase.a.tex,
+        mask: pbase,
+        steps: [
+                clean_B,
+                implant_exposure,
+                {
+                        equipment: IMP-3000,
+                        process: "Boron implant",
+                        requirement: "$1.93 \\times 10^{12}cm^{-2}$@40keV",
+                },
+                asher_resist_strip,
+                {
+                        equipment: DIF-A1,
+                        process: "Drive in",
+                        requirement: "1 hour @ 1050\\degreesC in inert ($N_2$) environment",
+                },
+        ],
+}
+- {
+        name: N-Base,
+        cross_tikz: tikz_process_steps/nbase.a.tex,
+        mask: nbase,
+        steps: [
+                clean_B,
+                implant_exposure,
+                {
+                        equipment: IMP-3000,
+                        process: "Phorphorus implant",
+                        requirement: "$2.33 \\times 10^{12}cm^{-2}$@70keV",
+                },
+                asher_resist_strip,
+                {
+                        equipment: DIF-A1,
+                        process: "Drive in",
+                        requirement: "1 hour @ 1050\\degreesC in inert ($N_2$) environment",
+                },
+        ],
+}
+- { 
+        name: Shallow trench isolation,
+        cross_tikz: tikz_process_steps/sti.a.tex,
+        mask: sti,
+        steps: [
+                clean_B,
+                normal_exposure,
+                {
+                        equipment: DRY-Si-1,
+                        process: "Etching the trenches",
+                        requirement: "Thin line recipe, 1\\um : 7 cycles -> 14 cycles",
+                },
+                asher_resist_strip,
+        ],
+}
+- {
+        name: Field oxide,
+        cross_tikz: tikz_process_steps/fox.a.tex,
+        mask: fox,
+        steps: [
+                {
+                        equipment: DIF-D2,
+                        process: "Drive in",
+                        requirement: "30 minutes @ 1050\\degreesC in dry environment ($O_2$)",
+                },
+                {
+                        equipment: CVD-B3,
+                        process: "Oxide deposition",
+                        requirement: "500 nm (Isolation between gate and substrate)",
+                },
+                normal_exposure,
+                {
+                        equipment: WET-C3,
+                        process: "BOE: Field oxide etching",
+                        requirement: "1 minutes (500 nm, 500nm/min)",
+                },
+                {
+                        equipment: WET-E4,
+                        process: "Sulfuric resist strip",
+                        requirement: "H2SO4+H2O2, 120\\degreesC, 10mins",
+                },
+        ],
+}
+- {
+        name: SONOS,
+        cross_tikz: tikz_process_steps/sonos.a.tex,
+        mask: sonos,
+        steps: [
+                {
+                        equipment: DIF-D1,
+                        process: "Lower gate oxide growth",
+                        requirement: "5nm",
+                },
+                {
+                        equipment: CVD-B2,
+                        process: "Charge carrying nitride growth",
+                        requirement: "10nm",
+                },
+                normal_exposure,
+                {
+                        equipment: DRY-490,
+                        process: "Nitride etch",
+                        requirement: "6 seconds (10nm, 100nm/min)",
+                },
+                {
+                        equipment: WET-C3,
+                        process: "BOE: Field oxide etching",
+                        requirement: "(1.2 seconds) $\\approx$ 1.2 seconds (5 nm, 500nm/min)",
+                },
+                {
+                        equipment: WET-E4,
+                        process: "Sulfuric resist strip",
+                        requirement: "H2SO4+H2O2, 120\\degreesC, 10mins",
+                },
+        ],
+}
+- {
+        name: Gate,
+        cross_tikz: tikz_process_steps/gate.a.tex,
+        mask: poly,
+        steps: [
+                {
+                        equipment: DIF-D1,
+                        process: "Gate oxide growth",
+                        requirement: "40nm, 33 minutes 14 seconds @ 1050\\degreesC in dry environment",
+                },
+                {
+                        equipment: CVD-A3,
+                        process: "Gate electrode growth",
+                        requirement: "100nm of poly silicon",
+                },
+                normal_exposure,
+                {
+                        equipment: DRY-Poly,
+                        process: "Poly silicon etch",
+                        requirement: "HBr only, 2 minutes",
+                },
+                asher_resist_strip,
+        ],
+}
+- {
+        name: Implant stop,
+        cross_tikz: tikz_process_steps/implantstop.a.tex,
+        mask: implantstop,
+        steps: [
+                {
+                        equipment: CVD-B2,
+                        process: "Implant stop Nitride hard mask",
+                        requirement: "100nm",
+                },
+                normal_exposure,
+                {
+                        equipment: DRY-490,
+                        process: "Nitride etch",
+                        requirement: "roughly 1 minute (100nm, 100nm/min)",
+                },
+                {
+                        equipment: WET-E4,
+                        process: "Sulfuric resist strip",
+                        requirement: "H2SO4+H2O2, 120\\degreesC, 10mins",
+                },
+        ],
+}
+
+- {
+        name: N+ implant,
+        cross_tikz: tikz_process_steps/nimplant.a.tex,
+        mask: nimplant,
+        steps: [
+                clean_B,
+                implant_exposure,
+                {
+                        equipment: IMP-3000,
+                        process: "Phorphorus implant",
+                        requirement: "$2.5 \\times 10^{12}cm^{-2}$ @ 90keV",
+                },
+                asher_resist_strip,
+        ],
+}
+- {
+        name: P+ implant,
+        cross_tikz: tikz_process_steps/pimplant.a.tex,
+        mask: pimplant,
+        steps: [
+                clean_B,
+                implant_exposure,
+                {
+                        equipment: IMP-3000,
+                        process: "Boron implant",
+                        requirement: "$2.5 \\times 10^{12}cm^{-2}$ @ 35keV",
+                },
+                asher_resist_strip,
+                {
+                        equipment: DIF-A1,
+                        process: "Drive in",
+                        requirement: "10 minutes @ 1050\\degreesC in inert ($N_2$) environment",
+                },
+        ],
+}
+- {
+        name: Silicification,
+        cross_tikz: tikz_process_steps/silicification.a.tex,
+        mask: silicideblock,
+        steps: [
+                {
+                        equipment: CVD-B3,
+                        process: "Spacer oxide",
+                        requirement: "50 nm",
+                },
+                normal_exposure,
+                {
+                        equipment: DRY-AOE,
+                        process: "Anisotropic oxide etch",
+                        requirement: "12 seconds",
+                },
+                {
+                        equipment: WET-E4,
+                        process: "Sulfuric resist strip",
+                        requirement: "H2SO4+H2O2, 120\\degreesC, 10mins",
+                },
+                {
+                        equipment: SPT-3180,
+                        process: "Deposit Titanium",
+                        requirement: "15 seconds (roughly 60nm)",
+                },
+                {
+                        equipment: DIF-R2,
+                        process: "First reaction phase",
+                        requirement: "240 seconds @ 700\\degreesC",
+                },
+                {
+                        equipment: WET-E2,
+                        process: "Remove unreacted Titanium",
+                        requirement: "HF:DI (1:10) solution, a few seconds",
+                },
+                {
+                        equipment: DIF-R2,
+                        process: "Second reaction phase",
+                        requirement: "240 seconds @ 800\\degreesC",
+                },
+        ],
+}
+- {
+        name: Contact,
+        cross_tikz: tikz_process_steps/contact.a.tex,
+        mask: contact,
+        steps: [
+                {
+                        equipment: CVD-F4,
+                        process: "Oxide deposition",
+                        requirement: "500 nm",
+                },
+                normal_exposure,
+                {
+                        equipment: WET-E2,
+                        process: "BOE (1:6), LTO Etch",
+                        requirement: "1 minute (500 nm, 500nm/min)",
+                },
+                {
+                        equipment: WET-Y1,
+                        process: "Resist Stripping",
+                        requirement: "5mins, 70\\degreesC",
+                },
+        ],
+}
+- {
+        name: Metal 1,
+        cross_tikz: tikz_process_steps/metal.a.tex,
+        mask: metal1,
+        steps: [
+                {
+                        equipment: SPT-3180,
+                        process: "Deposit Aluminum + Titanium finish",
+                        requirement: "Aluminum (roughly 100nm) + Titanium (roughly 30nm)",
+                },
+                normal_exposure,
+                {
+                        equipment: WET-E2,
+                        process: "Wire formation",
+                        requirement: "HF:DI (1:10) solution, a few seconds",
+                },
+                {
+                        equipment: WET-D1,
+                        process: "Wire formation",
+                        requirement: "Around 30 seconds (100 nm, 282.3 nm/min)",
+                },
+                {
+                        equipment: WET-Y1,
+                        process: "Resist Stripping",
+                        requirement: "5mins, 70\\degreesC",
+                },
+        ],
+}
+- {
+        name: Via 1,
+        cross_tikz: tikz_process_steps/via.a.tex,
+        mask: via1,
+        steps: [
+                {
+                        equipment: CVD-F4,
+                        process: "Oxide deposition",
+                        requirement: "500 nm",
+                },
+                normal_exposure,
+                {
+                        equipment: WET-E2,
+                        process: "BOE (1:6), LTO Etch",
+                        requirement: "1 minute (500 nm, 500nm/min)",
+                },
+                {
+                        equipment: WET-Y1,
+                        process: "Resist Stripping",
+                        requirement: "5mins, 70\\degreesC",
+                },
+        ],
+}
+- {
+        name: Metal 2,
+        cross_tikz: tikz_process_steps/more_metal.a.tex,
+        mask: metal2,
+        steps: [
+                {
+                        equipment: SPT-3180,
+                        process: "Deposit Aluminum + Titanium finish",
+                        requirement: "Aluminum (roughly 100nm) + Titanium (roughly 30nm)",
+                },
+                normal_exposure,
+                {
+                        equipment: WET-E2,
+                        process: "Wire formation",
+                        requirement: "HF:DI (1:10) solution, a few seconds",
+                },
+                {
+                        equipment: WET-D1,
+                        process: "Wire formation",
+                        requirement: "Around 30 seconds (100 nm, 282.3 nm/min)",
+                },
+                {
+                        equipment: WET-Y1,
+                        process: "Resist Stripping",
+                        requirement: "5mins, 70\\degreesC",
+                },
+        ],
+}
+- {
+        name: Via 2,
+        cross_tikz: tikz_process_steps/via2.a.tex,
+        mask: via2,
+        steps: [
+                {
+                        equipment: CVD-F4,
+                        process: "Oxide deposition",
+                        requirement: "500 nm",
+                },
+                normal_exposure,
+                {
+                        equipment: WET-E2,
+                        process: "BOE (1:6), LTO Etch",
+                        requirement: "1 minute (500 nm, 500nm/min)",
+                },
+                {
+                        equipment: WET-Y1,
+                        process: "Resist Stripping",
+                        requirement: "5mins, 70\\degreesC",
+                },
+        ],
+}
+- {
+        name: Metal 3,
+        cross_tikz: tikz_process_steps/more_metal_two.a.tex,
+        mask: metal3,
+        steps: [
+                {
+                        equipment: SPT-3180,
+                        process: "Deposit Aluminum + Titanium finish",
+                        requirement: "Aluminum (roughly 100nm) + Titanium (roughly 30nm)",
+                },
+                normal_exposure,
+                {
+                        equipment: WET-E2,
+                        process: "Wire formation",
+                        requirement: "HF:DI (1:10) solution, a few seconds",
+                },
+                {
+                        equipment: WET-D1,
+                        process: "Wire formation",
+                        requirement: "Around 30 seconds (100 nm, 282.3 nm/min)",
+                },
+                {
+                        equipment: WET-Y1,
+                        process: "Resist Stripping",
+                        requirement: "5mins, 70\\degreesC",
+                },
+        ],
+}
+- {
+        name: Glass,
+        cross_tikz: tikz_process_steps/glass.a.tex,
+        mask: glass,
+        steps: [
+                {
+                        equipment: CVD-F4,
+                        process: "Oxide deposition",
+                        requirement: "500 nm",
+                },
+                normal_exposure,
+                {
+                        equipment: WET-E2,
+                        process: "BOE (1:6), LTO Etch",
+                        requirement: "1 minute (500 nm, 500nm/min)",
+                },
+                {
+                        equipment: WET-Y1,
+                        process: "Resist Stripping",
+                        requirement: "5mins, 70\\degreesC",
+                },
+        ],
+}
