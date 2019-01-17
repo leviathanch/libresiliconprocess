@@ -209,24 +209,25 @@ class auto_generator:
 			print "Error occured"
 
 
-def generate_latex():
+def generate_latex(filename):
 	obj = auto_generator(
-		"steps.yaml",
+		filename,
 		"repetitive_steps.yaml",
 		"cleanliness_levels.yaml",
 		"equipment.yaml"
 	)
-	tables = open("tables_autogen.tex","w")
+	tables = open(filename.replace(".yaml","")+".tex","w")
 	obj.parseProcessYamlToLaTeX(tables)
 	tables.close()
 
-if len(sys.argv)>1:
-	if sys.argv[1]=="check":
-		print "Checking for errors"
+if '-f' in sys.argv:
+	if len(sys.argv) >= sys.argv.index('-f')+2:
+		filename=sys.argv[sys.argv.index('-f')+1]
+		if "check" in sys.argv:
+			print "Checking for errors"
+		print "Generating LaTeX tables for "+filename
+		generate_latex(filename)
 	else:
-		print "Generating LaTeX tables"
-		generate_latex()
+		print "No file name given (-f)"
 else:
-	print "Generating LaTeX tables"
-	generate_latex()
-	
+	print "No filename given (-f)"
