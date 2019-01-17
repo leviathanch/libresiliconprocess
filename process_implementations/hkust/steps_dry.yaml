@@ -124,6 +124,11 @@
                         requirement: "100 nm LTO",
                 },
                 normal_exposure,
+                {
+                        equipment: DRY-AOE,
+                        process: "Etch oxide FOX openings",
+                        requirement: "Etch through 100nm",
+                },
                 asher_resist_strip,
         ],
 }
