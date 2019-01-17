@@ -93,14 +93,40 @@
         cross_tikz: tikz_process_steps/sti.a.tex,
         mask: sti,
         steps: [
-                clean_B,
+                {
+                        equipment: DIF-A1,
+                        process: "Hard mask formation",
+                        requirement: "Around 2 minutes 22 seconds @ 1050\\degreesC in wet environment, 500nm",
+                },
                 normal_exposure,
                 {
-                        equipment: DRY-Si-1,
-                        process: "Etching the trenches",
-                        requirement: "Thin line recipe, 1\\um : 7 cycles -> 14 cycles",
+                        equipment: WET-C3,
+                        process: "BOE: Hard mask etching",
+                        requirement: "Around 1 minute (500 nm, 500nm/min)",
                 },
-                asher_resist_strip,
+                {
+                        equipment: SRD-C,
+                        process: "Dry the wafer",
+                },
+                resist_strip,
+                {
+                        equipment: WET-G1,
+                        process: "Etching the trenches",
+                        requirement: "2\\um -> 2 minutes",
+                },
+                {
+                        equipment: SRD-G,
+                        process: "Dry the wafer",
+                },
+                {
+                        equipment: WET-C3,
+                        process: "BOE: Hard mask removal",
+                        requirement: "Around 1 minute (500 nm, 500nm/min)",
+                },
+                {
+                        equipment: SRD-C,
+                        process: "Dry the wafer",
+                },
         ],
 }
 - {

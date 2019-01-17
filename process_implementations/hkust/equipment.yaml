@@ -98,6 +98,21 @@ SRD-Y: {
         equipment: "Spin Dryer-Y",
         level: semi-clean,
 }
+
+# Wet station G
+WET-G1: {
+        location: P2-01000,
+        equipment: "G1:TMAH",
+        level: clean,
+        post: dry_G,
+}
+#(spin drier)
+SRD-G: {
+        location: P2-01000,
+        equipment: "Spin Dryer-G",
+        level: clean,
+}
+
 #--------------------
 
 ## Thermal diffusion:
