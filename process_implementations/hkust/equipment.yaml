@@ -246,3 +246,10 @@ PHT-S1: {
         equipment: "ASML Stepper",
         level: clean/semi-clean,
 }
+
+# CMP
+CMP-1: {
+        location: P2-10000,
+        equipment: "Strasbaugh CMP",
+        level: clean,
+}

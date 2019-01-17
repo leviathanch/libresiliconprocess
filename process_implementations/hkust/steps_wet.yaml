@@ -94,7 +94,7 @@
         mask: sti,
         steps: [
                 {
-                        equipment: DIF-A1,
+                        equipment: DIF-D2,
                         process: "Hard mask formation",
                         requirement: "Around 2 minutes 22 seconds @ 1050\\degreesC in wet environment, 500nm",
                 },
@@ -102,7 +102,7 @@
                 {
                         equipment: WET-C3,
                         process: "BOE: Hard mask etching",
-                        requirement: "Around 1 minute (500 nm, 500nm/min)",
+                        requirement: "Around 5 minutes (500 nm, 100nm/min)",
                 },
                 {
                         equipment: SRD-C,
@@ -121,7 +121,7 @@
                 {
                         equipment: WET-C3,
                         process: "BOE: Hard mask removal",
-                        requirement: "Around 1 minute (500 nm, 500nm/min)",
+                        requirement: "Around 5 minutes (500 nm, 100nm/min)",
                 },
                 {
                         equipment: SRD-C,
@@ -136,19 +136,14 @@
         steps: [
                 {
                         equipment: DIF-D2,
-                        process: "Drive in",
-                        requirement: "30 minutes @ 1050\\degreesC in dry environment ($O_2$)",
-                },
-                {
-                        equipment: CVD-B3,
-                        process: "Oxide deposition",
-                        requirement: "500 nm (Isolation between gate and substrate)",
+                        process: "Grow field oxide",
+                        requirement: "5 minutes 30 seconds @ 1050\\degreesC in wet environment ($O_2$), around 100 nm oxide",
                 },
                 normal_exposure,
                 {
                         equipment: WET-C3,
                         process: "BOE: Field oxide etching",
-                        requirement: "1 minutes (500 nm, 500nm/min)",
+                        requirement: "1 minute (100 nm, 100nm/min)",
                 },
                 {
                         equipment: WET-E4,

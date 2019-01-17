@@ -1,5 +1,5 @@
 yaml = steps_wet.yaml steps_dry.yaml
-yamldeps = repetitive_steps.yaml
+yamldeps = cleanliness_levels.yaml  equipment.yaml  repetitive_steps.yaml
 texs = $(yaml:.yaml=.tex)
 pdfs = $(yaml:.yaml=.pdf)
 
