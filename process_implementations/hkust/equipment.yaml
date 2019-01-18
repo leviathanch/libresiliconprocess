@@ -264,3 +264,8 @@ CMP-1: {
         equipment: "Strasbaugh CMP",
         level: clean,
 }
+CMP-4: {
+        location: Rm. 2227,
+        equipment: "Buehler Polisher \\#1",
+        level: semi-clean,
+}

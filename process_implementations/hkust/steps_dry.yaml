@@ -292,6 +292,10 @@
                         process: "Oxide deposition",
                         requirement: "1\\um LTO",
                 },
+                {
+                        equipment: CMP-4,
+                        process: "Planarize oxide",
+                },
                 normal_exposure,
                 {
                         equipment: DRY-Trion,
@@ -328,7 +332,11 @@
                 {
                         equipment: CVD-F4,
                         process: "Oxide deposition",
-                        requirement: "500 nm",
+                        requirement: "1\\um",
+                },
+                {
+                        equipment: CMP-4,
+                        process: "Planarize oxide",
                 },
                 normal_exposure,
                 {
@@ -366,7 +374,11 @@
                 {
                         equipment: CVD-F4,
                         process: "Oxide deposition",
-                        requirement: "500 nm",
+                        requirement: "1\\um",
+                },
+                {
+                        equipment: CMP-4,
+                        process: "Planarize oxide",
                 },
                 normal_exposure,
                 {
@@ -404,7 +416,11 @@
                 {
                         equipment: CVD-F4,
                         process: "Oxide deposition",
-                        requirement: "500 nm",
+                        requirement: "1\\um",
+                },
+                {
+                        equipment: CMP-4,
+                        process: "Planarize oxide",
                 },
                 normal_exposure,
                 {
