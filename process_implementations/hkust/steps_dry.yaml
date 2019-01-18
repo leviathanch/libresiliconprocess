@@ -300,7 +300,7 @@
                 {
                         equipment: DRY-Trion,
                         process: "1\\um LTO etch",
-                        requirement: "20 minutes (1\\um, 50nm/min)",
+                        requirement: "TODO",
                 },
                 asher_metal_resist_strip,
         ],
@@ -342,7 +342,7 @@
                 {
                         equipment: DRY-Trion,
                         process: "1\\um LTO etch",
-                        requirement: "20 minutes (1\\um, 50nm/min)",
+                        requirement: "TODO",
                 },
                 asher_metal_resist_strip,
         ],
@@ -384,7 +384,7 @@
                 {
                         equipment: DRY-Trion,
                         process: "1\\um LTO etch",
-                        requirement: "20 minutes (1\\um, 50nm/min)",
+                        requirement: "TODO",
                 },
                 asher_metal_resist_strip,
         ],
@@ -426,7 +426,7 @@
                 {
                         equipment: DRY-Trion,
                         process: "1\\um LTO etch",
-                        requirement: "20 minutes (1\\um, 50nm/min)",
+                        requirement: "TODO",
                 },
                 asher_metal_resist_strip,
         ],
