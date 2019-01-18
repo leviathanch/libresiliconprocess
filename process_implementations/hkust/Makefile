@@ -11,6 +11,7 @@ $(texs): %.tex:%.yaml $(yamldeps)
 $(pdfs): %.pdf:%.tex
 	max_in_open=32 xelatex '\def\inctable{$<}\input{process.tex}' > log
 	mv process.pdf $@
+	rm log process.log
 
 check:
 	./tables_generator.py check

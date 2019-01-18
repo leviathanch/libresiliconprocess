@@ -205,17 +205,28 @@ DRY-Trion: {
         equipment: "Trion RIE Etcher",
         level: semi-clean,
 }
+DRY-Metal-1: {
+        location: P2-01000,
+        equipment: "AST Metal Etcher",
+        level: semi-clean,
+}
 DRY-Metal-2: {
         location: P2-01000,
         equipment: "Oxford Aluminum Etcher",
         level: semi-clean,
 }
 
+
 # Ashers (resist removal):
 DRY-PR-1: {
         location: P2-01000,
         equipment: "PS210 Asher",
         level: clean,
+}
+DRY-PR-2: {
+        location: P2-01000,
+        equipment: "IPC 3000  Asher \\#1",
+        level: semi-clean,
 }
 
 ## Sputtering modules:

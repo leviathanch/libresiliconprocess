@@ -153,16 +153,7 @@
                         process: "Nitride etch",
                         requirement: "6 seconds (10nm, 100nm/min)",
                 },
-                {
-                        equipment: WET-C3,
-                        process: "BOE: Field oxide etching",
-                        requirement: "(1.2 seconds) $\\approx$ 1.2 seconds (5 nm, 500nm/min)",
-                },
-                {
-                        equipment: WET-E4,
-                        process: "Sulfuric resist strip",
-                        requirement: "H2SO4+H2O2, 120\\degreesC, 10mins",
-                },
+                asher_resist_strip,
         ],
 }
 - {
@@ -299,19 +290,15 @@
                 {
                         equipment: CVD-F4,
                         process: "Oxide deposition",
-                        requirement: "500 nm",
+                        requirement: "1\\um LTO",
                 },
                 normal_exposure,
                 {
-                        equipment: WET-E2,
-                        process: "BOE (1:6), LTO Etch",
-                        requirement: "1 minute (500 nm, 500nm/min)",
+                        equipment: DRY-Trion,
+                        process: "1\\um LTO etch",
+                        requirement: "20 minutes (1\\um, 50nm/min)",
                 },
-                {
-                        equipment: WET-Y1,
-                        process: "Resist Stripping",
-                        requirement: "5mins, 70\\degreesC",
-                },
+                asher_metal_resist_strip,
         ],
 }
 - {
@@ -322,24 +309,15 @@
                 {
                         equipment: SPT-3180,
                         process: "Deposit Aluminum + Titanium finish",
-                        requirement: "Aluminum (roughly 100nm) + Titanium (roughly 30nm)",
+                        requirement: "Aluminum (roughly 200nm) + Titanium (roughly 30nm)",
                 },
                 normal_exposure,
                 {
-                        equipment: WET-E2,
+                        equipment: DRY-Metal-1,
                         process: "Wire formation",
-                        requirement: "HF:DI (1:10) solution, a few seconds",
+                        requirement: "200 nm",
                 },
-                {
-                        equipment: WET-D1,
-                        process: "Wire formation",
-                        requirement: "Around 30 seconds (100 nm, 282.3 nm/min)",
-                },
-                {
-                        equipment: WET-Y1,
-                        process: "Resist Stripping",
-                        requirement: "5mins, 70\\degreesC",
-                },
+                asher_metal_resist_strip,
         ],
 }
 - {
@@ -354,15 +332,11 @@
                 },
                 normal_exposure,
                 {
-                        equipment: WET-E2,
-                        process: "BOE (1:6), LTO Etch",
-                        requirement: "1 minute (500 nm, 500nm/min)",
+                        equipment: DRY-Trion,
+                        process: "1\\um LTO etch",
+                        requirement: "20 minutes (1\\um, 50nm/min)",
                 },
-                {
-                        equipment: WET-Y1,
-                        process: "Resist Stripping",
-                        requirement: "5mins, 70\\degreesC",
-                },
+                asher_metal_resist_strip,
         ],
 }
 - {
@@ -373,24 +347,15 @@
                 {
                         equipment: SPT-3180,
                         process: "Deposit Aluminum + Titanium finish",
-                        requirement: "Aluminum (roughly 100nm) + Titanium (roughly 30nm)",
+                        requirement: "Aluminum (roughly 200nm) + Titanium (roughly 30nm)",
                 },
                 normal_exposure,
                 {
-                        equipment: WET-E2,
+                        equipment: DRY-Metal-1,
                         process: "Wire formation",
-                        requirement: "HF:DI (1:10) solution, a few seconds",
+                        requirement: "200 nm",
                 },
-                {
-                        equipment: WET-D1,
-                        process: "Wire formation",
-                        requirement: "Around 30 seconds (100 nm, 282.3 nm/min)",
-                },
-                {
-                        equipment: WET-Y1,
-                        process: "Resist Stripping",
-                        requirement: "5mins, 70\\degreesC",
-                },
+                asher_metal_resist_strip,
         ],
 }
 - {
@@ -405,15 +370,11 @@
                 },
                 normal_exposure,
                 {
-                        equipment: WET-E2,
-                        process: "BOE (1:6), LTO Etch",
-                        requirement: "1 minute (500 nm, 500nm/min)",
+                        equipment: DRY-Trion,
+                        process: "1\\um LTO etch",
+                        requirement: "20 minutes (1\\um, 50nm/min)",
                 },
-                {
-                        equipment: WET-Y1,
-                        process: "Resist Stripping",
-                        requirement: "5mins, 70\\degreesC",
-                },
+                asher_metal_resist_strip,
         ],
 }
 - {
@@ -424,24 +385,15 @@
                 {
                         equipment: SPT-3180,
                         process: "Deposit Aluminum + Titanium finish",
-                        requirement: "Aluminum (roughly 100nm) + Titanium (roughly 30nm)",
+                        requirement: "Aluminum (roughly 200nm) + Titanium (roughly 30nm)",
                 },
                 normal_exposure,
                 {
-                        equipment: WET-E2,
+                        equipment: DRY-Metal-1,
                         process: "Wire formation",
-                        requirement: "HF:DI (1:10) solution, a few seconds",
+                        requirement: "200 nm",
                 },
-                {
-                        equipment: WET-D1,
-                        process: "Wire formation",
-                        requirement: "Around 30 seconds (100 nm, 282.3 nm/min)",
-                },
-                {
-                        equipment: WET-Y1,
-                        process: "Resist Stripping",
-                        requirement: "5mins, 70\\degreesC",
-                },
+                asher_metal_resist_strip,
         ],
 }
 - {
@@ -456,14 +408,10 @@
                 },
                 normal_exposure,
                 {
-                        equipment: WET-E2,
-                        process: "BOE (1:6), LTO Etch",
-                        requirement: "1 minute (500 nm, 500nm/min)",
+                        equipment: DRY-Trion,
+                        process: "1\\um LTO etch",
+                        requirement: "20 minutes (1\\um, 50nm/min)",
                 },
-                {
-                        equipment: WET-Y1,
-                        process: "Resist Stripping",
-                        requirement: "5mins, 70\\degreesC",
-                },
+                asher_metal_resist_strip,
         ],
 }

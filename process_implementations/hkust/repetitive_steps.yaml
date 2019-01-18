@@ -145,3 +145,11 @@ asher_resist_strip: [
                 process: "Resist strip",
         },
 ]
+
+asher_metal_resist_strip: [
+        {
+                equipment: DRY-PR-2,
+                process: "Resist strip",
+                requirement: "pr 25 minutes",
+        },
+]
