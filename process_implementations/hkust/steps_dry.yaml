@@ -13,6 +13,56 @@
                 asher_resist_strip,
         ],
 }
+- { 
+        name: Shallow trench isolation,
+        cross_tikz: tikz_process_steps/sti.a.tex,
+        mask: sti,
+        steps: [
+                clean_B,
+                normal_exposure,
+                {
+                        equipment: DRY-Si-1,
+                        process: "Etching the trenches",
+                        requirement: "Thin line recipe, 1\\um : 7 cycles -> 35 cycles",
+                },
+                asher_resist_strip,
+                {
+                        equipment: CVD-B3,
+                        process: "Oxide deposition",
+                        requirement: "4\\um LTO",
+                },
+                {
+                        equipment: CMP-1,
+                        process: "Planarize oxide down to silicon",
+                        requirement: "Use oxide planarization slurry, 15 minutes",
+                },
+                {
+                        equipment: WET-G1,
+                        process: "Ammonium cleaning",
+                        requirement: "70\\degreesC, 10mins",
+                },
+                {
+                        equipment: WET-C3,
+                        process: "HF dip",
+                        requirement: "1 minute",
+                },
+                {
+                        equipment: CVD-B3,
+                        process: "Oxide deposition",
+                        requirement: "2\\um LTO",
+                },
+                {
+                        equipment: CMP-1,
+                        process: "Planarize oxide down to silicon",
+                        requirement: "Use oxide planarization slurry, 10 minutes",
+                },
+                {
+                        equipment: WET-G1,
+                        process: "Ammonium cleaning",
+                        requirement: "70\\degreesC, 10mins",
+                },
+        ],
+}
 - {
         name: N-well,
         cross_tikz: tikz_process_steps/nwell.a.tex,
@@ -84,23 +134,8 @@
                 {
                         equipment: DIF-A1,
                         process: "Drive in",
-                        requirement: "1 hour @ 1050\\degreesC in inert ($N_2$) environment",
+                        requirement: "30 minutes @ 1050\\degreesC in inert ($N_2$) environment",
                 },
-        ],
-}
-- { 
-        name: Shallow trench isolation,
-        cross_tikz: tikz_process_steps/sti.a.tex,
-        mask: sti,
-        steps: [
-                clean_B,
-                normal_exposure,
-                {
-                        equipment: DRY-Si-1,
-                        process: "Etching the trenches",
-                        requirement: "Thin line recipe, 1\\um : 7 cycles -> 14 cycles",
-                },
-                asher_resist_strip,
         ],
 }
 - {
@@ -111,23 +146,13 @@
                 {
                         equipment: CVD-B3,
                         process: "Oxide deposition",
-                        requirement: "3\\um LTO",
-                },
-                {
-                        equipment: CMP-1,
-                        process: "Planarize oxide down to silicon",
-                        requirement: "Use oxide planarization slurry",
-                },
-                {
-                        equipment: CVD-B3,
-                        process: "Oxide deposition",
-                        requirement: "100 nm LTO",
+                        requirement: "200nm LTO",
                 },
                 normal_exposure,
                 {
                         equipment: DRY-AOE,
                         process: "Etch oxide FOX openings",
-                        requirement: "Etch through 100nm",
+                        requirement: "Etch through 200nm",
                 },
                 asher_resist_strip,
         ],
@@ -169,7 +194,7 @@
                 {
                         equipment: CVD-A3,
                         process: "Gate electrode growth",
-                        requirement: "100nm of poly silicon",
+                        requirement: "250nm of poly silicon",
                 },
                 normal_exposure,
                 {
@@ -214,7 +239,7 @@
                 {
                         equipment: IMP-3000,
                         process: "Phorphorus implant",
-                        requirement: "$2.5 \\times 10^{12}cm^{-2}$ @ 90keV",
+                        requirement: "$2.5 \\times 10^{12}cm^{-2}$ @ 30keV",
                 },
                 asher_resist_strip,
         ],
@@ -229,7 +254,7 @@
                 {
                         equipment: IMP-3000,
                         process: "Boron implant",
-                        requirement: "$2.5 \\times 10^{12}cm^{-2}$ @ 35keV",
+                        requirement: "$2.5 \\times 10^{12}cm^{-2}$ @ 20keV",
                 },
                 asher_resist_strip,
                 {
@@ -302,7 +327,11 @@
                         process: "1\\um LTO etch",
                         requirement: "TODO",
                 },
-                asher_metal_resist_strip,
+                {
+                        equipment: WET-Y1,
+                        process: "Resist strip",
+                        requirement: "10mins",
+                },
         ],
 }
 - {
@@ -321,7 +350,11 @@
                         process: "Wire formation",
                         requirement: "200 nm",
                 },
-                asher_metal_resist_strip,
+                {
+                        equipment: WET-Y1,
+                        process: "Resist strip",
+                        requirement: "10mins",
+                },
         ],
 }
 - {
@@ -344,7 +377,11 @@
                         process: "1\\um LTO etch",
                         requirement: "TODO",
                 },
-                asher_metal_resist_strip,
+                {
+                        equipment: WET-Y1,
+                        process: "Resist strip",
+                        requirement: "10mins",
+                },
         ],
 }
 - {
@@ -363,7 +400,11 @@
                         process: "Wire formation",
                         requirement: "200 nm",
                 },
-                asher_metal_resist_strip,
+                {
+                        equipment: WET-Y1,
+                        process: "Resist strip",
+                        requirement: "10mins",
+                },
         ],
 }
 - {
@@ -386,7 +427,11 @@
                         process: "1\\um LTO etch",
                         requirement: "TODO",
                 },
-                asher_metal_resist_strip,
+                {
+                        equipment: WET-Y1,
+                        process: "Resist strip",
+                        requirement: "10mins",
+                },
         ],
 }
 - {
@@ -405,7 +450,11 @@
                         process: "Wire formation",
                         requirement: "200 nm",
                 },
-                asher_metal_resist_strip,
+                {
+                        equipment: WET-Y1,
+                        process: "Resist strip",
+                        requirement: "10mins",
+                },
         ],
 }
 - {
@@ -428,6 +477,10 @@
                         process: "1\\um LTO etch",
                         requirement: "TODO",
                 },
-                asher_metal_resist_strip,
+                {
+                        equipment: WET-Y1,
+                        process: "Resist strip",
+                        requirement: "10mins",
+                },
         ],
 }

@@ -1,8 +1,10 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 import sys
 import yaml
 
 class auto_generator:
+	table_height=14
+
 	def getStepEquipment(self,step):
 		try:
 			return step['equipment']
@@ -94,9 +96,7 @@ class auto_generator:
 		if self.recent_level not in eqlevel.split('/'):
 			self.recent_level = eqlevel
 
-		ret = self.subStepLevelsToLaTeX(self.getRequiredPreSteps(eqcode))
-		ret += "\\addLevelCell{"+self.recent_level+"} %"+stpdscr+"\n" # LaTeX cell generation macro
-		ret += self.subStepLevelsToLaTeX(self.getRequiredPostSteps(eqcode))
+		ret = "\\addLevelCell{"+self.recent_level+"} %"+stpdscr+"\n" # LaTeX cell generation macro
 
 		if self.tracking_beginning:
 			self.tracking_beginning = False
@@ -112,9 +112,7 @@ class auto_generator:
 		stpdscr = self.getStepDescription(step)
 		stpreq = self.getStepRequire(step)
 
-		ret = self.parseSubStepsToLaTeX(self.getRequiredPreSteps(eqcode))
-		ret += "\\addProcessStep{"+eqdscr+" ("+eqcode+")}{"+eqloc+"}{"+eqlevel+"}{"+stpdscr+"}{"+stpreq+"}\n" # LaTeX cell generation macro
-		ret += self.parseSubStepsToLaTeX(self.getRequiredPostSteps(eqcode))
+		ret = "\\addProcessStep{"+eqdscr+" ("+eqcode+")}{"+eqloc+"}{"+eqlevel+"}{"+stpdscr+"}{"+stpreq+"}\n" # LaTeX cell generation macro
 
 		if self.beginning:
 			self.beginning = False
@@ -140,16 +138,42 @@ class auto_generator:
 	def parseSubStepsToLaTeX(self,step_substeps):
 		ret=""
 		for substep in step_substeps:
-			for stps in self.extractSubSteps(substep):
-				ret+=self.parseSubStepToStepLaTeXTable(stps)
+			print(substep)
+			ret+=self.parseSubStepToStepLaTeXTable(substep)
+
+		return ret
+
+	def parseSubStepsToList(self,step_substeps):
+		ret=[]
+
+		for substep in step_substeps:
+			print("-------------")
+			for step in self.extractSubSteps(substep):
+				eqcode = self.getStepEquipment(step)
+				for stp in self.getRequiredPreSteps(eqcode):
+					ret.append(stp)
+					print(stp)
+				ret.append(step)
+				for stp in self.getRequiredPostSteps(eqcode):
+					ret.append(stp)
+					print(stp)
+			print("-------------")
+			#for stps in self.extractSubSteps(substep):
+			#	for step in stps:
+			#		eqcode = self.getStepEquipment(step)
+			#		#for stp in self.getRequiredPreSteps(eqcode):
+			#		#	ret.append(stp)
+			#		ret.append(step)
+			#		#for stp in self.getRequiredPostSteps(eqcode):
+			#		#	ret.append(stp)
 
 		return ret
 
 	def subStepLevelsToLaTeX(self,step_substeps):
 		ret=""
 		for substep in step_substeps:
-			for stps in self.extractSubSteps(substep):
-				ret+=self.parseSubStepLevelsToStepLaTeXTable(stps)
+			print(substep)
+			ret+=self.parseSubStepLevelsToStepLaTeXTable(substep)
 		return ret
 
 	def parseStepToLaTeX(self,step):
@@ -161,19 +185,33 @@ class auto_generator:
 		except:
 			return "" # no valid step definition
 
-		ret="\\makeProcessTable{"
-		ret+=step_name
-		ret+="}{"
-		ret+=step_picture
-		ret+="}{"
-		ret+=step_mask
-		ret+="}{"
-		self.is_tracking = True
-		ret+=self.subStepLevelsToLaTeX(step_substeps)
-		self.is_tracking = False
-		ret+="}{" #clean_table_content
-		ret+=self.parseSubStepsToLaTeX(step_substeps)
-		ret+="}\n"
+		sub_steps_list=self.parseSubStepsToList(step_substeps)
+		print(len(sub_steps_list))
+
+		ret="\\section{"+step_name+"}\n"
+		ret+="\\setcounter{SubProcessStep}{0}\n"
+		ret+="\\addtocounter{TopProcessStep}{1}\n"
+
+		for i in range(0,int(len(sub_steps_list)/self.table_height)+1):
+			a=int(self.table_height*i)
+			b=int(self.table_height*(i+1))
+			
+			if(len(sub_steps_list[a:b])==0):
+				break
+
+			ret+="\\makeProcessTable{"
+			ret+=step_name
+			ret+="}{"
+			ret+=step_picture
+			ret+="}{"
+			ret+=step_mask
+			ret+="}{"
+			#self.is_tracking = True
+			ret+=self.subStepLevelsToLaTeX(sub_steps_list[a:b])
+			#self.is_tracking = False
+			ret+="}{" #clean_table_content
+			ret+=self.parseSubStepsToLaTeX(sub_steps_list[a:b])
+			ret+="}\n\\newpage"
 
 		return ret
 
@@ -206,7 +244,7 @@ class auto_generator:
 		try:
 			self.recent_level = self.cleanliness_levels["start"] 
 		except:
-			print "Error occured"
+			print("Error occured")
 
 
 def generate_latex(filename):
@@ -224,10 +262,10 @@ if '-f' in sys.argv:
 	if len(sys.argv) >= sys.argv.index('-f')+2:
 		filename=sys.argv[sys.argv.index('-f')+1]
 		if "check" in sys.argv:
-			print "Checking for errors"
-		print "Generating LaTeX tables for "+filename
+			print("Checking for errors")
+		print("Generating LaTeX tables for "+filename)
 		generate_latex(filename)
 	else:
-		print "No file name given (-f)"
+		print("No file name given (-f)")
 else:
-	print "No filename given (-f)"
+	print("No filename given (-f)")
