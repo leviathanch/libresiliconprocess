@@ -195,6 +195,11 @@ DRY-490: {
         equipment: "Lam 490 etcher",
         level: clean,
 }
+DRY-RIE-2: {
+        location: P2-01000,
+        equipment: "NFF RIE Etcher",
+        level: clean/semi-clean,
+}
 DRY-AOE: {
         location: P2-01000,
         equipment: "AOE Etcher",

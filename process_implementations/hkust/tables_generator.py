@@ -131,14 +131,11 @@ class auto_generator:
 				elif isinstance(steps, list):
 					for step in steps:
 						ret+=self.extractSubSteps(step)
-				else:
-					print(steps)
 		return ret
 
 	def parseSubStepsToLaTeX(self,step_substeps):
 		ret=""
 		for substep in step_substeps:
-			print(substep)
 			ret+=self.parseSubStepToStepLaTeXTable(substep)
 
 		return ret
@@ -147,32 +144,19 @@ class auto_generator:
 		ret=[]
 
 		for substep in step_substeps:
-			print("-------------")
 			for step in self.extractSubSteps(substep):
 				eqcode = self.getStepEquipment(step)
 				for stp in self.getRequiredPreSteps(eqcode):
 					ret.append(stp)
-					print(stp)
 				ret.append(step)
 				for stp in self.getRequiredPostSteps(eqcode):
 					ret.append(stp)
-					print(stp)
-			print("-------------")
-			#for stps in self.extractSubSteps(substep):
-			#	for step in stps:
-			#		eqcode = self.getStepEquipment(step)
-			#		#for stp in self.getRequiredPreSteps(eqcode):
-			#		#	ret.append(stp)
-			#		ret.append(step)
-			#		#for stp in self.getRequiredPostSteps(eqcode):
-			#		#	ret.append(stp)
 
 		return ret
 
 	def subStepLevelsToLaTeX(self,step_substeps):
 		ret=""
 		for substep in step_substeps:
-			print(substep)
 			ret+=self.parseSubStepLevelsToStepLaTeXTable(substep)
 		return ret
 
@@ -186,7 +170,6 @@ class auto_generator:
 			return "" # no valid step definition
 
 		sub_steps_list=self.parseSubStepsToList(step_substeps)
-		print(len(sub_steps_list))
 
 		ret="\\section{"+step_name+"}\n"
 		ret+="\\setcounter{SubProcessStep}{0}\n"
