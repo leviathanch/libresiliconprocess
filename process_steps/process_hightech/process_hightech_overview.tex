@@ -9,43 +9,46 @@ These process steps will be discussed within the following sections.
 		%% Place nodes
 		%active CMOS	
 		% first row
-		\node [block] (nwell) at (0,8) {N-Well\\ \autoref{nwell_chapter}};
-		\node [block, above of=nwell] (pwell) {P-Well\\ \autoref{pwell_chapter}};
-		\node [block, above of=pwell] (pbase) {P-Base\\ \autoref{pbase_chapter}};
-		\node [block, above of=pbase] (nbase) {N-Base\\ \autoref{nbase_chapter}};
-		\node [block, above of=nbase] (sti) {Isolation (STI)\\ \autoref{sti_chapter}};
-		\node [block, above of=sti] (fox) {Field oxide\\ \autoref{fox_chapter}};
+
+		\node [block]  (sti)  at (0,16)  {Isolation (STI)\\ \autoref{sti_chapter}};
+		\node [block, below of=sti] (nwell) {N-Well\\ \autoref{nwell_chapter}};
+		\node [block, below of=nwell] (pwell) {P-Well\\ \autoref{pwell_chapter}};
+		\node [block, below of=pwell] (pbase) {P-Base\\ \autoref{pbase_chapter}};
+		\node [block, below of=pbase] (nbase) {N-Base\\ \autoref{nbase_chapter}};		;
+
 		%second row
-		\node [block] (silicification) at (4,8) {Silicification\\ \autoref{step_silicification}};
-		\node [block, above of=silicification] (pp) {p+ Implant\\ \autoref{pimplant}};
-		\node [block, above of=pp] (np) {n+ Implant\\ \autoref{nimplant}};
-		\node [block] [block, above of=np] (gate) {Gate\\ \autoref{gate}};
+		\node [block, right=1cm of nbase] (fox) {Field oxide\\ \autoref{fox_chapter}};
+		\node [block, above of=fox] (gate) {Gate\\ \autoref{gate}};
+		\node [block, above of=gate] (np) {n+ Implant\\ \autoref{nimplant}};
+		\node [block, above of=np] (pp) {p+ Implant\\ \autoref{pimplant}};
+		\node [block, above of=pp] (silicification){Silicification\\ \autoref{step_silicification}};
 
 		%post proces
-		\node [block] (contact) at (8,8) {Contact \\ \autoref{contact}};
-		\node [block, above of=contact] (metal) {First metal\\ \autoref{metal}};
-		\node [block, above of=metal] (via) {Additional vias\\ \autoref{via}};
-		\node [block, above of=via] (more_metal) {Additional metal\\ \autoref{more_metal}};
-		\node (repeat) at (10.5,14.5) {Repeat};
+		\node [block, right=1cm of silicification] (contact) {Contact \\ \autoref{contact}};
+		\node [block, below of=contact] (metal) {First metal\\ \autoref{metal}};
+		\node [block, below of=metal] (via) {Additional vias\\ \autoref{via}};
+		\node [block, below of=via] (more_metal) {Additional metal\\ \autoref{more_metal}};
+		%\node (repeat) at (10.5,14.5) {Repeat};
 
 		%% Draw edges
-		\path [line] (-4,8) -- (nwell);
+		\path [line] (sti) -- (nwell);
 		\path [line] (nwell) -- (pwell);
-		\path [line] (pwell) -- (sti);
-		\path [line] (sti) -- (fox);
+		\path [line] (pwell) -- (pbase);
+		\path [line] (pbase) -- (nbase);
+		\path [line] (nbase) -- (fox);
 		\path [line] (fox) -- (gate);
 		\path [line] (gate) -- (np);
 		\path [line] (np) -- (pp);
 		\path [line] (pp) -- (silicification);
 		\path [line] (silicification) -- (contact);
 		\path [line] (contact) -- (metal);
-		\path [line] (metal) -- (via);
-		\path [line] (via) -- (more_metal);
-		\path [line] (more_metal) -- +(3,0) -- +(3,-2) -- (via);
+		%\path [line] (metal) -- (via);
+		%\path [line] (via) -- (more_metal);
+		%\path [line] (more_metal) -- +(3,0) -- +(3,-2) -- (via);
 
-		\draw[dotted] (-2,6) rectangle (6,16);
+		\draw[dotted] (-2,6) rectangle (6.25,17);
 		\node at (2,6.5) {CMOS process};
-		\draw[dotted] (6,6) rectangle (12,16);
+		\draw[dotted] (6.5,6) rectangle (12,17);
 		\node at (8,6.5) {Interconnect};
 
 		%\draw[dotted] (1.5,9) rectangle (10.5,21.5);

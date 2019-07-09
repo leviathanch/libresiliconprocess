@@ -16,7 +16,7 @@ The geometry of a substrate with STI implemented can be seen in \autoref{sti_tar
 As can be seen in \autoref{nwell_target}, the n-well and the STI trench are supposed to have approximately the same depth but the n-well and p-well go down a little bit further.
 Because the n-well will be $\approx 4 \mu m$ in depth we have to match this with our trench depth.
 I order to allow a sufficiently low resistance of the ESD diode but at the same time a sufficient isolation of between the standard cells a trade-ff has been done.
-The targeted depth of the box isolation is $\approx 2 \mu m$.
+The targeted depth of the box isolation is $\approx 4 \mu m$.
 
 \begin{figure}[H]
 	\centering
@@ -28,7 +28,7 @@ The targeted depth of the box isolation is $\approx 2 \mu m$.
 \end{figure}
 
 In \autoref{sti_layout} we can see the layout for the STI area.
-The STI area will be everywhere, where no active areas are.
+The STI area will be everywhere, where no well areas are.
 The field oxide needs to be grown out of trenches which can't be etched out of the silicon by using resist as a mask.
 For that reason we will have to resort to a protective mask made from a silicon dioxide layer which has to be etched before hand.
 So the mask will be exposed onto positive resist on top of the hard mask oxide layer in order to form a protective mask covering the active areas from having etched trenches into them.
@@ -59,7 +59,7 @@ The layout for being exposed onto the resist is being extracted from the "active
 
 \subsection{Silicon etching}\label{sti_trench_etch}
 
-Silicon can only be etched by a very aggressive chemical cocktail of  KOH and TMAH (20\%) or by plasma etching.
+The trench depth has to be at least 4.5 microns deep, in order to compensate for sacrificial silicon polishing during the later CMP steps.
 
 \begin{figure}[H]
 	\centering
@@ -73,13 +73,7 @@ Silicon can only be etched by a very aggressive chemical cocktail of  KOH and TM
 	\caption{Trench etching}
 \end{figure}
 
-\textbf{Possible approaches}:
-\begin{itemize}
-\item \textbf{"DRIE Etcher \#1" from HKUST} \\
-This machine a normal etching rate of up to $2\frac{\mu m}{min}$ for etching silicon. \\
-This means we etch for 1 minute in order to reach the desired depth. \\
-The selectivity to oxide is >80:1 which means the etch speed for the hard mask will be at most $\frac{1}{80}2\frac{\mu m}{min}=\frac{1}{80}2000\frac{nm}{min}=25\frac{nm}{min}$.
-\end{itemize}
+Typically it's a good approach to set the parameters of the DRIE recipe to an amount of cycles which will result in a depth of roughly 5 microns.
 
 \subsection{Resist removal}
 
@@ -99,5 +93,29 @@ Now we need to remove the contaminants for further processing.
 
 We strip the resist, rinse and perform sulfuric cleaning.
 
-\newpage
+\subsection{LTO+CMP}
 
+Now we trenches need to be filled up with LTO and planarized until we meet a sufficiently low height differential between the oxide surface and the silicon surface.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.resist_removal.b.tex}
+	\end{tikzpicture}
+	\drawStepArrow{}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.lto.b.tex}
+	\end{tikzpicture}
+	\caption{Resist removal}
+\end{figure}
+
+This process loop until a height differential below 200nm is being reached turned out to be a good approach. We start counting LTO+CMP steps at 1:
+\begin{itemize}
+\item Deposit 5 microns LTO ($\frac{5\mu}{2^{step-1}}$)
+\item CMP around 5 microns LTO
+\item Clean in hot ammonia
+\item Put into buffered oxide etch or DI:HF (50:1) for one or two minutes, until silicon surface on the islands is free of oxide
+\item Repeat until height differential lower than 200nm
+\end{itemize}
+
+\newpage

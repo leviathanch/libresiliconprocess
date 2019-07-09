@@ -4,7 +4,6 @@
 \def\percent{$\%$ }
 \documentclass[10pt,a4paper,oneside]{article}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
-
 \input{global_color_scheme.tex}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
@@ -46,6 +45,7 @@
 
 \newcounter{ct}
 \input{tikz_process_steps/contsts.tex}
+\input{tikz_process_steps/paint_functions.tex}
 
 \DeclareMathOperator\erfc{erfc}
 
@@ -78,13 +78,19 @@
 \maketitle
 \input{process_hightech_overview.tex}\label{process_hightech_overview}
 \newpage
-\input{process_hightech_pwell.tex}
+\input{process_hightech_shallow_trench_isolation.tex}
 \newpage
 \input{process_hightech_nwell.tex}
 \newpage
-\input{process_hightech_shallow_trench_isolation.tex}
+\input{process_hightech_pwell.tex}
+\newpage
+\input{process_hightech_pbase.tex}
+\newpage
+\input{process_hightech_nbase.tex}
 \newpage
 \input{process_hightech_fox.tex}
+\newpage
+\input{process_hightech_sonos.tex}
 \newpage
 \input{process_hightech_gate.tex}
 \newpage
