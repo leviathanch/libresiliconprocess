@@ -1,28 +1,6 @@
-\input{tikz_process_steps/basic.a.tex}
-\def\welldepthAnbase{1.25}
-\def\welldepthBnbase{1.5}
-\def\welldepthCnbase{1.75}
+\input{tikz_process_steps/sti.a.tex}
+\paintnwells{3.0}
+\paintpwells{3.0}
+\paintpbases{1.5}
+\paintnbases{0.5}
 
-% normal wells
-\shade[upper left = nwell, upper right = nwell, lower right = substrate, lower left = substrate,] (1.25,\welldepthAnbase) rectangle (8.25,2.0);
-\shade[upper left = pwell, upper right = pwell, lower right = substrate, lower left = substrate,] (9.75,\welldepthAnbase) rectangle (16.75,2.0);
-\shade[upper left = nwell, upper right = nwell, lower right = substrate, lower left = substrate,] (18.25,\welldepthAnbase) rectangle (25.25,2.0);
-\shade[upper left = nwell, upper right = nwell, lower right = substrate, lower left = substrate,] (26.75,\welldepthAnbase) rectangle (33.75,2.0);
-\shade[upper left = nwell, upper right = nwell, lower right = substrate, lower left = substrate,] (35.25,\welldepthAnbase) rectangle (42.25,2.0);
-
-% isolation nwell pwell in nwell for SONOS flash
-\shade[upper left = pbase, upper right = pbase, lower right = nwell, lower left = nwell,] (18.5,\welldepthBnbase) rectangle (25.0,2.0);
-
-% npn - pbase
-\shade[upper left = pbase, upper right = pbase, lower right = nwell, lower left = nwell,] (28.25,\welldepthBnbase) rectangle (32.0,2.0);
-
-% pnp emitter and collector ring
-\shade[upper left = pbase, upper right = pbase, lower right = nwell, lower left = nwell,] (35.5,\welldepthBnbase) rectangle (37.0,2.0);
-\shade[upper left = pbase, upper right = pbase, lower right = nwell, lower left = nwell,] (38.0,\welldepthBnbase) rectangle (39.5,2.0);
-\shade[upper left = pbase, upper right = pbase, lower right = nwell, lower left = nwell,] (40.5,\welldepthBnbase) rectangle (42.0,2.0);
-
-% n base for SONOS
-\shade[upper left = nbase, upper right = nbase, lower right = pbase, lower left = pbase,] (18.75,\welldepthCnbase) rectangle (24.75,2.0);
-
-% n base for NPN emitter
-\shade[upper left = nbase, upper right = nbase, lower right = pbase, lower left = pbase,] (29.5,\welldepthCnbase) rectangle (30.75,2.0);

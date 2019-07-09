@@ -1,28 +1,5 @@
-\input{tikz_process_steps/nimplant.a.tex}
+\input{tikz_process_steps/implantstop.a.tex}
 
-\node at (5,1.65) {p+};
-\shade[upper left = pimplant, upper right = pimplant, lower right = nwell, lower left = nwell,] (4.5,1.8) rectangle (5.75,2);
-\shade[upper left = pimplant, upper right = pimplant, lower right = poly, lower left = poly,] (5.75,2.7) rectangle (6.75,3.0);
-\shade[upper left = pimplant, upper right = pimplant, lower right = nwell, lower left = nwell,] (6.75,1.8) rectangle (8.0,2);
+\paintnimplants{0.5}
+\paintpimplants{0.5}
 
-\shade[upper left = pimplant, upper right = pimplant, lower right = pwell, lower left = pwell,] (15.5,1.8) rectangle (16.5,2);
-
-\shade[upper left = pimplant, upper right = pimplant, lower right = nwell, lower left = nwell,] (22.0,1.8) rectangle (22.6,2);
-\shade[upper left = pimplant, upper right = pimplant, lower right = poly, lower left = poly,] (22.75,3.2) rectangle (23.75,3.4);
-\shade[upper left = pimplant, upper right = pimplant, lower right = nwell, lower left = nwell,] (23.9,1.8) rectangle (24.5,2);
-
-% npn base
-\shade[upper left = pimplant, upper right = pimplant, lower right = pwell, lower left = pwell,] (28.5,1.8) rectangle (29.0,2);
-\shade[upper left = pimplant, upper right = pimplant, lower right = pwell, lower left = pwell,] (31.25,1.8) rectangle (31.75,2);
-
-% pnp emitter 1 
-\shade[upper left = pimplant, upper right = pimplant, lower right = pwell, lower left = pwell,] (35.75,1.8) rectangle (36.5,2);
-
-% pnp collector
-\shade[upper left = pimplant, upper right = pimplant, lower right = pwell, lower left = pwell,] (38.5,1.8) rectangle (39.0,2);
-
-% pnp emitter 2
-\shade[upper left = pimplant, upper right = pimplant, lower right = pwell, lower left = pwell,] (41.0,1.8) rectangle (41.75,2);
-
-% diode
-\shade[upper left = pimplant, upper right = pimplant, lower right = poly, lower left = poly,] (43.5,3.3) rectangle (45.0,3.5);

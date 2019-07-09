@@ -1,20 +1,4 @@
-\input{tikz_process_steps/basic.a.tex}
-\def\welldepthApbase{1.5}
-\def\welldepthBpbase{1.75}
-
-\shade[upper left = nwell, upper right = nwell, lower right = substrate, lower left = substrate,] (1.25,\welldepthApbase) rectangle (8.25,2.0);
-\shade[upper left = pwell, upper right = pwell, lower right = substrate, lower left = substrate,] (9.75,\welldepthApbase) rectangle (16.75,2.0);
-\shade[upper left = nwell, upper right = nwell, lower right = substrate, lower left = substrate,] (18.25,\welldepthApbase) rectangle (25.25,2.0);
-\shade[upper left = nwell, upper right = nwell, lower right = substrate, lower left = substrate,] (26.75,\welldepthApbase) rectangle (33.75,2.0);
-\shade[upper left = nwell, upper right = nwell, lower right = substrate, lower left = substrate,] (35.25,\welldepthApbase) rectangle (42.25,2.0);
-
-\shade[upper left = pbase, upper right = pbase, lower right = nwell, lower left = nwell,] (18.5,\welldepthBpbase) rectangle (25.0,2.0);
-
-% npn - pbase
-\shade[upper left = pbase, upper right = pbase, lower right = nwell, lower left = nwell,] (28.25,\welldepthBpbase) rectangle (32.0,2.0);
-
-% pnp emitter and collector ring
-\shade[upper left = pbase, upper right = pbase, lower right = nwell, lower left = nwell,] (35.5,\welldepthBpbase) rectangle (37.0,2.0);
-\shade[upper left = pbase, upper right = pbase, lower right = nwell, lower left = nwell,] (38.0,\welldepthBpbase) rectangle (39.5,2.0);
-\shade[upper left = pbase, upper right = pbase, lower right = nwell, lower left = nwell,] (40.5,\welldepthBpbase) rectangle (42.0,2.0);
-
+\input{tikz_process_steps/sti.a.tex}
+\paintnwells{2.5}
+\paintpwells{2.5}
+\paintpbases{1.0}

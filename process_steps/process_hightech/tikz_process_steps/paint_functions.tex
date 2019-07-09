@@ -1,0 +1,124 @@
+\newcommand{\stopper}[2]{
+\filldraw[line width=0, isolationoxide] (#1,\STIIslandSurface) -- (#1+0.10,\STIIslandSurface) -- (#1+0.10,\STIIslandSurface+0.75);
+\fill[isolationoxide] (#1+0.10,\STIIslandSurface) rectangle (#1+#2+0.10,\STIIslandSurface+0.75);
+\filldraw[line width=0, isolationoxide] (#1+#2+0.10,\STIIslandSurface+0.75) -- (#1+#2+0.10,\STIIslandSurface) -- (#1+#2+0.20,\STIIslandSurface);
+}
+
+\newcommand{\bjtstopper}[1]{
+\filldraw[line width=0, isolationoxide] (#1,\STIIslandSurface) -- (#1+0.15,\STIIslandSurface) -- (#1+0.15,\STIIslandSurface+0.75);
+\fill[isolationoxide] (#1+0.15,\STIIslandSurface) rectangle (#1+0.25,\STIIslandSurface+0.75);
+\filldraw[line width=0, isolationoxide] (#1+0.25,\STIIslandSurface+0.75) -- (#1+0.25,\STIIslandSurface) -- (#1+0.35,\STIIslandSurface);
+}
+
+\newcommand{\paintnwells}[1]{
+\shade[upper left = nwell, upper right = nwell, lower right = substrate, lower left = substrate,] (1.25,\STIIslandSurface-#1) rectangle (8.25,\STIIslandSurface);
+\shade[upper left = nwell, upper right = nwell, lower right = substrate, lower left = substrate,] (18.25,\STIIslandSurface-#1) rectangle (25.25,\STIIslandSurface);
+\shade[upper left = nwell, upper right = nwell, lower right = substrate, lower left = substrate,] (26.75,\STIIslandSurface-#1) rectangle (33.75,\STIIslandSurface);
+\shade[upper left = nwell, upper right = nwell, lower right = substrate, lower left = substrate,] (35.25,\STIIslandSurface-#1) rectangle (42.25,\STIIslandSurface);
+}
+
+\newcommand{\paintpwells}[1]{
+\shade[upper left = pwell, upper right = pwell, lower right = substrate, lower left = substrate,] (9.75,\STIIslandSurface-#1) rectangle (16.75,\STIIslandSurface);
+}
+
+\newcommand{\paintpbases}[1]{
+% sonos
+\shade[upper left = pbase, upper right = pbase, lower right = nwell, lower left = nwell,] (18.5,\STIIslandSurface-#1) rectangle (25.0,\STIIslandSurface);
+% npn
+\shade[upper left = pbase, upper right = pbase, lower right = nwell, lower left = nwell,] (28.00,\STIIslandSurface-#1) rectangle (32.25,\STIIslandSurface);
+%pnp
+\shade[upper left = pbase, upper right = pbase, lower right = nwell, lower left = nwell,] (35.5,\STIIslandSurface-#1) rectangle (37.0,\STIIslandSurface);
+\shade[upper left = pbase, upper right = pbase, lower right = nwell, lower left = nwell,] (38.0,\STIIslandSurface-#1) rectangle (39.5,\STIIslandSurface);
+\shade[upper left = pbase, upper right = pbase, lower right = nwell, lower left = nwell,] (40.5,\STIIslandSurface-#1) rectangle (42.0,\STIIslandSurface);
+}
+
+\newcommand{\paintnbases}[1]{
+\shade[upper left = nbase, upper right = nbase, lower right = pbase, lower left = pbase,] (18.75,\STIIslandSurface-#1) rectangle (24.75,\STIIslandSurface);
+\shade[upper left = nbase, upper right = nbase, lower right = pbase, lower left = pbase,] (29.5,\STIIslandSurface-#1) rectangle (30.75,\STIIslandSurface);
+}
+
+\newcommand{\paintnimplants}[1]{
+\shade[upper left = nimplant, upper right = nimplant, lower right = nwell, lower left = nwell,] ( 1.35,\STIIslandSurface-#1) rectangle ( 2.35,\STIIslandSurface);
+
+\shade[upper left = nimplant, upper right = nimplant, lower right = pwell, lower left = pwell,] ( 9.85,\STIIslandSurface-#1) rectangle (12.00,\STIIslandSurface);
+\shade[upper left = nimplant, upper right = nimplant, lower right = pwell, lower left = pwell,] (13.00,\STIIslandSurface-#1) rectangle (15.25,\STIIslandSurface);
+
+\shade[upper left = nimplant, upper right = nimplant, lower right = nwell, lower left = nwell,] (19.20,\STIIslandSurface-#1) rectangle (20.20,\STIIslandSurface);
+
+% npn
+\shade[upper left = nimplant, upper right = nimplant, lower right = nwell, lower left = nwell,] (26.90,\STIIslandSurface-#1) rectangle (27.90,\STIIslandSurface);
+\shade[upper left = nimplant, upper right = nimplant, lower right = nwell, lower left = nwell,] (29.75,\STIIslandSurface-#1) rectangle (30.50,\STIIslandSurface);
+\shade[upper left = nimplant, upper right = nimplant, lower right = nwell, lower left = nwell,] (32.60,\STIIslandSurface-#1) rectangle (33.60,\STIIslandSurface);
+
+% pnp
+\shade[upper left = nimplant, upper right = nimplant, lower right = nwell, lower left = nwell,] (37.25,\STIIslandSurface-#1) rectangle (37.75,\STIIslandSurface);
+\shade[upper left = nimplant, upper right = nimplant, lower right = nwell, lower left = nwell,] (39.75,\STIIslandSurface-#1) rectangle (40.25,\STIIslandSurface);
+
+%\shade[upper left = nimplant, upper right = nimplant, lower right = poly, lower left = poly,]   (46.00,\polytop+0.75-#1    ) rectangle (47.50,\polytop+0.75);
+}
+
+\newcommand{\paintpimplants}[1]{
+\shade[upper left = pimplant, upper right = pimplant, lower right = nwell, lower left = nwell,] ( 2.70,\STIIslandSurface-#1) rectangle ( 5.00,\STIIslandSurface);
+\shade[upper left = pimplant, upper right = pimplant, lower right = nwell, lower left = nwell,] ( 6.00,\STIIslandSurface-#1) rectangle ( 8.15,\STIIslandSurface);
+
+\shade[upper left = pimplant, upper right = pimplant, lower right = pwell, lower left = pwell,] (15.60,\STIIslandSurface-#1) rectangle (16.60,\STIIslandSurface);
+
+%sonos
+\shade[upper left = pimplant, upper right = pimplant, lower right = nwell, lower left = nwell,] (20.60,\STIIslandSurface-#1) rectangle (21.90,\STIIslandSurface);
+\shade[upper left = pimplant, upper right = pimplant, lower right = nwell, lower left = nwell,] (22.90,\STIIslandSurface-#1) rectangle (24.20,\STIIslandSurface);
+
+% npn
+\shade[upper left = pimplant, upper right = pimplant, lower right = pwell, lower left = pwell,] (28.40,\STIIslandSurface-#1) rectangle (29.50,\STIIslandSurface);
+\shade[upper left = pimplant, upper right = pimplant, lower right = pwell, lower left = pwell,] (31.25,\STIIslandSurface-#1) rectangle (32.00,\STIIslandSurface);
+
+% pnp
+\shade[upper left = pimplant, upper right = pimplant, lower right = pwell, lower left = pwell,] (35.75,\STIIslandSurface-#1) rectangle (36.50,\STIIslandSurface);
+\shade[upper left = pimplant, upper right = pimplant, lower right = pwell, lower left = pwell,] (38.50,\STIIslandSurface-#1) rectangle (39.00,\STIIslandSurface);
+\shade[upper left = pimplant, upper right = pimplant, lower right = pwell, lower left = pwell,] (41.00,\STIIslandSurface-#1) rectangle (41.75,\STIIslandSurface);
+
+%\shade[upper left = pimplant, upper right = pimplant, lower right = poly, lower left = poly,]   (43.50,\polytop+0.75-#1 )    rectangle (45.00,\polytop+0.75);
+}
+
+\newcommand{\paintscaledcontacts}[2]{
+\fill[#1] (1.50+#2,  \STIIslandSurface+#2) rectangle (2.50-#2,\LowerMetal);
+\fill[#1] (4.50+#2,  \STIIslandSurface+#2) rectangle (5.50-#2,\LowerMetal);
+\fill[#1] (5.75+#2,  \STIIslandSurface+#2) rectangle (6.75-#2,\LowerMetal);
+\fill[#1] (7.00+#2,  \STIIslandSurface+#2) rectangle (8.00-#2,\LowerMetal);
+
+\fill[#1] (10.00+#2, \STIIslandSurface+#2) rectangle (11.00-#2,\LowerMetal);
+\fill[#1] (11.25+#2, \STIIslandSurface+#2) rectangle (12.25-#2,\LowerMetal);
+\fill[#1] (12.50+#2, \STIIslandSurface+#2) rectangle (13.50-#2,\LowerMetal);
+\fill[#1] (15.50+#2, \STIIslandSurface+#2) rectangle (16.50-#2,\LowerMetal);
+
+\fill[#1] (19.00+#2, \STIIslandSurface+#2) rectangle (20.00-#2,\LowerMetal);
+\fill[#1] (22.00+#2, \STIIslandSurface+#2) rectangle (22.60-#2,\LowerMetal);
+\fill[#1] (22.75+#2, \STIIslandSurface+#2) rectangle (23.75-#2,\LowerMetal);
+\fill[#1] (23.90+#2, \STIIslandSurface+#2) rectangle (24.50-#2,\LowerMetal);
+
+\fill[#1] (27.00+#2, \STIIslandSurface+#2) rectangle (27.75-#2,\LowerMetal);
+\fill[#1] (28.50+#2, \STIIslandSurface+#2) rectangle (29.00-#2,\LowerMetal);
+\fill[#1] (29.75+#2, \STIIslandSurface+#2) rectangle (30.50-#2,\LowerMetal);
+\fill[#1] (31.25+#2, \STIIslandSurface+#2) rectangle (31.75-#2,\LowerMetal);
+\fill[#1] (32.50+#2, \STIIslandSurface+#2) rectangle (33.50-#2,\LowerMetal);
+
+\fill[#1] (35.75+#2, \STIIslandSurface+#2) rectangle (36.50-#2,\LowerMetal);
+\fill[#1] (37.25+#2, \STIIslandSurface+#2) rectangle (37.75-#2,\LowerMetal);
+\fill[#1] (38.50+#2, \STIIslandSurface+#2) rectangle (39.00-#2,\LowerMetal);
+\fill[#1] (39.75+#2, \STIIslandSurface+#2) rectangle (40.25-#2,\LowerMetal);
+\fill[#1] (41.00+#2, \STIIslandSurface+#2) rectangle (41.75-#2,\LowerMetal);
+
+\fill[#1] (43.00+#2,\polytop+0.80+#2) rectangle (44.00-#2,\LowerMetal);
+\fill[#1] (47.00+#2,\polytop+0.80+#2) rectangle (48.00-#2,\LowerMetal);
+
+\fill[#1] (49.00+#2,\polytop+0.80+#2) rectangle (49.50-#2,\LowerMetal);
+\fill[#1] (53.50+#2,\polytop+0.80+#2) rectangle (54.00-#2,\LowerMetal);
+}
+
+\newcommand{\paintcontacts}[3]{
+\paintscaledcontacts{#1}{0}
+\paintscaledcontacts{#2}{0.1}
+\paintscaledcontacts{#3}{0.2}
+%\fill[#1] (0,\LowerMetal-0.75) rectangle (55.0,\LowerMetal);
+%\fill[#2] (0,\LowerMetal-0.5) rectangle (55.0,\LowerMetal);
+
+}

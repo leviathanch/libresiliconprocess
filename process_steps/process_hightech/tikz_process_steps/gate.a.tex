@@ -1,17 +1,23 @@
-\input{tikz_process_steps/sonos.a.tex}
+\input{tikz_process_steps/fox.a.tex}
 
-\fill[gateoxide] (5.75,2) rectangle (6.75,2.2);
-\fill[poly] (5.75,2.2) rectangle (6.75,3);
+\paintnwells{3.5}
+\paintpwells{3.5}
+\paintpbases{2.0}
+\paintnbases{1.5}
 
-\fill[gateoxide] (11.25,2) rectangle (12.25,2.2);
-\fill[poly] (11.25,2.2) rectangle (12.25,3);
+\fill[gateoxide] (5.00,\STIIslandSurface) rectangle (6.00,\gateoxidetop);
+\fill[poly] (5.00,\gateoxidetop) rectangle (6.00,\polytop);
 
-% on top of nitride
-\fill[gateoxide] (22.75,2.4) rectangle (23.75,2.6);
-\fill[poly] (22.75,2.6) rectangle (23.75,3.4);
+\fill[gateoxide] (12.00,\STIIslandSurface) rectangle (13.00,\gateoxidetop);
+\fill[poly] (12.00,\gateoxidetop) rectangle (13.00,\polytop);
+
+\fill[gateoxide] (21.90,\STIIslandSurface) rectangle (22.90,\SONOStopONE);
+\fill[nitride] (21.90,\SONOStopONE) rectangle (22.90,\SONOStopTWO);
+\fill[gateoxide] (21.90,\SONOStopTWO) rectangle (22.90,\SONOStopTHREE);
+\fill[poly] (21.90,\SONOStopTHREE) rectangle (22.90,\polytop+0.2);
 
 % poly diode
-\fill[poly] (43,2.75) rectangle (48,3.5);
+\fill[poly] (43.00,\STIIslandSurface+0.75) rectangle (48.00,\polytop+0.75);
 
 % poly resistor 
-\fill[poly] (49,2.75) rectangle (54,3.5);
+\fill[poly] (48.50,\STIIslandSurface+0.75) rectangle (54.50,\polytop+0.75);
