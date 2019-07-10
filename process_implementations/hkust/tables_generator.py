@@ -3,7 +3,7 @@ import sys
 import yaml
 
 class auto_generator:
-	table_height=14
+	table_height=10
 
 	def getStepEquipment(self,step):
 		try:

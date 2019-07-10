@@ -6,9 +6,9 @@
                 clean_B,
                 normal_exposure,
                 {
-                        equipment: DRY-490,
-                        process: "Etching the alignment crosses from HKUST",
-                        requirement: "2 minutes (120nm)",
+                        equipment: DRY-RIE-2,
+                        process: "CF4 Etch",
+                        requirement: "140 seconds",
                 },
                 asher_resist_strip,
         ],
@@ -216,15 +216,15 @@
         mask: implantstop,
         steps: [
                 {
-                        equipment: CVD-B2,
-                        process: "Implant stop Nitride hard mask",
-                        requirement: "100nm",
+                        equipment: CVD-B3,
+                        process: "Oxide deposition",
+                        requirement: "200nm LTO",
                 },
                 normal_exposure,
                 {
-                        equipment: DRY-490,
-                        process: "Nitride etch",
-                        requirement: "roughly 1 minute (100nm, 100nm/min)",
+                        equipment: DRY-RIE-2,
+                        process: "CHF3 etch",
+                        requirement: "300 seconds",
                 },
                 {
                         equipment: WET-E4,
@@ -265,7 +265,7 @@
                 {
                         equipment: DIF-A1,
                         process: "Drive in",
-                        requirement: "10 minutes @ 1050\\degreesC in inert ($N_2$) environment",
+                        requirement: "30 minutes @ 900\\degreesC, drive in + dry oxidation",
                 },
         ],
 }

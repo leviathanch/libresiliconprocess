@@ -1,11 +1,12 @@
 yaml = steps_wet.yaml steps_dry.yaml
-yamldeps = cleanliness_levels.yaml  equipment.yaml  repetitive_steps.yaml
+yamldeps = cleanliness_levels.yaml equipment.yaml repetitive_steps.yaml
+tikzdeps = $(wildcard tikz_process_steps/*.tex)
 texs = $(yaml:.yaml=.tex)
 pdfs = $(yaml:.yaml=.pdf)
 
 all: $(pdfs)
 
-$(texs): %.tex:%.yaml $(yamldeps)
+$(texs): %.tex:%.yaml $(yamldeps) $(tikzdeps)
 	./tables_generator.py -f $<
 
 $(pdfs): %.pdf:%.tex
