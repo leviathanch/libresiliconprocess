@@ -1,0 +1,37 @@
+`\section{P-base}\label{pbase_chapter}
+In order to build CMOS on the same substrate, a P-well is required for building the complementary N-channel transistor for a n-p-channel logic circuitry.
+The cross section as well as the top view of the targeted geometry are shown in \autoref{nwell_target}
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
+		\input{tikz_process_steps/pbase.a.tex}
+	\end{tikzpicture}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
+		\input{tikz_process_steps/pbase.b.tex}
+	\end{tikzpicture}
+	\caption{P-well target geometry}
+	\label{pwell_target}
+\end{figure}
+The P-well will serve us as an island of higher p-doped substrate within the slightly p-doped basis substrate.
+
+The dopant dose will be $1.93\times10^{12}cm^{-2}$ at 40 keV, as calculated in the documentation of the process design leading to these steps\footnote{\url{https://github.com/leviathanch/libresiliconprocess/raw/master/process_design/process_design.pdf}}.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance =1cm, auto, thick,scale=\VLSILayout, every node/.style={transform shape}]
+		\input{tikz_process_steps/pwell.layout.tex}
+	\end{tikzpicture}
+	\caption{P-Well layout}
+	\label{pwell_layout}
+\end{figure}
+
+In \autoref{pwell_layout} the layout of the P-well region on top of the active area region can be seen.
+
+The p-well is being fit into the active area.
+
+It should even be a little bit bigger than the active area, because of possible alignment offsets.
+
+The layout is being automatically generated for GDS2 based on cifoutput rules, so you just have to draw you well.
+
+\newpage
+

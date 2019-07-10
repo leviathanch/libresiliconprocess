@@ -1,6 +1,9 @@
 `\section{P-well}\label{pwell_chapter}
-In order to build CMOS on the same substrate, a P-well is required for building the complementary N-channel transistor for a n-p-channel logic circuitry.
+
+In order to build CMOS on the same substrate, a P-well is required for building the complementary N-channel transistor for a NFET+PFET logic circuitry.
+
 The cross section as well as the top view of the targeted geometry are shown in \autoref{nwell_target}
+
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
@@ -12,9 +15,14 @@ The cross section as well as the top view of the targeted geometry are shown in 
 	\caption{P-well target geometry}
 	\label{pwell_target}
 \end{figure}
-The P-well will serve us as an island of higher p-doped substrate within the slightly p-doped basis substrate.
 
-The dopant dose will be $2.5\times10^{12}cm^{-2}$ as calculated in the documentation of the process design leading to these steps\footnote{\url{https://github.com/leviathanch/libresiliconprocess/raw/master/process_design/process_design.pdf}}.
+The "P-well" will serve us as an island of higher p-doped substrate within the slightly p-doped basis substrate and gives us more flexibility with suppliers, because we can just adjust the doping in case the concentration might be different with another supplier.
+
+The P-dopant concentration of our prime grade, p-type, single side polished, four inch wafers is between $8.76 \cdot 10^14 \frac{1}{cm^3}$ and $5.23 \cdot 10^14 \frac{1}{cm^3}$
+
+This means we need a dose of $1.93\times10^{12}cm^{-2}$ Boron atoms at 40 keV, as calculated in the documentation of the process design leading to these steps\footnote{\url{https://github.com/leviathanch/libresiliconprocess/raw/master/process_design/process_design.pdf}}.
+
+The concentration will need adjustment when the used substrate has different properties!
 
 \begin{figure}[H]
 	\centering
@@ -33,75 +41,7 @@ It should even be a little bit bigger than the active area, because of possible 
 
 The layout is being automatically generated for GDS2 based on cifoutput rules, so you just have to draw you well.
 
-\newpage
-
-\subsection{Patterning}
-
-The resist is being deposited spray or spin coating (spray coating is better because of the uneven surface!) and then soft baked depending on the baking time for the specific resist.
-The layout for being exposed onto the resist is being extracted from the "pwell" layer within the GDS2 file onto a \textbf{bright field} mask.
-The requirement is a \textbf{negative} tone resist.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/pwell.patterning.a.tex}
-	\end{tikzpicture}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/pwell.patterning.at.tex}
-	\end{tikzpicture}
-	\drawStepArrow{Mask: pwell}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/pwell.patterning.b.tex}
-	\end{tikzpicture}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/pwell.patterning.bt.tex}
-	\end{tikzpicture}
-	\caption{Cross/top view of P-well layout on resist}
-\end{figure}
-The thickness of the resist layer and the baking duration will variate depending on the specific equipment for which this process will be implemented with.
-Also after the exposure and development, the hard baking shouldn't be forgotten!
-
-\subsection{Implantation}\label{pwell_implant_step}
-We now need to inject the carriers into the upper level of the n-channel area so that we can later on drive them into the crystal during the drive-in step.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/pwell.implantation.a.tex}
-	\end{tikzpicture}
-	\drawStepArrow{Boron implant}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/pwell.implantation.b.tex}
-	\end{tikzpicture} \\
-	\caption{Doping process}
-\end{figure}
-
-\textbf{Possible approaches}:
-\begin{itemize}
-	\item \textbf{"CF-3000 Implanter (IMP-3000)" from HKUST} \\
-	At HKUST we have an implanter which gives us better control over the initial surface concentration. \\
-	These steps are needed to arrive with the desired geometry:
-	The P-well is implanted with a Boron ($B^{11}$) dose of $2.5\times10^{12}cm^{-2}$ at an energy of 100 keV
-\end{itemize}
-
-\newpage
-
-\subsection{Resist strip}
-
-In order to avoid contamination of the machines we need to make sure all the resist has been stripped off from the wafer.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/pwell.cleaning.a.tex}
-	\end{tikzpicture}
-	\drawStepArrow{}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/pwell.cleaning.b.tex}
-	\end{tikzpicture}
-	\caption{Resist removal}
-\end{figure}
-Please just use the solvent for the specific resist.
+After the implantation we perform a drive-in in inert atmosphere for two hours and don't have to worry about the substrate anymore.
 
 \newpage
 

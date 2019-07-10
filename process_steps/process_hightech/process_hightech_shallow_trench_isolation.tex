@@ -38,25 +38,6 @@ Our minimum width and height as well as the space between the active areas comes
 
 \newpage
 
-\subsection{Patterning}
-
-The resist is being deposited using spin coating and then soft baked depending on the baking time for the specific resist.
-The requirement is a \textbf{positive} tone resist.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.patterning.a.tex}
-	\end{tikzpicture}
-	\drawStepArrow{Mask: sti}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.patterning.b.tex}
-	\end{tikzpicture}
-	\caption{Patterning with positive resist}
-\end{figure}
-
-The layout for being exposed onto the resist is being extracted from the "active" layer within the GDS2 file onto a  onto a \textbf{bright field} mask because we need to use the same mask again in \autoref{fox_chapter}, so alignment needs to be possible.
-
 \subsection{Silicon etching}\label{sti_trench_etch}
 
 The trench depth has to be at least 4.5 microns deep, in order to compensate for sacrificial silicon polishing during the later CMP steps.
@@ -75,23 +56,6 @@ The trench depth has to be at least 4.5 microns deep, in order to compensate for
 
 Typically it's a good approach to set the parameters of the DRIE recipe to an amount of cycles which will result in a depth of roughly 5 microns.
 
-\subsection{Resist removal}
-
-Now we need to remove the contaminants for further processing.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.resist_removal.a.tex}
-	\end{tikzpicture}
-	\drawStepArrow{}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.resist_removal.b.tex}
-	\end{tikzpicture}
-	\caption{Resist removal}
-\end{figure}
-
-We strip the resist, rinse and perform sulfuric cleaning.
 
 \subsection{LTO+CMP}
 
