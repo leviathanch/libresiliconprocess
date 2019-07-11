@@ -9,34 +9,20 @@ Later on, during etching of the polysilicon gates, the SONOS gate oxide sandwich
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
 		\input{tikz_process_steps/sonos.a.tex}
 	\end{tikzpicture}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
-		\input{tikz_process_steps/gate.b.tex}
-	\end{tikzpicture}
-	\caption{Poly silicon gate contacts with gate oxide}
+	\caption{SONOS sandwich pad}
 \end{figure}
 
 The line spacing of the SONOS shape has to be at least 0.5\um because of the resolution of the stepper and also because of the etching process which has 0.5\um as the minimum line spacing.
 
-Also there has to be at least one lambda on each site to compensate for offsets, so tha SONOS mask is bloated by 0.5\um.
-
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance =1cm, auto, thick,scale=\VLSILayout, every node/.style={transform shape}]
-		\input{tikz_process_steps/gate.layout.tex}
-	\end{tikzpicture}
-	\caption{Gate layout}
-	\label{gate_layout}
-\end{figure}
-
-In \autoref{gate_layout} we can see the layout honoring the 0.5\um spacing design rule for the gate structure shape and poly-layer interconnect between NMOS and PMOS.
+Also there has to be at least one lambda on each site to compensate for offsets, so the SONOS mask is bloated by 0.5\um.
 
 \newpage
 
-\subsection{Lower oxide deposition}\label{step_growing_gate_oxide}
+\subsection{Lower oxide deposition}\label{step_depositing_sonos_lower_lto}
 
-Now we have to deposit the dielectric isolator between the gate electrode and the channel.
-As designed in the process design document, the layer will be 40nm thick.
+Now we have to deposit the lower part of the SONOS sandwich by depositing LTO.
+
+As designed in the process design document, the layer will be around 7nm thick.
 
 \begin{figure}[H]
 	\centering
@@ -49,12 +35,12 @@ As designed in the process design document, the layer will be 40nm thick.
 	\end{tikzpicture}
 	\caption{Thin oxide}
 \end{figure}
-The thickness of this layer decides over many critical key properties of the transistor, hence there should be little to no variation in the thickness of the gate oxide layer.
-For that reason we put the wafer into the diffusion furnace and perform dry oxidation at 1050\degreesC for 33 minutes and 14 seconds.\footnote{\url{http://cleanroom.byu.edu/OxideTimeCalc}}
 
-\subsection{Silicon nitride deposition}\label{step_depositing_poly}
+This might be difficult depending on the CVD machine used. Typically a reduced pressure can reduce the deposition rate, do not reduce the temperature however, since this can cause the formation of grains.
 
-Now we need to add the polysilicon layer for forming the gate structure after etching.
+\subsection{Silicon nitride deposition}\label{step_depositing_sonos_nitride}
+
+Now we need to add the nitride layer for forming the SONOS sandwich.
 
 \begin{figure}[H]
 	\centering
@@ -68,18 +54,17 @@ Now we need to add the polysilicon layer for forming the gate structure after et
 	\caption{Polysilicon}
 \end{figure}
 
-We use the LPCVD machine and deposit a layer of around 600nm polysilicon\footnote{\url{https://people.rit.edu/lffeee/LPCVD_Recipes.pdf}}.
+We use the LPCVD machine and deposit a layer of around 7nm nitride.
 
-We set the temperatue to 650\degreesC, the gas will be Silane ($Si H_4$ ($Si + 2H_2$)), the pressure will be set to 300 mTorr with a flow of 90sccm.
-
-This will give us a growth rate of roughly 23.5 nm per minute, so for 600nm we let it grow half an hour.
+Since the deposition rate of nitride in a CVD furnace is by nature quite slow (usually 2nm per minute) we have a much better control over this thickness.
 
 \newpage
 
 \subsection{Upper oxide deposition}\label{step_growing_gate_oxide}
 
-Now we have to deposit the dielectric isolator between the gate electrode and the channel.
-As designed in the process design document, the layer will be 40nm thick.
+Now we have to deposit the upper part of the SONOS sandwich by depositing LTO.
+
+As designed in the process design document, the layer will be around 7nm thick.
 
 \begin{figure}[H]
 	\centering
@@ -92,14 +77,12 @@ As designed in the process design document, the layer will be 40nm thick.
 	\end{tikzpicture}
 	\caption{Thin oxide}
 \end{figure}
-The thickness of this layer decides over many critical key properties of the transistor, hence there should be little to no variation in the thickness of the gate oxide layer.
-For that reason we put the wafer into the diffusion furnace and perform dry oxidation at 1050\degreesC for 33 minutes and 14 seconds.\footnote{\url{http://cleanroom.byu.edu/OxideTimeCalc}}
 
-\newpage
+It's exactly the same recipe as for the first oxide deposition step.
 
 \subsection{Etching}
 
-Now we've got to etch the gate structures.
+Now we've got to etch the SONOS structures.
 
 \begin{figure}[H]
 	\centering
@@ -119,18 +102,5 @@ Now we've got to etch the gate structures.
 	\caption{Resist}
 \end{figure}
 
-\begin{mdframed}[linewidth=2pt,linecolor=red]
-For now we only have the plasma etcher variant being verified because chemically etching polysilicon isn't allowed at the HKUST labs for contamination control reasons.
-In case you can verify this in your lab with a chemical etching method, please update this chapter and make a pull request!
-\end{mdframed}
+The etching time depends on the dry etcher and recipe used.
 
-\textbf{Possible approaches}:
-\begin{itemize}
-	\item \textbf{"Poly Etcher (DRY-Poly)" from HKUST} \\
-	An anisotropic plasma etcher, in order to etch the polysilicon and gate oxide layer.
-	In \autoref{step_depositing_poly} we've grown 600nm of polysilicon which takes 200 seconds (= 3 minutes 20 seconds) (at 180nm/min) to etch.
-	The selectivity to oxide is 13:1 which leads to an oxide etching speed of around 14nm/min, in \autoref{step_growing_gate_oxide} we've grown a 40nm thick oxide layer which leads to the oxide adding another 2 minutes 51 seconds to the etching time.
-	All together, we will have to etch for around \textbf{6 minutes and 10 seconds}.
-	\item \textbf{Chemical method} \\
-	Please add a verified method here!
-\end{itemize}

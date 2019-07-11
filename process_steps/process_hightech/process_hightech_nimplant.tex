@@ -9,27 +9,11 @@ In this step we're going to build these.
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
 		\input{tikz_process_steps/nimplant.a.tex}
 	\end{tikzpicture}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
-		\input{tikz_process_steps/nimplant.b.tex}
-	\end{tikzpicture}
 	\caption{N+ implant geometry target}
 \end{figure}
 
 The tricky thing here is to have a reasonable implant depth but not too deep because the deeper the junction, the higher the junction capacity which in turn limits the switching performance of the CMOS circuitry.
 
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance =1cm, auto, thick,scale=\VLSILayout, every node/.style={transform shape}]
-		\input{tikz_process_steps/nimplant.layout.tex}
-	\end{tikzpicture}
-	\caption{N+ layout}
-	\label{nimplant_layout}
-\end{figure}
-
-An example layout of p-implants can be seen in \autoref{nimplant_layout}, the mask is being extracted from the layer "n\_plus\_select".
+Also important to notice is that the implantation energy must not be too high, otherwise the dopants may leak through the polysilicon gate.
 
 The nselect is implanted with a Phosphorus ($P^{31}$) dose of $2.5\times10^{12}cm^{-2}$ at an energy of 30 keV (43nm$\pm$18nm deep)
-
-Also important to notice is that this example layout is just for demonstration purposes only, please have a look at the standard cell documentation for the actual layouts. 
-
-\newpage

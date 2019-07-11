@@ -21,28 +21,11 @@ I order to allow a sufficiently low resistance of the ESD diode but at the same 
 
 The targeted depth of the box isolation is $\approx 4 \mu m$.
 
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance =1cm, auto, thick,scale=\VLSILayout, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.layout.tex}
-	\end{tikzpicture}
-	\caption{Shallow trench isolation layout}
-	\label{sti_layout}
-\end{figure}
-
-In \autoref{sti_layout} we can see the layout for the STI area.
-
 The STI area will be everywhere, where no well areas are.
 
-The field oxide needs to be grown out of trenches which can't be etched out of the silicon by using resist as a mask.
+We use a dry etching method for cutting into the silicon substrate and making the active area become islands with trenches in between.
 
-For that reason we will have to resort to a protective mask made from a silicon dioxide layer which has to be etched before hand.
-
-So the mask will be exposed onto positive resist on top of the hard mask oxide layer in order to form a protective mask covering the active areas from having etched trenches into them.
-
-After that we can either use a dry etching method or wet etching for cutting into the silicon substrate and making the active area become islands with trenches in between.
-
-After these steps we have to remove the hard mask.
+After that we fill the trenches with LTO or PSG and polish the wafer until the LTO/PSG surface and the silicon island surface are sufficiently on the same level.
 
 Our minimum width and height as well as the space between the active areas comes from the line space constrain of the silicon etcher and of course the optical limitations of the stepper which are as well 0.5\um.
 
@@ -66,10 +49,9 @@ The trench depth has to be at least 4.5 microns deep, in order to compensate for
 
 Typically it's a good approach to set the parameters of the DRIE recipe to an amount of cycles which will result in a depth of roughly 5 microns.
 
+\subsection{LTO/PSG+CMP}
 
-\subsection{LTO+CMP}
-
-Now we trenches need to be filled up with LTO and planarized until we meet a sufficiently low height differential between the oxide surface and the silicon surface.
+Now we trenches need to be filled up with LTO/PSG and planarized until we meet a sufficiently low height differential between the oxide surface and the silicon surface.
 
 \begin{figure}[H]
 	\centering
@@ -80,16 +62,14 @@ Now we trenches need to be filled up with LTO and planarized until we meet a suf
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/sti.lto.b.tex}
 	\end{tikzpicture}
-	\caption{Resist removal}
+	\caption{After CMP}
 \end{figure}
 
 This process loop until a height differential below 200nm is being reached turned out to be a good approach. We start counting LTO+CMP steps at 1:
 \begin{itemize}
-\item Deposit 5 microns LTO ($\frac{5\mu}{2^{step-1}}$)
-\item CMP around 5 microns LTO
+\item Deposit $\frac{5\mu}{2^{step-1}}$ LTO/PSG
+\item CMP around $\frac{5\mu}{2^{step-1}}$ LTO/PSG
 \item Clean in hot ammonia
-\item Put into buffered oxide etch or DI:HF (50:1) for one or two minutes, until silicon surface on the islands is free of oxide
+\item Put into DI:HF (50:1) for one or two minutes, until silicon surface on the islands is free of LTO/PSG 
 \item Repeat until height differential lower than 200nm
 \end{itemize}
-
-\newpage

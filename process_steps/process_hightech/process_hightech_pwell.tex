@@ -18,27 +18,10 @@ The cross section as well as the top view of the targeted geometry are shown in 
 
 The "P-well" will serve us as an island of higher p-doped substrate within the slightly p-doped basis substrate and gives us more flexibility with suppliers, because we can just adjust the doping in case the concentration might be different with another supplier.
 
-The P-dopant concentration of our prime grade, p-type, single side polished, four inch wafers is between $8.76 \cdot 10^14 \frac{1}{cm^3}$ and $5.23 \cdot 10^14 \frac{1}{cm^3}$
+The P-dopant concentration of our prime grade, p-type, single side polished, four inch wafers is between $8.76 \cdot 10^{14} \frac{1}{cm^3}$ and $5.23 \cdot 10^{14} \frac{1}{cm^3}$
 
-This means we need a dose of $1.93\times10^{12}cm^{-2}$ Boron atoms at 40 keV, as calculated in the documentation of the process design leading to these steps\footnote{\url{https://github.com/leviathanch/libresiliconprocess/raw/master/process_design/process_design.pdf}}.
+This means we need a dose of $1.93\times10^{12}cm^{-2}$ Boron atoms at 40 keV.
 
 The concentration will need adjustment when the used substrate has different properties!
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance =1cm, auto, thick,scale=\VLSILayout, every node/.style={transform shape}]
-		\input{tikz_process_steps/pwell.layout.tex}
-	\end{tikzpicture}
-	\caption{P-Well layout}
-	\label{pwell_layout}
-\end{figure}
-
-In \autoref{pwell_layout} the layout of the P-well region on top of the active area region can be seen.
-
-The p-well is being fit into the active area.
-
-It should even be a little bit bigger than the active area, because of possible alignment offsets.
-
-The layout is being automatically generated for GDS2 based on cifoutput rules, so you just have to draw you well.
 
 After the implantation we perform a drive-in in inert atmosphere at $1050\degreesC$ for two hours and don't have to worry about the substrate anymore.

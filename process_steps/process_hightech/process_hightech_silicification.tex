@@ -8,9 +8,6 @@ Titanium has been one of the familiar materials in ULSI productions, which is al
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
 		\input{tikz_process_steps/silicification.a.tex}
 	\end{tikzpicture}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
-		\input{tikz_process_steps/silicification.b.tex}
-	\end{tikzpicture}
 	\caption{Silicide geometry target}
 	\label{policide_silicide_sections}
 \end{figure}
@@ -19,27 +16,17 @@ In order to reduce the gate contact resistance as well as the source and drain r
 
 The side walls\footnote{\url{http://www.fujitsu.com/jp/group/mifs/en/resources/news/library/tech-intro/process/side-wall.html}} are required in order avoid short circuits between the junction and the gate.
 
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance =1cm, auto, thick,scale=\VLSILayout, every node/.style={transform shape}]
-		\input{tikz_process_steps/silicification.layout.tex}
-	\end{tikzpicture}
-	\caption{Silification layout}
-	\label{silicification_layout}
-\end{figure}
+When titanium and silicon are brought into contact and heated at temperatures above 800 \degree C (in the presence of excess silicon) $Ti Si_2$ forms.
 
-When titanium and silicon are brought into contact and heated at temperatures above 500 \degree C (in the presence of excess silicon) the higher-resistivity C49-$TiSi_2$ phase forms before the low-resistivity phase.
-
-The C49-$TiSi_2$ phase has an orthorhombic base-centered structure with 12 atoms per unit cell and a resistivity of $60-90 \mu\Omega - cm$.
-
-The C54-$TiSi_2$ phase has an orthorhombic face-centered structure having 24 atoms per unit cell and a significantly lower resistivity ($12-20 \mu\Omega - cm$) than the C49-$TiSi_2$.
+The $TiSi_2$ has a resistivity of $12-20 \mu\Omega - cm$.
 
 The basic formation process of titanium SALICIDE is as follows:
 
-A thin titanium film with 20-60 nm thickness is deposited on an entire wafer with MOSFETs structure.
-The deposited Ti film reacts with the exposed silicon areas such as the source/drain area and polysilicon gate electrodes by the first anneal at 600-700\degree C in $N_2$ ambient. In first anneal, C49-$TiSi_2$ phase is formed.
-Then, the unreacted titanium film on the dielectric layer such as $SiO_2$ or SiN is selectively etched by APM (Ammonia and Hydrogen Peroxide Mixture) solution.
-The final step is second anneal at 800\degree C or above to transform high-resistivity C49-$TiSi_2$ phase to low-resistivity C54-$TiSi_2$ phase at the gate electrodes and source/drain areas.
+A thin titanium film of roughly 30 nm thickness is deposited on an entire wafer with MOSFETs structure.
+
+The deposited Ti film reacts with the exposed silicon areas such as the source/drain area and polysilicon gate electrodes during the annealing at 800\degree C in Argon atmosphere.
+
+Then, the unreacted titanium film on the dielectric layer such as $SiO_2$ or SiN is selectively etched by APM (Ammonia and Hydrogen Peroxide Mixture) solution for around 2-3 minutes.
 
 \newpage
 
@@ -140,7 +127,7 @@ We deposit a layer of titanium with a thickness of around 20-60nm which will the
 
 \newpage
 
-\subsection{First reaction step}
+\subsection{Silicide formation}
 
 The deposited Ti film reacts with the exposed silicon areas such as the source/drain area and polysilicon gate electrodes by the anneal at 800\degree C in Argon ambient.
 

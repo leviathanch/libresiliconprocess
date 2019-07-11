@@ -8,27 +8,12 @@ These vias are in the fringe between front-end and back-end process.
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
 		\input{tikz_process_steps/contact.a.tex}
 	\end{tikzpicture}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
-		\input{tikz_process_steps/contact.b.tex}
-	\end{tikzpicture}
 	\caption{Contact geometry target}
 	\label{contact_cross_sections}
 \end{figure}
 
 As can be seen in \autoref{contact_cross_sections}, the goal of this step is purely to deposit a layer of isolation oxide, get the holes into it, down to the silicide and polyside in order to form wires later on.
 We do not wanna etch down anywhere else than the silicide/polycide areas because these function as etch stoppers, while everywhere else we might etch further than desired with small variations in etching time which might result in a drastic variation in sheet resistance of the junctions and gate.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance =1cm, auto, thick,scale=\VLSILayout, every node/.style={transform shape}]
-		\input{tikz_process_steps/contact.layout.tex}
-	\end{tikzpicture}
-	\caption{First via layout}
-	\label{contact_layout}
-\end{figure}
-
-It should be noted again that the via placement and dimensions in \autoref{contact_layout} are solely for demonstration purposes for the process and are in no way the actual standard cell design for the final standard cell lib. \\
-
 In later iterations of this process we might be switching to Tungsten as the metal material for this step.
 
 \newpage
@@ -47,10 +32,6 @@ For that reason we resort to deposited LTO (low temperature oxide), which has a 
 	\drawStepArrow{LTO\\deposition}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/contact.oxide_growth.b.tex}
-	\end{tikzpicture}
-	\drawStepArrow{Optional:\\CMP}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/contact.oxide_growth.c.tex}
 	\end{tikzpicture}
 	\caption{Oxide layer}
 \end{figure}

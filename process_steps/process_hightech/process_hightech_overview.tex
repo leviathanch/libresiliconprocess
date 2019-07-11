@@ -27,9 +27,13 @@ These process steps will be discussed within the following sections.
 		\node [block, right=0.75cm of pp] (silicification){Silicification\\ \autoref{step_silicification}};
 
 		\node [block, right=0.75cm of silicification] (contact) {Contact \\ \autoref{contact}};
-		\node [block, below of=contact] (metal) {First metal\\ \autoref{metal}};
-		\node [block, below of=metal] (via) {Additional vias\\ \autoref{via}};
-		\node [block, below of=via] (more_metal) {Additional metal\\ \autoref{more_metal}};
+		\node [block, below of=contact] (metal1) {Metal 1\\ \autoref{metal}};
+		\node [block, below of=metal1] (via1) {Via 1\\ \autoref{via}};
+		\node [block, below of=via1] (metal2) {Metal 2\\ \autoref{more_metal}};
+		\node [block, below of=metal2] (via2) {Via 2\\ \autoref{via}};
+		\node [block, below of=via2] (metal3) {Metal 3\\ \autoref{more_metal}};
+		\node [block, below of=metal3] (glass) {Glass\\ \autoref{via}};
+
 		%\node (repeat) at (10.5,14.5) {Repeat};
 
 		%% Draw edges
@@ -44,7 +48,7 @@ These process steps will be discussed within the following sections.
 		\path [line] (np) -- (pp);
 		\path [line] (pp) -- (silicification);
 		\path [line] (silicification) -- (contact);
-		\path [line] (contact) -- (metal);
+		\path [line] (contact) -- (metal1);
 
 		%\draw[dotted] (-2,6) rectangle (6.25,17);
 		%\node at (2,6.5) {CMOS process};

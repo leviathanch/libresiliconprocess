@@ -17,24 +17,8 @@ The cross section as well as the top view of the targeted geometry are shown in 
 
 The N-well will serve us as an island of N-doped substrate within the P-doped basis substrate.
 
-The P-dopant concentration of our prime grade, p-type, single side polished, four inch wafers is between $8.76 \cdot 10^14 \frac{1}{cm^3}$ and $5.23 \cdot 10^14 \frac{1}{cm^3}$
+The P-dopant concentration of our prime grade, p-type, single side polished, four inch wafers is between $8.76 \cdot 10^{14} \frac{1}{cm^3}$ and $5.23 \cdot 10^{14} \frac{1}{cm^3}$
 
-This means we need a dose of $2.33\times10^{12}cm^{-2}$ Phosphorus at 70 keV, as calculated in the documentation of the process design leading to these steps\footnote{\url{https://github.com/leviathanch/libresiliconprocess/raw/master/process_design/process_design.pdf}}.
+This means we need a dose of $2.33\times10^{12}cm^{-2}$ Phosphorus at 70 keV.
 
 The concentration will need adjustment when the used substrate has different properties!
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance =1cm, auto, thick,scale=\VLSILayout, every node/.style={transform shape}]
-		\input{tikz_process_steps/nwell.layout.tex}
-	\end{tikzpicture}
-	\caption{N-Well layout}
-	\label{nwell_layout}
-\end{figure}
-
-In \autoref{nwell_layout} the layout of the n-well region on top of the active area region can be seen.
-
-The n-well is being fit into the active area. It should even be a little bit bigger than the active area, because of possible alignment offsets.
-
-The layout is being automatically generated for GDS2 based on cifoutput rules, so you just have to draw you well.
-

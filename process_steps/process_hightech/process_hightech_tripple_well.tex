@@ -1,8 +1,10 @@
 \section{Tripple Well}\label{tripple_well_chapter}
 
-In order to build BiCMOS on the same substrate, another N-well within the P-Base (tripple well!) is required for building the complementary isolated P-channel transistor for a n-p-channel logic circuitry as shown above in the example section.
+In order to build BiCMOS we need nested wells for getting the vertical diode structures which form the bi junction transistors.
 
-The cross section as well as the top view of the targeted geometry are shown in \autoref{nbase_target}
+A vertical isolation, which allows us to have some bulk areas on a higher potential than others, and isolated FETs come along from this tripple well architecture for free.
+
+The cross section of the targeted geometry are shown in \autoref{tripple_well_target}
 
 \begin{figure}[H]
 	\centering
@@ -13,9 +15,23 @@ The cross section as well as the top view of the targeted geometry are shown in 
 	\label{tripple_well_target}
 \end{figure}
 
+Since the diffusion constant variates with the concentration of background dopants, we have to make sure that the thermal budget has enough slack during every single tripple well formation step, in order to avoid the consumption of one of the wells during further processing.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance =1cm, auto, thick,scale=\VLSILayout, every node/.style={transform shape}]
+		\input{tikz_process_steps/pwell.layout.tex}
+	\end{tikzpicture}
+	\caption{P-Well layout}
+	\label{pwell_layout}
+\end{figure}
+
+In \autoref{pwell_layout} the layout of the well and base regions on top of the active area region can be seen.
+
+The implant values are as calculated in the documentation of the process design leading to these steps\footnote{\url{https://github.com/leviathanch/libresiliconprocess/raw/master/process_design/process_design.pdf}}.
+
 \newpage
 \input{process_hightech_nwell.tex}
-\newpage
 \input{process_hightech_pwell.tex}
 \newpage
 \input{process_hightech_pbase.tex}

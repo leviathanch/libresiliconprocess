@@ -7,27 +7,12 @@ In this step we're going to build these.
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
 		\input{tikz_process_steps/pimplant.a.tex}
 	\end{tikzpicture}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
-		\input{tikz_process_steps/pimplant.b.tex}
-	\end{tikzpicture}
 	\caption{P+ implant geometry target}
 \end{figure}
 
 The tricky thing here is to have a reasonable implant depth but not too deep because the deeper the junction, the higher the junction capacity which in turn limits the switching performance of the CMOS circuitry.
 
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance =1cm, auto, thick,scale=\VLSILayout, every node/.style={transform shape}]
-		\input{tikz_process_steps/pimplant.layout.tex}
-	\end{tikzpicture}
-	\caption{P+ layout}
-	\label{pimplant_layout}
-\end{figure}
-
-An example layout of p-implants can be seen in \autoref{pimplant_layout}, the mask is being extracted from the layer "p\_plus\_select"
-
-Also important to notice is that this example layout is just for demonstration purposes only, please have a look at the standard cell documentation for the actual layouts. 
+Also important to notice is that the implantation energy must not be too high, otherwise the dopants may leak through the polysilicon gate.
 
 The pselect is implanted with a Boron ($B^{11}$) dose of $2.5\times10^{12}cm^{-2}$ at an energy of 20 keV  (43nm$\pm$18nm deep)
 
-\newpage
