@@ -13,9 +13,12 @@ The geometry of a substrate with STI implemented can be seen in \autoref{sti_tar
 	\label{sti_target}
 \end{figure}
 
-As can be seen in \autoref{nwell_target}, the n-well and the STI trench are supposed to have approximately the same depth but the n-well and p-well go down a little bit further.
-Because the n-well will be $\approx 4 \mu m$ in depth we have to match this with our trench depth.
-I order to allow a sufficiently low resistance of the ESD diode but at the same time a sufficient isolation of between the standard cells a trade-ff has been done.
+As can be seen in \autoref{tripple_well_target}, the N-well and the STI trench are supposed to have approximately the same depth but the N-well and P-well go down a little bit further.
+
+Because the N-well will be $\approx 4 \mu m$ in depth we have to match this with our trench depth.
+
+I order to allow a sufficiently low resistance of the ESD diode but at the same time a sufficient isolation of between the standard cells a trade-off has been done.
+
 The targeted depth of the box isolation is $\approx 4 \mu m$.
 
 \begin{figure}[H]
@@ -28,12 +31,19 @@ The targeted depth of the box isolation is $\approx 4 \mu m$.
 \end{figure}
 
 In \autoref{sti_layout} we can see the layout for the STI area.
+
 The STI area will be everywhere, where no well areas are.
+
 The field oxide needs to be grown out of trenches which can't be etched out of the silicon by using resist as a mask.
+
 For that reason we will have to resort to a protective mask made from a silicon dioxide layer which has to be etched before hand.
+
 So the mask will be exposed onto positive resist on top of the hard mask oxide layer in order to form a protective mask covering the active areas from having etched trenches into them.
+
 After that we can either use a dry etching method or wet etching for cutting into the silicon substrate and making the active area become islands with trenches in between.
+
 After these steps we have to remove the hard mask.
+
 Our minimum width and height as well as the space between the active areas comes from the line space constrain of the silicon etcher and of course the optical limitations of the stepper which are as well 0.5\um.
 
 \newpage

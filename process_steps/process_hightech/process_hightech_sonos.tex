@@ -1,5 +1,8 @@
 \section{SONOS}\label{sonos_chapter}
-Now we have to build the initial gate structure which contains of the 40nm thick dielectric (in our case just silicon dioxide) and the polysilicon electrode.
+
+Before we can construct the gate, we have to put some pads of oxide-nitride-oxide sandwich roughly in the area where the SONOS (silicon oxide nitride oxide silicon) gates will be located.
+
+Later on, during etching of the polysilicon gates, the SONOS gate oxide sandwich will be automatically aligned with the gate because excess SONOS sandwich material will be etched away with the normal gate oxide.
 
 \begin{figure}[H]
 	\centering
@@ -12,7 +15,10 @@ Now we have to build the initial gate structure which contains of the 40nm thick
 	\caption{Poly silicon gate contacts with gate oxide}
 \end{figure}
 
-The line spacing of the polysilicon electrode shape has to be at least 0.5\um because of the resolution of the stepper and also because of the etching process which has 0.5\um as the minimum line spacing.
+The line spacing of the SONOS shape has to be at least 0.5\um because of the resolution of the stepper and also because of the etching process which has 0.5\um as the minimum line spacing.
+
+Also there has to be at least one lambda on each site to compensate for offsets, so tha SONOS mask is bloated by 0.5\um.
+
 
 \begin{figure}[H]
 	\centering
