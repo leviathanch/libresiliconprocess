@@ -64,36 +64,6 @@ We now need to grow a layer of thick oxide in order to isolate the Aluminum inte
 
 \newpage
 
-\subsection{Pattering}
-
-The resist is being deposited using spin coating and then baked depending on the baking time for the specific resist.
-The layout for being exposed onto the resist is being extracted from the "contact" layer within the GDS2 file onto a \textbf{bright field} mask.
-The requirement is a \textbf{negative} tone resist.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/via.patterning.a.tex}
-	\end{tikzpicture}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/via.patterning.at.tex}
-	\end{tikzpicture}
-	\drawStepArrow{Mask: via1}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/via.patterning.b.tex}
-	\end{tikzpicture}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/via.patterning.bt.tex}
-	\end{tikzpicture}
-	\caption{N+ region resist mask}
-\end{figure}
-
-The thickness of the resist layer and the baking duration will variate depending on the specific equipment for which this process will be implemented with.
-Also after the exposure and development, the hard baking shouldn't be forgotten!
-
-
-\newpage
-
 \subsection{Etching}\label{via_etching}
 
 We now need to open a window in the dioxide layer, through which we will inject carrier atoms into the silicon crystal structure.
@@ -125,33 +95,4 @@ Since the silicon dioxide layer is 100nm thick and we wanna reach the silicon be
 	\item \textbf{Chemical solution} \\
 	We can use buffered hydrofluoric acid (BOE (1:6)) at room temperature ($\approx$508 nm/min) for around 4 minutes in order to get through the 2\um of oxide.\\
 	Too long over 4 minutes might cause under-etch however!
-\end{itemize}
-
-\newpage
-
-\subsection{Resist strip}
-
-Now we need to remove the photo resist for further processing because it would contaminate the equipment.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/via.cleaning.a.tex}
-	\end{tikzpicture}
-	\drawStepArrow{}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/via.cleaning.b.tex}
-	\end{tikzpicture}
-	\caption{Resist removal}
-\end{figure}
-
-Because we now have a metal layer we can't use sulfuric acids because this would dissolve/attack the Aluminum as well as the photo resist.
-Instead we have got to use an organic solvent which does not react with Aluminum.
-
-\textbf{Possible approaches}:
-\begin{itemize}
-	\item \textbf{"MS2001 resist stripper" from HKUST} \\
-	It can be found at the wet stations: Wetstation W, X, Y and Z (WET-W1 to WET-W2, WET-X1 to WET-X2, WET-Y1to WET-Y2, WET-Z1 to WET-Z2)
-	\item \textbf{Another chemical solution} \\
-	Please specify here!
 \end{itemize}

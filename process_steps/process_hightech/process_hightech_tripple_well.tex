@@ -1,0 +1,23 @@
+\section{Tripple Well}\label{tripple_well_chapter}
+
+In order to build BiCMOS on the same substrate, another N-well within the P-Base (tripple well!) is required for building the complementary isolated P-channel transistor for a n-p-channel logic circuitry as shown above in the example section.
+
+The cross section as well as the top view of the targeted geometry are shown in \autoref{nbase_target}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
+		\input{tikz_process_steps/nbase.a.tex}
+	\end{tikzpicture}
+	\caption{Tripple well target geometry}
+	\label{tripple_well_target}
+\end{figure}
+
+\newpage
+\input{process_hightech_nwell.tex}
+\newpage
+\input{process_hightech_pwell.tex}
+\newpage
+\input{process_hightech_pbase.tex}
+\input{process_hightech_nbase.tex}
+

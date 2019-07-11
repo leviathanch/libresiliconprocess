@@ -78,33 +78,6 @@ After depositing the oxide, one might wanna perform a CMP step in order to plana
 
 \newpage
 
-\subsection{Pattering}
-
-The resist is being deposited using spin coating and then baked depending on the baking time for the specific resist.
-The layout for being exposed onto the resist is being extracted from the "contact" layer within the GDS2 file onto a \textbf{bright field} mask.
-The requirement is a \textbf{negative} tone resist.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/contact.patterning.a.tex}
-	\end{tikzpicture}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/contact.patterning.at.tex}
-	\end{tikzpicture}
-	\drawStepArrow{Mask: contact}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/contact.patterning.b.tex}
-	\end{tikzpicture}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/contact.patterning.bt.tex}
-	\end{tikzpicture}
-	\caption{Patterning contact vias}
-\end{figure}
-
-The thickness of the resist layer and the baking duration will variate depending on the specific equipment for which this process will be implemented with.
-Also after the exposure and development, the hard baking shouldn't be forgotten!
-
 \subsection{Etching}\label{contact_holes_etch}
 
 We now need to open a window in the dioxide layer, through which the later on deposited Aluminum will touch down onto the silicide/polycide contacts of the active area.
@@ -137,23 +110,3 @@ Since the silicon dioxide layer is 2\um thick and we wanna reach the silicon bel
 	We can use buffered hydrofluoric acid (BOE (1:6)) at room temperature ($\approx$508 nm/min) for around 4 minutes in order to get through the 2\um of oxide.\\
 	Too long over 4 minutes might cause under-etch however!
 \end{itemize}
-
-\subsection{Resist strip}
-
-Now we need to remove the contaminants for further processing.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/contact.cleaning.a.tex}
-	\end{tikzpicture}
-	\drawStepArrow{}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/contact.cleaning.b.tex}
-	\end{tikzpicture}
-	\caption{Resist removal}
-\end{figure}
-
-We strip the resist, rinse and perform sulfuric cleaning.
-
-

@@ -1,37 +1,24 @@
-`\section{P-base}\label{pbase_chapter}
-In order to build CMOS on the same substrate, a P-well is required for building the complementary N-channel transistor for a n-p-channel logic circuitry.
-The cross section as well as the top view of the targeted geometry are shown in \autoref{nwell_target}
+\subsection{P-base}\label{pbase_chapter}
+
+In order to build BiCMOS on the same substrate, a nested P-well within the N-well (now it's twin well) is required for building the bijunction transistors.
+
+The cross section as well as the top view of the targeted geometry are shown in \autoref{pbase_target}
+
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
 		\input{tikz_process_steps/pbase.a.tex}
 	\end{tikzpicture}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
-		\input{tikz_process_steps/pbase.b.tex}
-	\end{tikzpicture}
-	\caption{P-well target geometry}
-	\label{pwell_target}
+	\caption{P-base cross section}
+	\label{pbase_target}
 \end{figure}
-The P-well will serve us as an island of higher p-doped substrate within the slightly p-doped basis substrate.
+
+The P-base will serve us as an island of higher P-doped substrate within the slightly N-well basis substrate, which will result in a isolated area by forming PN junction versus PN junction.
 
 The dopant dose will be $1.93\times10^{12}cm^{-2}$ at 40 keV, as calculated in the documentation of the process design leading to these steps\footnote{\url{https://github.com/leviathanch/libresiliconprocess/raw/master/process_design/process_design.pdf}}.
 
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance =1cm, auto, thick,scale=\VLSILayout, every node/.style={transform shape}]
-		\input{tikz_process_steps/pwell.layout.tex}
-	\end{tikzpicture}
-	\caption{P-Well layout}
-	\label{pwell_layout}
-\end{figure}
+The P-base can very well cover the N-well area since the expansion mostly is vertical, but it should be kept in mind, that there is also a lateral diffusion when placing contacts also on N-well around the P-base.
 
-In \autoref{pwell_layout} the layout of the P-well region on top of the active area region can be seen.
+The layout is being automatically generated for GDS2 based on cifoutput rules, so you just have to draw your P-base.
 
-The p-well is being fit into the active area.
-
-It should even be a little bit bigger than the active area, because of possible alignment offsets.
-
-The layout is being automatically generated for GDS2 based on cifoutput rules, so you just have to draw you well.
-
-\newpage
-
+After the implantation we perform a drive-in in inert atmosphere at $1050\degreesC$ for one hour.

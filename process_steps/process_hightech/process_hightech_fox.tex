@@ -40,26 +40,6 @@ We grow a roughly 1.23\um thick layer of silicon dioxide by putting the wafer in
 
 During the oxidation the dopants will be further driven in which will lead to the final formation of the N-well with an approximate depth of 4\um and the P-well with an approximate depth of 5\um.
 
-\subsection{Patterning}
-
-We reuse the mask from \autoref{sti_chapter}, because it's exactly the same layout, only inverted.
-The requirement is a \textbf{negative} tone resist.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/fox.patterning.a.tex}
-	\end{tikzpicture}
-	\drawStepArrow{Mask: fox}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/fox.patterning.b.tex}
-	\end{tikzpicture}
-	\caption{Patterning with positive resist}
-\end{figure}
-
-The thickness of the resist layer and the baking duration will variate depending on the specific equipment for which this process will be implemented with.
-Also after the exposure and development, the hard baking shouldn't be forgotten!
-
 \newpage
 
 \subsection{Etching}\label{fox_etch}
@@ -90,19 +70,4 @@ The downside of wet etching is that it also etches horizontally, however the che
 	Too long over 3 minutes might cause under-etch however!
 \end{itemize}
 
-\subsection{Resist strip}
-Now we need to remove the contaminants for further processing.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/fox.resist_removal.a.tex}
-	\end{tikzpicture}
-	\drawStepArrow{}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/fox.resist_removal.b.tex}
-	\end{tikzpicture}
-	\caption{Resist removal}
-\end{figure}
-
-We strip the resist, rinse and perform sulfuric cleaning.
+\newpage

@@ -1,4 +1,4 @@
-\section{N-base}\label{nbase_chapter}
+\subsection{N-base}\label{nbase_chapter}
 In order to build BiCMOS on the same substrate, another N-well within the P-Base (tripple well!) is required for building the complementary isolated P-channel transistor for a n-p-channel logic circuitry as shown above in the example section.
 
 The cross section as well as the top view of the targeted geometry are shown in \autoref{nbase_target}
@@ -19,20 +19,8 @@ The N-well will serve us as an island of N-doped substrate within the P-doped ba
 
 The dopant dose will be $2.33\times10^{12}cm^{-2}$ at 70 keV, as calculated in the documentation of the process design leading to these steps\footnote{\url{https://github.com/leviathanch/libresiliconprocess/raw/master/process_design/process_design.pdf}}.
 
-%\begin{figure}[H]
-%	\centering
-%	\begin{tikzpicture}[node distance =1cm, auto, thick,scale=\VLSILayout, every node/.style={transform shape}]
-%		\input{tikz_process_steps/nbase.layout.tex}
-%	\end{tikzpicture}
-%	\caption{N-Well layout}
-%	\label{nwell_layout}
-%\end{figure}
-
-% In \autoref{nbase_layout} the layout of the n-well region on top of the active area region can be seen.
-
 The n-well is being fit into the active area. It should even be a little bit bigger than the active area, because of possible alignment offsets.
 
 The layout is being automatically generated for GDS2 based on cifoutput rules, so you just have to draw you well.
 
-\newpage
-
+After the implantation we perform a drive-in in inert atmosphere at $1050\degreesC$ for half an hour.

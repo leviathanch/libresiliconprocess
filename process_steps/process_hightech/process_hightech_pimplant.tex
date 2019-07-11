@@ -1,4 +1,4 @@
-\section{p+ Implant}\label{pimplant}
+\subsection{p+ Implant}\label{pimplant_chapter}
 For the bulk of the NMOS transistors and for the source and drain of the PMOS transistors highly doped  p+ areas are required.
 In this step we're going to build these.
 
@@ -28,80 +28,6 @@ An example layout of p-implants can be seen in \autoref{pimplant_layout}, the ma
 
 Also important to notice is that this example layout is just for demonstration purposes only, please have a look at the standard cell documentation for the actual layouts. 
 
-\newpage
-
-\subsection{Patterning}
-
-The resist is being deposited using spin coating and then baked depending on the baking time for the specific resist.
-The layout for being exposed onto the resist is being extracted from the "p\_plus\_select" layer within the GDS2 file onto a \textbf{bright field} mask.
-The requirement is a \textbf{negative} tone resist.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/pimplant.patterning.a.tex}
-	\end{tikzpicture}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/pimplant.patterning.at.tex}
-	\end{tikzpicture}
-	\drawStepArrow{Mask: pselect}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/pimplant.patterning.b.tex}
-	\end{tikzpicture}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/pimplant.patterning.bt.tex}
-	\end{tikzpicture}
-	\caption{P+ region resist mask}
-\end{figure}
-
-The thickness of the resist layer and the baking duration will variate depending on the specific equipment for which this process will be implemented with.
-Also after the exposure and development, the hard baking shouldn't be forgotten!
+The pselect is implanted with a Boron ($B^{11}$) dose of $2.5\times10^{12}cm^{-2}$ at an energy of 20 keV  (43nm$\pm$18nm deep)
 
 \newpage
-
-
-\subsection{Implantationg}\label{pimplant_implant_step}
-
-We now need to bring in the carriers in order to build the p-junctions.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/pimplant.implantation.a.tex}
-	\end{tikzpicture}
-	\drawStepArrow{Boron implant}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/pimplant.implantation.b.tex}
-	\end{tikzpicture} \\
-	\caption{P+ implant process}
-\end{figure}
-
-\textbf{Possible approaches}:
-\begin{itemize}
-	\item \textbf{"CF-3000 Implanter (IMP-3000)" from HKUST} \\
-	At HKUST we have an implanter which gives us better control over the initial surface concentration. \\
-	These steps are needed to arrive with the desired geometry:
-	The pselect is implanted with a Boron ($B^{11}$) dose of $2.5\times10^{12}cm^{-2}$ at an energy of 13 keV  (43nm$\pm$18nm deep)
-\end{itemize}
-
-
-\subsection{Resist strip}
-
-Now we need to remove the contaminants for further processing.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/pimplant.cleaning.a.tex}
-	\end{tikzpicture}
-	\drawStepArrow{}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/pimplant.cleaning.b.tex}
-	\end{tikzpicture}
-	\caption{Resist removal}
-\end{figure}
-
-We strip the resist, rinse and perform sulfuric cleaning.
-
-\newpage
-

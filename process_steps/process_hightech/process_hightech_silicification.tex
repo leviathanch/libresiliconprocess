@@ -142,8 +142,9 @@ We deposit a layer of titanium with a thickness of around 20-60nm which will the
 
 \subsection{First reaction step}
 
-The deposited Ti film reacts with the exposed silicon areas such as the source/drain area and polysilicon gate electrodes by the first anneal at 600-700\degree C in $N_2$ ambient.
-In this first anneal, the C49-$TiSi_2$ phase is formed.
+The deposited Ti film reacts with the exposed silicon areas such as the source/drain area and polysilicon gate electrodes by the anneal at 800\degree C in Argon ambient.
+
+In this annealing step the $Ti Si_2$ is formed.
 
 \begin{figure}[H]
 	\centering
@@ -157,7 +158,8 @@ In this first anneal, the C49-$TiSi_2$ phase is formed.
 	\caption{Reaction 1}
 \end{figure}
 
-We use the "AG610 RTP (DIF-R2)" from the HKUST at 700\degreesC for 240 seconds.
+The resulting $Ti Si_2$ film will be around 77nm in tickness with around 20nm left on top.
+
 
 \subsection{Metal removal}
 
@@ -175,20 +177,4 @@ The unreacted titanium film on the dielectric layer such as $SiO_2$ or $SiN$ is 
 	\caption{Titanium etch}
 \end{figure}
 
-\subsection{Second reaction step}
-
-The final step is a second anneal at 800 \degreesC or above to transform the high-resistivity C49-$TiSi_2$ phase to the low-resistivity C54-$TiSi_2$ phase at the gate electrodes and source/drain areas.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/silicification.rtp2.a.tex}
-	\end{tikzpicture}
-	\drawStepArrow{}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/silicification.rtp2.b.tex}
-	\end{tikzpicture}
-	\caption{Reaction 2}
-\end{figure}
-
-We use the "AG610 RTP (DIF-R2)" again at 800\degree C for 240 seconds.
+After 2-3 minutes in APM, with a bit mechanical help, all the unreacted Titanium should be gone.

@@ -58,34 +58,6 @@ We end up with a target thickness of 4\um.
 
 \newpage
 
-\subsection{Pattering}
-The resist is being deposited using spin coating and then baked depending on the baking time for the specific resist.
-The layout for being exposed onto the resist is being extracted from the "more1" layer within the GDS2 file onto a \textbf{bright field} mask.
-The requirement is a \textbf{positive} tone resist.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/more_metal.patterning.a.tex}
-	\end{tikzpicture}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/more_metal.patterning.at.tex}
-	\end{tikzpicture}
-	\drawStepArrow{Mask: metal1}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/more_metal.patterning.b.tex}
-	\end{tikzpicture}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/more_metal.patterning.bt.tex}
-	\end{tikzpicture}
-	\caption{Patterning first wires}
-\end{figure}
-
-The thickness of the resist layer and the baking duration will variate depending on the specific equipment for which this process will be implemented with.
-Also after the exposure and development, the hard baking shouldn't be forgotten!
-
-\newpage
-
 \subsection{Etching}\label{more_metal_wire_etch}
 
 Now we've got to etch the Aluminum which hasn't been covered yet by the resist in order to get the desired wire structures.
@@ -114,34 +86,5 @@ Now we've got to etch the Aluminum which hasn't been covered yet by the resist i
 	The normal etch rate for Aluminum is 180 nm/min with this machines \\
 	We've deposited 4\um Aluminum in \autoref{more_metal_deposition} which means we've got to etch for around 22 minutes and 13 seconds
 	\item \textbf{Chemical solution} \\
-	Please specify here!
-\end{itemize}
-
-\newpage
-
-\subsection{Resist strip}
-
-Now we need to remove the photo resist for further processing because it would contaminate the equipment.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/more_metal.cleaning.a.tex}
-	\end{tikzpicture}
-	\drawStepArrow{}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/more_metal.cleaning.b.tex}
-	\end{tikzpicture}
-	\caption{Resist removal}
-\end{figure}
-
-Because we now have a metal layer we can't use sulfuric acids because this would dissolve/attack the Aluminum as well as the photo resist.
-Instead we have got to use an organic solvent which does not react with Aluminum.
-
-\textbf{Possible approaches}:
-\begin{itemize}
-	\item \textbf{"MS2001 resist stripper" from HKUST} \\
-	It can be found at the wet stations: Wetstation W, X, Y and Z (WET-W1 to WET-W2, WET-X1 to WET-X2, WET-Y1to WET-Y2, WET-Z1 to WET-Z2)
-	\item \textbf{Another chemical solution} \\
 	Please specify here!
 \end{itemize}
