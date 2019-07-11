@@ -6,25 +6,11 @@ Now we've got to build the more interconnect wires, connecting the contact vias 
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
 		\input{tikz_process_steps/more_metal.a.tex}
 	\end{tikzpicture}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
-		\input{tikz_process_steps/more_metal.b.tex}
-	\end{tikzpicture}
 	\caption{Metal geometry target}
 	\label{more_metal_target}
 \end{figure}
 
 As can be seen in \autoref{more_metal_target}, the goal of this step is purely to etch the wire structure for the additional metal layer into the in \autoref{more_metal_deposition} deposited metal layer, and form wires by doing so.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance =1cm, auto, thick,scale=\VLSILayout, every node/.style={transform shape}]
-		\input{tikz_process_steps/more_metal.layout.tex}
-	\end{tikzpicture}
-	\caption{Second metal layout}
-	\label{more_metal_layout}
-\end{figure}
-
-It should be noted again that the via placement and dimensions in \autoref{more_metal_layout} are solely for demonstration purposes for the process and are in no way the actual standard cell design for the final standard cell lib. \\
 
 In later iterations of this process we might be switching to Tungsten as the metal material for this step so the etching method might change in further releases.
 
