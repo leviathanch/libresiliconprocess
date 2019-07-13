@@ -336,7 +336,7 @@
 }
 - {
         name: Metal 1,
-        cross_tikz: tikz_process_steps/metal.a.tex,
+        cross_tikz: tikz_process_steps/metal1.tex,
         mask: metal1,
         steps: [
                 {
@@ -364,7 +364,7 @@
 }
 - {
         name: Via 1,
-        cross_tikz: tikz_process_steps/via.a.tex,
+        cross_tikz: tikz_process_steps/via1.a.tex,
         mask: via1,
         steps: [
                 {
@@ -387,7 +387,7 @@
 }
 - {
         name: Metal 2,
-        cross_tikz: tikz_process_steps/more_metal.a.tex,
+        cross_tikz: tikz_process_steps/metal2.a.tex,
         mask: metal2,
         steps: [
                 {
@@ -438,7 +438,7 @@
 }
 - {
         name: Metal 3,
-        cross_tikz: tikz_process_steps/more_metal_two.a.tex,
+        cross_tikz: tikz_process_steps/metal3.a.tex,
         mask: metal3,
         steps: [
                 {
