@@ -30,11 +30,11 @@ Then, the unreacted titanium film on the dielectric layer such as $SiO_2$ or SiN
 
 \newpage
 
-\subsection{Oxide deposition}
+\subsection{Nitride deposition}\label{nitride_spacers_deposition}
 
-The thickness of this CVD deposited oxide layer will be the width of the spacer after having used highly anisotropic etching in the next few steps, for this reason the thickness of the oxide decides over the distance between the silicide and the gate oxide.
+The thickness of this CVD deposited nitride layer will be the width of the spacer after having used highly anisotropic etching in the next few steps, for this reason the thickness of the nitride decides over the distance between the silicide and the gate oxide.
 
-We make the oxide layer 50nm thick.
+Considering, due to the edge effects during dry etching, the thickness of the nitride has to be less than 25\% of the polysilicon thickness, we choose 50nm for the nitride thickness.
 
 \begin{figure}[H]
 	\centering
@@ -48,41 +48,18 @@ We make the oxide layer 50nm thick.
 	\caption{Oxide layer}
 \end{figure}
 
-We use the machine LPCVD machine from HKUST and deposit around 50nm of silicon dioxide with the following recipe\footnote{\url{https://people.rit.edu/lffeee/LPCVD_Recipes.pdf}}:
-\begin{itemize}
-	\item Temperature: 400 \degreesC  ($Si H_4 + O_2 = Si O_2 + 2 H_2$)
-	\item Pressure = 250 mTorr
-	\item Silane ($Si H_4$) flow = 40sccm
-	\item Oxygen ($O_2$) flow = 48sccm
-\end{itemize}
-
-This will give a rate of 7nm ($\pm 1nm$) per minute, so we deposit for roughly seven minutes (7 min).
-
-\subsection{Silicide block patterning}
-
-We now have to pattern the mask for the silicide block layer which will produce oxide wherever no silicide is not desired within active areas.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/silicification.silicide_block.a.tex}
-	\end{tikzpicture}
-	\drawStepArrow{Mask: silicide block}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/silicification.silicide_block.b.tex}
-	\end{tikzpicture}
-	\caption{Patterning (silicide block)}
-\end{figure}
-
-It is not yet clear whether we will be needing this feature in the future, which means we have not yet finally decided whether wanna keep this step and layer within our process and technology.
+The deposition rates might variate between LPCVDs and recipes. It's at the discretion of the operation engineer to achieve those 50nm.
 
 \newpage
 
 \subsection{Spacer etching}
 
-Now we have to etch our oxide as anisotropic as possible.
+Now we have to etch our nitride as anisotropic as possible.
+
 This means that the etching mostly only comes "from above" with a few to nearly none horizontal etching.
+
 Thit means the etching process only "sees" the sidewall as a "thicker layer" and starts etching downward.
+
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
@@ -95,16 +72,11 @@ Thit means the etching process only "sees" the sidewall as a "thicker layer" and
 	\caption{Anisotropic etching}
 \end{figure}
 
-\textbf{Possible approaches}:
-\begin{itemize}
-	\item\textbf{"AOE Etcher" at the NFF HKUST lab}\\
-	With an etching speed of ~250 nm/min for thermal oxide and an oxide thickness of around 50nm etching will take around 12 seconds.
-\end{itemize}
 After that we will have our desired spacer geometry forming as well as any potentially resist covered area (if silicide block is being used) with sharp etches.
 
 \subsection{Titanium deposition}
 
-We deposit a layer of titanium with a thickness of around 20-60nm which will then be reacted into titanium-silicide and titanium-polycide respectively in the further steps.
+We deposit a layer of titanium with a thickness of around 30nm which will then be reacted into titanium-silicide and titanium-polycide respectively in the further steps.
 
 \begin{figure}[H]
 	\centering
@@ -118,18 +90,13 @@ We deposit a layer of titanium with a thickness of around 20-60nm which will the
 	\caption{Titanium deposition}
 \end{figure}
 
-\textbf{Possible approaches}:
-\begin{itemize}
-	\item\textbf{"Varian 3180 Sputter (SPT-3180)" at HKUST NFF lab}:\\
-	Has has a sputter rate of around 4 nm/s for titanium. \\
-	This means we run the deposition process for around 15 seconds.
-\end{itemize}
+The titanium can either be applied by sputtering or by chemical deposition.
 
 \newpage
 
 \subsection{Silicide formation}
 
-The deposited Ti film reacts with the exposed silicon areas such as the source/drain area and polysilicon gate electrodes by the anneal at 800\degree C in Argon ambient.
+The deposited Ti film reacts with the exposed silicon areas such as the source/drain area and polysilicon gate electrodes during RTP (Rapid Thermal Processing) at 800\degreesC in Argon ambient for 30 seconds.
 
 In this annealing step the $Ti Si_2$ is formed.
 
@@ -145,8 +112,9 @@ In this annealing step the $Ti Si_2$ is formed.
 	\caption{Reaction 1}
 \end{figure}
 
-The resulting $Ti Si_2$ film will be around 77nm in tickness with around 20nm left on top.
+The resulting $Ti Si_2$ film will be around 77nm in tickness with around 20nm unreacted titanium left on top.
 
+A color change can be observed of the titanium on top of the oxide.
 
 \subsection{Metal removal}
 
@@ -164,4 +132,4 @@ The unreacted titanium film on the dielectric layer such as $SiO_2$ or $SiN$ is 
 	\caption{Titanium etch}
 \end{figure}
 
-After 2-3 minutes in APM, with a bit mechanical help, all the unreacted Titanium should be gone.
+After 2-3 minutes in APM, with a bit mechanical help, all the unreacted Titanium should be gone and the oxide should become visible again.

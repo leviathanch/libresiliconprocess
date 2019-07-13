@@ -1,5 +1,23 @@
 \section{Junction implants}\label{junctions_chapter}
 
+After we've etches the gate structures and have implemented the implant stop structures we perform the junction implants in \autoref{pimplant_chapter} and \autoref{nimplant_chapter}.
+
+Thanks to the implant stop mask we have a nice control over channel lenghts because the implant stop structure compensates for alignment issues, which is crucial for Polysilicon diodes for instance.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
+		\input{tikz_process_steps/pimplant.a.tex}
+	\end{tikzpicture}
+	\caption{P+ and N+ junctions}
+\end{figure}
+
+After implantation we have to drive in the shallow junction implants in order to form the pn-junctions in the polysilicon gates and to increase the depth of the junctions
+to a degree so that it won't be fully consumed during the silicide formation(\autoref{step_silicification}) step later on.
+
+After we've implanted the Boron and Phosphorus, we will drive the whole thing in for 30 minutes at 900\degreesC and at the same time oxidize it with $O_2$ (dry oxidation) so that we can form the pad
+oxide needed to deposit the nitride for the side wall spacers later on in \autoref{nitride_spacers_deposition}.
+
 \newpage
 \input{process_hightech_nimplant.tex}
 \input{process_hightech_pimplant.tex}

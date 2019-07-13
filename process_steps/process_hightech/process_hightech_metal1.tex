@@ -1,14 +1,11 @@
-\section{Metal 1}\label{metal}
+\subsection{Metal 1}\label{chapter_metal1}
 
 Now we've got to build the first interconnect wires, connecting the contact vias to the "metal1" wires, which will provide a way to contact to them with the via1 contact layout.
 
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
-		\input{tikz_process_steps/metal.a.tex}
-	\end{tikzpicture}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
-		\input{tikz_process_steps/metal.b.tex}
+		\input{tikz_process_steps/metal1.tex}
 	\end{tikzpicture}
 	\caption{Metal geometry target}
 	\label{metal_target}
@@ -31,7 +28,7 @@ In later iterations of this process we might be switching to Tungsten as the met
 
 \newpage
 
-\subsection{Metal deposition}\label{metal_deposition}
+\subsubsection{Metal deposition}\label{metal_deposition}
 
 Now we somehow have got to get the metal onto our silicon oxide in a fashion so that it fills the holes we've etched in \autoref{contact_holes_etch} and touches down onto the silicide/polycide, thus making a contact to the active area.
 
@@ -59,7 +56,7 @@ We end up with a target thickness of 4\um.
 
 \newpage
 
-\subsection{Etching}\label{metal_wire_etch}
+\subsubsection{Etching}\label{metal_wire_etch}
 
 Now we've got to etch the Aluminum which hasn't been covered yet by the resist in order to get the desired wire structures.
 

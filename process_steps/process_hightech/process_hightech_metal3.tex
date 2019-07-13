@@ -1,33 +1,33 @@
-\subsection{Metal 2}\label{chapter_metal2}
+\subsection{Metal 3}\label{chapter_metal3}
 Now we've got to build the more interconnect wires, connecting the contact vias to the "metal2" wires, which will provide a way to contact to them with the via2 contact layout.
 
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
-		\input{tikz_process_steps/metal2.a.tex}
+		\input{tikz_process_steps/metal3.a.tex}
 	\end{tikzpicture}
 	\caption{Metal geometry target}
-	\label{metal2_target}
+	\label{metal3_target}
 \end{figure}
 
-As can be seen in \autoref{metal2_target}, the goal of this step is purely to etch the wire structure for the additional metal layer into the in \autoref{metal2_deposition} deposited metal layer, and form wires by doing so.
+As can be seen in \autoref{metal3_target}, the goal of this step is purely to etch the wire structure for the additional metal layer into the in \autoref{metal3_deposition} deposited metal layer, and form wires by doing so.
 
 In later iterations of this process we might be switching to Tungsten as the metal material for this step so the etching method might change in further releases.
 
 \newpage
 
-\subsubsection{Metal deposition}\label{metal2_deposition}
+\subsubsection{Metal deposition}\label{metal3_deposition}
 
 Now we somehow have got to get the metal onto our silicon oxide in a fashion so that it fills the holes we've etched in \autoref{via_etching} and touches down onto the last metal layer, thus making a contact to the plane below.
 
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/metal2.metal_deposition.a.tex}
+		\input{tikz_process_steps/metal3.metal_deposition.a.tex}
 	\end{tikzpicture}
 	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/metal2.metal_deposition.b.tex}
+		\input{tikz_process_steps/metal3.metal_deposition.b.tex}
 	\end{tikzpicture}
 	\caption{Metal deposition}
 \end{figure}
@@ -44,24 +44,18 @@ We end up with a target thickness of 4\um.
 
 \newpage
 
-\subsubsection{Etching}\label{metal2_wire_etch}
+\subsubsection{Etching}\label{metal3_wire_etch}
 
 Now we've got to etch the Aluminum which hasn't been covered yet by the resist in order to get the desired wire structures.
 
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/metal2.etching.a.tex}
-	\end{tikzpicture}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/metal2.etching.at.tex}
+		\input{tikz_process_steps/metal3.etching.a.tex}
 	\end{tikzpicture}
 	\drawStepArrow{Mask: metal1}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/metal2.etching.b.tex}
-	\end{tikzpicture}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/metal2.etching.bt.tex}
+		\input{tikz_process_steps/metal3.etching.b.tex}
 	\end{tikzpicture}
 	\caption{Etching first wires}
 \end{figure}
@@ -70,7 +64,7 @@ Now we've got to etch the Aluminum which hasn't been covered yet by the resist i
 \begin{itemize}
 	\item \textbf{"Oxford Aluminum Etcher (DRY-Metal-2)" from HKUST} \\
 	The normal etch rate for Aluminum is 180 nm/min with this machines \\
-	We've deposited 4\um Aluminum in \autoref{metal2_deposition} which means we've got to etch for around 22 minutes and 13 seconds
+	We've deposited 4\um Aluminum in \autoref{metal3_deposition} which means we've got to etch for around 22 minutes and 13 seconds
 	\item \textbf{Chemical solution} \\
 	Please specify here!
 \end{itemize}
