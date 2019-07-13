@@ -1,17 +1,47 @@
 \section{Interconnect}
 
+Now that we've built all the devices, we've got to put wires on them in order to make them do something useful.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/glass.a.tex}
+	\end{tikzpicture}
+	\caption{Interconnect geometry target}
+	\label{inteconnect_cross_section}
+\end{figure}
+
+From here on it's basically just always the same game:
+\begin{enumerate}
+	\item Deposit roughly 150nm LTO/PSG
+	\item Etch vias
+	\item Sputter metal
+	\item Etch wires
+	\item Go to 1
+\end{enumerate}
+
+As can be seen in \autoref{inteconnect_cross_section}
+
+We have the holes where we sputter the metal into. All the oxide holes which are \autoref{chapter_contact}, \autoref{chapter_via1}, \autoref{chapter_via2} and \autoref{chapter_glass}, are basically the same.
+We deposit 150nm LTO/PSG and etch holes into it, in order to contact through to the lower layer.
+For the first layer, the etch stop is silicide, for the other layers it's the Nickel passivation.
+
+\newpage
 
 \input{process_hightech_contact.tex}
-\newpage
 \input{process_hightech_metal1.tex}
+
 \newpage
+
 \input{process_hightech_via1.tex}
-\newpage
 \input{process_hightech_metal2.tex}
+
 \newpage
+
 \input{process_hightech_via2.tex}
-\newpage
 \input{process_hightech_metal3.tex}
+
 \newpage
+
 \input{process_hightech_glass.tex}
 

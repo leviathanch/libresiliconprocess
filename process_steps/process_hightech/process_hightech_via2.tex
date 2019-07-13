@@ -6,82 +6,12 @@ These via1. are already part of the front-end process.
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/via1.a.tex}
+		\input{tikz_process_steps/via2.a.tex}
 	\end{tikzpicture}
 	\caption{Contact geometry target}
-	\label{via1.cross_subsections}
+	\label{via2_cross_subsections}
 \end{figure}
 
-As can be seen in \autoref{via1.cross_subsections}, the goal of this step is purely to deposit a layer of isolation oxide, get the holes into it, down to the metal layer below in order to form wires later on.
+As can be seen in \autoref{via2_cross_subsections}, the goal of this step is purely to deposit a layer of isolation oxide, get the holes into it, down to the metal layer below in order to form wires later on.
 
 In a later iterations of this process we might be switching to Copper as the metal material for this step which will result in a variation of this step because the usage of damascene method.
-
-\newpage
-
-\subsubsection{Isolation dioxide layer}
-
-We now need to grow a layer of thick oxide in order to isolate the Aluminum interconnect layer from the active area.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/via1.oxide_growth.a.tex}
-	\end{tikzpicture}
-	\drawStepArrow{LTO\\deposition}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/via1.oxide_growth.b.tex}
-	\end{tikzpicture}
-	\caption{Oxide layer}
-\end{figure}
-
-\textbf{Possible approaches}:
-\begin{itemize}
-	\item \textbf{"LPCVD-B3 LTO (CVD-B3)" from HKUST} \\
-	At HKUST we have a chemical vapor deposition unit which gives us better control over the layer thicknes. \\
-	These steps are needed to arrive with the desired geometry\footnote{\url{http://memslab.blogspot.com/2013/01/lto-lpcvd.html}}
-	\begin{enumerate}
-		\item Set the growth rate to 14 nm/min
-		\item Run for 140 minutes
-	\end{enumerate}
-	\item \textbf{In a furnace ("a hack around")} \\
-	In case of a lack of LPCVD equipment one might also resort to "hack together" a solution for LTO deposition using a furnace\footnote{\url{https://www.sciencedirect.com/science/article/pii/0167577X89900062}}
-		\begin{enumerate}
-			\item Deposit tetraethyl orthosilicate ($Si C_8 H_{20} O_4$)
-			\item React for 20 minutes at 1050\degreesC in $N_2$ environment in a furnace
-	\end{enumerate}
-\end{itemize}
-
-\newpage
-
-\subsubsection{Etching}\label{via1.etching}
-
-We now need to open a window in the dioxide layer, through which we will inject carrier atoms into the silicon crystal structure.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/via1.etching.a.tex}
-	\end{tikzpicture}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/via1.etching.at.tex}
-	\end{tikzpicture}
-	\drawStepArrow{}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/via1.etching.b.tex}
-	\end{tikzpicture}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/via1.etching.bt.tex}
-	\end{tikzpicture}
-	\caption{N+ region opened}
-\end{figure}
-
-Since the silicon dioxide layer is 100nm thick and we wanna reach the silicon below we can use wet etching as described in the chemistry chapter.\\
-
-\textbf{Possible approaches}:
-\begin{itemize}
-	\item \textbf{"AOE Etcher (DRY-AOE)" from HKUST} \\
-	We can use anisotropic plasma etching for sharper borders.
-	\item \textbf{Chemical solution} \\
-	We can use buffered hydrofluoric acid (BOE (1:6)) at room temperature ($\approx$508 nm/min) for around 4 minutes in order to get through the 2\um of oxide.\\
-	Too long over 4 minutes might cause under-etch however!
-\end{itemize}

@@ -1,8 +1,19 @@
-PDF:
-	xelatex process_hightech_steps.tex
+tikzdeps = $(wildcard tikz_process_steps/*.tex)
+
+tikzdeps = $(wildcard tikz_process_steps/*.tex)
+
+texs = $(wildcard *.tex)
+
+pdfs = process_hightech_steps.pdf
+
+$(pdfs): %.pdf:%.tex $(tikzdeps) $(texs)
+	max_in_open=32 xelatex $<
+
+all: $(pdfs)
 
 clean:
 	rm -f *.log
 	rm -f *.gz
 	rm -f *.aux
 	rm -f *.toc
+	rm -f *.pdf
