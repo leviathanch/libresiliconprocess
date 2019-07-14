@@ -1,5 +1,7 @@
 \subsection{Metal 2}\label{chapter_metal2}
-Now we've got to build the more interconnect wires, connecting the contact vias to the "metal2" wires, which will provide a way to contact to them with the via2 contact layout.
+
+Now we've got to build the more interconnect wires, connecting the "metal1" to the "metal2" wires,
+which will provide a way to contact to them with the via2 contact layout.
 
 \begin{figure}[H]
 	\centering
@@ -10,6 +12,10 @@ Now we've got to build the more interconnect wires, connecting the contact vias 
 	\label{metal2_target}
 \end{figure}
 
-As can be seen in \autoref{metal2_target}, the goal of this step is purely to etch the wire structure for the additional metal layer into the in \autoref{metal2_deposition} deposited metal layer, and form wires by doing so.
+As can be seen in \autoref{metal2_target}, the goal of this step is purely to etch the wire structure for the additional
+metal layer into the in \autoref{metal1_target} deposited metal layer, and form wires by doing so.
 
-In later iterations of this process we might be switching to Tungsten as the metal material for this step so the etching method might change in further releases.
+In a later iterations of this process we might be switching to Copper as the metal2 material for this step which
+will result in a variation of this step because the usage of damascene method.
+
+For now first we sputter 100nm Aluminum and then around 50nm Nickel for passivation, all in the same vacuum.

@@ -23,8 +23,7 @@ These process steps will be discussed within the following sections.
 
 		\node [block, right=0.75cm of gate] (np) {n+ Implant\\ \autoref{nimplant_chapter}};
 		\node [block, above of=np] (pp) {p+ Implant\\ \autoref{pimplant_chapter}};
-
-		\node [block, right=0.75cm of pp] (silicification){Silicification\\ \autoref{step_silicification}};
+		\node [block, above of=pp] (silicification){Silicification\\ \autoref{step_silicification}};
 
 		\node [block, right=0.75cm of silicification] (contact) {Contact \\ \autoref{chapter_contact}};
 		\node [block, below of=contact] (metal1) {Metal 1\\ \autoref{chapter_metal1}};
@@ -49,6 +48,11 @@ These process steps will be discussed within the following sections.
 		\path [line] (pp) -- (silicification);
 		\path [line] (silicification) -- (contact);
 		\path [line] (contact) -- (metal1);
+		\path [line] (metal1) -- (via1);
+		\path [line] (via1) -- (metal2);
+		\path [line] (metal2) -- (via2);
+		\path [line] (via2) -- (metal3);
+		\path [line] (metal3) -- (glass);
 
 		%\draw[dotted] (-2,6) rectangle (6.25,17);
 		%\node at (2,6.5) {CMOS process};

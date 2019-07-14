@@ -1,5 +1,10 @@
 \subsection{Metal 3}\label{chapter_metal3}
-Now we've got to build the more interconnect wires, connecting the contact vias to the "metal2" wires, which will provide a way to contact to them with the via2 contact layout.
+
+Now we've got to build the more interconnect wires, connecting the "metal2" to the "metal3" wires,
+which will provide us the contact pads exposed by the glass layer.
+
+This surface will not be covered any further and will be the surface where we touch down with the test
+probes and bond our wires onto.
 
 \begin{figure}[H]
 	\centering
@@ -10,7 +15,10 @@ Now we've got to build the more interconnect wires, connecting the contact vias 
 	\label{metal3_target}
 \end{figure}
 
-As can be seen in \autoref{metal3_target}, the goal of this step is purely to etch the wire structure for the additional metal layer into the in \autoref{metal3_deposition} deposited metal layer, and form wires by doing so.
+As can be seen in \autoref{metal3_target}, the goal of this step is purely to etch the wire structure for the additional
+metal layer into the in \autoref{metal2_target} deposited metal layer, and form wires by doing so.
 
-In later iterations of this process we might be switching to Tungsten as the metal material for this step so the etching method might change in further releases.
+In a later iterations of this process we might be switching to Copper as the metal3 material for this step which
+will result in a variation of this step because the usage of damascene method.
 
+For now first we sputter 100nm Aluminum and then around 50nm Nickel for passivation, all in the same vacuum.
