@@ -8,6 +8,7 @@ pdfs = process_hightech_steps.pdf
 
 $(pdfs): %.pdf:%.tex $(tikzdeps) $(texs)
 	max_in_open=32 xelatex $<
+	max_in_open=32 xelatex $<
 
 all: $(pdfs)
 
@@ -17,3 +18,4 @@ clean:
 	rm -f *.aux
 	rm -f *.toc
 	rm -f *.pdf
+	rm -f *.idx

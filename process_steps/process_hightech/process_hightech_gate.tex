@@ -11,17 +11,6 @@ Now we have to build the initial gate structure which contains of the 40nm thick
 
 The line spacing of the polysilicon electrode shape has to be at least 0.5\um because of the resolution of the stepper and also because of the etching process which has 0.5\um as the minimum line spacing.
 
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance =1cm, auto, thick,scale=\VLSILayout, every node/.style={transform shape}]
-		\input{tikz_process_steps/gate.layout.tex}
-	\end{tikzpicture}
-	\caption{Gate layout}
-	\label{gate_layout}
-\end{figure}
-
-In \autoref{gate_layout} we can see the layout honoring the 0.5\um spacing design rule for the gate structure shape and poly-layer interconnect between NMOS and PMOS.
-
 \newpage
 
 \subsection{Gate oxide deposition}\label{step_growing_gate_oxide}
