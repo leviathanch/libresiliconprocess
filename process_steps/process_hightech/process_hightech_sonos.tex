@@ -27,11 +27,11 @@ As designed in the process design document, the layer will be around 5nm thick.
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/gate.gate_oxid_depositon.a.tex}
+		\input{tikz_process_steps/sonos.lto1_depositon.a.tex}
 	\end{tikzpicture}
-	\drawStepArrow{Dry oxidation}
+	\drawStepArrow{LTO deposition}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/gate.gate_oxid_depositon.b.tex}
+		\input{tikz_process_steps/sonos.lto1_depositon.b.tex}
 	\end{tikzpicture}
 	\caption{Thin oxide}
 \end{figure}
@@ -45,11 +45,11 @@ Now we need to add the nitride layer for forming the SONOS sandwich.
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/gate.polysilicon_deposition.a.tex}
+		\input{tikz_process_steps/sonos.nitride_depositon.a.tex}
 	\end{tikzpicture}
-	\drawStepArrow{}
+	\drawStepArrow{Nitride deposition}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/gate.polysilicon_deposition.b.tex}
+		\input{tikz_process_steps/sonos.nitride_depositon.b.tex}
 	\end{tikzpicture}
 	\caption{Polysilicon}
 \end{figure}
@@ -69,11 +69,11 @@ As designed in the process design document, the layer will be around 5nm thick.
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/gate.gate_oxid_depositon.a.tex}
+		\input{tikz_process_steps/sonos.lto2_depositon.a.tex}
 	\end{tikzpicture}
-	\drawStepArrow{Dry oxidation}
+	\drawStepArrow{LTO deposition}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/gate.gate_oxid_depositon.b.tex}
+		\input{tikz_process_steps/sonos.lto2_depositon.b.tex}
 	\end{tikzpicture}
 	\caption{Thin oxide}
 \end{figure}
@@ -87,11 +87,11 @@ Now we've got to etch the SONOS structures.
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/gate.etching.a.tex}
+		\input{tikz_process_steps/sonos.etching.a.tex}
 	\end{tikzpicture}
 	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSection, every node/.style={transform shape}]
-		\input{tikz_process_steps/gate.etching.b.tex}
+		\input{tikz_process_steps/sonos.etching.b.tex}
 	\end{tikzpicture}
 	\caption{Resist}
 \end{figure}
