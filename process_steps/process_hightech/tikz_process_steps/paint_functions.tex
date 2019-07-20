@@ -1,13 +1,43 @@
+\newcommand{\coveringlayer}[2]{
+\fill[#1] (0,\STIIslandSurface) rectangle (55,\STIIslandSurface+#2);
+\fill[#1] (0,\STIIslandSurface) rectangle (1.25+#2,\STIIslandSurface+0.75+#2);
+\filldraw[line width=0, #1] (1.25+#2,\STIIslandSurface+0.75+#2) -- (1.25+#2,\STIIslandSurface+#2) -- (1.35+#2,\STIIslandSurface+#2);
+\genericstopper{\STIIslandSurface+#2}{ 2.35-#2}{0.15+#2+#2}{0.10}{0.75}{#1}
+\genericstopper{\STIIslandSurface+#2}{ 8.15-#2}{1.50+#2+#2}{0.10}{0.75}{#1}
+\genericstopper{\STIIslandSurface+#2}{15.25-#2}{0.15+#2+#2}{0.10}{0.75}{#1}
+\genericstopper{\STIIslandSurface+#2}{16.60-#2}{2.40+#2+#2}{0.10}{0.75}{#1}
+\genericstopper{\STIIslandSurface+#2}{20.20-#2}{0.15+#2+#2}{0.10}{0.75}{#1}
+
+\genericstopper{\STIIslandSurface+#2}{24.20-#2}{2.50+#2+#2}{0.10}{0.75}{#1}
+
+\genericstopper{\STIIslandSurface+#2}{27.90-#2}{0.25+#2+#2}{0.10}{0.75}{#1}
+\genericstopper{\STIIslandSurface+#2}{29.25-#2}{0.25+#2+#2}{0.10}{0.75}{#1}
+\genericstopper{\STIIslandSurface+#2}{30.80-#2}{0.25+#2+#2}{0.10}{0.75}{#1}
+\genericstopper{\STIIslandSurface+#2}{32.15-#2}{0.25+#2+#2}{0.10}{0.75}{#1}
+
+\genericstopper{\STIIslandSurface+#2}{33.60-#2}{1.80+#2+#2}{0.10}{0.75}{#1}
+
+\genericstopper{\STIIslandSurface+#2}{36.50-#2}{0.25+#2+#2}{0.10}{0.75}{#1}
+\genericstopper{\STIIslandSurface+#2}{37.85-#2}{0.25+#2+#2}{0.10}{0.75}{#1}
+\genericstopper{\STIIslandSurface+#2}{39.20-#2}{0.25+#2+#2}{0.10}{0.75}{#1}
+\genericstopper{\STIIslandSurface+#2}{40.50-#2}{0.25+#2+#2}{0.10}{0.75}{#1}
+
+\filldraw[line width=0, #1] (41.90-#2,\STIIslandSurface+#2) -- (42.00-#2,\STIIslandSurface+#2) -- (42.00-#2,\STIIslandSurface+0.75+#2);
+\fill[#1] (42.00-#2,\STIIslandSurface) rectangle (55.0,\STIIslandSurface+0.75+#2);
+}
+
+\newcommand{\genericstopper}[6]{
+\filldraw[line width=0, #6] (#2,#1) -- (#2+#4,#1) -- (#2+#4,#1+#5);
+\fill[#6] (#2+#4,#1) rectangle (#2+#3+#4,#1+#5);
+\filldraw[line width=0, #6] (#2+#3+#4,#1+#5) -- (#2+#3+#4,#1) -- (#2+#3+#4+#4,#1);
+}
+
 \newcommand{\stopper}[2]{
-\filldraw[line width=0, isolationoxide] (#1,\STIIslandSurface) -- (#1+0.10,\STIIslandSurface) -- (#1+0.10,\STIIslandSurface+0.75);
-\fill[isolationoxide] (#1+0.10,\STIIslandSurface) rectangle (#1+#2+0.10,\STIIslandSurface+0.75);
-\filldraw[line width=0, isolationoxide] (#1+#2+0.10,\STIIslandSurface+0.75) -- (#1+#2+0.10,\STIIslandSurface) -- (#1+#2+0.20,\STIIslandSurface);
+\genericstopper{\STIIslandSurface}{#1}{#2}{0.10}{0.75}{isolationoxide}
 }
 
 \newcommand{\bjtstopper}[1]{
-\filldraw[line width=0, isolationoxide] (#1,\STIIslandSurface) -- (#1+0.15,\STIIslandSurface) -- (#1+0.15,\STIIslandSurface+0.75);
-\fill[isolationoxide] (#1+0.15,\STIIslandSurface) rectangle (#1+0.25,\STIIslandSurface+0.75);
-\filldraw[line width=0, isolationoxide] (#1+0.25,\STIIslandSurface+0.75) -- (#1+0.25,\STIIslandSurface) -- (#1+0.35,\STIIslandSurface);
+\genericstopper{\STIIslandSurface}{#1}{0.15}{0.10}{0.75}{isolationoxide}
 }
 
 \newcommand{\paintnwells}[1]{
