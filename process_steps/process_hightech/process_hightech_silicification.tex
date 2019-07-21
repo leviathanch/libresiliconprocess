@@ -41,11 +41,11 @@ Considering, due to the edge effects during dry etching, the thickness of the ni
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/silicification.oxide_growth.a.tex}
 	\end{tikzpicture}
-	\drawStepArrow{Silicon oxide deposition}
+	\drawStepArrow{Nitride deposition}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/silicification.oxide_growth.b.tex}
 	\end{tikzpicture}
-	\caption{Oxide layer}
+	\caption{Nitride layer}
 \end{figure}
 
 The deposition rates might variate between LPCVDs and recipes. It's at the discretion of the operation engineer to achieve those 50nm.
@@ -65,7 +65,7 @@ Thit means the etching process only "sees" the sidewall as a "thicker layer" and
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/silicification.sputter_etching.a.tex}
 	\end{tikzpicture}
-	\drawStepArrow{Sputter etching}
+	\drawStepArrow{Dry etching}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/silicification.sputter_etching.b.tex}
 	\end{tikzpicture}
@@ -105,11 +105,11 @@ In this annealing step the $Ti Si_2$ is formed.
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/silicification.rtp1.a.tex}
 	\end{tikzpicture}
-	\drawStepArrow{}
+	\drawStepArrow{RTP}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/silicification.rtp1.b.tex}
 	\end{tikzpicture}
-	\caption{Reaction 1}
+	\caption{RTP treatment}
 \end{figure}
 
 The resulting $Ti Si_2$ film will be around 77nm in tickness with around 20nm unreacted titanium left on top.
@@ -125,7 +125,7 @@ The unreacted titanium film on the dielectric layer such as $SiO_2$ or $SiN$ is 
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/silicification.metal_removal.a.tex}
 	\end{tikzpicture}
-	\drawStepArrow{}
+	\drawStepArrow{RCA cleaning}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/silicification.metal_removal.b.tex}
 	\end{tikzpicture}
