@@ -1,20 +1,19 @@
-\input{tikz_process_steps/pimplant.a.tex}
-
 \filldraw[line width=0, nitride] (5.00,\STIIslandSurface) -- (4.50,\STIIslandSurface) -- (5.00,\STIIslandSurface+1.4);
 \filldraw[line width=0, nitride] (6.00,\STIIslandSurface) -- (6.50,\STIIslandSurface) -- (6.00,\STIIslandSurface+1.4);
 
 \filldraw[line width=0, nitride] (12.00,\STIIslandSurface) -- (11.50,\STIIslandSurface) -- (12.00,\STIIslandSurface+1.4);
 \filldraw[line width=0, nitride] (13.50,\STIIslandSurface) -- (13.00,\STIIslandSurface) -- (13.00,\STIIslandSurface+1.4);
 
-\filldraw[line width=0, nitride] (21.40,\STIIslandSurface) -- (21.90,\STIIslandSurface) -- (21.90,\STIIslandSurface+1.4);
-\filldraw[line width=0, nitride] (22.90,\STIIslandSurface) -- (23.40,\STIIslandSurface) -- (22.90,\STIIslandSurface+1.4);
+\filldraw[line width=0, nitride] (21.40,\STIIslandSurface) -- (21.90,\STIIslandSurface) -- (21.90,\STIIslandSurface+1.6);
+\filldraw[line width=0, nitride] (22.90,\STIIslandSurface) -- (23.40,\STIIslandSurface) -- (22.90,\STIIslandSurface+1.6);
 
+\fill[nitride] (44.0,\polytop+0.75) rectangle (44.8,\polytop+1.25);
+\fill[nitride] (44.5,\polytop+0.75) rectangle (46.5,\implantstoptop+0.5);
+\fill[nitride] (46.2,\polytop+0.75) rectangle (47.0,\polytop+1.25);
 
-\fill[nitride] (44.0,\polytop+0.75) rectangle (44.8,\polytop+0.95);
-\fill[nitride] (44.8,\polytop+0.75) rectangle (45.0,\implantstoptop);
-\fill[nitride] (44.8,\implantstoptop) rectangle (46.2,\implantstoptop+0.2);
-\fill[nitride] (46.0,\polytop+0.75) rectangle (46.2,\implantstoptop);
-\fill[nitride] (46.2,\polytop+0.75) rectangle (47.0,\polytop+0.95);
+\fill[nitride] (49.5,\polytop+0.75) rectangle (53.5,\polytop+1.25);
+
+\input{tikz_process_steps/pimplant.a.tex}
 
 \fill[silicide] ( 1.35,\STIIslandSurface-0.1) rectangle ( 2.35,\STIIslandSurface);
 \fill[silicide] ( 2.70,\STIIslandSurface-0.1) rectangle ( 4.50,\STIIslandSurface);
@@ -51,4 +50,3 @@
 \fill[silicide] (48.50,\STIIslandSurface+2.0) rectangle (49.50,\STIIslandSurface+2.15);
 \fill[silicide] (53.50,\STIIslandSurface+2.0) rectangle (54.50,\STIIslandSurface+2.15);
 
-\fill[nitride] (49.5,\polytop+0.75) rectangle (53.5,\polytop+0.95);

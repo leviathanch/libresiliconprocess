@@ -1,6 +1,17 @@
-\filldraw[line width=0, isolationoxide] (5,2.0) -- (4.5,2.0) -- (5,3.0);
-\filldraw[line width=0, isolationoxide] (6.5,2.0) -- (7.0,2.0) -- (6.5,3.0);
-\filldraw[line width=0, isolationoxide] (13.5,2.0) -- (13.0,2.0) -- (13.5,3.0);
-\filldraw[line width=0, isolationoxide] (15,2.0) -- (15.5,2.0) -- (15,3.0);
+\filldraw[line width=0, nitride] (5.00,\STIIslandSurface) -- (4.50,\STIIslandSurface) -- (5.00,\STIIslandSurface+1.4);
+\filldraw[line width=0, nitride] (6.00,\STIIslandSurface) -- (6.50,\STIIslandSurface) -- (6.00,\STIIslandSurface+1.4);
+
+\filldraw[line width=0, nitride] (12.00,\STIIslandSurface) -- (11.50,\STIIslandSurface) -- (12.00,\STIIslandSurface+1.4);
+\filldraw[line width=0, nitride] (13.50,\STIIslandSurface) -- (13.00,\STIIslandSurface) -- (13.00,\STIIslandSurface+1.4);
+
+\filldraw[line width=0, nitride] (21.40,\STIIslandSurface) -- (21.90,\STIIslandSurface) -- (21.90,\STIIslandSurface+1.6);
+\filldraw[line width=0, nitride] (22.90,\STIIslandSurface) -- (23.40,\STIIslandSurface) -- (22.90,\STIIslandSurface+1.6);
+
+\fill[nitride] (44.0,\polytop+0.75) rectangle (44.8,\polytop+1.25);
+\fill[nitride] (44.5,\polytop+0.75) rectangle (46.5,\implantstoptop+0.5);
+\fill[nitride] (46.2,\polytop+0.75) rectangle (47.0,\polytop+1.25);
+
+\fill[nitride] (49.5,\polytop+0.75) rectangle (53.5,\polytop+1.25);
 
 \input{tikz_process_steps/pimplant.a.tex}
+

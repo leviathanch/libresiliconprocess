@@ -39,11 +39,11 @@ Considering, due to the edge effects during dry etching, the thickness of the ni
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/silicification.oxide_growth.a.tex}
+		\input{tikz_process_steps/silicification.nitride_deposition.a.tex}
 	\end{tikzpicture}
-	\drawStepArrow{Nitride deposition}
+	\drawStepArrow{Nitride CVD}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/silicification.oxide_growth.b.tex}
+		\input{tikz_process_steps/silicification.nitride_deposition.b.tex}
 	\end{tikzpicture}
 	\caption{Nitride layer}
 \end{figure}
@@ -83,7 +83,7 @@ We deposit a layer of titanium with a thickness of around 30nm which will then b
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/silicification.metal_deposition.a.tex}
 	\end{tikzpicture}
-	\drawStepArrow{}
+	\drawStepArrow{Sputtering}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/silicification.metal_deposition.b.tex}
 	\end{tikzpicture}
@@ -115,6 +115,8 @@ In this annealing step the $Ti Si_2$ is formed.
 The resulting $Ti Si_2$ film will be around 77nm in tickness with around 20nm unreacted titanium left on top.
 
 A color change can be observed of the titanium on top of the oxide.
+
+\newpage
 
 \subsection{Metal removal}
 
