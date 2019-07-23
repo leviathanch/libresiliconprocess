@@ -62,8 +62,24 @@
 \subsection{PWELL Rules}\label{design_rules_pwell_rules}
 
 \begin{center}
-- reserved for future use -
+    \begin{tikzpicture}[scale=(.33)]
+        \filldraw[fill=pwell] (0, 0) rectangle ++(10, 10) node[near end] {PWELL};
+        \draw[<->] (0, 1) -- (10, 1) node[near start, above] {2.2.1};
+        \draw[<->] (1, 0) -- (1, 10) node[near start, left] {2.2.1};
+        \draw[<->] (10, 5) -- (19, 5) node[near start, above] {2.2.2};
+        \filldraw[fill=pwell] (19, 0) rectangle ++(10, 10) node[near end] {PWELL};
+        \draw[<->] (29, 5) -- (35, 5) node[near start, above] {2.2.3};
+        \filldraw[fill=pwell] (35, 0) rectangle ++(10, 10) node[near end] {PWELL};
+    \end{tikzpicture}
 \end{center}
+
+\begin{flushleft}
+    \begin{tabular}{c l c}
+        2.1.1  & Minimum Width of PWELL is & $ 10 \lambda $. \\
+        2.1.2  & Minimum Spacing to PWELL at different potential is & $ 10 \lambda $. \\
+        2.1.3  & Minimum Spacing to PWELL at same potential is & $ 0 \lambda $. \\
+    \end{tabular}
+\end{flushleft}
 
 \subsection{NWELL Rules}\label{design_rules_nwell_rules}
 
@@ -81,9 +97,9 @@
 
 \begin{flushleft}
     \begin{tabular}{c l c}
-        2.2.1  & Minimum Width of NWELL is & $10 \lambda$. \\
-        2.2.2  & Minimum Spacing to NWELL at different potential is & $9 \lambda$. \\
-        2.2.3  & Minimum Spacing to NWELL at same potential is & $0 \lambda$. \\
+        2.2.1  & Minimum Width of NWELL is & $ 10 \lambda $. \\
+        2.2.2  & Minimum Spacing to NWELL at different potential is & $ 10 \lambda $. \\
+        2.2.3  & Minimum Spacing to NWELL at same potential is & $ 0 \lambda $. \\
     \end{tabular}
 \end{flushleft}
 
