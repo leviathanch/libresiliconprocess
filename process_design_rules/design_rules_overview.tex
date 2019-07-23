@@ -105,6 +105,59 @@
     \end{tabular}
 \end{flushleft}
 
+\subsection{PBASE Rules}\label{design_rules_pbase_rules}
+
+\begin{center}
+    \begin{tikzpicture}[scale=(.33)]
+        \filldraw[fill=nwell] (0, 0) rectangle (10, 10);
+        \filldraw[fill=pbase] (1, 1) rectangle ( 9,  9);
+	\node at (5,0.5) {NWELL};
+	\node at (5,1.5) {PBASE};
+	% overlap
+        \draw[<->] (0, 1) -- ( 1,  1) node[near start, above] {2.2.6};
+        \draw[<->] (9, 9) -- (10,  9) node[near start, above] {2.2.6};
+        \draw[<->] (1, 9) -- ( 1, 10) node[near start, left] {2.2.6};
+        \draw[<->] (9, 0) -- ( 9,  1) node[near start, right] {2.2.6};
+	% width
+        \draw[<->] (1, 5) -- ( 9,  5) node[near start, above] {2.2.5};
+    \end{tikzpicture}
+\end{center}
+
+\begin{flushleft}
+    \begin{tabular}{c l c}
+        2.2.5  & Minimum Width of PBASE is & $ 10 \lambda $. \\
+        2.2.6  & Minimum Overlap of PBASE to NWELL is & $ 5 \lambda $. \\
+    \end{tabular}
+\end{flushleft}
+
+\subsection{NBASE Rules}\label{design_rules_nbase_rules}
+
+\begin{center}
+    \begin{tikzpicture}[scale=(.33)]
+        \filldraw[fill=nwell] (0, 0) rectangle (10, 10);
+        \filldraw[fill=pbase] (1, 1) rectangle ( 9,  9);
+        \filldraw[fill=nbase] (2, 2) rectangle ( 8,  8);
+	\node at (5,0.5) {NWELL};
+	\node at (5,1.5) {PBASE};
+	\node at (5,2.5) {NBASE};
+	% overlap
+        \draw[<->] (1, 2) -- ( 2,  2) node[near start, above] {2.2.8};
+        \draw[<->] (8, 8) -- ( 9,  8) node[near start, above] {2.2.8};
+        \draw[<->] (2, 8) -- ( 2,  9) node[near start, left] {2.2.8};
+        \draw[<->] (8, 1) -- ( 8,  2) node[near start, right] {2.2.8};
+	% width
+        \draw[<->] (2, 5) -- ( 8,  5) node[near start, above] {2.2.7};
+    \end{tikzpicture}
+\end{center}
+
+\begin{flushleft}
+    \begin{tabular}{c l c}
+        2.2.7  & Minimum Width of NBASE is & $ 10 \lambda $. \\
+        2.2.8  & Minimum Overlap of NBASE to PBASE is & $ 5 \lambda $. \\
+    \end{tabular}
+\end{flushleft}
+
+
 \subsection{ACTIVE Rules}\label{design_rules_active_rules}
 
 \begin{flushleft}
