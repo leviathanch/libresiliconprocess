@@ -238,13 +238,36 @@
 
 \subsection{ACTIVE Rules}\label{design_rules_active_rules}
 
+\begin{center}
+    \begin{tikzpicture}[scale=(.33)]
+        \filldraw[fill=pwell] (0, 0) rectangle (10, 10);
+        \filldraw[fill=nwell] (20, 0) rectangle (30, 10);
+
+        \filldraw[fill=gray] (2,2) rectangle (4,5);
+        \filldraw[fill=gray] (6,2) rectangle (8,8);
+        \filldraw[fill=gray] (22,2) rectangle (24,8);
+        \filldraw[fill=gray] (26,2) rectangle (28,5);
+
+        \node at(2,10.5) {PWELL};
+        \node at(22,10.5) {NWELL};
+        \node at(7,8.5) {ACTIVE};
+ 	\draw[<->] (0, 4) -- ( 2, 4) node[near start, below] {2.3.3};
+	\draw[<->] (4, 4) -- ( 6, 4) node[near start, below] {2.3.2};
+	\draw[<->] (8, 4) -- (10, 4) node[near start, below] {2.3.3};
+
+ 	\draw[<->] (2, 0) -- ( 2, 2) node[near start, below] {2.3.3};
+  	\draw[<->] (6, 0) -- ( 6, 2) node[near start, below] {2.3.3};
+	
+	\draw[<->] (22, 3) -- (24, 3) node[near start, below] {2.3.1};
+	\draw[<->] (27, 2) -- (27, 5) node[near start, below] {2.3.1};
+    \end{tikzpicture}
+\end{center}
+
 \begin{flushleft}
     \begin{tabular}{c l c}
-        2.3.1   & Minimum Width of ACTIVE is & $3 \lambda$. \\
+        2.3.1   & Minimum Width/Height of ACTIVE is & $3 \lambda$. \\
         2.3.2   & Minimum Spacing to ACTIVE is & $3 \lambda$. \\
-        2.3.3   & Minimum Source/Drain surround by PWELL/NWELL is & $6 \lambda$. \\
-        2.3.4   & Minimum Substrate/NWELL contact sourround by PWELL/NWELL is & $3 \lambda$. \\
-        2.3.5   & Minimum Spacing to ACTIVE of opposite type is & $4 \lambda$. \\
+        2.3.3   & Minimum ACTIVE surround by PWELL/NWELL/PBASE/NBASE is & $6 \lambda$. \\
     \end{tabular}
 \end{flushleft}
 
@@ -255,7 +278,7 @@
         \filldraw[fill=poly] (0, 0) rectangle ++(2, 12);
         \draw[<->] (0, 6) -- (2, 6) node[near start, above] {2.4.1};
         \draw[<->] (2, 4) -- (4, 4) node[near start, above] {2.4.3};
-        \filldraw[fill=nitride] (7, 0) rectangle ++(5, 12);
+        \filldraw[fill=gray] (7, 0) rectangle ++(5, 12);
         \draw[<->] (10, 5) -- (10, 7) node[near start, left] {2.4.2};
         \draw[<->] (9, 0) -- (9, 3) node[near start, left] {2.4.5};
         \filldraw[fill=poly] (4, 5) -- ++(10, 0) -- ++(0, -2) -- ++(-8, 0) -- ++(0, -3) -- ++(-2, 0) -- ++(0, 5);
@@ -278,17 +301,64 @@
     \end{tabular}
 \end{flushleft}
 
-\subsection{NPLUS/PPLUS Rules}\label{design_rules_plus_rules}
+\subsection{NPLUS/PPLUS (nimplant/pimplant) Rules}\label{design_rules_plus_rules}
+
+\begin{center}
+    \begin{tikzpicture}[scale=(.33)]
+        \filldraw[fill=pwell] (0, 0) rectangle (10, 10);
+        \filldraw[fill=nwell] (20, 0) rectangle (30, 10);
+
+        \filldraw[fill=gray, opacity=0.5] (2,2) rectangle (4,5);
+        \filldraw[fill=gray, opacity=0.5] (6,2) rectangle (8,8);
+        \filldraw[fill=gray, opacity=0.5] (22,2) rectangle (24,8);
+        \filldraw[fill=gray, opacity=0.5] (26,2) rectangle (28,5);
+        
+         \filldraw[fill=poly] (5,4) rectangle (11,6);
+         \filldraw[fill=poly] (19,4) rectangle (25,6);
+
+        \filldraw[fill=red, opacity=0.5] (1.75,1.75) rectangle (4.25,5.25);
+        \filldraw[fill=blue, opacity=0.5] (5.75,1.75) rectangle (8.25,8.25);
+        \filldraw[fill=red, opacity=0.5] (21.75,1.75) rectangle (24.25,8.25);
+        \filldraw[fill=blue, opacity=0.5] (25.75,1.75) rectangle (28.25,5.25);
+
+        \node at(2,10.5) {PWELL};
+        \node at(22,10.5) {NWELL};
+
+        \node at(7,8.75) {NPLUS};
+        \node at(23,8.75) {PPLUS};
+
+        \draw[<->] (4.25,2) -- (5.75,2) node[near start, below] {2.5.3};
+        \draw[<->] (8.25,2) -- (21.75,2) node[near start, above] {2.5.3};
+        \draw[<->] (8.25,6) -- (8.25,8.25) node[near start, right] {2.5.1}; 
+        \draw[<->] (24,2) -- (24.25,2) node[near start, below] {2.5.2};
+    \end{tikzpicture}
+\end{center}
 
 \begin{flushleft}
     \begin{tabular}{c l c}
         2.5.1   & Minimum Spacing to POLY is & $3 \lambda$. \\
         2.5.2   & Minimum Overlap to ACTIVE is & $2 \lambda$. \\
-        2.5.3   & Minimum Overlap to CONTACT is & $1 \lambda$. \\
+        2.5.3   & Minimum Spacing to NPLUS/PPLUS of opposite type is & $4 \lambda$. \\
     \end{tabular}
 \end{flushleft}
 
 \subsection{CONTACT Rules}\label{design_rules_contact_rules}
+
+\begin{center}
+    \begin{tikzpicture}[scale=(.33)]
+        \filldraw[fill=nwell] (0, 0) rectangle (10, 10);
+        \filldraw[fill=gray, opacity=0.5] (2,2) rectangle (4,5);
+        \filldraw[fill=gray, opacity=0.5] (6,2) rectangle (8,8);
+        \filldraw[fill=poly] (5,4) rectangle (11,6);
+        \filldraw[fill=blue, opacity=0.5] (1.75,1.75) rectangle (4.25,5.25);
+        \filldraw[fill=red, opacity=0.5] (5.75,1.75) rectangle (8.25,8.25);
+        \filldraw[fill=gray] (2.5, 3) rectangle ++(1, 1);
+        \filldraw[fill=gray] (6.5, 2.5) rectangle ++(1, 1);
+        \filldraw[fill=gray] (6.5, 6.5) rectangle ++(1, 1);
+        \filldraw[fill=gray] (9.5, 4.5) rectangle ++(1, 1);
+    \end{tikzpicture}
+\end{center}
+
 
 \begin{flushleft}
     \begin{tabular}{c l c}
