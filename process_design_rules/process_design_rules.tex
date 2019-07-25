@@ -275,18 +275,22 @@
 
 \begin{center}
     \begin{tikzpicture}[scale=(.4)]
-        \filldraw[fill=poly] (0, 0) rectangle ++(2, 12);
+        \filldraw[fill=nwell] (-1.5, -1.5) rectangle (15.5, 13.5);
+        \filldraw[fill=poly,opacity=0.5] (0, 0) rectangle ++(2, 12);
         \draw[<->] (0, 6) -- (2, 6) node[near start, above] {2.4.1};
         \draw[<->] (2, 4) -- (4, 4) node[near start, above] {2.4.3};
         \filldraw[fill=gray] (7, 0) rectangle ++(5, 12);
         \draw[<->] (10, 5) -- (10, 7) node[near start, left] {2.4.2};
-        \draw[<->] (9, 0) -- (9, 3) node[near start, left] {2.4.5};
-        \filldraw[fill=poly] (4, 5) -- ++(10, 0) -- ++(0, -2) -- ++(-8, 0) -- ++(0, -3) -- ++(-2, 0) -- ++(0, 5);
-        \filldraw[fill=poly] (4, 7) -- ++(0, 5) -- ++(2, 0) -- ++(0, -3) -- ++(8, 0) -- ++(0, -2) -- ++(-10, 0);
+        \draw[<->] (9, 0) -- (9, 3) node[near start, right] {2.4.5};
+        \filldraw[fill=poly,opacity=0.5] (4, 5) -- ++(10, 0) -- ++(0, -2) -- ++(-8, 0) -- ++(0, -3) -- ++(-2, 0) -- ++(0, 5);
+        \filldraw[fill=poly,opacity=0.5] (4, 7) -- ++(0, 5) -- ++(2, 0) -- ++(0, -3) -- ++(8, 0) -- ++(0, -2) -- ++(-10, 0);
         \draw[<->] (12, 8) -- (14, 8) node[near start, above] {2.4.4};
-        \draw[<->] (6, 10) -- (7, 10) node[near start, above] {2.4.6};
+        \draw[<->] (6, 12) -- (7, 12) node[near start, above] {2.4.6};
+        \draw[<->] (14, 7.0) -- (15.5, 7.0) node[near start, below] {2.4.7};
+        \draw[<->] (-1.5, 8.0) -- (0, 8.0) node[near start, above] {2.4.7};
 	\node at(1,12.5) {POLY};
-	\node at(9,12.5) {ACTIVE};
+	\node at(10,12.5) {ACTIVE};
+	\node at(0,-1) {WELL};
     \end{tikzpicture}
 \end{center}
 
@@ -298,15 +302,18 @@
         2.4.4   & Minimum Gate extension beyond ACTIVE is & $2 \lambda$. \\
         2.4.5   & Minimum ACTIVE extension beyond POLY is & $3 \lambda$. \\
         2.4.6   & Minimum Spacing of POLY to ACTIVE is & $1 \lambda$. \\
+        2.4.7   & Minimum POLY surround by PWELL/NWELL/PBASE/NBASE is & $1 \lambda$. \\
     \end{tabular}
 \end{flushleft}
+
+\newpage
 
 \subsection{NPLUS/PPLUS (nimplant/pimplant) Rules}\label{design_rules_plus_rules}
 
 \begin{center}
-    \begin{tikzpicture}[scale=(.33)]
-        \filldraw[fill=pwell] (0, 0) rectangle (10, 10);
-        \filldraw[fill=nwell] (20, 0) rectangle (30, 10);
+    \begin{tikzpicture}[scale=(.5)]
+        \filldraw[fill=pwell] (0, 0) rectangle (12, 10);
+        \filldraw[fill=nwell] (18, 0) rectangle (30, 10);
 
         \filldraw[fill=gray, opacity=0.5] (2,2) rectangle (4,5);
         \filldraw[fill=gray, opacity=0.5] (6,2) rectangle (8,8);
@@ -322,7 +329,7 @@
         \filldraw[fill=blue, opacity=0.5] (25.75,1.75) rectangle (28.25,5.25);
 
         \node at(2,10.5) {PWELL};
-        \node at(22,10.5) {NWELL};
+        \node at(20,10.5) {NWELL};
 
         \node at(7,8.75) {NPLUS};
         \node at(23,8.75) {PPLUS};
@@ -345,8 +352,8 @@
 \subsection{CONTACT Rules}\label{design_rules_contact_rules}
 
 \begin{center}
-    \begin{tikzpicture}[scale=(.33)]
-        \filldraw[fill=nwell] (0, 0) rectangle (10, 10);
+    \begin{tikzpicture}[scale=(.6)]
+        \filldraw[fill=nwell] (0, 0) rectangle (12, 10);
         \filldraw[fill=gray, opacity=0.5] (2,2) rectangle (4,5);
         \filldraw[fill=gray, opacity=0.5] (6,2) rectangle (8,8);
         \filldraw[fill=poly] (5,4) rectangle (11,6);
@@ -356,9 +363,27 @@
         \filldraw[fill=gray] (6.5, 2.5) rectangle ++(1, 1);
         \filldraw[fill=gray] (6.5, 6.5) rectangle ++(1, 1);
         \filldraw[fill=gray] (9.5, 4.5) rectangle ++(1, 1);
+
+        \filldraw[fill=poly, opacity=0.5] (14,2) rectangle (16,6);
+        \filldraw[fill=gray] (14.5, 4.5) rectangle ++(1, 1);
+        
+        \draw[<->] (2,4) -- (2.5,4) node[near start, above] {2.6.2};
+        
+        \draw[<->] (2.5,3) -- (3.5,3) node[near start, below] {2.6.1};
+        \draw[<->] (3.5,3) -- (3.5,4) node[near start, right] {2.6.1};
+        
+         \draw[<->] (3.5,3.5) -- (6.5,3.5) node[near end, below] {2.6.3};
+         \draw[<->] (6.5,3.5) -- (6.5,6.5) node[near end, left] {2.6.3};
+         
+         \draw[<->] (7.5,6.0) -- (7.5,6.5) node[near end, right] {2.6.4};
+
+          \draw (7.5,1) -- (7.5,2.5);
+          \draw (9.5,1) -- (9.5,4.5);
+          \draw[<->] (7.5,1) --  (9.5,1) node[near end, below] {2.6.6};
+
+          \draw[<->] (10.5, 4.5) -- (14.5, 4.5) node[near end, below] {2.6.5};
     \end{tikzpicture}
 \end{center}
-
 
 \begin{flushleft}
     \begin{tabular}{c l c}
@@ -375,15 +400,17 @@
 
 \begin{center}
     \begin{tikzpicture}[scale=(.33)]
-        \filldraw[fill=metal1] (0, 0) rectangle ++(4, 10) node[near end] {METAL1};
+        \filldraw[fill=metal1] (0, 0) rectangle ++(4, 10);
         \draw[<->] (0, 1) -- (4, 1) node[near start, above] {2.7.1};
         \draw[<->] (4, 5) -- (8, 5) node[near start, above] {2.7.2};
-        \filldraw[fill=metal1] (8, 0) rectangle ++(4, 10) node[near end] {METAL1};
+        \filldraw[fill=metal1] (8, 0) rectangle ++(4, 10);
         \filldraw[fill=titanium] (9, 1) rectangle ++(2, 2); % !! color code
         \draw[<->] (8, 2) -- (9, 2) node[near start, above] {2.7.3};
         \draw[<->] (12, 5) -- (18, 5) node[near start, above] {2.7.4};
-        \filldraw[fill=metal1] (18, 0) rectangle ++(20, 10) node[near end] {(Big-)METAL1};
+        \filldraw[fill=metal1] (18, 0) rectangle ++(20, 10);
         \draw[<->] (18, 1) -- (38, 1) node[near start, above] {$ \geq 10 \mu m$};
+        \node at (2.0,11) {METAL1};
+        \node at (21.5,11) {(Big-)METAL1};
     \end{tikzpicture}
 \end{center}
 
