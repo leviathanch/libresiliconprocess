@@ -25,15 +25,35 @@ The STI area will be everywhere, where no well areas are.
 
 We use a dry etching method for cutting into the silicon substrate and making the active area become islands with trenches in between.
 
-After that we fill the trenches with LTO or PSG and polish the wafer until the LTO/PSG surface and the silicon island surface are sufficiently on the same level.
+After that we fill the trenches with LTO and polish the wafer until the LTO surface and the silicon island surface are sufficiently on the same level.
 
 Our minimum width and height as well as the space between the active areas comes from the line space constrain of the silicon etcher and of course the optical limitations of the stepper which are as well 0.5\um.
 
 \newpage
 
+\subsection{CMP end stop}\label{sti_end_stop}
+
+In order to prevent irreversible damage to the crystal lattice of the active area, we need to provide a CMP end stop on top of those areas.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.end_stop.a.tex}
+	\end{tikzpicture}
+	\drawStepArrow{}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.end_stop.b.tex}
+	\end{tikzpicture}
+	\caption{End stop}
+\end{figure}
+
+The wafer is cleaned by being put into sulfuric acid at 120\degreesC and afterwards HF dipped in order to remove the native oxide.
+After that a more uniform and very thin film of thermal oxide is being grown, the thickness can be around 10nm, this can be achieved by putting the wafer into a furnace at 1000\degreesC for 15 minutes in an $O_2$ environment (dry oxidation).
+On top of this pad oxide, a layer of around 100nm of nitride is being deposited, using chemical vapor deposition.
+
 \subsection{Silicon etching}\label{sti_trench_etch}
 
-The trench depth has to be at least 4.5 microns deep, in order to compensate for sacrificial silicon polishing during the later CMP steps.
+The trench depth has to be at least 3.5 microns and less than 4 microns deep, in order to have a sufficiently good isolation for preventing latchup effects and at the same time still good enough ESD diode behaviour.
 
 \begin{figure}[H]
 	\centering
@@ -47,29 +67,88 @@ The trench depth has to be at least 4.5 microns deep, in order to compensate for
 	\caption{Trench etching}
 \end{figure}
 
-Typically it's a good approach to set the parameters of the DRIE recipe to an amount of cycles which will result in a depth of roughly 5 microns.
+After patterning the STI layout the resist is being hard baked and the nitride+pad oxide is being etched, using plasma etching for nitride+oxide.
 
-\subsection{LTO/PSG+CMP}
+After etching the nitride and oxide we use a DRIE etcher and set the number of cycles in a way that it results in around 3.5 microns trench depth.
 
-Now we trenches need to be filled up with LTO/PSG and planarized until we meet a sufficiently low height differential between the oxide surface and the silicon surface.
+Adding to the over etch from the previous etch step, this will result in a depth a little bit deeper than 3.5 microns.
+
+\newpage
+
+\subsection{Liner oxide}\label{sti_liner_oxide}
+
+In order to improve the interface properties of the LTO deposited in \autoref{sti_lto_deposition} to the side walls of the silicon islands a thin layer of thermal oxide is being grown after DRIE etching.
 
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/sti.resist_removal.b.tex}
+		\input{tikz_process_steps/sti.liner_oxide.a.tex}
 	\end{tikzpicture}
 	\drawStepArrow{}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.liner_oxide.b.tex}
+	\end{tikzpicture}
+	\caption{Liner oxide}
+\end{figure}
+
+The interface oxide, as the pad oxide, only has to be a few nanometers in thickness, this can be achieved by putting the wafer again into a furnace at 1000\degreesC for 15 minutes in an $O_2$ environment (dry oxidation).
+
+\subsection{LTO deposition}\label{sti_lto_deposition}
+
+Now we fill up the trenches we've etched before with LTO for further planarization in \autoref{sti_cmp_step}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.lto.a.tex}
+	\end{tikzpicture}
+	\drawStepArrow{CVD}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/sti.lto.b.tex}
+	\end{tikzpicture}
+	\caption{Oxide deposition}
+\end{figure}
+
+The easiest method is to put the wafer into a CVD furnace in order to deposit around 3.5 microns of LTO.
+
+Better uniformity of the LTO film can be achieved by getting the boat out after every deposited micron, rotating it 90 degrees and putting it back in for another deposition round.
+
+Also remember to measure the thickness of the deposited LTO under a spectroscope, in order to calculate the approximate CMP time!
+
+\newpage
+
+\subsection{CMP step}\label{sti_cmp_step}
+
+Now the LTO needs to be planarized until a sufficiently low height differential between the oxide surface and the silicon surface is being met.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.cmp.a.tex}
+	\end{tikzpicture}
+	\drawStepArrow{CMP}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.cmp.b.tex}
+	\end{tikzpicture}
+	\drawStepArrow{Nitride strip}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/sti.cmp.c.tex}
 	\end{tikzpicture}
 	\caption{After CMP}
 \end{figure}
 
-This process loop until a height differential below 200nm is being reached turned out to be a good approach. We start counting LTO+CMP steps at 1:
-\begin{itemize}
-\item Deposit $\frac{5\mu}{2^{step-1}}$ LTO/PSG
-\item CMP around $\frac{5\mu}{2^{step-1}}$ LTO/PSG
-\item Clean in hot ammonia
-\item Put into DI:HF (50:1) for one or two minutes, until silicon surface on the islands is free of LTO/PSG 
-\item Repeat until height differential lower than 200nm
-\end{itemize}
+A CMP is performed, based on a rough time calculation, based on the thickness measurement from \autoref{sti_lto_deposition}, until a height differential below 200nm is being reached.
+
+If available the slurry "SRS-985" should be used because it can significantly increase the yield by reducing the dishing as a study has found\footnote{\url{https://download.libresilicon.com/papers/10.1.1.567.8814.pdf}}.
+
+After the planarization the wafer needs to be cleaned in hot ammonia and with RCA solution and wafers should kept wet in DI water after CMPing and should not dry out before being cleaned, because this would make particles
+get stuck in the oxide permanently and will destroy the sample.
+
+After cleaning the LTO has to be annealed in order to increase the etching time when removing the pad oxide: The sample is being put into a furnace for 30 minutes at 850\degreesC in an inert atmosphere ($N_2$/$Ar$).
+
+After the annealing the nitride is first stripped in a suitable nitride etchant like Phosphoric acid or the like.
+
+After that the pad oxide beneath is being removed by being put into BOE for a few minutes until the pad oxide has been removed.
+
+In this process, the sharp corners of the craters in the oxide, where the nitride used to be will also be smothened out, which is a nice side effect.
+

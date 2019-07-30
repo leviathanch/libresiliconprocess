@@ -1,8 +1,26 @@
-\fill[resist] ( 1.25,\STIIslandSurface+1.0) rectangle ( 8.25,\STIIslandSurface+3.0);
-\fill[resist] ( 9.75,\STIIslandSurface+1.0) rectangle (16.75,\STIIslandSurface+3.0);
-\fill[resist] (18.25,\STIIslandSurface+1.0) rectangle (25.25,\STIIslandSurface+3.0);
-\fill[resist] (26.75,\STIIslandSurface+1.0) rectangle (33.75,\STIIslandSurface+3.0);
-\fill[resist] (35.25,\STIIslandSurface+1.0) rectangle (42.25,\STIIslandSurface+3.0);
+% substrate
+\fill[isolationoxide] (0,0) rectangle (55,\STIIslandSurface);
+
+\newcommand{\leftslope}[1]{
+\filldraw[line width=0, isolationoxide] (#1-1.0,\STIIslandSurface) -- (#1,\STIIslandSurface) -- (#1,\STIIslandSurface+1.0);
+}
+\newcommand{\rightslope}[1]{
+\filldraw[line width=0, isolationoxide] (#1,\STIIslandSurface) -- (#1+1.0,\STIIslandSurface) -- (#1,\STIIslandSurface+1.0);
+}
+
+\leftslope{1.25}
+\leftslope{9.75}
+\leftslope{18.25}
+\leftslope{26.75}
+\leftslope{35.25}
+
+\rightslope{8.25}
+\rightslope{16.75}
+\rightslope{25.25}
+\rightslope{33.75}
+\rightslope{42.25}
+
+\input{tikz_process_steps/sti.liner_oxide.a.tex}
 
 \fill[isolationoxide] ( 1.25,\STIIslandSurface)      rectangle ( 8.25,\STIIslandSurface+0.25);
 \fill[nitride]        ( 1.25,\STIIslandSurface+0.25) rectangle ( 8.25,\STIIslandSurface+1.0);
@@ -19,13 +37,4 @@
 \fill[isolationoxide] (35.25,\STIIslandSurface)      rectangle (42.25,\STIIslandSurface+0.25);
 \fill[nitride]        (35.25,\STIIslandSurface+0.25) rectangle (42.25,\STIIslandSurface+1.0);
 
-% substrate
-\fill[substrate] (0,0) rectangle (55,\trenchBottom);
-\node at (2,0.5) {Silicon substrate};
 
-% normal wells
-\fill[substrate] (1.25,\trenchBottom) rectangle (8.25,\STIIslandSurface);
-\fill[substrate] (9.75,\trenchBottom) rectangle (16.75,\STIIslandSurface);
-\fill[substrate] (18.25,\trenchBottom) rectangle (25.25,\STIIslandSurface);
-\fill[substrate] (26.75,\trenchBottom) rectangle (33.75,\STIIslandSurface);
-\fill[substrate] (35.25,\trenchBottom) rectangle (42.25,\STIIslandSurface);
