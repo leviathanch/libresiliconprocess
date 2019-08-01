@@ -3,7 +3,7 @@ import sys
 import yaml
 
 class auto_generator:
-	table_height=10
+	table_height=14
 
 	def getStepEquipment(self,step):
 		try:
@@ -145,12 +145,33 @@ class auto_generator:
 
 		for substep in step_substeps:
 			for step in self.extractSubSteps(substep):
+				try:
+					pre_substep=step['pre']
+				except:
+					pre_substep=False
+
+				try:
+					post_substep=step['post']
+				except:
+					post_substep=False
+
 				eqcode = self.getStepEquipment(step)
-				for stp in self.getRequiredPreSteps(eqcode):
-					ret.append(stp)
+
+				if pre_substep == False:
+					for stp in self.getRequiredPreSteps(eqcode):
+						ret.append(stp)
+				else:
+					for stp in self.extractSubSteps(pre_substep):
+						ret.append(stp)
+
 				ret.append(step)
-				for stp in self.getRequiredPostSteps(eqcode):
-					ret.append(stp)
+
+				if post_substep == False:
+					for stp in self.getRequiredPostSteps(eqcode):
+						ret.append(stp)
+				else:
+					for stp in self.extractSubSteps(post_substep):
+						ret.append(stp)
 
 		return ret
 

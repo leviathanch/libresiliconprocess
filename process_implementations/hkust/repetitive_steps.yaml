@@ -30,7 +30,7 @@ normal_exposure: [
         {
                 equipment: PHT-T2,
                 process: "Develop, Hard bake",
-                requirement: "FHD-5, 1min; hard bake: 120\\degreesC, 1min",
+                requirement: "FHD-5, 1min; hard bake: 120\\degreesC, 30 min",
         },
 ]
 

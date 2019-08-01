@@ -18,34 +18,29 @@
         cross_tikz: tikz_process_steps/sti.a.tex,
         mask: sti,
         steps: [
-                clean_B,
+                {
+                        equipment: DIF-D1,
+                        process: "Pad oxide growth",
+                        requirement: "10nm, 15 minutes @ 1000\\degreesC in dry environment",
+                        pre: initial_clean_A
+                },
+                {
+                        equipment: CVD-B2,
+                        process: "CMP end stop deposition, Silicon nitride",
+                        requirement: "100nm",
+                },
                 normal_exposure,
                 {
+                        equipment: DRY-RIE-2,
+                        process: "CHF3 etch",
+                        requirement: "4 minutes",
+                },
+                {
                         equipment: DRY-Si-1,
-                        process: "Etching the trenches",
-                        requirement: "Thin line recipe, 1\\um : 7 cycles -> 35 cycles",
+                        process: "SMALL001",
+                        requirement: "2\\um  -> 14 cycles",
                 },
                 asher_resist_strip,
-                {
-                        equipment: CVD-B3,
-                        process: "Oxide deposition",
-                        requirement: "4\\um LTO",
-                },
-                {
-                        equipment: CMP-1,
-                        process: "Planarize oxide down to silicon",
-                        requirement: "Use oxide planarization slurry, 15 minutes",
-                },
-                {
-                        equipment: WET-G1,
-                        process: "Ammonium cleaning",
-                        requirement: "70\\degreesC, 10mins",
-                },
-                {
-                        equipment: WET-C3,
-                        process: "HF dip",
-                        requirement: "1 minute",
-                },
                 {
                         equipment: CVD-B3,
                         process: "Oxide deposition",
@@ -53,13 +48,32 @@
                 },
                 {
                         equipment: CMP-1,
-                        process: "Planarize oxide down to silicon",
-                        requirement: "Use oxide planarization slurry, 10 minutes",
+                        process: "Planarize oxide",
+                        requirement: "10 minutes",
                 },
                 {
                         equipment: WET-G1,
                         process: "Ammonium cleaning",
                         requirement: "70\\degreesC, 10mins",
+                },
+                {
+                        equipment: WET-C1,
+                        process: "Nitride strip",
+                        requirement: "Remove CMP endstop",
+                },
+                {
+                        equipment: DIF-A1,
+                        process: "Densify LTO",
+                        requirement: "30 minutes @ 850\\degreesC in inert atmosphere",
+                },
+                {
+                        equipment: WET-A2,
+                        process: "Pad oxide removal/smoothening",
+                        requirement: "3 minutes",
+                },
+                {
+                        equipment: SRD-A,
+                        process: "Dry the wafer automatically",
                 },
         ],
 }
@@ -314,14 +328,29 @@
         steps: [
                 {
                         equipment: CVD-F4,
+                        process: "Pad oxide deposition",
+                        requirement: "100nm",
+                },
+                {
+                        equipment: CVD-P1,
+                        process: "CMP end stop deposition, Silicon nitride",
+                        requirement: "100nm",
+                },
+                {
+                        equipment: CVD-F4,
                         process: "Oxide deposition",
-                        requirement: "150 nm",
+                        requirement: "1\\um",
+                },
+                {
+                        equipment: CMP-4,
+                        process: "Planarize oxide",
+                        requirement: "1 minute",
                 },
                 normal_exposure,
                 {
                         equipment: DRY-RIE-2,
-                        process: "150nm LTO etch",
-                        requirement: "3 minutes",
+                        process: "CHF3 etch",
+                        requirement: "180 seconds",
                 },
                 {
                         equipment: WET-Y1,
@@ -360,14 +389,29 @@
         steps: [
                 {
                         equipment: CVD-F4,
+                        process: "Pad oxide deposition",
+                        requirement: "100nm",
+                },
+                {
+                        equipment: CVD-P1,
+                        process: "CMP end stop deposition, Silicon nitride",
+                        requirement: "100nm",
+                },
+                {
+                        equipment: CVD-F4,
                         process: "Oxide deposition",
-                        requirement: "150 nm",
+                        requirement: "1\\um",
+                },
+                {
+                        equipment: CMP-4,
+                        process: "Planarize oxide",
+                        requirement: "1 minute",
                 },
                 normal_exposure,
                 {
                         equipment: DRY-RIE-2,
-                        process: "150nm LTO etch",
-                        requirement: "3 minutes",
+                        process: "CHF3 etch",
+                        requirement: "180 seconds",
                 },
                 {
                         equipment: WET-Y1,
@@ -406,14 +450,29 @@
         steps: [
                 {
                         equipment: CVD-F4,
+                        process: "Pad oxide deposition",
+                        requirement: "100nm",
+                },
+                {
+                        equipment: CVD-P1,
+                        process: "CMP end stop deposition, Silicon nitride",
+                        requirement: "100nm",
+                },
+                {
+                        equipment: CVD-F4,
                         process: "Oxide deposition",
-                        requirement: "150nm",
+                        requirement: "1\\um",
+                },
+                {
+                        equipment: CMP-4,
+                        process: "Planarize oxide",
+                        requirement: "1 minute",
                 },
                 normal_exposure,
                 {
                         equipment: DRY-RIE-2,
-                        process: "150nm LTO etch",
-                        requirement: "3 minutes",
+                        process: "CHF3 etch",
+                        requirement: "180 seconds",
                 },
                 {
                         equipment: WET-Y1,
@@ -452,14 +511,29 @@
         steps: [
                 {
                         equipment: CVD-F4,
+                        process: "Pad oxide deposition",
+                        requirement: "100nm",
+                },
+                {
+                        equipment: CVD-P1,
+                        process: "CMP end stop deposition, Silicon nitride",
+                        requirement: "100nm",
+                },
+                {
+                        equipment: CVD-F4,
                         process: "Oxide deposition",
-                        requirement: "150nm",
+                        requirement: "1\\um",
+                },
+                {
+                        equipment: CMP-4,
+                        process: "Planarize oxide",
+                        requirement: "1 minute",
                 },
                 normal_exposure,
                 {
                         equipment: DRY-RIE-2,
-                        process: "150nm LTO etch",
-                        requirement: "3 minutes",
+                        process: "CHF3 etch",
+                        requirement: "180 seconds",
                 },
                 {
                         equipment: WET-Y1,

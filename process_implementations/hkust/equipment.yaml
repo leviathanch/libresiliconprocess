@@ -31,6 +31,11 @@ SRD-B: {
 }
 
 # Wet station C 
+WET-C1: {
+        location: P2-01000,
+        equipment: "C1:Nitride Strip",
+        level: clean,
+}
 WET-C3: {
         location: P2-01000,
         equipment: "C3:BOE",
