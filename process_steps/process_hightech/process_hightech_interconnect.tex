@@ -4,7 +4,7 @@ Now that we've built all the devices, we've got to put wires on them in order to
 
 \begin{figure}[H]
 	\centering
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossAndTopSectionBig, every node/.style={transform shape}]
 		\input{tikz_process_steps/glass.a.tex}
 	\end{tikzpicture}
 	\caption{Interconnect geometry target}
@@ -13,7 +13,10 @@ Now that we've built all the devices, we've got to put wires on them in order to
 
 From here on it's basically just always the same game:
 \begin{enumerate}
-	\item Deposit roughly 150nm LTO/PSG
+	\item Deposit roughly 100nm LTO
+	\item Deposit 100nm nitride for CMP end stop
+	\item Deposit roughly 1\um LTO
+	\item CMP away 600nm oxide (regulated by CMP end stop)
 	\item Etch vias
 	\item Sputter metal
 	\item Etch wires
@@ -26,7 +29,7 @@ We have the holes where we sputter the metal into.
 All the oxide holes which are \autoref{chapter_contact}, \autoref{chapter_via1}, \autoref{chapter_via2} and \autoref{chapter_glass}, are basically the same,
 except that the glass layer is the top oxide opening and doesn't get any more metal sputtered on it.
 
-We deposit 150nm LTO/PSG and etch holes into it, in order to contact through to the lower layer.
+We deposit 150nm LTO and etch holes into it, in order to contact through to the lower layer.
 
 For the first metal layer (\autoref{chapter_metal1}), the etch stop is silicide and we have to sputter Nickel, as a diffusion barrier, before we sputter any Aluminum,
 because the $Ti Si_2$ would react with the Aluminum to an high resistivity material.

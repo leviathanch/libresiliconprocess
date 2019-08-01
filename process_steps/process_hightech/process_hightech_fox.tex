@@ -19,8 +19,6 @@ Only within the active areas we want to allow the poly layer to touch down close
 
 The mask is called "fox" on the mask set.
 
-LTO is used here, but can also be replaced by PSG if LTO deposition isn't available for higher thicknesses.
-
 The LTO thickness has been chosen to be 200nm which is thin enough for the polysilicon gates to overcome the height difference without damage and still being enough for eliminating parasitic effects.
 
 \newpage
@@ -34,16 +32,16 @@ Now we need to deposit the silicon dioxide which will provide a spacer between t
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/fox.oxide_growth.a.tex}
 	\end{tikzpicture}
-	\drawStepArrow{}
+	\drawStepArrow{CVD}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/fox.oxide_growth.b.tex}
 	\end{tikzpicture}
-	\caption{LTO/PSG deposition}
+	\caption{LTO deposition}
 \end{figure}
 
-We deposit a roughly 200nm thick layer of LTO/PSG by putting the wafer into the LPCVD furnace.
+We deposit a roughly 200nm thick layer of LTO by putting the wafer into the LPCVD furnace.
 
-\subsection{Etching}\label{fox_etch}
+\subsection{FOX opening formation}\label{fox_etch}
 
 We open the access to the silicon inside of the active areas in order to touch down with the polysilicon further on.
 
@@ -52,11 +50,16 @@ We open the access to the silicon inside of the active areas in order to touch d
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/fox.etching.a.tex}
 	\end{tikzpicture}
-	\drawStepArrow{}
+	\drawStepArrow{Dry etch}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/fox.etching.b.tex}
 	\end{tikzpicture}
-	\caption{LTO/PSG etching}
+	\caption{LTO etching}
 \end{figure}
 
 The etching time variates from machine to machine and recipe to recipe. Do the math.
+
+After having etched through the LTO we have to make sure that the etching time goes up compared to the undensified LTO+nitride,
+which will be etched in \autoref{sonos_chapter}.
+For this reason, we put the wafer into the furnace and anneal the LTO for 30 minutes at 850\degreesC in inert atomsphere ($N_2$/$Ar$).
+
