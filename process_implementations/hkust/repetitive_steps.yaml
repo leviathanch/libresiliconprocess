@@ -2,7 +2,7 @@ implant_exposure: [
         {
                 equipment: PHT-T1,
                 process: "HMDS, PR coating, soft bake",
-                requirement: "FH 6400L: 3krpm ( $\\approx$1.5\\um ), soft bake: 110\\degreesC 1min",
+                requirement: "FH 6400L: 3krpm ( $\\approx$1.5\\um ), soft bake: 110\\degreesC 1 minute",
         },
         {
                 equipment: PHT-S1,
@@ -12,7 +12,7 @@ implant_exposure: [
         {
                 equipment: PHT-T2,
                 process: "Develop, Hard bake",
-                requirement: "FHD-5, 1min; hard bake: 120\\degreesC, 30min",
+                requirement: "FHD-5, 1min; hard bake: 120\\degreesC, 30 minutes",
         },
 ]
 
@@ -20,7 +20,7 @@ normal_exposure: [
         {
                 equipment: PHT-T1,
                 process: "HMDS, PR coating, soft bake",
-                requirement: "HPR 504: 3krpm ( $\\approx$1.5\\um ), soft bake: 110\\degreesC 1min",
+                requirement: "HPR 504: 3krpm ( $\\approx$1.5\\um ), soft bake: 110\\degreesC 1 minute",
         },
         {
                 equipment: PHT-S1,
@@ -30,7 +30,7 @@ normal_exposure: [
         {
                 equipment: PHT-T2,
                 process: "Develop, Hard bake",
-                requirement: "FHD-5, 1min; hard bake: 120\\degreesC, 30 min",
+                requirement: "FHD-5, 1min; hard bake: 120\\degreesC, 30 minutes",
         },
 ]
 
@@ -40,12 +40,12 @@ initial_clean_A: [
         {
                 equipment: WET-A3,
                 process: "Initial Cleaning",
-                requirement: "H2SO4+H2O2, 10mins @ 120\\degreesC",
+                requirement: "H2SO4+H2O2, 10 minutes @ 120\\degreesC",
         },
         {
                 equipment: WET-A2,
                 process: "HF dip",
-                requirement: "1 min",
+                requirement: "1 minute",
         },
         {
                 equipment: SRD-A,

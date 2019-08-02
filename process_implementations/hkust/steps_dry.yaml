@@ -48,13 +48,13 @@
                 },
                 {
                         equipment: CMP-1,
-                        process: "Planarize oxide",
-                        requirement: "10 minutes",
+                        process: "Semi-Sperse 25-E",
+                        requirement: "10 minutes, PT rpm: 40, chuck rpm: 25, back pressure: 2 psi",
                 },
                 {
                         equipment: WET-G1,
                         process: "Ammonium cleaning",
-                        requirement: "70\\degreesC, 10mins",
+                        requirement: "70\\degreesC, 10 minutes",
                 },
                 {
                         equipment: WET-C1,
@@ -243,7 +243,7 @@
                 {
                         equipment: WET-E4,
                         process: "Sulfuric resist strip",
-                        requirement: "H2SO4+H2O2, 120\\degreesC, 10mins",
+                        requirement: "H2SO4+H2O2, 120\\degreesC, 10 minutes",
                 },
         ],
 }
@@ -302,7 +302,7 @@
                 {
                         equipment: WET-E4,
                         process: "Sulfuric resist strip",
-                        requirement: "H2SO4+H2O2, 120\\degreesC, 10mins",
+                        requirement: "H2SO4+H2O2, 120\\degreesC, 10 minutes",
                 },
                 {
                         equipment: SPT-NSC3000,
@@ -350,12 +350,12 @@
                 {
                         equipment: DRY-RIE-2,
                         process: "CHF3 etch",
-                        requirement: "180 seconds",
+                        requirement: "360 seconds",
                 },
                 {
                         equipment: WET-Y1,
                         process: "Resist strip",
-                        requirement: "10mins",
+                        requirement: "10 minutes",
                 },
         ],
 }
@@ -372,13 +372,13 @@
                 normal_exposure,
                 {
                         equipment: DRY-Metal-1,
-                        process: "Wire formation",
-                        requirement: "200 nm",
+                        process: "Ni-682",
+                        requirement: "3 minutes",
                 },
                 {
                         equipment: WET-Y1,
                         process: "Resist strip",
-                        requirement: "10mins",
+                        requirement: "10 minutes",
                 },
         ],
 }
@@ -411,12 +411,12 @@
                 {
                         equipment: DRY-RIE-2,
                         process: "CHF3 etch",
-                        requirement: "180 seconds",
+                        requirement: "360 seconds",
                 },
                 {
                         equipment: WET-Y1,
                         process: "Resist strip",
-                        requirement: "10mins",
+                        requirement: "10 minutes",
                 },
         ],
 }
@@ -433,13 +433,13 @@
                 normal_exposure,
                 {
                         equipment: DRY-Metal-1,
-                        process: "Wire formation",
-                        requirement: "150 nm",
+                        process: "Ni-682",
+                        requirement: "2 minutes",
                 },
                 {
                         equipment: WET-Y1,
                         process: "Resist strip",
-                        requirement: "10mins",
+                        requirement: "10 minutes",
                 },
         ],
 }
@@ -472,12 +472,12 @@
                 {
                         equipment: DRY-RIE-2,
                         process: "CHF3 etch",
-                        requirement: "180 seconds",
+                        requirement: "360 seconds",
                 },
                 {
                         equipment: WET-Y1,
                         process: "Resist strip",
-                        requirement: "10mins",
+                        requirement: "10 minutes",
                 },
         ],
 }
@@ -494,13 +494,13 @@
                 normal_exposure,
                 {
                         equipment: DRY-Metal-1,
-                        process: "Wire formation",
-                        requirement: "150 nm",
+                        process: "Ni-682",
+                        requirement: "2 minutes",
                 },
                 {
                         equipment: WET-Y1,
                         process: "Resist strip",
-                        requirement: "10mins",
+                        requirement: "10 minutes",
                 },
         ],
 }
@@ -533,12 +533,12 @@
                 {
                         equipment: DRY-RIE-2,
                         process: "CHF3 etch",
-                        requirement: "180 seconds",
+                        requirement: "360 seconds",
                 },
                 {
                         equipment: WET-Y1,
                         process: "Resist strip",
-                        requirement: "10mins",
+                        requirement: "10 minutes",
                 },
         ],
 }
