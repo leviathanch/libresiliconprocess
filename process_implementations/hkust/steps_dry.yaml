@@ -380,13 +380,6 @@
                         process: "Resist strip",
                         requirement: "10 minutes",
                 },
-        ],
-}
-- {
-        name: Via 1,
-        cross_tikz: tikz_process_steps/via1.a.tex,
-        mask: via1,
-        steps: [
                 {
                         equipment: CVD-F4,
                         process: "Pad oxide deposition",
@@ -397,6 +390,13 @@
                         process: "CMP end stop deposition, Silicon nitride",
                         requirement: "100nm",
                 },
+        ],
+}
+- {
+        name: Via 1,
+        cross_tikz: tikz_process_steps/via1.a.tex,
+        mask: via1,
+        steps: [
                 {
                         equipment: CVD-F4,
                         process: "Oxide deposition",
@@ -441,13 +441,6 @@
                         process: "Resist strip",
                         requirement: "10 minutes",
                 },
-        ],
-}
-- {
-        name: Via 2,
-        cross_tikz: tikz_process_steps/via2.a.tex,
-        mask: via2,
-        steps: [
                 {
                         equipment: CVD-F4,
                         process: "Pad oxide deposition",
@@ -458,6 +451,13 @@
                         process: "CMP end stop deposition, Silicon nitride",
                         requirement: "100nm",
                 },
+        ],
+}
+- {
+        name: Via 2,
+        cross_tikz: tikz_process_steps/via2.a.tex,
+        mask: via2,
+        steps: [
                 {
                         equipment: CVD-F4,
                         process: "Oxide deposition",
@@ -502,13 +502,6 @@
                         process: "Resist strip",
                         requirement: "10 minutes",
                 },
-        ],
-}
-- {
-        name: Glass,
-        cross_tikz: tikz_process_steps/glass.a.tex,
-        mask: glass,
-        steps: [
                 {
                         equipment: CVD-F4,
                         process: "Pad oxide deposition",
@@ -519,6 +512,13 @@
                         process: "CMP end stop deposition, Silicon nitride",
                         requirement: "100nm",
                 },
+        ],
+}
+- {
+        name: Glass,
+        cross_tikz: tikz_process_steps/glass.a.tex,
+        mask: glass,
+        steps: [
                 {
                         equipment: CVD-F4,
                         process: "Oxide deposition",
