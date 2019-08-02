@@ -147,40 +147,40 @@
 \fill[#1] (53.00-#4, #2) rectangle (53.50+#4, #3);
 }
 
-\newcommand{\paintscaledmetal}[2]{
+\newcommand{\paintscaledmetal}[3]{
 %pfet
-\fill[#1] ( 0.00,  \LowerMetal+#2) rectangle (2.40, \UpperMetal);
-\fill[#1] ( 2.80,  \LowerMetal+#2) rectangle (4.30, \UpperMetal);
-\fill[#1] ( 4.70,  \LowerMetal+#2) rectangle (6.30, \UpperMetal);
-\fill[#1] ( 6.70,  \LowerMetal+#2) rectangle (8.40, \UpperMetal);
+\fill[#1] ( 0.50-#3,  \LowerMetal+#2) rectangle (2.40+#3, \UpperMetal+#3);
+\fill[#1] ( 2.80-#3,  \LowerMetal+#2) rectangle (4.30+#3, \UpperMetal+#3);
+\fill[#1] ( 4.70-#3,  \LowerMetal+#2) rectangle (6.30+#3, \UpperMetal+#3);
+\fill[#1] ( 6.70-#3,  \LowerMetal+#2) rectangle (8.40+#3, \UpperMetal+#3);
 %nfet
-\fill[#1] ( 9.60, \LowerMetal+#2) rectangle (11.30, \UpperMetal);
-\fill[#1] (11.70, \LowerMetal+#2) rectangle (13.30, \UpperMetal);
-\fill[#1] (13.80, \LowerMetal+#2) rectangle (15.20, \UpperMetal);
-\fill[#1] (15.40, \LowerMetal+#2) rectangle (17.00, \UpperMetal);
+\fill[#1] ( 9.60-#3, \LowerMetal+#2) rectangle (11.30+#3, \UpperMetal+#3);
+\fill[#1] (11.70-#3, \LowerMetal+#2) rectangle (13.30+#3, \UpperMetal+#3);
+\fill[#1] (13.80-#3, \LowerMetal+#2) rectangle (15.20+#3, \UpperMetal+#3);
+\fill[#1] (15.40-#3, \LowerMetal+#2) rectangle (17.00+#3, \UpperMetal+#3);
 %sonos
-\fill[#1] (18.80, \LowerMetal+#2) rectangle (20.30, \UpperMetal);
-\fill[#1] (20.50, \LowerMetal+#2) rectangle (21.50, \UpperMetal);
-\fill[#1] (21.80, \LowerMetal+#2) rectangle (23.00, \UpperMetal);
-\fill[#1] (23.30, \LowerMetal+#2) rectangle (25.00, \UpperMetal);
+\fill[#1] (18.80-#3, \LowerMetal+#2) rectangle (20.30+#3, \UpperMetal+#3);
+\fill[#1] (20.50-#3, \LowerMetal+#2) rectangle (21.50+#3, \UpperMetal+#3);
+\fill[#1] (21.80-#3, \LowerMetal+#2) rectangle (23.00+#3, \UpperMetal+#3);
+\fill[#1] (23.30-#3, \LowerMetal+#2) rectangle (25.00+#3, \UpperMetal+#3);
 %npn
-\fill[#1] (26.00, \LowerMetal+#2) rectangle (27.80, \UpperMetal);
-\fill[#1] (28.00, \LowerMetal+#2) rectangle (29.45, \UpperMetal);
-\fill[#1] (29.70, \LowerMetal+#2) rectangle (30.90, \UpperMetal);
-\fill[#1] (31.15, \LowerMetal+#2) rectangle (32.25, \UpperMetal);
-\fill[#1] (32.50, \LowerMetal+#2) rectangle (34.00, \UpperMetal);
+\fill[#1] (26.00-#3, \LowerMetal+#2) rectangle (27.80+#3, \UpperMetal+#3);
+\fill[#1] (28.00-#3, \LowerMetal+#2) rectangle (29.45+#3, \UpperMetal+#3);
+\fill[#1] (29.70-#3, \LowerMetal+#2) rectangle (30.90+#3, \UpperMetal+#3);
+\fill[#1] (31.15-#3, \LowerMetal+#2) rectangle (32.25+#3, \UpperMetal+#3);
+\fill[#1] (32.50-#3, \LowerMetal+#2) rectangle (34.00+#3, \UpperMetal+#3);
 %pnp
-\fill[#1] (35.00, \LowerMetal+#2) rectangle (36.60, \UpperMetal);
-\fill[#1] (36.75, \LowerMetal+#2) rectangle (38.00, \UpperMetal);
-\fill[#1] (38.15, \LowerMetal+#2) rectangle (39.35, \UpperMetal);
-\fill[#1] (39.50, \LowerMetal+#2) rectangle (40.70, \UpperMetal);
-\fill[#1] (40.85, \LowerMetal+#2) rectangle (42.50, \UpperMetal);
+\fill[#1] (35.00-#3, \LowerMetal+#2) rectangle (36.60+#3, \UpperMetal+#3);
+\fill[#1] (36.75-#3, \LowerMetal+#2) rectangle (38.00+#3, \UpperMetal+#3);
+\fill[#1] (38.15-#3, \LowerMetal+#2) rectangle (39.35+#3, \UpperMetal+#3);
+\fill[#1] (39.50-#3, \LowerMetal+#2) rectangle (40.70+#3, \UpperMetal+#3);
+\fill[#1] (40.85-#3, \LowerMetal+#2) rectangle (42.50+#3, \UpperMetal+#3);
 %zener
-\fill[#1] (42.80, \LowerMetal+#2) rectangle (45.50, \UpperMetal);
-\fill[#1] (46.50, \LowerMetal+#2) rectangle (48.10, \UpperMetal);
+\fill[#1] (42.80-#3, \LowerMetal+#2) rectangle (45.50+#3, \UpperMetal+#3);
+\fill[#1] (46.50-#3, \LowerMetal+#2) rectangle (48.10+#3, \UpperMetal+#3);
 %resistor
-\fill[#1] (48.40, \LowerMetal+#2) rectangle (51.00, \UpperMetal);
-\fill[#1] (52.00, \LowerMetal+#2) rectangle (55.00, \UpperMetal);
+\fill[#1] (48.40-#3, \LowerMetal+#2) rectangle (51.00+#3, \UpperMetal+#3);
+\fill[#1] (52.00-#3, \LowerMetal+#2) rectangle (54.50+#3, \UpperMetal+#3);
 }
 
 \newcommand{\paintscaledcontacts}[2]{
@@ -220,10 +220,10 @@
 }
 
 \newcommand{\paintcontacts}[3]{
-\paintscaledmetal{#1}{0}
+\paintscaledmetal{#1}{0}{0}
 \paintscaledcontacts{#1}{0}
-\paintscaledmetal{#2}{0.1}
+\paintscaledmetal{#2}{0.1}{0}
 \paintscaledcontacts{#2}{0.1}
-\paintscaledmetal{#3}{0.35}
+\paintscaledmetal{#3}{0.35}{0}
 \paintscaledcontacts{#3}{0.35}
 }

@@ -1,4 +1,13 @@
 \input{tikz_process_steps/via2.a.tex}
 
-\paintscaledvias{metal3}{\UpperMoreMetal}{\LowerMoreMetalTwo}{0.25}
-\paintscaledvias{metal3}{\LowerMoreMetalTwo}{\UpperMoreMetalTwo}{0.50}
+\fill[nitride] (0,\LowerMoreMetalTwo) rectangle (55,\LowerMoreMetalTwo+0.5);
+\fill[isolationoxide] (0,\LowerMoreMetalTwo) rectangle (55,\LowerMoreMetalTwo+0.25);
+
+\paintscaledvias{nitride}{\LowerMoreMetalTwo+0.25}{\UpperMoreMetalTwo+0.5}{1.00}
+\paintscaledvias{isolationoxide}{\LowerMoreMetalTwo}{\UpperMoreMetalTwo+0.25}{0.75}
+
+\paintscaledvias{gray}{\UpperMoreMetal}{\LowerMoreMetalTwo}{0.25}
+\paintscaledvias{gray}{\LowerMoreMetalTwo}{\UpperMoreMetalTwo}{0.50}
+
+\paintscaledvias{brown}{\UpperMoreMetal+0.25}{\LowerMoreMetalTwo+0.3}{-0.1}
+\paintscaledvias{brown}{\LowerMoreMetalTwo+0.3}{\UpperMoreMetalTwo}{0.5}
