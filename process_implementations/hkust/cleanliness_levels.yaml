@@ -5,6 +5,10 @@ levels:
         clean/semi-clean:
                 - clean
                 - semi-clean
+        semi-clean/non-standard:
+                - clean
+                - semi-clean
+                - non-standard
         non-standard:
                 - clean
                 - semi-clean
