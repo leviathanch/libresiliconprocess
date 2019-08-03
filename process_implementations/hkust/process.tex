@@ -70,20 +70,46 @@
 
 \def\LastCleaniness{foo}
 
+\newcommand{\drawCleaninessSymbol}[2]{
+	\begin{tikzpicture}
+		\node [fill=#1, rounded corners=5pt] at (0,0.0) {#2};
+	\end{tikzpicture}
+}
+
+
+\ExplSyntaxOn
+
+\msg_new:nnn
+  { switchcase }
+  { no-match }
+  { There~is~no~entry~`#1'~in~the~switch~statement! }
+
+\NewDocumentCommand \switchcase { m m }
+  {
+    \str_case:nnF { #1 } { #2 } { \msg_error:nnn { switchcase } { no-match } { #1 } }
+  }
+
+\ExplSyntaxOff
+
 \newcommand{\getWaferCleaninessSymbol}[1]{
-	\ifthenelse{\equal{#1}{clean}}{\begin{tikzpicture}\node [fill=cyan, rounded corners=5pt] {Clean};\end{tikzpicture}} {
-		\ifthenelse{\equal{#1}{semi-clean}} {\begin{tikzpicture}\node [fill=green, rounded corners=5pt] {Semi clean};\end{tikzpicture}} {
-			\ifthenelse{\equal{#1}{clean/semi-clean}} {
-				\begin{tikzpicture}
-					\node [fill=cyan, rounded corners=5pt] at (0,0.0) {Clean};
-					\node [fill=green, rounded corners=5pt] at (1.5,0.0) {Semi clean};
-				\end{tikzpicture}
-			} {
-				\ifthenelse{\equal{#1}{non-standard}} {
-					\begin{tikzpicture}
-						\node [fill=yellow, rounded corners=5pt] {Non standard};
-					\end{tikzpicture}} {undef}
-			}
+	\switchcase{#1}
+	{
+		{clean}{
+			\drawCleaninessSymbol{cyan}{Clean}
+		}
+		{semi-clean}{
+			\drawCleaninessSymbol{green}{Semi Clean}
+		}
+		{clean/semi-clean}{
+			\drawCleaninessSymbol{cyan}{Clean}
+			\drawCleaninessSymbol{green}{Semi Clean}
+		}
+		{non-standard}{
+			\drawCleaninessSymbol{yellow}{Non Standard}
+		}
+		{semi-clean/non-standard}{
+			\drawCleaninessSymbol{green}{Semi Clean}
+			\drawCleaninessSymbol{yellow}{Non Standard}
 		}
 	}
 }
