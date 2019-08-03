@@ -23,6 +23,11 @@ WET-B1: {
         equipment: "B1: Sulfuric cleaning",
         level: clean,
 }
+WET-B3: {
+        location: P2-01000,
+        equipment: "B3:Decontamination",
+        level: clean,
+}
 #(spin drier)
 SRD-B: {
         location: P2-01000,

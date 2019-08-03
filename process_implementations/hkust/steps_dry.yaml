@@ -52,9 +52,9 @@
                         requirement: "10 minutes, PT rpm: 40, chuck rpm: 25, back pressure: 2 psi",
                 },
                 {
-                        equipment: WET-G1,
-                        process: "Ammonium cleaning",
-                        requirement: "70\\degreesC, 10 minutes",
+                        equipment: WET-B3,
+                        process: "RCA-1",
+                        requirement: "10 minutes",
                 },
                 {
                         equipment: WET-C1,
