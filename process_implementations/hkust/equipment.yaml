@@ -78,6 +78,14 @@ SRD-D: {
         level: semi-clean,
 }
 
+# Hack for representing actual reality
+WET-J: {
+        location: P2-01000,
+        equipment: "J station with container",
+        level: semi-clean/non-standard,
+        #post: dry_E,
+}
+
 # Wet station E 
 WET-E2: {
         location: P2-01000,
