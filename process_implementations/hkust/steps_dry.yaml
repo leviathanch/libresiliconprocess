@@ -346,6 +346,11 @@
                         process: "Planarize oxide",
                         requirement: "1 minute",
                 },
+                {
+                        equipment: WET-J,
+                        process: "RCA-1",
+                        requirement: "Clean after CMP",
+                },
                 normal_exposure,
                 {
                         equipment: DRY-RIE-2,
@@ -406,6 +411,11 @@
                         equipment: CMP-4,
                         process: "Planarize oxide",
                         requirement: "1 minute",
+                },
+                {
+                        equipment: WET-J,
+                        process: "RCA-1",
+                        requirement: "Clean after CMP",
                 },
                 normal_exposure,
                 {
@@ -468,6 +478,11 @@
                         process: "Planarize oxide",
                         requirement: "1 minute",
                 },
+                {
+                        equipment: WET-J,
+                        process: "RCA-1",
+                        requirement: "Clean after CMP",
+                },
                 normal_exposure,
                 {
                         equipment: DRY-RIE-2,
@@ -528,6 +543,11 @@
                         equipment: CMP-4,
                         process: "Planarize oxide",
                         requirement: "1 minute",
+                },
+                {
+                        equipment: WET-J,
+                        process: "RCA-1",
+                        requirement: "Clean after CMP",
                 },
                 normal_exposure,
                 {
