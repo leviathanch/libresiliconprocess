@@ -11,7 +11,7 @@
 \genericstopper{\STIIslandSurface+#2}{24.20-#2}{2.50+#2+#2}{0.10}{0.75}{#1}
 
 \genericstopper{\STIIslandSurface+#2}{27.90-#2}{0.25+#2+#2}{0.10}{0.75}{#1}
-\genericstopper{\STIIslandSurface+#2}{29.25-#2}{0.25+#2+#2}{0.10}{0.75}{#1}
+\genericstopper{\STIIslandSurface+#2}{29.35-#2}{0.25+#2+#2}{0.10}{0.75}{#1}
 \genericstopper{\STIIslandSurface+#2}{30.80-#2}{0.25+#2+#2}{0.10}{0.75}{#1}
 \genericstopper{\STIIslandSurface+#2}{32.15-#2}{0.25+#2+#2}{0.10}{0.75}{#1}
 
@@ -20,7 +20,7 @@
 \genericstopper{\STIIslandSurface+#2}{36.50-#2}{0.25+#2+#2}{0.10}{0.75}{#1}
 \genericstopper{\STIIslandSurface+#2}{37.85-#2}{0.25+#2+#2}{0.10}{0.75}{#1}
 \genericstopper{\STIIslandSurface+#2}{39.20-#2}{0.25+#2+#2}{0.10}{0.75}{#1}
-\genericstopper{\STIIslandSurface+#2}{40.50-#2}{0.25+#2+#2}{0.10}{0.75}{#1}
+\genericstopper{\STIIslandSurface+#2}{40.55-#2}{0.25+#2+#2}{0.10}{0.75}{#1}
 
 \filldraw[line width=0, #1] (41.90-#2,\STIIslandSurface+#2) -- (42.00-#2,\STIIslandSurface+#2) -- (42.00-#2,\STIIslandSurface+0.75+#2);
 \fill[#1] (42.00-#2,\STIIslandSurface) rectangle (55.0,\STIIslandSurface+0.75+#2);
@@ -145,6 +145,28 @@
 %resistor
 \fill[#1] (50.00-#4, #2) rectangle (50.50+#4, #3);
 \fill[#1] (53.00-#4, #2) rectangle (53.50+#4, #3);
+}
+
+\newcommand{\paintactivecover}[2]{
+\coveringlayer{#1}{#2}{#2}
+\filldraw[line width=0, #1] ( 5.00-#2,\STIIslandSurface+#2) -- ( 4.50-#2,\STIIslandSurface+#2) -- ( 5.00-#2,\STIIslandSurface+1.4+#2);
+\filldraw[line width=0, #1] ( 6.50+#2,\STIIslandSurface+#2) -- ( 6.00+#2,\STIIslandSurface+#2) -- ( 6.00+#2,\STIIslandSurface+1.4+#2);
+
+\filldraw[line width=0, #1] (11.50-#2,\STIIslandSurface+#2) -- (12.00-#2,\STIIslandSurface+#2) -- (12.00-#2,\STIIslandSurface+1.4+#2);
+\filldraw[line width=0, #1] (13.50+#2,\STIIslandSurface+#2) -- (13.00+#2,\STIIslandSurface+#2) -- (13.00+#2,\STIIslandSurface+1.4+#2);
+
+\filldraw[line width=0, #1] (21.40-#2,\STIIslandSurface+#2) -- (21.90-#2,\STIIslandSurface+#2) -- (21.90-#2,\STIIslandSurface+1.6+#2);
+\filldraw[line width=0, #1] (23.40+#2,\STIIslandSurface+#2) -- (22.90+#2,\STIIslandSurface+#2) -- (22.90+#2,\STIIslandSurface+1.6+#2);
+
+\filldraw[line width=0, #1] ( 5.00-#2,\STIIslandSurface) rectangle ( 6.00+#2,\STIIslandSurface+1.4+#2);
+\filldraw[line width=0, #1] (12.00-#2,\STIIslandSurface) rectangle (13.00+#2,\STIIslandSurface+1.4+#2);
+\filldraw[line width=0, #1] (21.90-#2,\STIIslandSurface) rectangle (22.90+#2,\STIIslandSurface+1.6+#2);
+
+\fill[#1] (43.00-#2,\STIIslandSurface+0.75) rectangle (48.00+#2,\polytop+#2+0.75);
+\fill[#1] (44.00-#2,\STIIslandSurface+0.75) rectangle (47.00+#2,\polytop+#2+1.25);
+\fill[#1] (44.50-#2,\STIIslandSurface+0.75) rectangle (46.50+#2,\polytop+#2+2.25);
+\fill[#1] (48.50-#2,\STIIslandSurface+0.75) rectangle (54.50+#2,\polytop+#2+0.75);
+\fill[#1] (49.50-#2,\polytop+0.75) rectangle (53.5+#2,\polytop+#2+1.25);
 }
 
 \newcommand{\paintscaledmetal}[3]{
