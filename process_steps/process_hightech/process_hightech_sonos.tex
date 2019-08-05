@@ -16,6 +16,14 @@ The line spacing of the SONOS shape has to be at least 0.5\um because of the res
 
 Also there has to be at least one lambda on each site to compensate for offsets, so the SONOS mask is bloated by 0.5\um.
 
+The SONOS gate oxide is comprised of a stack of oxide covered with nitride covered with oxide.
+
+The upper and lower oxide layers are the so called tunnel oxides which allow electrons during the programming phase to be tunneled into the nitride, where they get trapped and shift the threshold
+voltage of the transistor. This way information can be stored and erased by tunelling the electrons back out of the nitride.
+
+This ONO (oxide nitride oxide) pad will prevent the additional thin oxide from forming during the gate oxide formation in \autoref{step_growing_gate_oxide} and instead the LTO under and above the nitride
+will be densified during the process step.
+
 \newpage
 
 \subsection{Lower oxide deposition}\label{step_depositing_sonos_lower_lto}
