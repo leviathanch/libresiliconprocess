@@ -1,1 +1,47 @@
-\input{tikz_process_steps/silicification.a.tex}
+\filldraw[line width=0, nitride] (5.00,\STIIslandSurface) -- (4.50,\STIIslandSurface) -- (5.00,\STIIslandSurface+1.4);
+\filldraw[line width=0, nitride] (6.00,\STIIslandSurface) -- (6.50,\STIIslandSurface) -- (6.00,\STIIslandSurface+1.4);
+
+\filldraw[line width=0, nitride] (12.00,\STIIslandSurface) -- (11.50,\STIIslandSurface) -- (12.00,\STIIslandSurface+1.4);
+\filldraw[line width=0, nitride] (13.50,\STIIslandSurface) -- (13.00,\STIIslandSurface) -- (13.00,\STIIslandSurface+1.4);
+
+\filldraw[line width=0, nitride] (21.40,\STIIslandSurface) -- (21.90,\STIIslandSurface) -- (21.90,\STIIslandSurface+1.6);
+\filldraw[line width=0, nitride] (22.90,\STIIslandSurface) -- (23.40,\STIIslandSurface) -- (22.90,\STIIslandSurface+1.6);
+
+\fill[nitride] (44.0,\polytop+0.75) rectangle (44.8,\polytop+1.25);
+\fill[nitride] (44.5,\polytop+0.75) rectangle (46.5,\implantstoptop+0.5);
+\fill[nitride] (46.2,\polytop+0.75) rectangle (47.0,\polytop+1.25);
+
+\fill[nitride] (49.5,\polytop+0.75) rectangle (53.5,\polytop+1.25);
+
+\input{tikz_process_steps/pimplant.a.tex}
+
+\fill[silicide] ( 1.35,\STIIslandSurface-0.1) rectangle ( 2.35,\STIIslandSurface);
+\fill[silicide] ( 2.70,\STIIslandSurface-0.1) rectangle ( 4.50,\STIIslandSurface);
+\fill[silicide] ( 5.00,\STIIslandSurface+1.3) rectangle ( 6.00,\STIIslandSurface+1.4);
+\fill[silicide] ( 6.50,\STIIslandSurface-0.1) rectangle ( 8.15,\STIIslandSurface);
+
+\fill[silicide] ( 9.85,\STIIslandSurface-0.1) rectangle (11.50,\STIIslandSurface);
+\fill[silicide] (12.00,\STIIslandSurface+1.3) rectangle (13.00,\STIIslandSurface+1.4);
+\fill[silicide] (13.50,\STIIslandSurface-0.1) rectangle (15.25,\STIIslandSurface);
+\fill[silicide] (15.60,\STIIslandSurface-0.1) rectangle (16.60,\STIIslandSurface);
+
+\fill[silicide] (19.20,\STIIslandSurface-0.1) rectangle (20.20,\STIIslandSurface);
+\fill[silicide] (20.60,\STIIslandSurface-0.1) rectangle (21.40,\STIIslandSurface);
+\fill[silicide] (21.90,\STIIslandSurface+1.5) rectangle (22.90,\STIIslandSurface+1.6);
+\fill[silicide] (23.40,\STIIslandSurface-0.1) rectangle (24.20,\STIIslandSurface);
+
+\fill[silicide] (26.90,\STIIslandSurface-0.1) rectangle (27.90,\STIIslandSurface);
+\fill[silicide] (28.35,\STIIslandSurface-0.1) rectangle (29.35,\STIIslandSurface);
+\fill[silicide] (29.80,\STIIslandSurface-0.1) rectangle (30.80,\STIIslandSurface);
+\fill[silicide] (31.25,\STIIslandSurface-0.1) rectangle (32.15,\STIIslandSurface);
+\fill[silicide] (32.60,\STIIslandSurface-0.1) rectangle (33.60,\STIIslandSurface);
+
+\fill[silicide] (35.60,\STIIslandSurface-0.1) rectangle (36.50,\STIIslandSurface);
+\fill[silicide] (36.95,\STIIslandSurface-0.1) rectangle (37.85,\STIIslandSurface);
+\fill[silicide] (38.30,\STIIslandSurface-0.1) rectangle (39.20,\STIIslandSurface);
+\fill[silicide] (39.65,\STIIslandSurface-0.1) rectangle (40.55,\STIIslandSurface);
+\fill[silicide] (41.00,\STIIslandSurface-0.1) rectangle (41.90,\STIIslandSurface);
+
+% diode contacts
+\fill[silicide] (43.00,\STIIslandSurface+2.0) rectangle (44.00,\STIIslandSurface+2.15);
+\fill[silicide] (47.00,\STIIslandSurface+2.0) rectangle (48.00,\STIIslandSurface+2.15);
