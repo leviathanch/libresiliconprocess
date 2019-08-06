@@ -50,8 +50,6 @@ Considering, due to the edge effects during dry etching, the thickness of the ni
 
 The deposition rates might variate between LPCVDs and recipes. It's at the discretion of the operation engineer to achieve those 50nm.
 
-\newpage
-
 \subsection{Spacer etching}
 
 Now we have to etch our nitride as anisotropic as possible.
@@ -73,6 +71,8 @@ Thit means the etching process only "sees" the sidewall as a "thicker layer" and
 \end{figure}
 
 After that we will have our desired spacer geometry forming as well as any potentially resist covered area (if silicide block is being used) with sharp etches.
+
+\newpage
 
 \subsection{Titanium deposition}
 
@@ -116,8 +116,6 @@ The resulting $Ti Si_2$ film will be around 77nm in tickness with around 20nm un
 
 A color change can be observed of the titanium on top of the oxide.
 
-\newpage
-
 \subsection{Metal removal}
 
 The unreacted titanium film on the dielectric layer such as $SiO_2$ or $SiN$ is selectively etched by APM (Ammonia and Hydrogen Peroxide Mixture) solution.
@@ -135,3 +133,35 @@ The unreacted titanium film on the dielectric layer such as $SiO_2$ or $SiN$ is 
 \end{figure}
 
 After 2-3 minutes in APM, at room temperature, with a bit mechanical help, all the unreacted Titanium should be gone and the oxide should become visible again.
+
+\newpage
+
+\subsection{CMP}\label{chapter_silicide_and_cmp}
+
+After we formed all the active devices and added the silicide in order to reduce the sheet resistance of junctions and contacts we have to make sure that
+our devices will not be damaged during the planarization phase in order to contact through to them with the first metal layer.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/silicification.cmp_stop.a.tex}
+	\end{tikzpicture}
+	\drawStepArrow{CMP endstop}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/silicification.cmp_stop.b.tex}
+	\end{tikzpicture}
+	\drawStepArrow{CMP}
+	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
+		\input{tikz_process_steps/silicification.cmp_stop.c.tex}
+	\end{tikzpicture}
+	\caption{CMP, contact preparation}
+\end{figure}
+
+First we deposit around 100nm LTO as a pad oxide layer below the 100nm nitride, which serves as the CMP stop hard mask.
+Then we deposit 1\um LTO and CMP away the height differential of the active devices translated to the oxide.
+
+LTO was chosen because the silicide becomes unstable in the thermal ranges where phosphorus silicate glass becomes viscous enough
+for evening out the height differential by evening out by seeking its level during annealing.
+
+A thickness of 1\um of the LTO will make it more likely, that the dishing effect of the CMP pad causes devices to get damaged
+through an over consumption of the nitride hard mask.
