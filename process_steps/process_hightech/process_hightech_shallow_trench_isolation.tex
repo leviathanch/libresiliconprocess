@@ -53,7 +53,7 @@ On top of this pad oxide, a layer of around 100nm of nitride is being deposited,
 
 \subsection{Silicon etching}\label{sti_trench_etch}
 
-The trench depth has to be at least 3.5 microns and less than 4 microns deep, in order to have a sufficiently good isolation for preventing latchup effects and at the same time still good enough ESD diode behaviour.
+The trench depth has to be at least 2 microns and less than 4 microns deep, in order to have a sufficiently good isolation for preventing latchup effects and at the same time still good enough ESD diode behaviour.
 
 \begin{figure}[H]
 	\centering
@@ -69,9 +69,9 @@ The trench depth has to be at least 3.5 microns and less than 4 microns deep, in
 
 After patterning the STI layout the resist is being hard baked and the nitride+pad oxide is being etched, using plasma etching for nitride+oxide.
 
-After etching the nitride and oxide we use a DRIE etcher and set the number of cycles in a way that it results in around 3.5 microns trench depth.
+After etching the nitride and oxide we use a DRIE etcher and set the number of cycles in a way that it results in around 2 microns trench depth.
 
-Adding to the over etch from the previous etch step, this will result in a depth a little bit deeper than 3.5 microns.
+Adding to the over etch from the previous etch step, this will result in a depth a little bit deeper than 2 microns.
 
 \newpage
 
@@ -109,9 +109,9 @@ Now we fill up the trenches we've etched before with LTO for further planarizati
 	\caption{Oxide deposition}
 \end{figure}
 
-The easiest method is to put the wafer into a CVD furnace in order to deposit around 3.5 microns of LTO.
+The easiest method is to put the wafer into a CVD furnace in order to deposit around 2 microns of LTO.
 
-Better uniformity of the LTO film can be achieved by getting the boat out after every deposited micron, rotating it 90 degrees and putting it back in for another deposition round.
+Better uniformity of the LTO film can be achieved by getting the boat out after every deposited 500nm, rotating it 90 degrees and putting it back in for another deposition round.
 
 Also remember to measure the thickness of the deposited LTO under a spectroscope, in order to calculate the approximate CMP time!
 
@@ -137,12 +137,11 @@ Now the LTO needs to be planarized until a sufficiently low height differential 
 	\caption{After CMP}
 \end{figure}
 
-A CMP is performed, based on a rough time calculation, based on the thickness measurement from \autoref{sti_lto_deposition}, until a height differential below 200nm is being reached.
+A CMP is performed, based on a rough time calculation, based on the thickness measurement from \autoref{sti_lto_deposition}, until a height differential below 200nm is being reached, which can be determined by using a surface profiler.
 
 If available the slurry "SRS-985" should be used because it can significantly increase the yield by reducing the dishing as a study has found\footnote{\url{https://download.libresilicon.com/papers/10.1.1.567.8814.pdf}}.
 
-After the planarization the wafer needs to be cleaned in hot ammonia and with RCA solution and wafers should kept wet in DI water after CMPing and should not dry out before being cleaned, because this would make particles
-get stuck in the oxide permanently and will destroy the sample.
+After the planarization the wafer needs to be cleaned in hot ammonia and with RCA solution and wafers should kept wet in DI water after CMPing and should not dry out before being cleaned, because this would make particles get stuck in the oxide permanently and will destroy the sample.
 
 After cleaning the LTO has to be annealed in order to increase the etching time when removing the pad oxide: The sample is being put into a furnace for 30 minutes at 850\degreesC in an inert atmosphere ($N_2$/$Ar$).
 

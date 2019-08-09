@@ -70,7 +70,7 @@ Thit means the etching process only "sees" the sidewall as a "thicker layer" and
 	\caption{Anisotropic etching}
 \end{figure}
 
-After that we will have our desired spacer geometry forming as well as any potentially resist covered area (if silicide block is being used) with sharp etches.
+After that we will have our desired spacer geometry forming as well as any potentially resist covered area from the silicide block mask patterns, which will allow us to control in which areas we reduce the sheet resistance in which we don't.
 
 \newpage
 
@@ -92,8 +92,6 @@ We deposit a layer of titanium with a thickness of around 30nm which will then b
 
 The titanium can either be applied by sputtering or by chemical deposition.
 
-\newpage
-
 \subsection{Silicide formation}
 
 The deposited Ti film reacts with the exposed silicon areas such as the source/drain area and polysilicon gate electrodes during RTP (Rapid Thermal Processing) at 800\degreesC in Argon ambient for 30 seconds.
@@ -114,7 +112,9 @@ In this annealing step the $Ti Si_2$ is formed.
 
 The resulting $Ti Si_2$ film will be around 77nm in tickness with around 20nm unreacted titanium left on top.
 
-A color change can be observed of the titanium on top of the oxide.
+A color change into a slightly brownish color from originally silver metallic can be observed of the titanium on top of the oxide.
+
+\newpage
 
 \subsection{Metal removal}
 
@@ -133,8 +133,7 @@ The unreacted titanium film on the dielectric layer such as $SiO_2$ or $SiN$ is 
 \end{figure}
 
 After 2-3 minutes in APM, at room temperature, with a bit mechanical help, all the unreacted Titanium should be gone and the oxide should become visible again.
-
-\newpage
+Under \textbf{no circumstance} use a solvent containing HF, since $Ti Si_2$ dissolves in HF or any other Fluoride containing solutions.
 
 \subsection{CMP}\label{chapter_silicide_and_cmp}
 
@@ -146,13 +145,9 @@ our devices will not be damaged during the planarization phase in order to conta
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/silicification.cmp_stop.a.tex}
 	\end{tikzpicture}
-	\drawStepArrow{CMP endstop}
+	\drawStepArrow{LTO+CMP}
 	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
 		\input{tikz_process_steps/silicification.cmp_stop.b.tex}
-	\end{tikzpicture}
-	\drawStepArrow{CMP}
-	\begin{tikzpicture}[node distance = 3cm, auto, thick,scale=\CrossSectionOnly, every node/.style={transform shape}]
-		\input{tikz_process_steps/silicification.cmp_stop.c.tex}
 	\end{tikzpicture}
 	\caption{CMP, contact preparation}
 \end{figure}
@@ -163,5 +158,8 @@ Then we deposit 1\um LTO and CMP away the height differential of the active devi
 LTO was chosen because the silicide becomes unstable in the thermal ranges where phosphorus silicate glass becomes viscous enough
 for evening out the height differential by evening out by seeking its level during annealing.
 
-A thickness of 1\um of the LTO will make it more likely, that the dishing effect of the CMP pad causes devices to get damaged
+A thickness of 1\um of the LTO will make it less likely, that the dishing effect of the CMP pad causes devices to get damaged
 through an over consumption of the nitride hard mask.
+
+The best approach for depositing this LTO layer is to split the deposition into 4 steps at each 250nm and rotating the sample
+90 degrees between the steps in order to improve uniformity of the LTO layer.
