@@ -57,14 +57,14 @@
                         requirement: "10 minutes",
                 },
                 {
-                        equipment: WET-C1,
-                        process: "Nitride strip",
-                        requirement: "Remove CMP endstop",
-                },
-                {
                         equipment: DIF-A1,
                         process: "Densify LTO",
                         requirement: "30 minutes @ 850\\degreesC in inert atmosphere",
+                },
+                {
+                        equipment: WET-C1,
+                        process: "Nitride strip",
+                        requirement: "Remove CMP endstop",
                 },
                 {
                         equipment: WET-A2,
