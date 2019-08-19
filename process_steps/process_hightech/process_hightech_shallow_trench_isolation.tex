@@ -13,13 +13,13 @@ The geometry of a substrate with STI implemented can be seen in \autoref{sti_tar
 	\label{sti_target}
 \end{figure}
 
-As can be seen in \autoref{tripple_well_target}, the N-well and the STI trench are supposed to have approximately the same depth but the N-well and P-well go down a little bit further.
+As can be seen in \autoref{tripple_well_target}, the STI trench is supposed to have approximately half the depth of the N-well.
 
-Because the N-well will be $\approx 4 \mu m$ in depth we have to match this with our trench depth.
+Because the N-well will be $\approx 4 \mu m$ in depth, so we have to match this with our trench depth.
 
 I order to allow a sufficiently low resistance of the ESD diode but at the same time a sufficient isolation of between the standard cells a trade-off has been done.
 
-The targeted depth of the box isolation is $\approx 4 \mu m$.
+The targeted depth of the box isolation is $\approx 2 \mu m$.
 
 The STI area will be everywhere, where no well areas are.
 
@@ -137,13 +137,15 @@ Now the LTO needs to be planarized until a sufficiently low height differential 
 	\caption{After CMP}
 \end{figure}
 
-A CMP is performed, based on a rough time calculation, based on the thickness measurement from \autoref{sti_lto_deposition}, until a height differential below 200nm is being reached, which can be determined by using a surface profiler.
+A CMP is performed, based on a rough time calculation, based on the thickness measurement from \autoref{sti_lto_deposition}, until a height differential (See $\Delta h$ in graphics) below 200nm is being reached, which can be determined by using a surface profiler.
 
 If available the slurry "SRS-985" should be used because it can significantly increase the yield by reducing the dishing as a study has found\footnote{\url{https://download.libresilicon.com/papers/10.1.1.567.8814.pdf}}.
 
 After the planarization the wafer needs to be cleaned in hot ammonia and with RCA solution and wafers should kept wet in DI water after CMPing and should not dry out before being cleaned, because this would make particles get stuck in the oxide permanently and will destroy the sample.
 
 After cleaning the LTO has to be annealed in order to increase the etching time when removing the pad oxide: The sample is being put into a furnace for 30 minutes at 850\degreesC in an inert atmosphere ($N_2$/$Ar$).
+
+The densification is being performed before nitride strip, because the Phosphoric acid also attacks oxide, and by hardening the LTO first, we can reduce the amount of oxide, which is being removed alongside the nitride.
 
 After the annealing the nitride is first stripped in a suitable nitride etchant like Phosphoric acid or the like.
 
